@@ -6,17 +6,6 @@ public class Login extends javax.swing.JFrame {
         initComponents();
     }
     
-    public class products{
-        private String name;
-        private int code;
-        
-        public products(){}
-        
-        public void BuscarProducto(){
-            System.out.println("MétodoBuscarProducto");
-        }
-    }
-    
     private boolean passwordVisible = false;
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
