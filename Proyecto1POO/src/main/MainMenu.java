@@ -7,6 +7,7 @@ package main;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import views.*;
 
@@ -23,6 +24,7 @@ public class MainMenu extends javax.swing.JFrame {
      */
     public MainMenu() {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("../img/boxx.png")).getImage());
         this.setLocationRelativeTo(this);
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/img/boxx.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel3, "src/img/maina.png");
@@ -76,6 +78,7 @@ public class MainMenu extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("FullBox - Menu");
         setResizable(false);
         setSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

@@ -1,9 +1,11 @@
 package main;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("../img/boxx.png")).getImage());
     }
     
     private boolean passwordVisible = false;
@@ -35,6 +37,8 @@ public class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("FullBox - Login");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(84, 110, 230));

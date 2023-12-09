@@ -4,6 +4,9 @@
  */
 package views;
 
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author jonns
@@ -26,35 +29,92 @@ public class ScreenMaintenance extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        MaintenanceView = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(102, 0, 102));
+        MaintenanceView.setBackground(new java.awt.Color(102, 0, 102));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1030, Short.MAX_VALUE)
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout MaintenanceViewLayout = new javax.swing.GroupLayout(MaintenanceView);
+        MaintenanceView.setLayout(MaintenanceViewLayout);
+        MaintenanceViewLayout.setHorizontalGroup(
+            MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MaintenanceViewLayout.createSequentialGroup()
+                .addContainerGap(992, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+        MaintenanceViewLayout.setVerticalGroup(
+            MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MaintenanceViewLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(692, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(MaintenanceView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(MaintenanceView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        borrarPanel(new ScreenProducts());
+        ShowJPanel(new ScreenMain());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        // TODO add your handling code here:
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView2.png")));
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+        // TODO add your handling code here:
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView.png")));
+    }//GEN-LAST:event_jButton1MouseExited
+                                     
+                                                  
+    private static void borrarPanel(JPanel panel) {
+        panel.removeAll();
+        panel.revalidate();
+        panel.repaint();
+    }
+    private void ShowJPanel(JPanel p){
+
+        p.setSize(1030,750);
+        p.setLocation(0,0);
+        MaintenanceView.removeAll();
+        MaintenanceView.add(p, BorderLayout.CENTER);
+        MaintenanceView.revalidate();
+        MaintenanceView.repaint();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel MaintenanceView;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
