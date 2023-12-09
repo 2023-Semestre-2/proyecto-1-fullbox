@@ -4,11 +4,20 @@
  */
 package main;
 
+
+import java.awt.BorderLayout;
 import java.awt.Color;
+import javax.swing.JPanel;
+import views.ScreenBilling;
+import views.ScreenClients;
+import views.ScreenMain;
+import views.ScreenMaintenance;
+import views.ScreenProducts;
+import views.ScreenSettings;
 
 /**
  *
- * @author josem
+ * @author josem,sebas,saymon
  */
 public class MainMenu extends javax.swing.JFrame {
     
@@ -21,7 +30,8 @@ public class MainMenu extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/img/boxx.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel3, "src/img/maina.png");
-        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel5, "src/img/boxx.png");
+        
+        InitView();
     }
 
     /**
@@ -35,7 +45,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        Options = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -46,8 +56,7 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        ScreenViews = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -75,8 +84,8 @@ public class MainMenu extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(34, 34, 34));
-        jPanel2.setPreferredSize(new java.awt.Dimension(250, 730));
+        Options.setBackground(new java.awt.Color(34, 34, 34));
+        Options.setPreferredSize(new java.awt.Dimension(250, 730));
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 32)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -233,42 +242,42 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Username");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout OptionsLayout = new javax.swing.GroupLayout(Options);
+        Options.setLayout(OptionsLayout);
+        OptionsLayout.setHorizontalGroup(
+            OptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(OptionsLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(OptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(OptionsLayout.createSequentialGroup()
+                        .addGroup(OptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, OptionsLayout.createSequentialGroup()
+                                .addGroup(OptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, OptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                                         .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGroup(OptionsLayout.createSequentialGroup()
                                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, OptionsLayout.createSequentialGroup()
                                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(715, 715, 715))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(OptionsLayout.createSequentialGroup()
                         .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        OptionsLayout.setVerticalGroup(
+            OptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(OptionsLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(OptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
@@ -282,9 +291,9 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(OptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OptionsLayout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(16, 16, 16)))
                 .addGap(91, 91, 91)
@@ -292,48 +301,55 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGap(17, 17, 17))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(Options, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(30, 30, 30));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1096, 730));
+        ScreenViews.setBackground(new java.awt.Color(30, 30, 30));
+        ScreenViews.setMinimumSize(new java.awt.Dimension(1030, 730));
+        ScreenViews.setPreferredSize(new java.awt.Dimension(1030, 730));
 
-        jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel5.setPreferredSize(new java.awt.Dimension(512, 512));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(411, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(412, 412, 412))
+        javax.swing.GroupLayout ScreenViewsLayout = new javax.swing.GroupLayout(ScreenViews);
+        ScreenViews.setLayout(ScreenViewsLayout);
+        ScreenViewsLayout.setHorizontalGroup(
+            ScreenViewsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1030, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(269, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(251, 251, 251))
+        ScreenViewsLayout.setVerticalGroup(
+            ScreenViewsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 730, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 0, 1040, 730));
+        getContentPane().add(ScreenViews, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 0, 1030, 730));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void InitView(){
+        ShowJPanel(new ScreenMain()); 
+    }
+    
+    private void ShowJPanel(JPanel p){
+        p.setSize(1030,720);
+        p.setLocation(0,0);
+        ScreenViews.removeAll();
+        ScreenViews.add(p, BorderLayout.CENTER);
+        ScreenViews.revalidate();
+        ScreenViews.repaint();  
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Products abrir=new Products();
-        abrir.setVisible(true);
-        this.setVisible(false);
+       //Products abrir=new Products();
+        //abrir.setVisible(true);
+        //this.setVisible(false);
+        ShowJPanel(new ScreenProducts());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TO
-        Clients abrir=new Clients();
-        abrir.setVisible(true);
-        this.setVisible(false);
+        //Clients abrir=new Clients();
+        //abrir.setVisible(true);
+        //this.setVisible(false);
+        ShowJPanel(new ScreenClients());
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -344,9 +360,10 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-        Billing abrir=new Billing();
-        abrir.setVisible(true);
-        this.setVisible(false);
+        //Billing abrir=new Billing();
+        //abrir.setVisible(true);
+        //this.setVisible(false);
+        ShowJPanel(new ScreenBilling());
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
@@ -403,13 +420,15 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
+        ShowJPanel(new ScreenSettings());
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        Maintenance abrir=new Maintenance();
-        abrir.setVisible(true);
-        this.setVisible(false);
+        //Maintenance abrir=new Maintenance();
+        //abrir.setVisible(true);
+        //this.setVisible(false);
+        ShowJPanel(new ScreenMaintenance());
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
@@ -449,6 +468,8 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Options;
+    private javax.swing.JPanel ScreenViews;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -459,9 +480,6 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
