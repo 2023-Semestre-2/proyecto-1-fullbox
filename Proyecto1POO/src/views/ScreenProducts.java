@@ -4,6 +4,10 @@
  */
 package views;
 
+import java.awt.BorderLayout;
+import javax.swing.*;
+
+
 /**
  *
  * @author jonns
@@ -15,7 +19,9 @@ public class ScreenProducts extends javax.swing.JPanel {
      */
     public ScreenProducts() {
         initComponents();
+        
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,46 +32,77 @@ public class ScreenProducts extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        ProductsView = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 204));
-        jPanel1.setMinimumSize(new java.awt.Dimension(1030, 720));
+        setMinimumSize(new java.awt.Dimension(1030, 730));
+        setPreferredSize(new java.awt.Dimension(1030, 732));
+
+        ProductsView.setBackground(new java.awt.Color(255, 102, 204));
+        ProductsView.setMinimumSize(new java.awt.Dimension(1030, 720));
 
         jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(410, 410, 410)
+        javax.swing.GroupLayout ProductsViewLayout = new javax.swing.GroupLayout(ProductsView);
+        ProductsView.setLayout(ProductsViewLayout);
+        ProductsViewLayout.setHorizontalGroup(
+            ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProductsViewLayout.createSequentialGroup()
+                .addGap(132, 132, 132)
                 .addComponent(jButton1)
-                .addContainerGap(563, Short.MAX_VALUE))
+                .addContainerGap(841, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(380, Short.MAX_VALUE)
+        ProductsViewLayout.setVerticalGroup(
+            ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProductsViewLayout.createSequentialGroup()
+                .addGap(109, 109, 109)
                 .addComponent(jButton1)
-                .addGap(326, 326, 326))
+                .addContainerGap(597, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(ProductsView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(ProductsView, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        borrarPanel(new ScreenProducts());
+        ShowJPanel(new ScreenMain());
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+   
+    private static void borrarPanel(JPanel panel) {
+        panel.removeAll();
+        panel.revalidate();
+        panel.repaint();
+    }
+    private void ShowJPanel(JPanel p){
+
+        p.setSize(1030,750);
+        p.setLocation(0,0);
+        ProductsView.removeAll();
+        ProductsView.add(p, BorderLayout.CENTER);
+        ProductsView.revalidate();
+        ProductsView.repaint();  
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel ProductsView;
     private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+
 }

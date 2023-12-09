@@ -4,6 +4,7 @@
  */
 package views;
 
+
 /**
  *
  * @author jonns
@@ -32,7 +33,10 @@ public class ScreenMain extends javax.swing.JPanel {
         Box = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(30, 30, 30));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1030, 720));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1030, 720));
 
+        Box.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/boxx.png"))); // NOI18N
         Box.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Box.setPreferredSize(new java.awt.Dimension(512, 512));
 
@@ -41,27 +45,27 @@ public class ScreenMain extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(471, 471, 471)
-                .addComponent(Box, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                .addGap(342, 342, 342))
+                .addGap(260, 260, 260)
+                .addComponent(Box, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
+                .addGap(553, 553, 553))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(246, 246, 246)
-                .addComponent(Box, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                .addGap(274, 274, 274))
+                .addGap(122, 122, 122)
+                .addComponent(Box, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
+                .addGap(398, 398, 398))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1329, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1036, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -71,7 +75,4 @@ public class ScreenMain extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-    private void setLocationRelativeTo(ScreenMain aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
