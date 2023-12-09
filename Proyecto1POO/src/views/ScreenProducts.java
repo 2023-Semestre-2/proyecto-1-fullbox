@@ -4,6 +4,7 @@
  */
 package views;
 
+import Classes.products_class;
 import java.awt.BorderLayout;
 import javax.swing.*;
 
@@ -34,6 +35,8 @@ public class ScreenProducts extends javax.swing.JPanel {
 
         ProductsView = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(1030, 730));
         setPreferredSize(new java.awt.Dimension(1030, 732));
@@ -41,7 +44,6 @@ public class ScreenProducts extends javax.swing.JPanel {
         ProductsView.setBackground(new java.awt.Color(255, 255, 255));
         ProductsView.setMinimumSize(new java.awt.Dimension(1030, 720));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView.png"))); // NOI18N
         jButton1.setBorder(null);
@@ -62,13 +64,33 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setText("Producto Crear");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Ejemplo");
+
         javax.swing.GroupLayout ProductsViewLayout = new javax.swing.GroupLayout(ProductsView);
         ProductsView.setLayout(ProductsViewLayout);
         ProductsViewLayout.setHorizontalGroup(
             ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductsViewLayout.createSequentialGroup()
-                .addContainerGap(992, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(ProductsViewLayout.createSequentialGroup()
+                .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductsViewLayout.createSequentialGroup()
+                        .addContainerGap(992, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ProductsViewLayout.createSequentialGroup()
+                        .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ProductsViewLayout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(jButton2))
+                            .addGroup(ProductsViewLayout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addComponent(jLabel1)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         ProductsViewLayout.setVerticalGroup(
@@ -76,7 +98,11 @@ public class ScreenProducts extends javax.swing.JPanel {
             .addGroup(ProductsViewLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(694, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(jButton2)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addContainerGap(609, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -107,6 +133,18 @@ public class ScreenProducts extends javax.swing.JPanel {
         // TODO add your handling code here:
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView.png")));
     }//GEN-LAST:event_jButton1MouseExited
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        products_class producto1 = new products_class();
+        
+        producto1.id = 1;
+        producto1.name = "Llanta";
+        
+        jLabel1.setText("Producto: "+producto1.name);
+        System.out.println("El producto "+producto1.name+" se creó correctamente");
+        producto1.SearchProduct();
+    }//GEN-LAST:event_jButton2ActionPerformed
    
     private static void borrarPanel(JPanel panel) {
         panel.removeAll();
@@ -126,6 +164,8 @@ public class ScreenProducts extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ProductsView;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 
 
