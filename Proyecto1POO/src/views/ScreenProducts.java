@@ -130,6 +130,11 @@ public class ScreenProducts extends javax.swing.JPanel {
         jLabel6.setText("New Name:");
 
         jButton10.setText("Search");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         jButton11.setText("Delete");
 
@@ -489,6 +494,11 @@ public class ScreenProducts extends javax.swing.JPanel {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        searchProduct();
+    }//GEN-LAST:event_jButton10ActionPerformed
    
     private static void borrarPanel(JPanel panel) {
         panel.removeAll();
@@ -525,6 +535,15 @@ public class ScreenProducts extends javax.swing.JPanel {
         
             JOptionPane.showMessageDialog(null, mensaje_mostrar);
         }
+    }
+    
+    private void searchProduct(){
+        String texto_producto = jTextField4.getText();
+        String id_category = jTextField3.getText();
+        int id_producto = Integer.parseInt(id_category);
+        
+        
+        
     }
     
 
