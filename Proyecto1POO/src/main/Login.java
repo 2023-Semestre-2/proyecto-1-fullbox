@@ -1,11 +1,33 @@
 package main;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.sql.DriverManager;
+import javax.swing.JOptionPane;
+import java.nio.file.*;
+import java.util.Arrays;
+import Classes.*;
 public class Login extends javax.swing.JFrame {
+    
+    
     public Login() {
         initComponents();
         setIconImage(new ImageIcon(getClass().getResource("../img/boxx.png")).getImage());
+        try {
+            String rutabd = Paths.get("src", "DataBase", "usuarios.accdb").toString();
+            String url="jdbc:ucanaccess://"+rutabd;
+            DriverManager.getConnection(url);
+            JOptionPane.showMessageDialog(null,"Se ha logrado conectar a la base de datos");
+            
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(null,"Error al conectar a la base de datos: " + e);
+            System.exit(0);
+        }
     }
     
     private boolean passwordVisible = false;
@@ -16,12 +38,12 @@ public class Login extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        UsernameText = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        PasswordText = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -53,12 +75,12 @@ public class Login extends javax.swing.JFrame {
         jLabel6.setText("Username");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 70, -1));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        UsernameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                UsernameTextActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 390, 40));
+        jPanel2.add(UsernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 390, 40));
 
         jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
@@ -111,17 +133,17 @@ public class Login extends javax.swing.JFrame {
         jLabel7.setText("Password");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 90, -1));
 
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        PasswordText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                PasswordTextActionPerformed(evt);
             }
         });
-        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        PasswordText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jPasswordField1KeyPressed(evt);
+                PasswordTextKeyPressed(evt);
             }
         });
-        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 390, 40));
+        jPanel2.add(PasswordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 390, 40));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Lock.png"))); // NOI18N
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 20, -1));
@@ -217,16 +239,22 @@ public class Login extends javax.swing.JFrame {
     
         
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        MainMenu abrir=new MainMenu();
-        abrir.setVisible(true);
-        this.setVisible(false);
-        
+        char[] passwordChar = PasswordText.getPassword();
+        String passwordString = new String(passwordChar);
+        String UsernameString = UsernameText.getText();
+        Arrays.fill(passwordChar, ' ');
+        if (UsernameString.isEmpty()) {
+           JOptionPane.showMessageDialog(null,"Debe ingresar un Username valido.");
+           UsernameText.requestFocus();
+        } else {
+            VerifyUsers verificador = new VerifyUsers(UsernameString, passwordString);
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void UsernameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_UsernameTextActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
@@ -241,12 +269,12 @@ public class Login extends javax.swing.JFrame {
     private void togglePasswordVisibility() {
         if (!passwordVisible) {
             // Mostrar contraseña
-            jTextField3.setText(new String(jPasswordField1.getPassword()));
-            jPasswordField1.setEchoChar((char) 0); // Mostrar texto original
+            jTextField3.setText(new String(PasswordText.getPassword()));
+            PasswordText.setEchoChar((char) 0); // Mostrar texto original
             passwordVisible = true;
         } else {
             // Ocultar contraseña
-            jPasswordField1.setEchoChar('*'); // Ocultar texto nuevamente
+            PasswordText.setEchoChar('*'); // Ocultar texto nuevamente
             passwordVisible = false;
         }
         if (!passwordVisible) {
@@ -256,20 +284,18 @@ public class Login extends javax.swing.JFrame {
         }
     }
     
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void PasswordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordTextActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_PasswordTextActionPerformed
 
-    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+    private void PasswordTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordTextKeyPressed
         // TODO add your handling code here:
         if(evt.getKeyCode()==KeyEvent.VK_ENTER) {
-            MainMenu abrir=new MainMenu();
-            abrir.setVisible(true);
-            this.setVisible(false);
+            jButton1.doClick();
         }
         
-    }//GEN-LAST:event_jPasswordField1KeyPressed
+    }//GEN-LAST:event_PasswordTextKeyPressed
 
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
         // TODO add your handling code here:
@@ -304,6 +330,8 @@ public class Login extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField PasswordText;
+    private javax.swing.JTextField UsernameText;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -323,8 +351,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

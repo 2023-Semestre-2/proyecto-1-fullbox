@@ -721,7 +721,8 @@ public class ScreenProducts extends javax.swing.JPanel {
             if(register){
                 JOptionPane.showMessageDialog(this,"This Name Already Exists ");   
             }else{
-                //articles_class article = new article_class();
+                articles_class article = new articles_class();
+                
             }
             
         } else if (Search_Article.isEnabled()) {
