@@ -244,6 +244,7 @@ public class Login extends javax.swing.JFrame {
             
             if(verificador.pass == true){
                 this.setVisible(false);
+                main_class.main_item(new String[]{});
             }
         }
         

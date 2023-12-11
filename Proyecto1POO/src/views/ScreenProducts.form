@@ -103,13 +103,13 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="321" pref="321" max="-2" attributes="0"/>
-                          <Component id="Create_Article" min="-2" max="-2" attributes="0"/>
+                          <Component id="Create_Item" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                          <Component id="Search_Article" min="-2" max="-2" attributes="0"/>
+                          <Component id="Search_Item" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Modify_Article" min="-2" max="-2" attributes="0"/>
+                          <Component id="Modify_Item" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Delete_Article" min="-2" max="-2" attributes="0"/>
+                          <Component id="Delete_Item" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
@@ -120,18 +120,6 @@
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="364" pref="364" max="-2" attributes="0"/>
                           <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="407" pref="407" max="-2" attributes="0"/>
-                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                          <Component id="Product_Category" min="-2" pref="124" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="399" pref="399" max="-2" attributes="0"/>
-                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                          <Component id="Article_Name" min="-2" pref="124" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="436" pref="436" max="-2" attributes="0"/>
@@ -153,27 +141,47 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="478" max="-2" attributes="0"/>
-                          <Component id="Accept_Article" min="-2" max="-2" attributes="0"/>
+                          <Component id="Accept_Item" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="Cancel_Article" min="-2" max="-2" attributes="0"/>
+                          <Component id="Cancel_Item" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="443" pref="443" max="-2" attributes="0"/>
-                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                          <Component id="Type" min="-2" pref="124" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="399" pref="399" max="-2" attributes="0"/>
+                                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="Item_Name" min="-2" pref="124" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="443" pref="443" max="-2" attributes="0"/>
+                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                                  <Component id="Type" min="-2" pref="124" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="Size_Label" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Component id="Size" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="423" pref="423" max="-2" attributes="0"/>
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                          <Component id="Article_Code" min="-2" pref="124" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Search" min="-2" pref="21" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="407" pref="407" max="-2" attributes="0"/>
+                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                  <Component id="Product_Category" min="-2" pref="122" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="423" pref="423" max="-2" attributes="0"/>
+                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="Item_Code" min="-2" pref="124" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="Search" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
@@ -234,10 +242,10 @@
                   <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Create_Article" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="Search_Article" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="Modify_Article" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="Delete_Article" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="Create_Item" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="Search_Item" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="Modify_Item" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="Delete_Item" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
@@ -255,7 +263,7 @@
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="Article_Code" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Item_Code" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Search" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -267,15 +275,12 @@
                       </Group>
                       <Component id="Product_Category" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="Article_Name" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Item_Name" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="Type" min="-2" max="-2" attributes="0"/>
                       <Component id="Size" min="-2" max="-2" attributes="0"/>
@@ -313,8 +318,8 @@
                   </Group>
                   <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Accept_Article" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Cancel_Article" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Accept_Item" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Cancel_Item" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -369,12 +374,12 @@
             <Property name="text" type="java.lang.String" value="Name:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="Create_Article">
+        <Component class="javax.swing.JButton" name="Create_Item">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Create Article"/>
+            <Property name="text" type="java.lang.String" value="Create Item"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Create_ArticleActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Create_ItemActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton9">
@@ -418,7 +423,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Article Id:"/>
+            <Property name="text" type="java.lang.String" value="Item Id:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
@@ -428,7 +433,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Article Name:"/>
+            <Property name="text" type="java.lang.String" value="Item Name:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
@@ -498,20 +503,20 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField5">
         </Component>
-        <Component class="javax.swing.JButton" name="Modify_Article">
+        <Component class="javax.swing.JButton" name="Modify_Item">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Modify Article"/>
+            <Property name="text" type="java.lang.String" value="Modify Item"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Modify_ArticleActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Modify_ItemActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="Delete_Article">
+        <Component class="javax.swing.JButton" name="Delete_Item">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Delete Article"/>
+            <Property name="text" type="java.lang.String" value="Delete Item"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Delete_ArticleActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Delete_ItemActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="Amount">
@@ -522,22 +527,22 @@
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="AmountKeyTyped"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="Article_Code">
+        <Component class="javax.swing.JTextField" name="Item_Code">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Article_CodeActionPerformed"/>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Article_CodeKeyTyped"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Item_CodeActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Item_CodeKeyTyped"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="Article_Name">
+        <Component class="javax.swing.JTextField" name="Item_Name">
           <Properties>
             <Property name="autoscrolls" type="boolean" value="false"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Article_NameKeyTyped"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Item_NameKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="Brand">
@@ -556,12 +561,12 @@
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PriceKeyTyped"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="Search_Article">
+        <Component class="javax.swing.JButton" name="Search_Item">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Search Article"/>
+            <Property name="text" type="java.lang.String" value="Search Item"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Search_ArticleActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Search_ItemActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton20">
@@ -604,13 +609,13 @@
             <Property name="text" type="java.lang.String" value="Action:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="Accept_Article">
+        <Component class="javax.swing.JButton" name="Accept_Item">
           <Properties>
             <Property name="text" type="java.lang.String" value="Accept"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Accept_ArticleActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Accept_ItemActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel1">
@@ -669,13 +674,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SearchActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="Cancel_Article">
+        <Component class="javax.swing.JButton" name="Cancel_Item">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancel"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cancel_ArticleActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cancel_ItemActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

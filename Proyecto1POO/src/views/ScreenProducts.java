@@ -46,7 +46,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        Create_Article = new javax.swing.JButton();
+        Create_Item = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -65,26 +65,26 @@ public class ScreenProducts extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
-        Modify_Article = new javax.swing.JButton();
-        Delete_Article = new javax.swing.JButton();
+        Modify_Item = new javax.swing.JButton();
+        Delete_Item = new javax.swing.JButton();
         Amount = new javax.swing.JTextField();
-        Article_Code = new javax.swing.JTextField();
-        Article_Name = new javax.swing.JTextField();
+        Item_Code = new javax.swing.JTextField();
+        Item_Name = new javax.swing.JTextField();
         Brand = new javax.swing.JTextField();
         Price = new javax.swing.JTextField();
-        Search_Article = new javax.swing.JButton();
+        Search_Item = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        Accept_Article = new javax.swing.JButton();
+        Accept_Item = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         Search = new javax.swing.JButton();
-        Cancel_Article = new javax.swing.JButton();
+        Cancel_Item = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1030, 730));
         setPreferredSize(new java.awt.Dimension(1030, 732));
@@ -126,10 +126,10 @@ public class ScreenProducts extends javax.swing.JPanel {
 
         jLabel3.setText("Name:");
 
-        Create_Article.setText("Create Article");
-        Create_Article.addActionListener(new java.awt.event.ActionListener() {
+        Create_Item.setText("Create Item");
+        Create_Item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Create_ArticleActionPerformed(evt);
+                Create_ItemActionPerformed(evt);
             }
         });
 
@@ -163,11 +163,11 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setText("Article Id:");
+        jLabel5.setText("Item Id:");
 
         jLabel7.setText("Category Id:");
 
-        jLabel8.setText("Article Name:");
+        jLabel8.setText("Item Name:");
 
         jLabel9.setText("Type:");
 
@@ -195,17 +195,17 @@ public class ScreenProducts extends javax.swing.JPanel {
 
         jLabel13.setText("Price:");
 
-        Modify_Article.setText("Modify Article");
-        Modify_Article.addActionListener(new java.awt.event.ActionListener() {
+        Modify_Item.setText("Modify Item");
+        Modify_Item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Modify_ArticleActionPerformed(evt);
+                Modify_ItemActionPerformed(evt);
             }
         });
 
-        Delete_Article.setText("Delete Article");
-        Delete_Article.addActionListener(new java.awt.event.ActionListener() {
+        Delete_Item.setText("Delete Item");
+        Delete_Item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Delete_ArticleActionPerformed(evt);
+                Delete_ItemActionPerformed(evt);
             }
         });
 
@@ -216,23 +216,23 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
 
-        Article_Code.setEnabled(false);
-        Article_Code.addActionListener(new java.awt.event.ActionListener() {
+        Item_Code.setEnabled(false);
+        Item_Code.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Article_CodeActionPerformed(evt);
+                Item_CodeActionPerformed(evt);
             }
         });
-        Article_Code.addKeyListener(new java.awt.event.KeyAdapter() {
+        Item_Code.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                Article_CodeKeyTyped(evt);
+                Item_CodeKeyTyped(evt);
             }
         });
 
-        Article_Name.setAutoscrolls(false);
-        Article_Name.setEnabled(false);
-        Article_Name.addKeyListener(new java.awt.event.KeyAdapter() {
+        Item_Name.setAutoscrolls(false);
+        Item_Name.setEnabled(false);
+        Item_Name.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                Article_NameKeyTyped(evt);
+                Item_NameKeyTyped(evt);
             }
         });
 
@@ -250,10 +250,10 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
 
-        Search_Article.setText("Search Article");
-        Search_Article.addActionListener(new java.awt.event.ActionListener() {
+        Search_Item.setText("Search Item");
+        Search_Item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Search_ArticleActionPerformed(evt);
+                Search_ItemActionPerformed(evt);
             }
         });
 
@@ -276,11 +276,11 @@ public class ScreenProducts extends javax.swing.JPanel {
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel17.setText("Action:");
 
-        Accept_Article.setText("Accept");
-        Accept_Article.setEnabled(false);
-        Accept_Article.addActionListener(new java.awt.event.ActionListener() {
+        Accept_Item.setText("Accept");
+        Accept_Item.setEnabled(false);
+        Accept_Item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Accept_ArticleActionPerformed(evt);
+                Accept_ItemActionPerformed(evt);
             }
         });
 
@@ -315,11 +315,11 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
 
-        Cancel_Article.setText("Cancel");
-        Cancel_Article.setEnabled(false);
-        Cancel_Article.addActionListener(new java.awt.event.ActionListener() {
+        Cancel_Item.setText("Cancel");
+        Cancel_Item.setEnabled(false);
+        Cancel_Item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Cancel_ArticleActionPerformed(evt);
+                Cancel_ItemActionPerformed(evt);
             }
         });
 
@@ -373,13 +373,13 @@ public class ScreenProducts extends javax.swing.JPanel {
                         .addComponent(jLabel17))
                     .addGroup(ProductsViewLayout.createSequentialGroup()
                         .addGap(321, 321, 321)
-                        .addComponent(Create_Article)
+                        .addComponent(Create_Item)
                         .addGap(8, 8, 8)
-                        .addComponent(Search_Article)
+                        .addComponent(Search_Item)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Modify_Article)
+                        .addComponent(Modify_Item)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Delete_Article))
+                        .addComponent(Delete_Item))
                     .addGroup(ProductsViewLayout.createSequentialGroup()
                         .addGap(90, 90, 90)
                         .addComponent(jButton2))
@@ -388,16 +388,6 @@ public class ScreenProducts extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addGap(364, 364, 364)
                         .addComponent(jLabel14))
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(407, 407, 407)
-                        .addComponent(jLabel7)
-                        .addGap(12, 12, 12)
-                        .addComponent(Product_Category, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(399, 399, 399)
-                        .addComponent(jLabel8)
-                        .addGap(12, 12, 12)
-                        .addComponent(Article_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ProductsViewLayout.createSequentialGroup()
                         .addGap(436, 436, 436)
                         .addComponent(jLabel12)
@@ -415,25 +405,39 @@ public class ScreenProducts extends javax.swing.JPanel {
                         .addComponent(Amount, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ProductsViewLayout.createSequentialGroup()
                         .addGap(478, 478, 478)
-                        .addComponent(Accept_Article)
+                        .addComponent(Accept_Item)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Cancel_Article))
+                        .addComponent(Cancel_Item))
                     .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(443, 443, 443)
-                        .addComponent(jLabel9)
-                        .addGap(12, 12, 12)
-                        .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(ProductsViewLayout.createSequentialGroup()
+                                .addGap(399, 399, 399)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Item_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ProductsViewLayout.createSequentialGroup()
+                                .addGap(443, 443, 443)
+                                .addComponent(jLabel9)
+                                .addGap(12, 12, 12)
+                                .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(30, 30, 30)
                         .addComponent(Size_Label)
                         .addGap(6, 6, 6)
                         .addComponent(Size, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(423, 423, 423)
-                        .addComponent(jLabel5)
-                        .addGap(12, 12, 12)
-                        .addComponent(Article_Code, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(ProductsViewLayout.createSequentialGroup()
+                                .addGap(407, 407, 407)
+                                .addComponent(jLabel7)
+                                .addGap(12, 12, 12)
+                                .addComponent(Product_Category, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ProductsViewLayout.createSequentialGroup()
+                                .addGap(423, 423, 423)
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(Item_Code, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 10, Short.MAX_VALUE))
         );
         ProductsViewLayout.setVerticalGroup(
@@ -480,10 +484,10 @@ public class ScreenProducts extends javax.swing.JPanel {
                 .addComponent(jLabel17)
                 .addGap(15, 15, 15)
                 .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Create_Article, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Search_Article, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Modify_Article, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Delete_Article, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Create_Item, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Search_Item, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Modify_Item, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Delete_Item, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addComponent(jButton2)
                 .addGap(7, 7, 7)
                 .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -497,7 +501,7 @@ public class ScreenProducts extends javax.swing.JPanel {
                         .addGap(4, 4, 4)
                         .addComponent(jLabel5))
                     .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Article_Code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Item_Code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(Search)))
                 .addGap(8, 8, 8)
                 .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -505,13 +509,11 @@ public class ScreenProducts extends javax.swing.JPanel {
                         .addGap(4, 4, 4)
                         .addComponent(jLabel7))
                     .addComponent(Product_Category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel8))
-                    .addComponent(Article_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
+                .addGap(12, 12, 12)
+                .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(Item_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
                 .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Size, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -540,8 +542,8 @@ public class ScreenProducts extends javax.swing.JPanel {
                     .addComponent(Amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Accept_Article)
-                    .addComponent(Cancel_Article)))
+                    .addComponent(Accept_Item)
+                    .addComponent(Cancel_Item)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -556,35 +558,35 @@ public class ScreenProducts extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Delete_ArticleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete_ArticleActionPerformed
+    private void Delete_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete_ItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Delete_ArticleActionPerformed
+    }//GEN-LAST:event_Delete_ItemActionPerformed
 
-    private void Modify_ArticleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modify_ArticleActionPerformed
+    private void Modify_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modify_ItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Modify_ArticleActionPerformed
+    }//GEN-LAST:event_Modify_ItemActionPerformed
 
-    private void Create_ArticleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Create_ArticleActionPerformed
-        String New_Code = String.valueOf(main_class.articles.size() + 1);
-        Article_Code.setText(New_Code);
+    private void Create_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Create_ItemActionPerformed
+        String New_Code = String.valueOf(main_class.items.size() + 1);
+        Item_Code.setText(New_Code);
         
-        Modify_Article.setEnabled(false);
-        Search_Article.setEnabled(false);
-        Delete_Article.setEnabled(false);
+        Modify_Item.setEnabled(false);
+        Search_Item.setEnabled(false);
+        Delete_Item.setEnabled(false);
         Type.setSelectedItem("Bicycle");
         Product_Category.setEnabled(true);
-        Article_Name.setEnabled(true);
+        Item_Name.setEnabled(true);
         Type.setEnabled(true);
         Size.setEnabled(true);
         Brand.setEnabled(true);
         Price.setEnabled(true);
         Amount.setEnabled(true);
-        Accept_Article.setEnabled(true);
-        Cancel_Article.setEnabled(true);
-        Cancel_Article.setVisible(true);
+        Accept_Item.setEnabled(true);
+        Cancel_Item.setEnabled(true);
+        Cancel_Item.setVisible(true);
 
         
-    }//GEN-LAST:event_Create_ArticleActionPerformed
+    }//GEN-LAST:event_Create_ItemActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -618,15 +620,16 @@ public class ScreenProducts extends javax.swing.JPanel {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView2.png")));
     }//GEN-LAST:event_jButton1MouseEntered
 
-    private void Search_ArticleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_ArticleActionPerformed
-        Create_Article.setEnabled(false);
-        Modify_Article.setEnabled(false);
-        Delete_Article.setEnabled(false);
-        Article_Code.setEnabled(true);
+    private void Search_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_ItemActionPerformed
+        Create_Item.setEnabled(false);
+        Modify_Item.setEnabled(false);
+        Delete_Item.setEnabled(false);
+        Item_Code.setEnabled(true);
         Search.setVisible(true);
         Search.setEnabled(true);
-        Cancel_Article.setEnabled(true);
-    }//GEN-LAST:event_Search_ArticleActionPerformed
+        Cancel_Item.setEnabled(true);
+        Cancel_Item.setVisible(true);
+    }//GEN-LAST:event_Search_ItemActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
         // TODO add your handling code here:
@@ -644,7 +647,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         }
     }
-    private void Accept_ArticleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accept_ArticleActionPerformed
+    private void Accept_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accept_ItemActionPerformed
         
         String textFromTextField_category = Product_Category.getText();
         if (textFromTextField_category.isEmpty()){
@@ -652,14 +655,14 @@ public class ScreenProducts extends javax.swing.JPanel {
             return; 
         } 
             ///////////////////////////////////////////////      
-        String textFromTextField_name = Article_Name.getText();
+        String textFromTextField_name = Item_Name.getText();
         if (textFromTextField_name.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Article Name Without Text");
+            JOptionPane.showMessageDialog(null, "Item Name Without Text");
             return; 
         } 
         if (textFromTextField_name.trim().equals(textFromTextField_name)) {
         }else {
-            JOptionPane.showMessageDialog(null, "Article Name With Spaces At The Ends");
+            JOptionPane.showMessageDialog(null, "Item Name With Spaces At The Ends");
             return; 
         }
         
@@ -689,7 +692,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         } 
         
         
-        if (Create_Article.isEnabled()) {
+        if (Create_Item.isEnabled()) {
             int create_id_item;
             int create_category_item;
             String create_name_item;
@@ -701,9 +704,9 @@ public class ScreenProducts extends javax.swing.JPanel {
             Boolean register = false;
             
             
-            create_id_item = Integer.parseInt(Article_Code.getText());
+            create_id_item = Integer.parseInt(Item_Code.getText());
             create_category_item = Integer.parseInt(Product_Category.getText());
-            create_name_item = Article_Name.getText();
+            create_name_item = Item_Name.getText();
             create_type_item = String.valueOf(Type.getSelectedItem());
             create_size_item = Double.valueOf(String.valueOf(Size.getSelectedItem()));
             create_brand_item = Brand.getText();
@@ -711,7 +714,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             create_amount_item = Integer.parseInt(Amount.getText());
             
             
-            for(item_class A: main_class.articles){
+            for(item_class A: main_class.items){
                 if(A.getName_article().equals(create_name_item)){
                     register = true;
                     break;
@@ -725,13 +728,13 @@ public class ScreenProducts extends javax.swing.JPanel {
                 
             }
             
-        } else if (Search_Article.isEnabled()) {
+        } else if (Search_Item.isEnabled()) {
             // Acciones cuando boton2 está habilitado
             System.out.println("Botón 2 está habilitado. Realizar acciones para boton2.");
-        } else if (Modify_Article.isEnabled()) {
+        } else if (Modify_Item.isEnabled()) {
             // Acciones cuando boton3 está habilitado
             System.out.println("Botón 3 está habilitado. Realizar acciones para boton3.");
-        } else if (Delete_Article.isEnabled()) {
+        } else if (Delete_Item.isEnabled()) {
             // Acciones cuando boton4 está habilitado
             System.out.println("Botón 4 está habilitado. Realizar acciones para boton4.");
         } else {
@@ -746,16 +749,16 @@ public class ScreenProducts extends javax.swing.JPanel {
         
         
         Reset_Texts();
-        Create_Article.setEnabled(true);
-        Modify_Article.setEnabled(true);
-        Search_Article.setEnabled(true);
-        Delete_Article.setEnabled(true);
+        Create_Item.setEnabled(true);
+        Modify_Item.setEnabled(true);
+        Search_Item.setEnabled(true);
+        Delete_Item.setEnabled(true);
         
-        Article_Code.setEnabled(false);      
+        Item_Code.setEnabled(false);      
         Search.setVisible(false);
         Search.setEnabled(false);
         Product_Category.setEnabled(false);
-        Article_Name.setEnabled(false);
+        Item_Name.setEnabled(false);
         Type.setEnabled(false);
         Type.setSelectedItem("Bicycle");
         Size.setEnabled(false);
@@ -765,12 +768,12 @@ public class ScreenProducts extends javax.swing.JPanel {
         Price.setEnabled(false);
         Amount.setEnabled(false);
         
-        Accept_Article.setEnabled(false);
-        Cancel_Article.setEnabled(false);
-        Cancel_Article.setVisible(false);
+        Accept_Item.setEnabled(false);
+        Cancel_Item.setEnabled(false);
+        Cancel_Item.setVisible(false);
 
 
-    }//GEN-LAST:event_Accept_ArticleActionPerformed
+    }//GEN-LAST:event_Accept_ItemActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
@@ -781,13 +784,13 @@ public class ScreenProducts extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void Article_CodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Article_CodeActionPerformed
+    private void Item_CodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Item_CodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Article_CodeActionPerformed
+    }//GEN-LAST:event_Item_CodeActionPerformed
 
     private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
 
-        String textFromTextField = Article_Code.getText();
+        String textFromTextField = Item_Code.getText();
         if (textFromTextField.isEmpty()){
             JOptionPane.showMessageDialog(null, "Article Code Without Text");
             return; 
@@ -796,26 +799,26 @@ public class ScreenProducts extends javax.swing.JPanel {
         Boolean flag_found = false;
         
                 //System.out.println(main_class.products.get(0));
-        for (int i = 0; i < main_class.articles.size(); i++) {
-            item_class article = main_class.articles.get(i);   
-            if(code_article == article.getCode_article()){
+        for (int i = 0; i < main_class.items.size(); i++) {
+            item_class item = main_class.items.get(i);   
+            if(code_article == item.getCode_article()){
                 JOptionPane.showMessageDialog(null, "Found");
                 flag_found = true;
-                System.out.println("Code_product:" + article.getCode_article());
-                Article_Code.setText(String.valueOf(article.getCode_article()));
-                Product_Category.setText(String.valueOf(article.getCategory_article()));
-                Article_Name.setText(article.getName_article());
-                Type.setSelectedItem(article.getType_article());
+                System.out.println("Id_product:" + item.getCode_article());
+                Item_Code.setText(String.valueOf(item.getCode_article()));
+                Product_Category.setText(String.valueOf(item.getCategory_article()));
+                Item_Name.setText(item.getName_article());
+                Type.setSelectedItem(item.getType_article());
                 if ("Bicycle" == Type.getSelectedItem()){
                         Size.setVisible(true);
                         Size_Label.setVisible(true);       
                     }
-                Size.setSelectedItem(String.valueOf(article.getSize_article()));
-                Brand.setText(article.getBrand_article());
-                Price.setText(String.valueOf(article.getPrice_article()));
-                Amount.setText(String.valueOf(article.getAmount_article()));
-                Accept_Article.setEnabled(true);
-                Cancel_Article.setEnabled(true);
+                Size.setSelectedItem(String.valueOf(item.getSize_article()));
+                Brand.setText(item.getBrand_article());
+                Price.setText(String.valueOf(item.getPrice_article()));
+                Amount.setText(String.valueOf(item.getAmount_article()));
+                Accept_Item.setEnabled(true);
+                Cancel_Item.setEnabled(true);
                 break;
             }
         }
@@ -825,18 +828,18 @@ public class ScreenProducts extends javax.swing.JPanel {
         
     }//GEN-LAST:event_SearchActionPerformed
 
-    private void Cancel_ArticleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancel_ArticleActionPerformed
+    private void Cancel_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancel_ItemActionPerformed
         Reset_Texts();
-        Create_Article.setEnabled(true);
-        Modify_Article.setEnabled(true);
-        Search_Article.setEnabled(true);
-        Delete_Article.setEnabled(true);
+        Create_Item.setEnabled(true);
+        Modify_Item.setEnabled(true);
+        Search_Item.setEnabled(true);
+        Delete_Item.setEnabled(true);
         
-        Article_Code.setEnabled(false);      
+        Item_Code.setEnabled(false);      
         Search.setVisible(false);
         Search.setEnabled(false);
         Product_Category.setEnabled(false);
-        Article_Name.setEnabled(false);
+        Item_Name.setEnabled(false);
         Type.setEnabled(false);
         Type.setSelectedItem("Bicycle");
         Size.setEnabled(false);
@@ -846,19 +849,19 @@ public class ScreenProducts extends javax.swing.JPanel {
         Price.setEnabled(false);
         Amount.setEnabled(false);
         
-        Accept_Article.setEnabled(false);
-        Cancel_Article.setEnabled(false);
+        Accept_Item.setEnabled(false);
+        Cancel_Item.setEnabled(false);
 
-    }//GEN-LAST:event_Cancel_ArticleActionPerformed
+    }//GEN-LAST:event_Cancel_ItemActionPerformed
 
-    private void Article_CodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Article_CodeKeyTyped
-        if(Article_Code.getText().length() >= 15){
+    private void Item_CodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Item_CodeKeyTyped
+        if(Item_Code.getText().length() >= 15){
             evt.consume();
         }     
         char c = evt.getKeyChar();
         if (c<'0' || c>'9') evt.consume();
         
-    }//GEN-LAST:event_Article_CodeKeyTyped
+    }//GEN-LAST:event_Item_CodeKeyTyped
 
     private void Product_CategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Product_CategoryActionPerformed
         // TODO add your handling code here:
@@ -887,11 +890,11 @@ public class ScreenProducts extends javax.swing.JPanel {
         if (c<'0' || c>'9') evt.consume();  
     }//GEN-LAST:event_Product_CategoryKeyTyped
 
-    private void Article_NameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Article_NameKeyTyped
-        if(Article_Name.getText().length() >= 15){
+    private void Item_NameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Item_NameKeyTyped
+        if(Item_Name.getText().length() >= 15){
             evt.consume();
         }     
-    }//GEN-LAST:event_Article_NameKeyTyped
+    }//GEN-LAST:event_Item_NameKeyTyped
 
     private void BrandKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BrandKeyTyped
         if(Brand.getText().length() >= 15){
@@ -962,20 +965,20 @@ public class ScreenProducts extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Accept_Article;
+    private javax.swing.JButton Accept_Item;
     private javax.swing.JTextField Amount;
-    private javax.swing.JTextField Article_Code;
-    private javax.swing.JTextField Article_Name;
     private javax.swing.JTextField Brand;
-    private javax.swing.JButton Cancel_Article;
-    private javax.swing.JButton Create_Article;
-    private javax.swing.JButton Delete_Article;
-    private javax.swing.JButton Modify_Article;
+    private javax.swing.JButton Cancel_Item;
+    private javax.swing.JButton Create_Item;
+    private javax.swing.JButton Delete_Item;
+    private javax.swing.JTextField Item_Code;
+    private javax.swing.JTextField Item_Name;
+    private javax.swing.JButton Modify_Item;
     private javax.swing.JTextField Price;
     private javax.swing.JTextField Product_Category;
     private javax.swing.JPanel ProductsView;
     private javax.swing.JButton Search;
-    private javax.swing.JButton Search_Article;
+    private javax.swing.JButton Search_Item;
     private javax.swing.JComboBox<String> Size;
     private javax.swing.JLabel Size_Label;
     private javax.swing.JComboBox<String> Type;

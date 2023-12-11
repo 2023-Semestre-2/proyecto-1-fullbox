@@ -3,9 +3,9 @@ package Classes;
 import java.util.*;
 
 public class main_class {
-    public static ArrayList<item_class> articles;
+    public static ArrayList<item_class> items;
     
-    public static void main_article(String[] args){
-        articles = new ArrayList<>();
+    public static void main_item(String[] args){
+        items = new ArrayList<>();
     }
 }

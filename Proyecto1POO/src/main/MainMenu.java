@@ -348,7 +348,7 @@ public class MainMenu extends javax.swing.JFrame {
     }
     private void loading_archive(){
         
-        main_class.main_article(new String[]{});
+        main_class.main_item(new String[]{});
         
         String archive = Paths.get("src", "DataBase", "Archivo_CSV.csv").toString();
         System.out.println("Ruta del archivo: " + archive);
@@ -381,7 +381,7 @@ public class MainMenu extends javax.swing.JFrame {
                     article.setBrand_item(array[5]);
                     article.setPrice_item(Integer.parseInt(array[6]));
                     article.setAmount_item(Integer.parseInt(array[7]));
-                    main_class.articles.add(article);
+                    main_class.items.add(article);
                     bandera =true;                     
                 }              
             }
