@@ -24,6 +24,7 @@ public class ScreenProducts extends javax.swing.JPanel {
      */
     public ScreenProducts() {
         initComponents();
+        Search.setVisible(false);
         Size.setVisible(false);
         Size_Label.setVisible(false);
         Cancel_Article.setVisible(false);
@@ -567,6 +568,7 @@ public class ScreenProducts extends javax.swing.JPanel {
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         Article_Code.setEnabled(true);
+        Search.setVisible(true);
         Search.setEnabled(true);
     }//GEN-LAST:event_jButton19ActionPerformed
 
@@ -589,6 +591,7 @@ public class ScreenProducts extends javax.swing.JPanel {
     private void Accept_ArticleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accept_ArticleActionPerformed
         Reset_Texts();
         Article_Code.setEnabled(false);
+        Search.setVisible(false);
         Search.setEnabled(false);
         Size.setVisible(false);
         Size_Label.setVisible(false);
