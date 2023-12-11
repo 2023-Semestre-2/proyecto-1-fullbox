@@ -18,16 +18,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         setIconImage(new ImageIcon(getClass().getResource("../img/boxx.png")).getImage());
-        try {
-            String rutabd = Paths.get("src", "DataBase", "usuarios.accdb").toString();
-            String url="jdbc:ucanaccess://"+rutabd;
-            DriverManager.getConnection(url);
-            JOptionPane.showMessageDialog(null,"Se ha logrado conectar a la base de datos");
-            
-        } catch (HeadlessException | SQLException e) {
-            JOptionPane.showMessageDialog(null,"Error al conectar a la base de datos: " + e);
-            System.exit(0);
-        }
+        
     }
     
     private boolean passwordVisible = false;
@@ -247,7 +238,8 @@ public class Login extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"Debe ingresar un Username valido.");
            UsernameText.requestFocus();
         } else {
-            VerifyUsers verificador = new VerifyUsers(UsernameString, passwordString);
+            Boolean isCheck = jCheckBox1.isSelected();
+            VerifyUsers verificador = new VerifyUsers(UsernameString, passwordString, isCheck);
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

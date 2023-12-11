@@ -32,7 +32,11 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillingView = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
+<<<<<<< Updated upstream
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+=======
+        setPreferredSize(new java.awt.Dimension(1669, 730));
+>>>>>>> Stashed changes
 
         BillingView.setBackground(new java.awt.Color(255, 153, 153));
         BillingView.setMinimumSize(new java.awt.Dimension(1030, 730));
@@ -73,7 +77,20 @@ public class ScreenBilling extends javax.swing.JPanel {
                 .addContainerGap(692, Short.MAX_VALUE))
         );
 
+<<<<<<< Updated upstream
         add(BillingView, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+=======
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BillingView, javax.swing.GroupLayout.DEFAULT_SIZE, 1669, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BillingView, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
+        );
+>>>>>>> Stashed changes
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
