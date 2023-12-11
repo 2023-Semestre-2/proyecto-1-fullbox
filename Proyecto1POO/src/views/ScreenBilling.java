@@ -32,7 +32,7 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillingView = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
-        BillingView.setBackground(new java.awt.Color(102, 255, 255));
+        BillingView.setBackground(new java.awt.Color(153, 255, 102));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView.png"))); // NOI18N
         jButton1.setContentAreaFilled(false);
