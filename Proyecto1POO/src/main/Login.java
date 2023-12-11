@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import java.nio.file.*;
 import java.util.Arrays;
 import Classes.*;
+import Classes.VerifyUsers;
 public class Login extends javax.swing.JFrame {
     
     
@@ -240,6 +241,10 @@ public class Login extends javax.swing.JFrame {
         } else {
             Boolean isCheck = jCheckBox1.isSelected();
             VerifyUsers verificador = new VerifyUsers(UsernameString, passwordString, isCheck);
+            
+            if(verificador.pass == true){
+                this.setVisible(false);
+            }
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

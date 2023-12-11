@@ -3,29 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/jonns/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/main/Billing.java</file>
-            <file>file:/C:/Users/jonns/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/Classes/articles_class.java</file>
-            <file>file:/C:/Users/jonns/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/views/ScreenProducts.java</file>
-            <file>file:/C:/Users/jonns/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/Classes/VerifyUsers.java</file>
-            <file>file:/C:/Users/jonns/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/main/Maintenance.java</file>
-            <file>file:/C:/Users/jonns/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/main/Clients.java</file>
-            <file>file:/C:/Users/jonns/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/main/MainMenu.java</file>
-            <file>file:/C:/Users/jonns/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/Classes/item_class.java</file>
-            <file>file:/C:/Users/jonns/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/views/ScreenSettings.java</file>
-            <file>file:/C:/Users/jonns/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/views/ScreenBilling.java</file>
-            <file>file:/C:/Users/jonns/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/main/Products.java</file>
-            <file>file:/C:/Users/jonns/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/views/ScreenMaintenance.java</file>
-            <file>file:/C:/Users/jonns/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/DataBase/Archivo_CSV.csv</file>
-            <file>file:/C:/Users/jonns/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/views/ScreenClients.java</file>
-            <file>file:/C:/Users/jonns/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/views/ScreenMain.java</file>
-            <file>file:/C:/Users/jonns/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/main/Login.java</file>
-            <file>file:/C:/Users/jonns/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/Classes/main_class.java</file>
-=======
-            <file>file:/C:/Users/saimo/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/main/Login.java</file>
-            <file>file:/C:/Users/saimo/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/main/MainMenu.java</file>
-            <file>file:/C:/Users/saimo/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/Classes/VerifyUsers.java</file>
->>>>>>> 99da4379b71411ae57ea0c171f0b7f15e00bf074
+            <file>file:/C:/Users/josem/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/Classes/VerifyUsers.java</file>
+            <file>file:/C:/Users/josem/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/main/MainMenu.java</file>
+            <file>file:/C:/Users/josem/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/Classes/articles_class.java</file>
+            <file>file:/C:/Users/josem/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/views/ScreenProducts.java</file>
+            <file>file:/C:/Users/josem/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/main/Login.java</file>
         </group>
     </open-files>
 </project-private>

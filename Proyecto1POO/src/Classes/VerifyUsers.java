@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import main.MainMenu;
+import main.Login;
 /**
  *
  * @author saimo
@@ -21,6 +22,7 @@ public class VerifyUsers {
     private String username;
     private String password;
     private boolean remember;
+    public boolean pass = false;
     
     public VerifyUsers(String username, String password, boolean remember) {
         this.username = username;
@@ -44,9 +46,11 @@ public class VerifyUsers {
                                 if (remember && !resultSet.getBoolean("rememberMe")) {
                                     updateRememberMeFlag(connection, true);
                                 }
+                                    this.pass = true;
                                     MainMenu open = new MainMenu();
                                     open.setUsernameText(username);
                                     open.setVisible(true);
+                                  
                             } else {
                                 JOptionPane.showMessageDialog(null, "Username/Password not found");
                             }
