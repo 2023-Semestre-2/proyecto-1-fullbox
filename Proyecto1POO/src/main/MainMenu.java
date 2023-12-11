@@ -362,7 +362,7 @@ public class MainMenu extends javax.swing.JFrame {
             String line;
             
             while((line = br.readLine()) != null){
-                articles_class article = new articles_class();
+                item_class article = new item_class();
                 String array [] = line.split("\\,");
                 if (array.length == 8){
                     //System.out.println(array[0]);
@@ -373,14 +373,14 @@ public class MainMenu extends javax.swing.JFrame {
                     //System.out.println(array[5]);
                     //System.out.println(array[6]);
                     //System.out.println(array[7]);
-                    article.setCode_article(Integer.parseInt(array[0]));
-                    article.setCategory_article(Integer.parseInt(array[1]));
-                    article.setName_article(array[2]);
-                    article.setType_article(array[3]);
-                    article.setSize_article(Double.parseDouble(array[4]));
-                    article.setBrand_article(array[5]);
-                    article.setPrice_article(Integer.parseInt(array[6]));
-                    article.setAmount_article(Integer.parseInt(array[7]));
+                    article.setId_item(Integer.parseInt(array[0]));
+                    article.setCategory_item(Integer.parseInt(array[1]));
+                    article.setName_item(array[2]);
+                    article.setType_item(array[3]);
+                    article.setSize_item(Double.parseDouble(array[4]));
+                    article.setBrand_item(array[5]);
+                    article.setPrice_item(Integer.parseInt(array[6]));
+                    article.setAmount_item(Integer.parseInt(array[7]));
                     main_class.articles.add(article);
                     bandera =true;                     
                 }              

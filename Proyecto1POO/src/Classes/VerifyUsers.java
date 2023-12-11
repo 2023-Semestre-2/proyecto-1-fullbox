@@ -37,6 +37,7 @@ public class VerifyUsers {
                 try (ResultSet resultSet = UserStatement.executeQuery()) {
                     if (resultSet.next()) {
                         if ((resultSet.getBoolean("rememberMe"))) {
+                            this.pass = true;
                             MainMenu open = new MainMenu();
                             open.setUsernameText(username);
                             open.setVisible(true);

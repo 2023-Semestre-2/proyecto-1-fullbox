@@ -4,7 +4,7 @@
  */
 package main;
 
-import Classes.articles_class;
+import Classes.item_class;
 
 /**
  *

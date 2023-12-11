@@ -690,29 +690,29 @@ public class ScreenProducts extends javax.swing.JPanel {
         
         
         if (Create_Article.isEnabled()) {
-            int create_code_article;
-            int create_category_article;
-            String create_name_article;
-            String create_type_article;
-            Double create_size_article;
-            String create_brand_article;
-            int create_price_article;
-            int create_amount_article;
+            int create_id_item;
+            int create_category_item;
+            String create_name_item;
+            String create_type_item;
+            Double create_size_item;
+            String create_brand_item;
+            int create_price_item;
+            int create_amount_item;
             Boolean register = false;
             
             
-            create_code_article = Integer.parseInt(Article_Code.getText());
-            create_category_article = Integer.parseInt(Product_Category.getText());
-            create_name_article = Article_Name.getText();
-            create_type_article = String.valueOf(Type.getSelectedItem());
-            create_size_article = Double.valueOf(String.valueOf(Size.getSelectedItem()));
-            create_brand_article = Brand.getText();
-            create_price_article = Integer.parseInt(Price.getText());
-            create_amount_article = Integer.parseInt(Amount.getText());
+            create_id_item = Integer.parseInt(Article_Code.getText());
+            create_category_item = Integer.parseInt(Product_Category.getText());
+            create_name_item = Article_Name.getText();
+            create_type_item = String.valueOf(Type.getSelectedItem());
+            create_size_item = Double.valueOf(String.valueOf(Size.getSelectedItem()));
+            create_brand_item = Brand.getText();
+            create_price_item = Integer.parseInt(Price.getText());
+            create_amount_item = Integer.parseInt(Amount.getText());
             
             
-            for(articles_class A: main_class.articles){
-                if(A.getName_article().equals(create_name_article)){
+            for(item_class A: main_class.articles){
+                if(A.getName_article().equals(create_name_item)){
                     register = true;
                     break;
                 }       
@@ -721,7 +721,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             if(register){
                 JOptionPane.showMessageDialog(this,"This Name Already Exists ");   
             }else{
-                articles_class article = new articles_class();
+                item_class item = new item_class();
                 
             }
             
@@ -797,7 +797,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         
                 //System.out.println(main_class.products.get(0));
         for (int i = 0; i < main_class.articles.size(); i++) {
-            articles_class article = main_class.articles.get(i);   
+            item_class article = main_class.articles.get(i);   
             if(code_article == article.getCode_article()){
                 JOptionPane.showMessageDialog(null, "Found");
                 flag_found = true;
