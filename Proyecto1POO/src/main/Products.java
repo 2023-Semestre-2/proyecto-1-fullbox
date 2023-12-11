@@ -4,7 +4,7 @@
  */
 package main;
 
-import Classes.products_class;
+import Classes.articles_class;
 
 /**
  *
@@ -103,13 +103,13 @@ public class Products extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        products_class producto1 = new products_class();
+        //products_class producto1 = new articles_class();
         
-        producto1.id = 1;
-        producto1.name = "Llanta";
+        //producto1.id = 1;
+        //producto1.name = "Llanta";
         
-        System.out.println("El producto "+producto1.name+" se creó correctamente");
-        producto1.SearchProduct();
+       // System.out.println("El producto "+producto1.name+" se creó correctamente");
+        //producto1.SearchProduct();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

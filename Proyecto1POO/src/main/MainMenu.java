@@ -4,12 +4,18 @@
  */
 package main;
 
-
+import Classes.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import views.*;
+import java.nio.file.*;
+
+
 
 
 /**
@@ -335,8 +341,66 @@ public class MainMenu extends javax.swing.JFrame {
         ScreenViews.revalidate();
         ScreenViews.repaint();  
     }
+    private void loading_archive(){
+        
+        main_class.main_article(new String[]{});
+        
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV.csv").toString();
+        System.out.println("Ruta del archivo: " + archive);
+        FileReader fr = null;
+        BufferedReader br = null;
+        Boolean bandera = false;
+        
+        try{
+            fr = new FileReader(archive);
+            br = new BufferedReader(fr);
+            String line;
+            
+            while((line = br.readLine()) != null){
+                articles_class article = new articles_class();
+                String array [] = line.split("\\,");
+                if (array.length == 8){
+                    //System.out.println(array[0]);
+                    //System.out.println(array[1]);
+                    //System.out.println(array[2]);
+                    //System.out.println(array[3]);
+                    //System.out.println(array[4]);
+                    //System.out.println(array[5]);
+                    //System.out.println(array[6]);
+                    //System.out.println(array[7]);
+                    article.setCode_article(Integer.parseInt(array[0]));
+                    article.setCategory_article(Integer.parseInt(array[1]));
+                    article.setName_article(array[2]);
+                    article.setType_article(array[3]);
+                    article.setSize_article(Double.parseDouble(array[4]));
+                    article.setBrand_article(array[5]);
+                    article.setPrice_article(Integer.parseInt(array[6]));
+                    article.setAmount_article(Integer.parseInt(array[7]));
+                    main_class.articles.add(article);
+                    bandera =true;                     
+                }              
+            }
+            if (bandera){
+                JOptionPane.showMessageDialog(this, "Importado exitosamente");    
+            }else{
+                 JOptionPane.showMessageDialog(this,"Fatal Error");
+            }
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try{
+                if(fr != null){
+                    fr.close();
+            }
+            }catch(Exception ex){
+                    ex.printStackTrace();
+            }      
+        }
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        loading_archive();
         ShowJPanel(new ScreenProducts());
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -448,6 +512,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Login().setVisible(true);
             }
