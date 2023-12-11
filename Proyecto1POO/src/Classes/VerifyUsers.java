@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+
 package Classes;
 
 import java.nio.file.Paths;
@@ -9,11 +10,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import main.MainMenu;
-
 /**
  *
  * @author saimo
@@ -21,41 +20,53 @@ import main.MainMenu;
 public class VerifyUsers {
     private String username;
     private String password;
-
-    public VerifyUsers(String Username, String Password) {
-        this.username = Username;
-        this.password = Password;
+    private boolean remember;
+    
+    public VerifyUsers(String username, String password, boolean remember) {
+        this.username = username;
+        this.password = password;
+        this.remember = remember;
         String rutabd = Paths.get("src", "DataBase", "usuarios.accdb").toString();
         String url = "jdbc:ucanaccess://" + rutabd;
-
-        try (Connection conexion = DriverManager.getConnection(url, username, password)) {
-            
-            String requestSQL = "SELECT * FROM BaseDeDatos WHERE Username";
-            
-            try (PreparedStatement statement = conexion.prepareStatement(requestSQL)) {
-                statement.setString(1, username);
-
-                try (ResultSet result = statement.executeQuery()) {
-                    if (result.next()) {
-                        String dbPassword = result.getString("");
-
-                        // Verificar la contraseña
-                        if (password.equals(dbPassword)) {
-                            System.out.println("Contraseña correcta. Acceso concedido.");
-                            MainMenu abrir = new MainMenu();
-                            abrir.setVisible(true);
-                        } else {
-                            System.out.println("Contraseña incorrecta. Acceso denegado.");
-                            JOptionPane.showMessageDialog(null, "Contraseña incorrecta, inténtelo nuevamente2.");
+        try (Connection connection = DriverManager.getConnection(url)) {
+            String requestSQL = "SELECT * FROM BaseDeDatos WHERE USERNAME=?";
+            try (PreparedStatement UserStatement = connection.prepareStatement(requestSQL)) {
+                UserStatement.setString(1, username);
+                try (ResultSet resultSet = UserStatement.executeQuery()) {
+                    if (resultSet.next()) {
+                        if ((resultSet.getBoolean("rememberMe"))) {
+                            MainMenu open = new MainMenu();
+                            open.setUsernameText(username);
+                            open.setVisible(true);
+                        }else{
+                            String storedPassword = resultSet.getString("Password"); 
+                            if (password.equals(storedPassword)) {
+                                if (remember && !resultSet.getBoolean("rememberMe")) {
+                                    updateRememberMeFlag(connection, true);
+                                }
+                                    MainMenu open = new MainMenu();
+                                    open.setUsernameText(username);
+                                    open.setVisible(true);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Username/Password not found");
+                            }
                         }
                     } else {
-                        System.out.println("El usuario: '" + username + "' no existe.");
-                        JOptionPane.showMessageDialog(null, "El usuario no existe.");
+                        JOptionPane.showMessageDialog(null, "Username/Password not found");
                     }
                 }
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Username/Password not found");
         }
     }
+    private void updateRememberMeFlag(Connection connection, boolean value) throws SQLException {
+        String updateRememberMeSQL = "UPDATE BaseDeDatos SET rememberMe=? WHERE Username=?";
+        try (PreparedStatement updateStatement = connection.prepareStatement(updateRememberMeSQL)) {
+            updateStatement.setBoolean(1, value);
+            updateStatement.setString(2, username);
+            updateStatement.executeUpdate();
+        }
+    }
+    
 }

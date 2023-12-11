@@ -29,6 +29,11 @@ public class MainMenu extends javax.swing.JFrame {
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/img/boxx.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel3, "src/img/maina.png");
         InitView();
+        
+    }
+    
+    public void setUsernameText(String text) {
+        jLabel4.setText(text);
     }
 
     /**
@@ -300,7 +305,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGap(17, 17, 17))
         );
 
-        getContentPane().add(Options, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(Options, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
 
         ScreenViews.setBackground(new java.awt.Color(30, 30, 30));
         ScreenViews.setMinimumSize(new java.awt.Dimension(1030, 730));
