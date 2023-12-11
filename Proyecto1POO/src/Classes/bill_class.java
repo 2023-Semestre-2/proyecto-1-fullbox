@@ -11,7 +11,7 @@ package Classes;
 public class bill_class {
     private int bill_id;
     private int client_id;
-    private int bill_date;
+    private String bill_date;
     private String bill_state = "Válido";
     private int bill_subtotal;
     private int bill_tax;
@@ -28,7 +28,7 @@ public class bill_class {
         this.client_id = client_id;
     }
 
-    public void setBill_date(int bill_date) {
+    public void setBill_date(String bill_date) {
         this.bill_date = bill_date;
     }
 
@@ -59,7 +59,7 @@ public class bill_class {
         return client_id;
     }
 
-    public int getBill_date() {
+    public String getBill_date() {
         return bill_date;
     }
 

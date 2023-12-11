@@ -17,7 +17,7 @@ public class client_class {
     private String client_province;
     private String client_canton;
     private String client_district;
-    private int client_birthdate;
+    private String client_birthdate;
 
     
     //Getter Methods
@@ -53,7 +53,7 @@ public class client_class {
         return client_district;
     }
 
-    public int getClient_birthdate() {
+    public String getClient_birthdate() {
         return client_birthdate;
     }
 
@@ -92,7 +92,7 @@ public class client_class {
         this.client_district = client_district;
     }
 
-    public void setClient_birthdate(int client_birthdate) {
+    public void setClient_birthdate(String client_birthdate) {
         this.client_birthdate = client_birthdate;
     }
 }

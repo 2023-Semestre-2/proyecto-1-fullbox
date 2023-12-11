@@ -14,8 +14,8 @@ public class maintenance_class {
     private String bicyle_brand;
     private String bicycle_description;
     private int maintenance_price;
-    private int received_date;
-    private int delivery_date;
+    private String received_date;
+    private String delivery_date;
     private String maintenance_observations;
     private String maintenance_state;
 
@@ -41,11 +41,11 @@ public class maintenance_class {
         return maintenance_price;
     }
 
-    public int getReceived_date() {
+    public String getReceived_date() {
         return received_date;
     }
 
-    public int getDelivery_date() {
+    public String getDelivery_date() {
         return delivery_date;
     }
 
@@ -80,11 +80,11 @@ public class maintenance_class {
         this.maintenance_price = maintenance_price;
     }
 
-    public void setReceived_date(int received_date) {
+    public void setReceived_date(String received_date) {
         this.received_date = received_date;
     }
 
-    public void setDelivery_date(int delivery_date) {
+    public void setDelivery_date(String delivery_date) {
         this.delivery_date = delivery_date;
     }
 
