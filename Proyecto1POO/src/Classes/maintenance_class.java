@@ -10,7 +10,7 @@ package Classes;
  */
 public class maintenance_class {
     private int service_id;
-    private int client_id;
+    private int customer_id;
     private String bicyle_brand;
     private String bicycle_description;
     private int maintenance_price;
@@ -25,8 +25,8 @@ public class maintenance_class {
         return service_id;
     }
 
-    public int getClient_id() {
-        return client_id;
+    public int getCustomer_id() {
+        return customer_id;
     }
 
     public String getBicyle_brand() {
@@ -64,8 +64,8 @@ public class maintenance_class {
         this.service_id = service_id;
     }
 
-    public void setClient_id(int client_id) {
-        this.client_id = client_id;
+    public void setCustomer_id(int customer_id) {
+        this.customer_id = customer_id;
     }
 
     public void setBicyle_brand(String bicyle_brand) {

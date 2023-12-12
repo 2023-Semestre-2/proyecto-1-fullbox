@@ -105,7 +105,7 @@ public class MainMenu extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/usuario2.png"))); // NOI18N
-        jButton5.setText("Clients  ");
+        jButton5.setText("Customers");
         jButton5.setBorder(null);
         jButton5.setContentAreaFilled(false);
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -411,7 +411,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
-        ShowJPanel(new ScreenClients());
+        ShowJPanel(new ScreenCustomers());
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
