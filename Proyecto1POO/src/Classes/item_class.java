@@ -49,35 +49,35 @@ public class item_class {
     
     //Getter Methods
 
-    public int getCode_article() {
+    public int getId_item() {
         return id_item;
     }
 
-    public int getCategory_article() {
+    public int getCategory_item() {
         return category_item;
     }
 
-    public String getName_article() {
+    public String getName_item() {
         return name_item;
     }
 
-    public String getType_article() {
+    public String getType_item() {
         return type_item;
     }
 
-    public Double getSize_article() {
+    public Double getSize_item() {
         return size_item;
     }
 
-    public String getBrand_article() {
+    public String getBrand_item() {
         return brand_item;
     }
 
-    public int getPrice_article() {
+    public int getPrice_item() {
         return price_item;
     }
 
-    public int getAmount_article() {
+    public int getAmount_item() {
         return amount_item;
     }
 }
