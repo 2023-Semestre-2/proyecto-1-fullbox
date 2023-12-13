@@ -13,6 +13,8 @@ import java.nio.file.*;
 import java.util.Arrays;
 import Classes.*;
 import Classes.VerifyUsers;
+import java.io.BufferedReader;
+import java.io.FileReader;
 public class Login extends javax.swing.JFrame {
     
     
@@ -229,6 +231,61 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
     
+    private void loading_archive_products(){    
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV.csv").toString();
+        System.out.println("Ruta del archivo: " + archive);
+        FileReader fr = null;
+        BufferedReader br = null;
+        Boolean bandera = false;
+        
+        try{
+            fr = new FileReader(archive);
+            br = new BufferedReader(fr);
+            String line;
+            
+            while((line = br.readLine()) != null){
+                item_class article = new item_class();
+                String array [] = line.split("\\,");
+                if (array.length == 8){
+                    //System.out.println(array[0]);
+                    //System.out.println(array[1]);
+                    //System.out.println(array[2]);
+                    //System.out.println(array[3]);
+                    //System.out.println(array[4]);
+                    //System.out.println(array[5]);
+                    //System.out.println(array[6]);
+                    //System.out.println(array[7]);
+                    article.setId_item(Integer.parseInt(array[0]));
+                    article.setCategory_item(Integer.parseInt(array[1]));
+                    article.setName_item(array[2]);
+                    article.setType_item(array[3]);
+                    article.setSize_item(Double.parseDouble(array[4]));
+                    article.setBrand_item(array[5]);
+                    article.setPrice_item(Integer.parseInt(array[6]));
+                    article.setAmount_item(Integer.parseInt(array[7]));
+                    main_class.items.add(article);
+                    bandera =true;                     
+                }              
+            }
+            if (bandera){
+                JOptionPane.showMessageDialog(this, "Importado exitosamente");    
+            }else{
+                 JOptionPane.showMessageDialog(this,"Fatal Error");
+            }
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try{
+                if(fr != null){
+                    fr.close();
+            }
+            }catch(Exception ex){
+                    ex.printStackTrace();
+            }      
+        }
+    }
         
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         char[] passwordChar = PasswordText.getPassword();
@@ -245,6 +302,7 @@ public class Login extends javax.swing.JFrame {
             if(verificador.pass == true){
                 this.setVisible(false);
                 main_class.main_item(new String[]{});
+                loading_archive_products();
             }
         }
         
