@@ -4,8 +4,14 @@
  */
 package views;
 
+import Classes.customer_class;
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 import javax.swing.JPanel;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -48,14 +54,16 @@ public class ScreenCustomers extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
 
         CustomersView.setBackground(new java.awt.Color(255, 255, 255));
@@ -129,6 +137,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
 
         jLabel6.setText("Customer Phone:");
 
+        jTextField4.setText("0");
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
@@ -144,12 +153,6 @@ public class ScreenCustomers extends javax.swing.JPanel {
         });
 
         jLabel8.setText("Customer Province:");
-
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
 
         jLabel9.setText("Customer Canton:");
 
@@ -169,15 +172,27 @@ public class ScreenCustomers extends javax.swing.JPanel {
 
         jLabel11.setText("Customer Birthdate:");
 
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        jButton6.setText("Accept");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                jButton6ActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Accept");
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alajuela", "Cartago", "Guanacaste", "Heredia", "Puntarenas", "San Jose" }));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+
+        jTextField6.setText("01");
+
+        jTextField9.setText("1900");
 
         jButton7.setText("Cancel");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout CustomersViewLayout = new javax.swing.GroupLayout(CustomersView);
         CustomersView.setLayout(CustomersViewLayout);
@@ -186,7 +201,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
             .addGroup(CustomersViewLayout.createSequentialGroup()
                 .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CustomersViewLayout.createSequentialGroup()
-                        .addGap(432, 432, 432)
+                        .addGap(434, 434, 434)
                         .addComponent(jLabel1))
                     .addGroup(CustomersViewLayout.createSequentialGroup()
                         .addGap(237, 237, 237)
@@ -200,55 +215,63 @@ public class ScreenCustomers extends javax.swing.JPanel {
                                 .addGap(7, 7, 7)
                                 .addComponent(jButton4))
                             .addGroup(CustomersViewLayout.createSequentialGroup()
-                                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(CustomersViewLayout.createSequentialGroup()
-                                        .addGap(173, 173, 173)
-                                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(CustomersViewLayout.createSequentialGroup()
-                                                .addGap(33, 33, 33)
-                                                .addComponent(jLabel3))
-                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(CustomersViewLayout.createSequentialGroup()
-                                                .addGap(14, 14, 14)
-                                                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel8)
-                                                    .addGroup(CustomersViewLayout.createSequentialGroup()
-                                                        .addGap(6, 6, 6)
-                                                        .addComponent(jLabel9))
-                                                    .addComponent(jLabel10)
-                                                    .addComponent(jLabel11)))
-                                            .addGroup(CustomersViewLayout.createSequentialGroup()
-                                                .addGap(22, 22, 22)
-                                                .addComponent(jLabel4))
-                                            .addGroup(CustomersViewLayout.createSequentialGroup()
-                                                .addGap(14, 14, 14)
-                                                .addComponent(jLabel5))
-                                            .addGroup(CustomersViewLayout.createSequentialGroup()
-                                                .addGap(21, 21, 21)
-                                                .addComponent(jLabel6))
-                                            .addGroup(CustomersViewLayout.createSequentialGroup()
-                                                .addGap(23, 23, 23)
-                                                .addComponent(jLabel7))))
-                                    .addGroup(CustomersViewLayout.createSequentialGroup()
-                                        .addGap(169, 169, 169)
-                                        .addComponent(jLabel2)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(169, 169, 169)
+                                .addComponent(jLabel2)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 275, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(78, 78, 78))
             .addGroup(CustomersViewLayout.createSequentialGroup()
-                .addGap(394, 394, 394)
-                .addComponent(jButton6)
-                .addGap(18, 18, 18)
-                .addComponent(jButton7)
+                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CustomersViewLayout.createSequentialGroup()
+                        .addGap(412, 412, 412)
+                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(CustomersViewLayout.createSequentialGroup()
+                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(CustomersViewLayout.createSequentialGroup()
+                                .addComponent(jButton6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton7))))
+                    .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(CustomersViewLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CustomersViewLayout.createSequentialGroup()
+                            .addGap(411, 411, 411)
+                            .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(CustomersViewLayout.createSequentialGroup()
+                                    .addGap(33, 33, 33)
+                                    .addComponent(jLabel3))
+                                .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                .addGroup(CustomersViewLayout.createSequentialGroup()
+                                    .addGap(14, 14, 14)
+                                    .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel8)
+                                        .addGroup(CustomersViewLayout.createSequentialGroup()
+                                            .addGap(6, 6, 6)
+                                            .addComponent(jLabel9))
+                                        .addComponent(jLabel10)
+                                        .addComponent(jLabel11)))
+                                .addGroup(CustomersViewLayout.createSequentialGroup()
+                                    .addGap(22, 22, 22)
+                                    .addComponent(jLabel4))
+                                .addGroup(CustomersViewLayout.createSequentialGroup()
+                                    .addGap(14, 14, 14)
+                                    .addComponent(jLabel5))
+                                .addGroup(CustomersViewLayout.createSequentialGroup()
+                                    .addGap(21, 21, 21)
+                                    .addComponent(jLabel6))
+                                .addGroup(CustomersViewLayout.createSequentialGroup()
+                                    .addGap(23, 23, 23)
+                                    .addComponent(jLabel7))
+                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         CustomersViewLayout.setVerticalGroup(
@@ -266,44 +289,47 @@ public class ScreenCustomers extends javax.swing.JPanel {
                             .addComponent(jButton2)
                             .addComponent(jButton3)
                             .addComponent(jButton5)
-                            .addComponent(jButton4))
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButton4))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
                     .addComponent(jButton7))
@@ -318,7 +344,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(CustomersView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(CustomersView, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -366,10 +392,6 @@ public class ScreenCustomers extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
-
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
@@ -378,13 +400,260 @@ public class ScreenCustomers extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField8ActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
         
+        //THIS IS FOR THE ADD OPTION
+        
+        //Collect data from the TextFields and ComboBoxes and Validate
+        //Name
+        String name = jTextField2.getText();
+        if(name.equals("")){
+            JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Name");
+            return;
+        }
+        name = name.trim();
+        
+        //Lastname
+        String lastname = jTextField3.getText();
+        if(lastname.equals("")){
+            JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Lastname");
+            return;
+        }
+        lastname = lastname.trim();
+        
+        //Phone
+        String phone_valid = jTextField4.getText();
+        boolean result = isNumeric(phone_valid);
+        if(result == false){
+            JOptionPane.showMessageDialog(null, "The phone number must be numeric");
+            return;
+        }
+        if(phone_valid.length() != 8){
+            JOptionPane.showMessageDialog(null, "The phone number must have 8 digits");
+            return;
+        }
+        if(phone_valid.charAt(0) != '2' && phone_valid.charAt(0) != '4' && phone_valid.charAt(0) != '6' && phone_valid.charAt(0) != '8'){
+            JOptionPane.showMessageDialog(null, "The phone number must start with 2, 4, 6 or 8");
+            return;
+        }
+        int phone = Integer.parseInt(phone_valid);
+        
+        //eMail
+        String email = jTextField5.getText();
+        if(email.equals("")){
+            JOptionPane.showMessageDialog(null, "You need to complete this data: Customer eMail");
+            return;
+        }
+        email = email.trim();
+        Pattern pattern = Pattern.compile("([a-z0-9]+(\\.?[a-z0-9])*)+@(([a-z]+)\\.([a-z]+))+");
+        Matcher mather = pattern.matcher(email);
+        if (mather.find() == false){
+            JOptionPane.showMessageDialog(null, "The email must be in the correct format: Google-like format");
+            return;
+        }
+        
+        //Province (Don't need to be validated)
+        String province = jComboBox1.getSelectedItem().toString();
+        
+        //Canton
+        String canton = jTextField7.getText();
+        if(canton.equals("")){
+            JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Canton");
+            return;
+        }
+        canton = canton.trim();
+        
+        //District
+        String district = jTextField8.getText();
+        if(district.equals("")){
+            JOptionPane.showMessageDialog(null, "You need to complete this data: Customer District");
+            return;
+        }
+        district = district.trim();
+        
+        //Birthdate (And build the Date)
+        int day = Integer.parseInt(jTextField6.getText());
+        int month = Integer.parseInt(jComboBox2.getSelectedItem().toString());
+        int year = Integer.parseInt(jTextField9.getText());
+        
+        boolean pass_flag = true;
+        switch(month){
+            case 1:if(day<1 || day>31){
+                JOptionPane.showMessageDialog(null, "You need to put a valid date");
+                pass_flag = false;
+                break;
+            }else{
+                pass_flag = true;
+                break;
+            }
 
+            case 2:if(year%100 == 0){ //Secular year
+                if(year%400 == 0){ //Bisiest year
+                    if(day<1 || day>29){
+                        JOptionPane.showMessageDialog(null, "You need to put a valid date");
+                        pass_flag = false;
+                        break;
+                    }else{
+                        pass_flag = true;
+                        break;
+                    }
+                }else{
+                    if(day<1 || day>28){
+                        JOptionPane.showMessageDialog(null, "You need to put a valid date");
+                        pass_flag = false;
+                        break;
+                    }else{
+                        pass_flag = true;
+                        break;
+                    } 
+                }
+            }else{
+                if(year%4 == 0){
+                    if(day<1 || day>29){
+                        JOptionPane.showMessageDialog(null, "You need to put a valid date");
+                        pass_flag = false;
+                        break;
+                    }else{
+                        pass_flag = true;
+                        break;
+                    }
+                }else{
+                    if(day<1 || day>28){
+                        JOptionPane.showMessageDialog(null, "You need to put a valid date");
+                        pass_flag = false;
+                        break;
+                    }else{
+                        pass_flag = true;
+                        break;
+                    }
+                }
+            }
+
+            case 3: if(day<1 || day>31){
+                JOptionPane.showMessageDialog(null, "You need to put a valid date");
+                pass_flag = false;
+                break;
+            }else{
+                pass_flag = true;
+                break;
+            }
+            
+            case 4: if(day<1 || day>30){
+                JOptionPane.showMessageDialog(null, "You need to put a valid date");
+                pass_flag = false;
+                break;
+            }else{
+                pass_flag = true;
+                break;
+            }
+            
+            case 5: if(day<1 || day>31){
+                JOptionPane.showMessageDialog(null, "You need to put a valid date");
+                pass_flag = false;
+                break;
+            }else{
+                pass_flag = true;
+                break;
+            }
+            
+            case 6: if(day<1 || day>30){
+                JOptionPane.showMessageDialog(null, "You need to put a valid date");
+                pass_flag = false;
+                break;
+            }else{
+                pass_flag = true;
+                break;
+            }
+            
+            case 7: if(day<1 || day>31){
+                JOptionPane.showMessageDialog(null, "You need to put a valid date");
+                pass_flag = false;
+                break;
+            }else{
+                pass_flag = true;
+                break;
+            }
+            
+            case 8: if(day<1 || day>31){
+                JOptionPane.showMessageDialog(null, "You need to put a valid date");
+                pass_flag = false;
+                break;
+            }else{
+                pass_flag = true;
+                break;
+            }
+            
+            case 9: if(day<1 || day>30){
+                JOptionPane.showMessageDialog(null, "You need to put a valid date");
+                pass_flag = false;
+                break;
+            }else{
+                pass_flag = true;
+                break;
+            }
+            
+            case 10: if(day<1 || day>31){
+                JOptionPane.showMessageDialog(null, "You need to put a valid date");
+                pass_flag = false;
+                break;
+            }else{
+                pass_flag = true;
+                break;
+            }
+            
+            case 11: if(day<1 || day>30){
+                JOptionPane.showMessageDialog(null, "You need to put a valid date");
+                pass_flag = false;
+                break;
+            }else{
+                pass_flag = true;
+                break;
+            }
+            
+            case 12: if(day<1 || day>31){
+                JOptionPane.showMessageDialog(null, "You need to put a valid date");
+                pass_flag = false;
+                break;
+            }else{
+                pass_flag = true;
+                break;
+            }
+        }
+        if(pass_flag == false){
+            return;
+        }
+        
+        month--;
+        year = year-1900;
+        Date date = new Date(year, month, day);
+        
+        //Create the temporary Object
+        customer_class new_object = new customer_class();
+        
+        //Set the new object data
+        new_object.setCustomer_name(name);
+        new_object.setCustomer_lastname(lastname);
+        new_object.setCustomer_phone(phone);
+        new_object.setCustomer_email(email);
+        new_object.setCustomer_province(province);
+        new_object.setCustomer_canton(canton);
+        new_object.setCustomer_district(district);
+        new_object.setCustomer_birthdate(date);
+        
+        //Add the object to the ArrayList
+        customers_list.add(new_object);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+        
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        System.out.println(customers_list);
+        for(customer_class s:customers_list){
+            System.out.println(s.getCustomer_birthdate());
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
                                        
-   
     private static void borrarPanel(JPanel panel) {
         panel.removeAll();
         panel.revalidate();
@@ -398,7 +667,17 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomersView.add(p, BorderLayout.CENTER);
         CustomersView.revalidate();
         CustomersView.repaint();
+    } 
+    private static boolean isNumeric(String cadena){
+        try {
+            Integer.parseInt(cadena);
+            return true;
+        } catch (NumberFormatException nfe){
+        return false;
+        }
     }
+    
+    ArrayList<customer_class> customers_list = new ArrayList<>();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CustomersView;
@@ -409,6 +688,8 @@ public class ScreenCustomers extends javax.swing.JPanel {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

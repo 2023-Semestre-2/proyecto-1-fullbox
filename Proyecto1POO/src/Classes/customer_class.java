@@ -4,6 +4,8 @@
  */
 package Classes;
 
+import java.util.Date;
+
 /**
  *
  * @author josem
@@ -17,8 +19,11 @@ public class customer_class {
     private String customer_province;
     private String customer_canton;
     private String customer_district;
-    private String customer_birthdate;
+    private Date customer_birthdate;
 
+    public customer_class() {
+    }
+    
     
     //Getter Methods
     public int getCustomer_id() {
@@ -53,7 +58,7 @@ public class customer_class {
         return customer_district;
     }
 
-    public String getCustomer_birthdate() {
+    public Date getCustomer_birthdate() {
         return customer_birthdate;
     }
 
@@ -92,7 +97,7 @@ public class customer_class {
         this.customer_district = customer_district;
     }
 
-    public void setCustomer_birthdate(String customer_birthdate) {
+    public void setCustomer_birthdate(Date customer_birthdate) {
         this.customer_birthdate = customer_birthdate;
     }
 }
