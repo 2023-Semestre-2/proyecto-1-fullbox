@@ -42,7 +42,7 @@ public class VerifyUsers {
                             open.setUsernameText(username);
                             open.setVisible(true);
                         }else{
-                            String storedPassword = resultSet.getString("Password"); 
+                            String storedPassword = resultSet.getString("Password");
                             if (password.equals(storedPassword)) {
                                 if (remember && !resultSet.getBoolean("rememberMe")) {
                                     updateRememberMeFlag(connection, true);

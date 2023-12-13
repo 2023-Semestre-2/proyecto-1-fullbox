@@ -13,8 +13,12 @@ import java.nio.file.*;
 import java.util.Arrays;
 import Classes.*;
 import Classes.VerifyUsers;
+import java.awt.BorderLayout;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import javax.swing.JPanel;
+import main.Register;
+
 public class Login extends javax.swing.JFrame {
     
     
@@ -181,6 +185,11 @@ public class Login extends javax.swing.JFrame {
                 jButton3MouseExited(evt);
             }
         });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(58, 61, 65));
@@ -307,7 +316,12 @@ public class Login extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    private void ShowJPanelRegister(JPanel p){
+        p.setSize(450, 490);
+        p.setLocation(440,110);
+    }
+    
     private void UsernameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_UsernameTextActionPerformed
@@ -382,6 +396,11 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         jButton3.setForeground(new Color(85,110,230));
     }//GEN-LAST:event_jButton3MouseExited
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        ShowJPanelRegister(new Register());
+    }//GEN-LAST:event_jButton3ActionPerformed
     
     
 
