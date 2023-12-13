@@ -39,32 +39,32 @@ public class ScreenCustomers extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
+        AddCustomerButton = new javax.swing.JButton();
+        SearchCustomerButton = new javax.swing.JButton();
+        DeleteCustomerButton = new javax.swing.JButton();
+        ModifyCustomerButton = new javax.swing.JButton();
+        CustomerIdLabel = new javax.swing.JLabel();
+        CustomerIdText = new javax.swing.JTextField();
+        CustomerNameLabel = new javax.swing.JLabel();
+        CustomerNameText = new javax.swing.JTextField();
+        CustomerLastnameLabel = new javax.swing.JLabel();
+        CustomerLastnameText = new javax.swing.JTextField();
+        CustomerPhoneLabel = new javax.swing.JLabel();
+        CustomerPhoneText = new javax.swing.JTextField();
+        CustomerMailLabel = new javax.swing.JLabel();
+        CustomerMailText = new javax.swing.JTextField();
+        CustomerProvinceLabel = new javax.swing.JLabel();
+        CustomerCantonLabel = new javax.swing.JLabel();
+        CustomerCantonText = new javax.swing.JTextField();
+        CustomerDistrictLabel = new javax.swing.JLabel();
+        CustomerDistrictText = new javax.swing.JTextField();
+        CustomerBirthdateLabel = new javax.swing.JLabel();
+        AcceptCustomerButton = new javax.swing.JButton();
+        CustomerProvinceCombo = new javax.swing.JComboBox<>();
+        CustomerMonthCombo = new javax.swing.JComboBox<>();
+        CustomerDayText = new javax.swing.JTextField();
+        CustomerYearText = new javax.swing.JTextField();
+        CancelCustomerButton = new javax.swing.JButton();
 
         CustomersView.setBackground(new java.awt.Color(255, 255, 255));
         CustomersView.setPreferredSize(new java.awt.Dimension(1030, 730));
@@ -93,104 +93,127 @@ public class ScreenCustomers extends javax.swing.JPanel {
 
         jLabel2.setText("Select the action to perform");
 
-        jButton2.setText("Add Customer");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        AddCustomerButton.setText("Add Customer");
+        AddCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                AddCustomerButtonActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Search Customer");
-
-        jButton4.setText("Delete Customer");
-
-        jButton5.setText("Modify Customer");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        SearchCustomerButton.setText("Search Customer");
+        SearchCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                SearchCustomerButtonActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Customer Id:");
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        DeleteCustomerButton.setText("Delete Customer");
+        DeleteCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                DeleteCustomerButtonActionPerformed(evt);
             }
         });
 
-        jLabel4.setText("Customer Name:");
-
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        ModifyCustomerButton.setText("Modify Customer");
+        ModifyCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                ModifyCustomerButtonActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("Customer Lastname:");
+        CustomerIdLabel.setText("Customer Id:");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        CustomerIdText.setEnabled(false);
+        CustomerIdText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                CustomerIdTextActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Customer Phone:");
+        CustomerNameLabel.setText("Customer Name:");
 
-        jTextField4.setText("0");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        CustomerNameText.setEnabled(false);
+        CustomerNameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                CustomerNameTextActionPerformed(evt);
             }
         });
 
-        jLabel7.setText("Customer eMail:");
+        CustomerLastnameLabel.setText("Customer Lastname:");
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        CustomerLastnameText.setEnabled(false);
+        CustomerLastnameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                CustomerLastnameTextActionPerformed(evt);
             }
         });
 
-        jLabel8.setText("Customer Province:");
+        CustomerPhoneLabel.setText("Customer Phone:");
 
-        jLabel9.setText("Customer Canton:");
-
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        CustomerPhoneText.setText("0");
+        CustomerPhoneText.setEnabled(false);
+        CustomerPhoneText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                CustomerPhoneTextActionPerformed(evt);
             }
         });
 
-        jLabel10.setText("Customer Disctrict:");
+        CustomerMailLabel.setText("Customer eMail:");
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        CustomerMailText.setEnabled(false);
+        CustomerMailText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                CustomerMailTextActionPerformed(evt);
             }
         });
 
-        jLabel11.setText("Customer Birthdate:");
+        CustomerProvinceLabel.setText("Customer Province:");
 
-        jButton6.setText("Accept");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        CustomerCantonLabel.setText("Customer Canton:");
+
+        CustomerCantonText.setEnabled(false);
+        CustomerCantonText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                CustomerCantonTextActionPerformed(evt);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alajuela", "Cartago", "Guanacaste", "Heredia", "Puntarenas", "San Jose" }));
+        CustomerDistrictLabel.setText("Customer Disctrict:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
-
-        jTextField6.setText("01");
-
-        jTextField9.setText("1900");
-
-        jButton7.setText("Cancel");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        CustomerDistrictText.setEnabled(false);
+        CustomerDistrictText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                CustomerDistrictTextActionPerformed(evt);
+            }
+        });
+
+        CustomerBirthdateLabel.setText("Customer Birthdate:");
+
+        AcceptCustomerButton.setText("Accept");
+        AcceptCustomerButton.setEnabled(false);
+        AcceptCustomerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AcceptCustomerButtonActionPerformed(evt);
+            }
+        });
+
+        CustomerProvinceCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alajuela", "Cartago", "Guanacaste", "Heredia", "Puntarenas", "San Jose" }));
+        CustomerProvinceCombo.setEnabled(false);
+
+        CustomerMonthCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        CustomerMonthCombo.setEnabled(false);
+
+        CustomerDayText.setText("01");
+        CustomerDayText.setEnabled(false);
+
+        CustomerYearText.setText("1900");
+        CustomerYearText.setEnabled(false);
+
+        CancelCustomerButton.setText("Cancel");
+        CancelCustomerButton.setEnabled(false);
+        CancelCustomerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelCustomerButtonActionPerformed(evt);
             }
         });
 
@@ -207,13 +230,13 @@ public class ScreenCustomers extends javax.swing.JPanel {
                         .addGap(237, 237, 237)
                         .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(CustomersViewLayout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(AddCustomerButton)
                                 .addGap(3, 3, 3)
-                                .addComponent(jButton3)
+                                .addComponent(SearchCustomerButton)
                                 .addGap(10, 10, 10)
-                                .addComponent(jButton5)
+                                .addComponent(ModifyCustomerButton)
                                 .addGap(7, 7, 7)
-                                .addComponent(jButton4))
+                                .addComponent(DeleteCustomerButton))
                             .addGroup(CustomersViewLayout.createSequentialGroup()
                                 .addGap(169, 169, 169)
                                 .addComponent(jLabel2)))))
@@ -226,52 +249,52 @@ public class ScreenCustomers extends javax.swing.JPanel {
                         .addGap(412, 412, 412)
                         .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(CustomersViewLayout.createSequentialGroup()
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CustomerDayText, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(CustomerMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(CustomersViewLayout.createSequentialGroup()
-                                .addComponent(jButton6)
+                                .addComponent(AcceptCustomerButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton7))))
+                                .addComponent(CancelCustomerButton))))
                     .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(CustomersViewLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(CustomerYearText, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CustomersViewLayout.createSequentialGroup()
                             .addGap(411, 411, 411)
                             .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(CustomersViewLayout.createSequentialGroup()
                                     .addGap(33, 33, 33)
-                                    .addComponent(jLabel3))
-                                .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                    .addComponent(CustomerIdLabel))
+                                .addComponent(CustomerNameText, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                .addComponent(CustomerIdText, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                .addComponent(CustomerLastnameText, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                .addComponent(CustomerPhoneText, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                .addComponent(CustomerMailText, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                .addComponent(CustomerCantonText, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                .addComponent(CustomerDistrictText, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                                 .addGroup(CustomersViewLayout.createSequentialGroup()
                                     .addGap(14, 14, 14)
                                     .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel8)
+                                        .addComponent(CustomerProvinceLabel)
                                         .addGroup(CustomersViewLayout.createSequentialGroup()
                                             .addGap(6, 6, 6)
-                                            .addComponent(jLabel9))
-                                        .addComponent(jLabel10)
-                                        .addComponent(jLabel11)))
+                                            .addComponent(CustomerCantonLabel))
+                                        .addComponent(CustomerDistrictLabel)
+                                        .addComponent(CustomerBirthdateLabel)))
                                 .addGroup(CustomersViewLayout.createSequentialGroup()
                                     .addGap(22, 22, 22)
-                                    .addComponent(jLabel4))
+                                    .addComponent(CustomerNameLabel))
                                 .addGroup(CustomersViewLayout.createSequentialGroup()
                                     .addGap(14, 14, 14)
-                                    .addComponent(jLabel5))
+                                    .addComponent(CustomerLastnameLabel))
                                 .addGroup(CustomersViewLayout.createSequentialGroup()
                                     .addGap(21, 21, 21)
-                                    .addComponent(jLabel6))
+                                    .addComponent(CustomerPhoneLabel))
                                 .addGroup(CustomersViewLayout.createSequentialGroup()
                                     .addGap(23, 23, 23)
-                                    .addComponent(jLabel7))
-                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(CustomerMailLabel))
+                                .addComponent(CustomerProvinceCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         CustomersViewLayout.setVerticalGroup(
@@ -286,53 +309,53 @@ public class ScreenCustomers extends javax.swing.JPanel {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3)
-                            .addComponent(jButton5)
-                            .addComponent(jButton4))))
+                            .addComponent(AddCustomerButton)
+                            .addComponent(SearchCustomerButton)
+                            .addComponent(ModifyCustomerButton)
+                            .addComponent(DeleteCustomerButton))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
+                .addComponent(CustomerIdLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CustomerIdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
+                .addComponent(CustomerNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
+                .addComponent(CustomerLastnameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CustomerLastnameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
+                .addComponent(CustomerPhoneLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CustomerPhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
+                .addComponent(CustomerMailLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CustomerMailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8)
+                .addComponent(CustomerProvinceLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CustomerProvinceCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel9)
+                .addComponent(CustomerCantonLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CustomerCantonText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel10)
+                .addComponent(CustomerDistrictLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CustomerDistrictText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel11)
+                .addComponent(CustomerBirthdateLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CustomerMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CustomerDayText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CustomerYearText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7))
+                    .addComponent(AcceptCustomerButton)
+                    .addComponent(CancelCustomerButton))
                 .addGap(95, 95, 95))
         );
 
@@ -364,50 +387,100 @@ public class ScreenCustomers extends javax.swing.JPanel {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView.png")));
     }//GEN-LAST:event_jButton1MouseExited
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void AddCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCustomerButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        //Set the ButtonFlags
+        add_flag = true;
+        search_flag = false;
+        modify_flag = false;
+        delete_flag = false;
+        
+        //Set the Buttons visibility
+        CustomerIdText.setEnabled(false);
+        CustomerNameText.setEnabled(true);
+        CustomerLastnameText.setEnabled(true);
+        CustomerPhoneText.setEnabled(true);
+        CustomerMailText.setEnabled(true);
+        CustomerProvinceCombo.setEnabled(true);
+        CustomerCantonText.setEnabled(true);
+        CustomerDistrictText.setEnabled(true);
+        CustomerDayText.setEnabled(true);
+        CustomerMonthCombo.setEnabled(true);
+        CustomerYearText.setEnabled(true);
+        AcceptCustomerButton.setEnabled(true);
+        CancelCustomerButton.setEnabled(true);
+        
+        AddCustomerButton.setEnabled(false);
+        SearchCustomerButton.setEnabled(false);
+        ModifyCustomerButton.setEnabled(false);
+        DeleteCustomerButton.setEnabled(false);
+    }//GEN-LAST:event_AddCustomerButtonActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void ModifyCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyCustomerButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+        //Set the ButtonFlags
+        modify_flag = true;
+        add_flag = false;
+        search_flag = false;
+        delete_flag = false;
+        
+        //Set the Buttons visibility
+        CustomerIdText.setEnabled(true);
+        CustomerNameText.setEnabled(true);
+        CustomerLastnameText.setEnabled(true);
+        CustomerPhoneText.setEnabled(true);
+        CustomerMailText.setEnabled(true);
+        CustomerProvinceCombo.setEnabled(true);
+        CustomerCantonText.setEnabled(true);
+        CustomerDistrictText.setEnabled(true);
+        CustomerDayText.setEnabled(true);
+        CustomerMonthCombo.setEnabled(true);
+        CustomerYearText.setEnabled(true);
+        AcceptCustomerButton.setEnabled(true);
+        CancelCustomerButton.setEnabled(true);
+        
+        AddCustomerButton.setEnabled(false);
+        SearchCustomerButton.setEnabled(false);
+        ModifyCustomerButton.setEnabled(false);
+        DeleteCustomerButton.setEnabled(false);
+    }//GEN-LAST:event_ModifyCustomerButtonActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void CustomerIdTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerIdTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_CustomerIdTextActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void CustomerNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerNameTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_CustomerNameTextActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void CustomerLastnameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerLastnameTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_CustomerLastnameTextActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void CustomerPhoneTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerPhoneTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_CustomerPhoneTextActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void CustomerMailTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerMailTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_CustomerMailTextActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void CustomerCantonTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerCantonTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_CustomerCantonTextActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void CustomerDistrictTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerDistrictTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_CustomerDistrictTextActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void AcceptCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AcceptCustomerButtonActionPerformed
         // TODO add your handling code here:
         
         //THIS IS FOR THE ADD OPTION
         
         //Collect data from the TextFields and ComboBoxes and Validate
         //Name
-        String name = jTextField2.getText();
+        String name = CustomerNameText.getText();
         if(name.equals("")){
             JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Name");
             return;
@@ -415,7 +488,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
         name = name.trim();
         
         //Lastname
-        String lastname = jTextField3.getText();
+        String lastname = CustomerLastnameText.getText();
         if(lastname.equals("")){
             JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Lastname");
             return;
@@ -423,7 +496,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
         lastname = lastname.trim();
         
         //Phone
-        String phone_valid = jTextField4.getText();
+        String phone_valid = CustomerPhoneText.getText();
         boolean result = isNumeric(phone_valid);
         if(result == false){
             JOptionPane.showMessageDialog(null, "The phone number must be numeric");
@@ -440,7 +513,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
         int phone = Integer.parseInt(phone_valid);
         
         //eMail
-        String email = jTextField5.getText();
+        String email = CustomerMailText.getText();
         if(email.equals("")){
             JOptionPane.showMessageDialog(null, "You need to complete this data: Customer eMail");
             return;
@@ -454,10 +527,10 @@ public class ScreenCustomers extends javax.swing.JPanel {
         }
         
         //Province (Don't need to be validated)
-        String province = jComboBox1.getSelectedItem().toString();
+        String province = CustomerProvinceCombo.getSelectedItem().toString();
         
         //Canton
-        String canton = jTextField7.getText();
+        String canton = CustomerCantonText.getText();
         if(canton.equals("")){
             JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Canton");
             return;
@@ -465,7 +538,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
         canton = canton.trim();
         
         //District
-        String district = jTextField8.getText();
+        String district = CustomerDistrictText.getText();
         if(district.equals("")){
             JOptionPane.showMessageDialog(null, "You need to complete this data: Customer District");
             return;
@@ -473,9 +546,9 @@ public class ScreenCustomers extends javax.swing.JPanel {
         district = district.trim();
         
         //Birthdate (And build the Date)
-        int day = Integer.parseInt(jTextField6.getText());
-        int month = Integer.parseInt(jComboBox2.getSelectedItem().toString());
-        int year = Integer.parseInt(jTextField9.getText());
+        int day = Integer.parseInt(CustomerDayText.getText());
+        int month = Integer.parseInt(CustomerMonthCombo.getSelectedItem().toString());
+        int year = Integer.parseInt(CustomerYearText.getText());
         
         boolean pass_flag = true;
         switch(month){
@@ -643,16 +716,115 @@ public class ScreenCustomers extends javax.swing.JPanel {
         
         //Add the object to the ArrayList
         customers_list.add(new_object);
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_AcceptCustomerButtonActionPerformed
 
         
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void CancelCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelCustomerButtonActionPerformed
         // TODO add your handling code here:
+        
+        int confirm_cancel = JOptionPane.showConfirmDialog(null, "Are you sure to cancel?");
+        if(confirm_cancel == 0){
+            //Set the ButtonFlags
+            search_flag = false;
+            add_flag = false;
+            modify_flag = false;
+            delete_flag = false;
+        
+            //Set the Buttons visibility
+            CustomerIdText.setEnabled(false);
+            CustomerNameText.setEnabled(false);
+            CustomerLastnameText.setEnabled(false);
+            CustomerPhoneText.setEnabled(false);
+            CustomerMailText.setEnabled(false);
+            CustomerProvinceCombo.setEnabled(false);
+            CustomerCantonText.setEnabled(false);
+            CustomerDistrictText.setEnabled(false);
+            CustomerDayText.setEnabled(false);
+            CustomerMonthCombo.setEnabled(false);
+            CustomerYearText.setEnabled(false);
+            AcceptCustomerButton.setEnabled(false);
+            CancelCustomerButton.setEnabled(false);
+            
+            AddCustomerButton.setEnabled(true);
+            SearchCustomerButton.setEnabled(true);
+            ModifyCustomerButton.setEnabled(true);
+            DeleteCustomerButton.setEnabled(true);
+            
+            //Set the default Text
+            CustomerIdText.setText("");
+            CustomerNameText.setText("");
+            CustomerLastnameText.setText("");
+            CustomerPhoneText.setText("0");
+            CustomerMailText.setText("");
+            CustomerCantonText.setText("");
+            CustomerDistrictText.setText("");
+            CustomerDayText.setText("01");
+            CustomerYearText.setText("1900");
+        }
+
         System.out.println(customers_list);
         for(customer_class s:customers_list){
             System.out.println(s.getCustomer_birthdate());
         }
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_CancelCustomerButtonActionPerformed
+
+    private void SearchCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchCustomerButtonActionPerformed
+        // TODO add your handling code here:
+        //Set the ButtonFlags
+        search_flag = true;
+        add_flag = false;
+        modify_flag = false;
+        delete_flag = false;
+        
+        //Set the Buttons visibility
+        CustomerIdText.setEnabled(true);
+        CustomerNameText.setEnabled(true);
+        CustomerLastnameText.setEnabled(false);
+        CustomerPhoneText.setEnabled(false);
+        CustomerMailText.setEnabled(false);
+        CustomerProvinceCombo.setEnabled(false);
+        CustomerCantonText.setEnabled(false);
+        CustomerDistrictText.setEnabled(false);
+        CustomerDayText.setEnabled(false);
+        CustomerMonthCombo.setEnabled(false);
+        CustomerYearText.setEnabled(false);
+        AcceptCustomerButton.setEnabled(true);
+        CancelCustomerButton.setEnabled(true);
+        
+        AddCustomerButton.setEnabled(false);
+        SearchCustomerButton.setEnabled(false);
+        ModifyCustomerButton.setEnabled(false);
+        DeleteCustomerButton.setEnabled(false);
+    }//GEN-LAST:event_SearchCustomerButtonActionPerformed
+
+    private void DeleteCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCustomerButtonActionPerformed
+        // TODO add your handling code here:
+        //Set the ButtonFlags
+        delete_flag = true;
+        add_flag = false;
+        search_flag = false;
+        modify_flag = false;
+        
+        //Set the Buttons visibility
+        CustomerIdText.setEnabled(true);
+        CustomerNameText.setEnabled(true);
+        CustomerLastnameText.setEnabled(false);
+        CustomerPhoneText.setEnabled(false);
+        CustomerMailText.setEnabled(false);
+        CustomerProvinceCombo.setEnabled(false);
+        CustomerCantonText.setEnabled(false);
+        CustomerDistrictText.setEnabled(false);
+        CustomerDayText.setEnabled(false);
+        CustomerMonthCombo.setEnabled(false);
+        CustomerYearText.setEnabled(false);
+        AcceptCustomerButton.setEnabled(true);
+        CancelCustomerButton.setEnabled(true);
+        
+        AddCustomerButton.setEnabled(false);
+        SearchCustomerButton.setEnabled(false);
+        ModifyCustomerButton.setEnabled(false);
+        DeleteCustomerButton.setEnabled(false);
+    }//GEN-LAST:event_DeleteCustomerButtonActionPerformed
                                        
     private static void borrarPanel(JPanel panel) {
         panel.removeAll();
@@ -677,38 +849,42 @@ public class ScreenCustomers extends javax.swing.JPanel {
         }
     }
     
+    boolean add_flag = false;
+    boolean search_flag = false;
+    boolean modify_flag = false;
+    boolean delete_flag = false;
     ArrayList<customer_class> customers_list = new ArrayList<>();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AcceptCustomerButton;
+    private javax.swing.JButton AddCustomerButton;
+    private javax.swing.JButton CancelCustomerButton;
+    private javax.swing.JLabel CustomerBirthdateLabel;
+    private javax.swing.JLabel CustomerCantonLabel;
+    private javax.swing.JTextField CustomerCantonText;
+    private javax.swing.JTextField CustomerDayText;
+    private javax.swing.JLabel CustomerDistrictLabel;
+    private javax.swing.JTextField CustomerDistrictText;
+    private javax.swing.JLabel CustomerIdLabel;
+    private javax.swing.JTextField CustomerIdText;
+    private javax.swing.JLabel CustomerLastnameLabel;
+    private javax.swing.JTextField CustomerLastnameText;
+    private javax.swing.JLabel CustomerMailLabel;
+    private javax.swing.JTextField CustomerMailText;
+    private javax.swing.JComboBox<String> CustomerMonthCombo;
+    private javax.swing.JLabel CustomerNameLabel;
+    private javax.swing.JTextField CustomerNameText;
+    private javax.swing.JLabel CustomerPhoneLabel;
+    private javax.swing.JTextField CustomerPhoneText;
+    private javax.swing.JComboBox<String> CustomerProvinceCombo;
+    private javax.swing.JLabel CustomerProvinceLabel;
+    private javax.swing.JTextField CustomerYearText;
     private javax.swing.JPanel CustomersView;
+    private javax.swing.JButton DeleteCustomerButton;
+    private javax.swing.JButton ModifyCustomerButton;
+    private javax.swing.JButton SearchCustomerButton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }

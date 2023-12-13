@@ -269,9 +269,9 @@ public class Login extends javax.swing.JFrame {
                 }              
             }
             if (bandera){
-                JOptionPane.showMessageDialog(this, "Importado exitosamente");    
+                System.out.println("Importado exitosamente");    
             }else{
-                 JOptionPane.showMessageDialog(this,"Fatal Error");
+                 JOptionPane.showMessageDialog(this,"Fatal Error: Importacion");
             }
             
         } catch (Exception ex) {
