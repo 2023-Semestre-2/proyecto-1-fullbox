@@ -240,6 +240,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
     
+    
     private void loading_archive_products(){    
         String archive = Paths.get("src", "DataBase", "Archivo_CSV.csv").toString();
         System.out.println("Ruta del archivo: " + archive);
@@ -277,9 +278,9 @@ public class Login extends javax.swing.JFrame {
                 }              
             }
             if (bandera){
-                JOptionPane.showMessageDialog(this, "Importado exitosamente");    
+                System.out.println("Importado exitosamente");    
             }else{
-                 JOptionPane.showMessageDialog(this,"Fatal Error");
+                 JOptionPane.showMessageDialog(this,"Fatal Error: Importacion");
             }
             
         } catch (Exception ex) {
