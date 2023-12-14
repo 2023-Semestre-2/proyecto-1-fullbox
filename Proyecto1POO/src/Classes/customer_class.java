@@ -20,10 +20,6 @@ public class customer_class {
     private String customer_canton;
     private String customer_district;
     private Date customer_birthdate;
-
-    public customer_class() {
-    }
-    
     
     //Getter Methods
     public int getCustomer_id() {
