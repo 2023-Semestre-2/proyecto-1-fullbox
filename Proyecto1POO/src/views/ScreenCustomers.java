@@ -42,8 +42,8 @@ public class ScreenCustomers extends javax.swing.JPanel {
 
         CustomersView = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        CustomersWindowTitle = new javax.swing.JLabel();
+        CustomersWindowSubtitle = new javax.swing.JLabel();
         AddCustomerButton = new javax.swing.JButton();
         SearchCustomerButton = new javax.swing.JButton();
         DeleteCustomerButton = new javax.swing.JButton();
@@ -70,11 +70,9 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomerDayText = new javax.swing.JTextField();
         CustomerYearText = new javax.swing.JTextField();
         CancelCustomerButton = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        SearchPanelLabel = new javax.swing.JLabel();
+        SearchScrollPane = new javax.swing.JScrollPane();
         SearchTable = new javax.swing.JTable();
-        IdRadio = new javax.swing.JRadioButton();
-        NameRadio = new javax.swing.JRadioButton();
 
         CustomersView.setBackground(new java.awt.Color(255, 255, 255));
         CustomersView.setPreferredSize(new java.awt.Dimension(1030, 730));
@@ -98,10 +96,10 @@ public class ScreenCustomers extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Customers");
+        CustomersWindowTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        CustomersWindowTitle.setText("Customers");
 
-        jLabel2.setText("Select the action to perform");
+        CustomersWindowSubtitle.setText("Select the action to perform");
 
         AddCustomerButton.setText("Add Customer");
         AddCustomerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -227,24 +225,24 @@ public class ScreenCustomers extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setText("Search Panel:");
+        SearchPanelLabel.setText("Search Panel:");
 
         SearchTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Id", "Name", "Lastname", "Phone"
+                "Id", "Name", "Lastname"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -255,7 +253,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(SearchTable);
+        SearchScrollPane.setViewportView(SearchTable);
 
         javax.swing.GroupLayout CustomersViewLayout = new javax.swing.GroupLayout(CustomersView);
         CustomersView.setLayout(CustomersViewLayout);
@@ -263,15 +261,6 @@ public class ScreenCustomers extends javax.swing.JPanel {
             CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CustomersViewLayout.createSequentialGroup()
                 .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CustomersViewLayout.createSequentialGroup()
-                        .addGap(407, 407, 407)
-                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(CustomersViewLayout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabel1))
-                            .addComponent(jLabel2))
-                        .addGap(417, 417, 417)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(CustomersViewLayout.createSequentialGroup()
                         .addGap(237, 237, 237)
                         .addComponent(AddCustomerButton)
@@ -285,7 +274,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
                         .addGap(224, 224, 224)
                         .addComponent(CustomerIdLabel)
                         .addGap(358, 358, 358)
-                        .addComponent(jLabel3))
+                        .addComponent(SearchPanelLabel))
                     .addGroup(CustomersViewLayout.createSequentialGroup()
                         .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersViewLayout.createSequentialGroup()
@@ -313,11 +302,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
                                         .addComponent(CustomerBirthdateLabel)
                                         .addGap(143, 143, 143))))
                             .addGroup(CustomersViewLayout.createSequentialGroup()
-                                .addGap(75, 75, 75)
-                                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(IdRadio)
-                                    .addComponent(NameRadio))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(94, 94, 94)
                                 .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersViewLayout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
@@ -346,8 +331,18 @@ public class ScreenCustomers extends javax.swing.JPanel {
                                                     .addGap(18, 18, 18)
                                                     .addComponent(CancelCustomerButton))))
                                         .addGap(31, 31, 31)))))
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(107, 107, 107))
+                        .addComponent(SearchScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(CustomersViewLayout.createSequentialGroup()
+                .addGap(407, 407, 407)
+                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CustomersViewLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(CustomersWindowTitle))
+                    .addComponent(CustomersWindowSubtitle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94))
         );
         CustomersViewLayout.setVerticalGroup(
             CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -355,12 +350,10 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 .addGap(6, 6, 6)
                 .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CustomersViewLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(CustomersWindowTitle)
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel2))
-                    .addGroup(CustomersViewLayout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(CustomersWindowSubtitle))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(AddCustomerButton)
@@ -370,19 +363,15 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 .addGap(12, 12, 12)
                 .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CustomerIdLabel)
-                    .addComponent(jLabel3))
+                    .addComponent(SearchPanelLabel))
                 .addGap(4, 4, 4)
                 .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CustomersViewLayout.createSequentialGroup()
-                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CustomerIdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IdRadio))
+                        .addComponent(CustomerIdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CustomerNameLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NameRadio))
+                        .addComponent(CustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CustomerLastnameLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -418,7 +407,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
                         .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(AcceptCustomerButton)
                             .addComponent(CancelCustomerButton)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SearchScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(253, Short.MAX_VALUE))
         );
 
@@ -641,15 +630,21 @@ public class ScreenCustomers extends javax.swing.JPanel {
 
             //Add the object to the ArrayList and the JTable
             customers_list.add(new_object);
-            mt.addRow(new Object []{new_object.getCustomer_id(), new_object.getCustomer_name(), new_object.getCustomer_lastname(), new_object.getCustomer_phone()});
+            mt.addRow(new Object []{new_object.getCustomer_id(), new_object.getCustomer_name(), new_object.getCustomer_lastname()});
             SearchTable.updateUI();
             
-            //Reset the Textfields *****
-            
+            //Reset the Textfields ******
+            CustomerNameText.setText("");
+            CustomerLastnameText.setText("");
+            CustomerPhoneText.setText("0");
+            CustomerMailText.setText("");
+            CustomerCantonText.setText("");
+            CustomerDistrictText.setText("");
+            CustomerDayText.setText("01");
+            CustomerYearText.setText("1900");
+        
+        //THIS IS FOR THE SEARCH OPTION
         } else if(search_flag == true){
-            RadioGroup.add(IdRadio);
-            RadioGroup.add(NameRadio);
-            
             String name = CustomerNameText.getText();
             int id = Integer.parseInt(CustomerIdText.getText());
             if(id == 0 && name.equals("")){
@@ -658,10 +653,16 @@ public class ScreenCustomers extends javax.swing.JPanel {
             }
             for(customer_class customer:customers_list){
                 if(customer.getCustomer_id() == id || customer.getCustomer_name().equals(name)){
-                    JOptionPane.showMessageDialog(null, "Found");
+                    Date original_date = customer.getCustomer_birthdate();
+                    String date_of_birth = original_date.getDate()+"/"+(original_date.getMonth()+1)+"/"+(original_date.getYear()+1900);
+                    JOptionPane.showMessageDialog(null, "Information about the Customer:\nId: "+customer.getCustomer_id()+"\nName: "+customer.getCustomer_name()+"\nLastname: "+customer.getCustomer_lastname()+"\nPhone: "+customer.getCustomer_phone()+"\neMail: "+customer.getCustomer_email()+"\nProvince: "+customer.getCustomer_province()+"\nCanton: "+customer.getCustomer_canton()+"\nDistrict: "+customer.getCustomer_district()+"\nBirthdate: "+date_of_birth);
+                    //Reset the Textfields ******
+                    CustomerIdText.setText("0");
+                    CustomerNameText.setText("");
                     return;
                 }
             }
+            JOptionPane.showMessageDialog(null, "Not found");
             
         } else if(modify_flag == true){
             
@@ -734,8 +735,8 @@ public class ScreenCustomers extends javax.swing.JPanel {
         delete_flag = false;
         
         //Set the Buttons visibility
-        CustomerIdText.setEnabled(false);
-        CustomerNameText.setEnabled(false);
+        CustomerIdText.setEnabled(true);
+        CustomerNameText.setEnabled(true);
         CustomerLastnameText.setEnabled(false);
         CustomerPhoneText.setEnabled(false);
         CustomerMailText.setEnabled(false);
@@ -793,7 +794,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
         SearchTable.setModel(mt);
         
         for(customer_class customer:customers_list){
-            mt.addRow(new Object []{customer.getCustomer_id(), customer.getCustomer_name(), customer.getCustomer_lastname(), customer.getCustomer_phone()});
+            mt.addRow(new Object []{customer.getCustomer_id(), customer.getCustomer_name(), customer.getCustomer_lastname()});
             SearchTable.updateUI();
         }
     }//GEN-LAST:event_DeleteCustomerButtonActionPerformed
@@ -989,8 +990,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
     boolean delete_flag = false;
     ArrayList<customer_class> customers_list = new ArrayList<>();
     DefaultTableModel mt = new DefaultTableModel();
-    String ids [] = {"Id", "Name", "Lastname", "Phone"};
-    public ButtonGroup RadioGroup = new ButtonGroup();
+    String ids [] = {"Id", "Name", "Lastname"};
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AcceptCustomerButton;
@@ -1017,16 +1017,14 @@ public class ScreenCustomers extends javax.swing.JPanel {
     private javax.swing.JLabel CustomerProvinceLabel;
     private javax.swing.JTextField CustomerYearText;
     private javax.swing.JPanel CustomersView;
+    private javax.swing.JLabel CustomersWindowSubtitle;
+    private javax.swing.JLabel CustomersWindowTitle;
     private javax.swing.JButton DeleteCustomerButton;
-    private javax.swing.JRadioButton IdRadio;
     private javax.swing.JButton ModifyCustomerButton;
-    private javax.swing.JRadioButton NameRadio;
     private javax.swing.JButton SearchCustomerButton;
+    private javax.swing.JLabel SearchPanelLabel;
+    private javax.swing.JScrollPane SearchScrollPane;
     private javax.swing.JTable SearchTable;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
