@@ -242,7 +242,7 @@ public class Login extends javax.swing.JFrame {
     
     
     private void loading_archive_products(){    
-        String archive = Paths.get("src", "DataBase", "Archivo_CSV.csv").toString();
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV_ITEMS.csv").toString();
         System.out.println("Ruta del archivo: " + archive);
         FileReader fr = null;
         BufferedReader br = null;

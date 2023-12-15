@@ -692,7 +692,7 @@ public class ScreenProducts extends javax.swing.JPanel {
     
     
     private void Add_item_products(){
-        String archive = Paths.get("src", "DataBase", "Archivo_CSV.csv").toString();
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV_ITEMS.csv").toString();
         FileWriter fw = null;
         PrintWriter pw = null;
         
@@ -811,13 +811,19 @@ public class ScreenProducts extends javax.swing.JPanel {
         if(modify_type_item != "Bicycle"){
              modify_size_item = 0.0;}
 
-         for(item_class A: main_class.items){
-            if(A.getName_item().equals(modify_name_item)){
-                if(modify_id_item != Modify.getId_item())
-                    register = true;
-                    break;}         
+         for (item_class A : main_class.items) {
+            if (A.getId_item() == modify_id_item && A.getName_item().equals(modify_name_item)) {
+                // El objeto con el mismo id y nombre ya existe
+                register = false;
+                break;
             }
-            
+            // Si no encuentras un objeto con el mismo id, puedes permitir el mismo nombre
+            if (A.getId_item() == modify_id_item) {
+                register = true;
+            }
+           }
+                     
+
             if(register){
                 JOptionPane.showMessageDialog(this,"This Name Already Exists ");  
                 return;
@@ -881,7 +887,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         } 
         
         
-        if (create_button = true) {
+        if (create_button == true) {
             Create_item_products();
             System.out.println("Botón 1 está habilitado. Realizar acciones para boton3.");
             
