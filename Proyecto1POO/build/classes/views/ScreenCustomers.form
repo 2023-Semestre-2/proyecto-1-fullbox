@@ -42,22 +42,6 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="237" pref="237" max="-2" attributes="0"/>
-                          <Component id="AddCustomerButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                          <Component id="SearchCustomerButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="ModifyCustomerButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                          <Component id="DeleteCustomerButton" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
-                          <Component id="CustomerIdLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="358" max="-2" attributes="0"/>
-                          <Component id="SearchPanelLabel" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
@@ -133,6 +117,24 @@
                           </Group>
                           <Component id="SearchScrollPane" min="-2" pref="450" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
+                              <Component id="CustomerIdLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="DirectoryPanelLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="237" pref="237" max="-2" attributes="0"/>
+                              <Component id="AddCustomerButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                              <Component id="SearchCustomerButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Component id="ModifyCustomerButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                              <Component id="DeleteCustomerButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
                   <EmptySpace min="206" max="32767" attributes="0"/>
               </Group>
@@ -173,7 +175,7 @@
                   <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="CustomerIdLabel" min="-2" max="-2" attributes="0"/>
-                      <Component id="SearchPanelLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="DirectoryPanelLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -342,7 +344,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="CustomerPhoneText">
           <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -470,9 +471,9 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CancelCustomerButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="SearchPanelLabel">
+        <Component class="javax.swing.JLabel" name="DirectoryPanelLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Search Panel:"/>
+            <Property name="text" type="java.lang.String" value="Directory Panel:"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="SearchScrollPane">
