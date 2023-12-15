@@ -1094,7 +1094,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
     }
     
     private void AddItemProducts(){
-        String archive = Paths.get("src", "DataBase", "Archivo_CSV.csv").toString();
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV_Customers.csv").toString();
         FileWriter fw = null;
         PrintWriter pw = null;
         
