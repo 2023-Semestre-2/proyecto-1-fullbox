@@ -1093,7 +1093,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
         SearchTable.updateUI();
     }
     
-    private void Add_item_products(){
+    private void AddItemProducts(){
         String archive = Paths.get("src", "DataBase", "Archivo_CSV.csv").toString();
         FileWriter fw = null;
         PrintWriter pw = null;
