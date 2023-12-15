@@ -18,20 +18,34 @@ import java.util.logging.Logger;
  *
  * @author jonns
  */
+
 public class ScreenProducts extends javax.swing.JPanel {
 
     /**
      * Creates new form ScreenProducts
      */
+    boolean modify_button;
+    boolean delete_button;
+    
     public ScreenProducts() {
         initComponents();
         Search.setVisible(false);
         Size.setVisible(false);
         Size_Label.setVisible(false);
+        modify_button = false;
+         delete_button = false;
+        
         
     }
+    public boolean getmodify_button(){
+        return modify_button;
+    }
+    
+    public boolean getdelete_button(){
+        return delete_button;
+    }
 
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -555,20 +569,58 @@ public class ScreenProducts extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Delete_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete_ItemActionPerformed
+        int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",  
+                "Search",  
+                JOptionPane.YES_NO_OPTION,   // Tipo de opción (sí/no)
+                JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje (pregunta)
+                null,                        // Icono personalizado (en este caso, ninguno)
+                new Object[]{"ID", "NAME"}, // Texto de los botones
+                "Botón 1");                    // Botón predeterminado
+        
         Create_Item.setEnabled(false);
         Search_Item.setEnabled(false);
         Modify_Item.setEnabled(false);
-        Item_Id.setEnabled(true);
+        Delete_Item.setEnabled(false);
+        delete_button = true;
+        
+        if(opcion == 1){
+            Item_Name.setEnabled(true);
+        }else{
+            Item_Id.setEnabled(true);
+              
+        }
         Search.setVisible(true);
         Search.setEnabled(true);
         Cancel_Item.setEnabled(true);
     }//GEN-LAST:event_Delete_ItemActionPerformed
+     
 
+    
+    
+    
     private void Modify_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modify_ItemActionPerformed
+        int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",  
+                "Search",  
+                JOptionPane.YES_NO_OPTION,   // Tipo de opción (sí/no)
+                JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje (pregunta)
+                null,                        // Icono personalizado (en este caso, ninguno)
+                new Object[]{"ID", "NAME"}, // Texto de los botones
+                "Botón 1");                    // Botón predeterminado
+        
         Create_Item.setEnabled(false);
         Search_Item.setEnabled(false);
         Delete_Item.setEnabled(false);
-        Item_Id.setEnabled(true);
+        Modify_Item.setEnabled(false);
+        modify_button = true;
+        
+        
+
+        if(opcion == 1){
+            Item_Name.setEnabled(true);
+        }else{
+            Item_Id.setEnabled(true);
+              
+        }
         Search.setVisible(true);
         Search.setEnabled(true);
         Cancel_Item.setEnabled(true);
@@ -628,10 +680,24 @@ public class ScreenProducts extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1MouseEntered
 
     private void Search_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_ItemActionPerformed
+        int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",  
+                "Search",  
+                JOptionPane.YES_NO_OPTION,   // Tipo de opción (sí/no)
+                JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje (pregunta)
+                null,                        // Icono personalizado (en este caso, ninguno)
+                new Object[]{"ID", "NAME"}, // Texto de los botones
+                "Botón 1");                    // Botón predeterminado
         Create_Item.setEnabled(false);
         Modify_Item.setEnabled(false);
         Delete_Item.setEnabled(false);
-        Item_Id.setEnabled(true);
+        Search_Item.setEnabled(false);
+        
+        if(opcion == 1){
+            Item_Name.setEnabled(true);
+        }else{
+            Item_Id.setEnabled(true);
+              
+        }
         Search.setVisible(true);
         Search.setEnabled(true);
         Cancel_Item.setEnabled(true);
@@ -852,12 +918,12 @@ public class ScreenProducts extends javax.swing.JPanel {
         } else if (Search_Item.isEnabled()) {
             System.out.println("Botón 2 está habilitado. Realizar acciones para boton2.");
             
-        } else if (Modify_Item.isEnabled()) {
+        } else if (modify_button == true) {
             Modify_item_products(Modify);
             Add_item_products();
+            modify_button = false;
             System.out.println("Botón 3 está habilitado. Realizar acciones para boton3.");
-        } else if (Delete_Item.isEnabled()) {
-            
+        } else if (delete_button == true) {
             System.out.println("Botón 4 está habilitado. Realizar acciones para boton3.");
             boolean result = Delete_item_products();
             if (result == false){
@@ -887,6 +953,8 @@ public class ScreenProducts extends javax.swing.JPanel {
         
         Accept_Item.setEnabled(false);
         Cancel_Item.setEnabled(false);
+        modify_button = false;
+        delete_button = false;
 
 
     }//GEN-LAST:event_Accept_ItemActionPerformed
@@ -911,19 +979,28 @@ public class ScreenProducts extends javax.swing.JPanel {
     
     private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
         
-        String textFromTextField = Item_Id.getText();
+        String textFromTextField_id = Item_Id.getText();
+        String textFromTextField_name = Item_Name.getText();
+        int id_item = 0;
+        String item_name = "f";
         Modify = null;
-        if (textFromTextField.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Article Code Without Text");
+        if (textFromTextField_id.isEmpty() && textFromTextField_name.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Item Code Without Text");
             return; 
         } 
-        int id_item = Integer.parseInt(textFromTextField);
+        if  (!textFromTextField_id.isEmpty()){
+            id_item = Integer.parseInt(textFromTextField_id);
+        }
+        if  (!textFromTextField_name.isEmpty()){
+            item_name = String.valueOf(textFromTextField_name);
+        }
         Boolean flag_found = false;
         
                 //System.out.println(main_class.products.get(0));
         for (int i = 0; i < main_class.items.size(); i++) {
-            item_class item = main_class.items.get(i);   
-            if(id_item == item.getId_item()){
+            item_class item = main_class.items.get(i);
+            
+            if(id_item == item.getId_item() || item_name.equals(item.getName_item())){
                 JOptionPane.showMessageDialog(this, "Found");
                 flag_found = true;
                 System.out.println("Id_product:" + item.getId_item());
@@ -935,7 +1012,7 @@ public class ScreenProducts extends javax.swing.JPanel {
                         Size.setVisible(true);
                         Size_Label.setVisible(true);   
                 }
-                if (Modify_Item.isEnabled()){
+                if (modify_button == true){
                     Modify = item;
                     Item_Id.setEnabled(false);
                     Search.setEnabled(false);
@@ -957,6 +1034,7 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Accept_Item.setEnabled(true);
                 Cancel_Item.setEnabled(true);
                 Search.setEnabled(false);
+                
                 break;
             }
         }
