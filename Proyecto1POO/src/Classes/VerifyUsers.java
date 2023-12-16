@@ -5,73 +5,85 @@
 
 package Classes;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.nio.file.Paths;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import main.MainMenu;
-
 /**
  *
- * @author saimo
+ * @author saymon
  */
+
 public class VerifyUsers {
+
     private String username;
     private String password;
     private boolean remember;
     public boolean pass = false;
-    
+
     public VerifyUsers(String username, String password, boolean remember) {
         this.username = username;
         this.password = password;
         this.remember = remember;
-        String rutabd = Paths.get("src", "DataBase", "usuarios.accdb").toString();
-        String url = "jdbc:ucanaccess://" + rutabd;
-        try (Connection connection = DriverManager.getConnection(url)) {
-            String requestSQL = "SELECT * FROM BaseDeDatos WHERE USERNAME=?";
-            try (PreparedStatement UserStatement = connection.prepareStatement(requestSQL)) {
-                UserStatement.setString(1, username);
-                try (ResultSet resultSet = UserStatement.executeQuery()) {
-                    if (resultSet.next()) {
-                        if ((resultSet.getBoolean("rememberMe"))) {
+        String csvFilePath = Paths.get("src", "DataBase", "usuarios.csv").toString();
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFilePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(",");
+                if (data[0].equals(username) && data[1].equals(password)) {
+                    if (Boolean.parseBoolean(data[2])) {
+                        this.pass = true;
+                        MainMenu open = new MainMenu();
+                        open.setUsernameText(username);
+                        open.setVisible(true);
+                    } else {
+                        String storedPassword = data[1];
+                        if (password.equals(storedPassword)) {
+                            if (remember) {
+                                updateRememberMeFlag(data, true);
+                            }
                             this.pass = true;
                             MainMenu open = new MainMenu();
                             open.setUsernameText(username);
                             open.setVisible(true);
-                        }else{
-                            String storedPassword = resultSet.getString("Password");
-                            if (password.equals(storedPassword)) {
-                                if (remember && !resultSet.getBoolean("rememberMe")) {
-                                    updateRememberMeFlag(connection, true);
-                                }
-                                    this.pass = true;
-                                    MainMenu open = new MainMenu();
-                                    open.setUsernameText(username);
-                                    open.setVisible(true);
-                                  
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Username/Password not found");
-                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Username/Password not found");
                         }
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Username/Password not found");
                     }
                 }
             }
-        } catch (SQLException e) {
+        } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Username/Password not found");
         }
     }
-    private void updateRememberMeFlag(Connection connection, boolean value) throws SQLException {
-        String updateRememberMeSQL = "UPDATE BaseDeDatos SET rememberMe=? WHERE Username=?";
-        try (PreparedStatement updateStatement = connection.prepareStatement(updateRememberMeSQL)) {
-            updateStatement.setBoolean(1, value);
-            updateStatement.setString(2, username);
-            updateStatement.executeUpdate();
+
+    private void updateRememberMeFlag(String[] data, boolean value) {
+        List<String> lines = new ArrayList<>();
+        String csvFilePath = Paths.get("src", "DataBase", "usuarios.csv").toString();
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFilePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.startsWith(username)) {
+                    line = String.join(",", data[0], data[1], String.valueOf(value));
+                }
+                lines.add(line);
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Error updating remember me flag");
+        }
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(csvFilePath))) {
+            for (String line : lines) {
+                bw.write(line);
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Error updating remember me flag");
         }
     }
-    
 }
