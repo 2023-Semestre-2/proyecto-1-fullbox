@@ -375,7 +375,7 @@ public class Login extends javax.swing.JFrame {
         String UsernameString = UsernameText.getText();
         Arrays.fill(passwordChar, ' ');
         if (UsernameString.isEmpty()) {
-           JOptionPane.showMessageDialog(null,"Debe ingresar un Username valido.");
+           JOptionPane.showMessageDialog(null,"Username/Password not found");
            UsernameText.requestFocus();
         } else {
             Boolean isCheck = jCheckBox1.isSelected();

@@ -8,6 +8,9 @@ import Classes.customer_class;
 import Classes.item_class;
 import Classes.main_class;
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
@@ -77,6 +80,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
         DirectoryPanelLabel = new javax.swing.JLabel();
         SearchScrollPane = new javax.swing.JScrollPane();
         SearchTable = new javax.swing.JTable();
+        ModifyDirectLabel = new javax.swing.JLabel();
 
         CustomersView.setBackground(new java.awt.Color(255, 255, 255));
         CustomersView.setPreferredSize(new java.awt.Dimension(1030, 730));
@@ -258,12 +262,42 @@ public class ScreenCustomers extends javax.swing.JPanel {
         });
         SearchScrollPane.setViewportView(SearchTable);
 
+        ModifyDirectLabel.setForeground(new java.awt.Color(255, 255, 255));
+        ModifyDirectLabel.setText("Reference to search and modify →");
+
         javax.swing.GroupLayout CustomersViewLayout = new javax.swing.GroupLayout(CustomersView);
         CustomersView.setLayout(CustomersViewLayout);
         CustomersViewLayout.setHorizontalGroup(
             CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CustomersViewLayout.createSequentialGroup()
+                .addGap(407, 407, 407)
                 .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CustomersViewLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(CustomersWindowTitle))
+                    .addComponent(CustomersWindowSubtitle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94))
+            .addGroup(CustomersViewLayout.createSequentialGroup()
+                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(CustomersViewLayout.createSequentialGroup()
+                            .addGap(26, 26, 26)
+                            .addComponent(ModifyDirectLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(CustomerIdLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(DirectoryPanelLabel))
+                        .addGroup(CustomersViewLayout.createSequentialGroup()
+                            .addGap(237, 237, 237)
+                            .addComponent(AddCustomerButton)
+                            .addGap(3, 3, 3)
+                            .addComponent(SearchCustomerButton)
+                            .addGap(10, 10, 10)
+                            .addComponent(ModifyCustomerButton)
+                            .addGap(7, 7, 7)
+                            .addComponent(DeleteCustomerButton)))
                     .addGroup(CustomersViewLayout.createSequentialGroup()
                         .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersViewLayout.createSequentialGroup()
@@ -320,33 +354,8 @@ public class ScreenCustomers extends javax.swing.JPanel {
                                                     .addGap(18, 18, 18)
                                                     .addComponent(CancelCustomerButton))))
                                         .addGap(31, 31, 31)))))
-                        .addComponent(SearchScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(CustomersViewLayout.createSequentialGroup()
-                            .addGap(224, 224, 224)
-                            .addComponent(CustomerIdLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(DirectoryPanelLabel))
-                        .addGroup(CustomersViewLayout.createSequentialGroup()
-                            .addGap(237, 237, 237)
-                            .addComponent(AddCustomerButton)
-                            .addGap(3, 3, 3)
-                            .addComponent(SearchCustomerButton)
-                            .addGap(10, 10, 10)
-                            .addComponent(ModifyCustomerButton)
-                            .addGap(7, 7, 7)
-                            .addComponent(DeleteCustomerButton))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(CustomersViewLayout.createSequentialGroup()
-                .addGap(407, 407, 407)
-                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CustomersViewLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(CustomersWindowTitle))
-                    .addComponent(CustomersWindowSubtitle))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94))
+                        .addComponent(SearchScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(206, Short.MAX_VALUE))
         );
         CustomersViewLayout.setVerticalGroup(
             CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -366,7 +375,9 @@ public class ScreenCustomers extends javax.swing.JPanel {
                     .addComponent(DeleteCustomerButton))
                 .addGap(12, 12, 12)
                 .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CustomerIdLabel)
+                    .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(CustomerIdLabel)
+                        .addComponent(ModifyDirectLabel))
                     .addComponent(DirectoryPanelLabel))
                 .addGap(4, 4, 4)
                 .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -465,6 +476,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomerYearText.setEnabled(true);
         AcceptCustomerButton.setEnabled(true);
         CancelCustomerButton.setEnabled(true);
+        ModifyDirectLabel.setForeground(Color.white);
         
         AddCustomerButton.setEnabled(false);
         SearchCustomerButton.setEnabled(false);
@@ -494,6 +506,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomerYearText.setEnabled(true);
         AcceptCustomerButton.setEnabled(true);
         CancelCustomerButton.setEnabled(true);
+        ModifyDirectLabel.setForeground(Color.black);
         
         AddCustomerButton.setEnabled(false);
         SearchCustomerButton.setEnabled(false);
@@ -677,6 +690,9 @@ public class ScreenCustomers extends javax.swing.JPanel {
             mt.addRow(new Object []{new_object.getCustomer_id(), new_object.getCustomer_name(), new_object.getCustomer_lastname()});
             SearchTable.updateUI();
             
+            //Add items to the CSV file
+            WriteCSV();
+            
             //Reset the Textfields ******
             CustomerNameText.setText("");
             CustomerLastnameText.setText("");
@@ -725,6 +741,142 @@ public class ScreenCustomers extends javax.swing.JPanel {
             
         //THIS IS FOR THE MODIFY OPTION
         } else if(modify_flag == true){
+            //SEARCH THE ID
+            boolean pass_flag = false;
+            int original_id = 0;
+            
+            if(CustomerIdText.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Id");
+                return;
+            } else if(isNumeric(CustomerIdText.getText()) == false){
+                JOptionPane.showMessageDialog(null, "The customer id must be numeric");
+                return;
+            } else {
+                pass_flag = true;
+            }
+            if(pass_flag == true){
+                original_id = Integer.parseInt(CustomerIdText.getText());
+            }
+            for(customer_class customer:customers_list){
+                if(customer.getCustomer_id() == original_id){
+                    //ORIGINAL INFORMATION
+                    String original_name = customer.getCustomer_name();
+                    String original_lastname = customer.getCustomer_lastname();
+                    int original_phone = customer.getCustomer_phone();
+                    String original_email = customer.getCustomer_email();
+                    String original_province = customer.getCustomer_province();
+                    String original_canton = customer.getCustomer_canton();
+                    String original_district = customer.getCustomer_district();
+                    Date original_birthdate = customer.getCustomer_birthdate();
+                    
+                    //EL NUEVO CON LAS RESTRICCIONES, NADA DE VACIO.
+                    //LUEGO MOSTRAR AL USUARIO UNA CONFIRMACIÓN COMO LA DEL DELETE
+                    //FALTA: UN INT PARA CALCULAR CUAL FILA DE LA TABLA QUITAR, MENSAJES DE CONFIRMACION PARA TODA ACCION.
+                }
+            }
+            
+            //Collect data from the TextFields and ComboBoxes and Validate
+            //Name
+            String name = CustomerNameText.getText();
+            if(name.equals("")){
+                JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Name");
+                return;
+            }
+            name = name.trim();
+        
+            //Lastname
+            String lastname = CustomerLastnameText.getText();
+            if(lastname.equals("")){
+                JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Lastname");
+                return;
+            }
+            lastname = lastname.trim();
+        
+            //Phone
+            String phone_valid = CustomerPhoneText.getText();
+            if(phone_valid.equals("")){
+                JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Phone");
+                return;
+            }
+            boolean result = isNumeric(phone_valid);
+            if(result == false){
+                JOptionPane.showMessageDialog(null, "The phone number must be numeric");
+                return;
+            }
+            if(phone_valid.length() != 8){
+                JOptionPane.showMessageDialog(null, "The phone number must have 8 digits");
+                return;
+            }
+            if(phone_valid.charAt(0) != '2' && phone_valid.charAt(0) != '4' && phone_valid.charAt(0) != '6' && phone_valid.charAt(0) != '8'){
+                JOptionPane.showMessageDialog(null, "The phone number must start with 2, 4, 6 or 8");
+                return;
+            }
+            int phone = Integer.parseInt(phone_valid);
+        
+            //eMail
+            String email = CustomerMailText.getText();
+            if(email.equals("")){
+                JOptionPane.showMessageDialog(null, "You need to complete this data: Customer eMail");
+                return;
+            }
+            email = email.trim();
+            boolean valid_email = validateMail(email);
+            if (valid_email == false){
+                JOptionPane.showMessageDialog(null, "The email must be in the correct format: Google-like format");
+                return;
+            }
+        
+            //Province (Don't need to be validated)
+            String province = CustomerProvinceCombo.getSelectedItem().toString();
+        
+            //Canton
+            String canton = CustomerCantonText.getText();
+            if(canton.equals("")){
+                JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Canton");
+                return;
+            }
+            canton = canton.trim();
+        
+            //District
+            String district = CustomerDistrictText.getText();
+            if(district.equals("")){
+                JOptionPane.showMessageDialog(null, "You need to complete this data: Customer District");
+                return;
+            }
+            district = district.trim();
+        
+            //Birthdate (And build the Date)
+            //Day
+            if(CustomerDayText.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Birthdate Day");
+                return;
+            }
+            if(isNumeric(CustomerDayText.getText()) == false){
+                JOptionPane.showMessageDialog(null, "The phone number must be numeric");
+                return;
+            }
+            int day = Integer.parseInt(CustomerDayText.getText());
+            
+            //Month
+            int month = Integer.parseInt(CustomerMonthCombo.getSelectedItem().toString());
+            
+            //Year
+            if(CustomerYearText.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Birthdate Day");
+                return;
+            }
+            if(isNumeric(CustomerYearText.getText()) == false){
+                JOptionPane.showMessageDialog(null, "The phone number must be numeric");
+                return;
+            }
+            int year = Integer.parseInt(CustomerYearText.getText());
+            
+            //Next
+            boolean pass_flag2 = validateDate(day, month, year);
+            if(pass_flag == false){
+                return;
+            }
+            Date date = new Date(year-1900, month-1, day);
             
         //THIS IS FOR THE DELETE OPTION    
         } else if(delete_flag == true){
@@ -761,6 +913,9 @@ public class ScreenCustomers extends javax.swing.JPanel {
                         mt.removeRow(aux2);
                         System.out.println(customers_list);
                         SearchTable.updateUI();
+                        
+                        //Add items to the CSV file
+                        WriteCSV();
                         
                         //Reset the Textfields ******
                         CustomerIdText.setText("");
@@ -800,6 +955,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
             CustomerYearText.setEnabled(false);
             AcceptCustomerButton.setEnabled(false);
             CancelCustomerButton.setEnabled(false);
+            ModifyDirectLabel.setForeground(Color.white);
             
             AddCustomerButton.setEnabled(true);
             SearchCustomerButton.setEnabled(true);
@@ -846,6 +1002,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomerYearText.setEnabled(false);
         AcceptCustomerButton.setEnabled(true);
         CancelCustomerButton.setEnabled(true);
+        ModifyDirectLabel.setForeground(Color.white);
         
         AddCustomerButton.setEnabled(false);
         SearchCustomerButton.setEnabled(false);
@@ -881,6 +1038,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomerYearText.setEnabled(false);
         AcceptCustomerButton.setEnabled(true);
         CancelCustomerButton.setEnabled(true);
+        ModifyDirectLabel.setForeground(Color.white);
         
         AddCustomerButton.setEnabled(false);
         SearchCustomerButton.setEnabled(false);
@@ -1078,22 +1236,73 @@ public class ScreenCustomers extends javax.swing.JPanel {
     }
     
     private void initializeCustomers(){
-        customer_class object = new customer_class();
-        object.setCustomer_id(1);
-        object.setCustomer_name("Mario");
-        object.setCustomer_lastname("Nigger");
-        customers_list.add(object);
-        
-        System.out.println(customers_list);
         mt.setColumnIdentifiers(ids);
         SearchTable.setModel(mt);
         
-        //There goes the FOR
-        mt.addRow(new Object []{object.getCustomer_id(), object.getCustomer_name(), object.getCustomer_lastname()});
-        SearchTable.updateUI();
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV_Customers.csv").toString();
+        customer_class temporary_object = new customer_class();
+        try {
+            reader = new BufferedReader(new FileReader(archive));
+            while((line = reader.readLine()) != null){
+                parts = line.split(",");
+                int aux_day = 0;
+                int aux_month = 0;
+                int aux_year = 0;
+                Date birthdate = null;
+                for(int i = 0; i < parts.length; i++){
+                    switch(i){
+                        case 0:
+                            temporary_object.setCustomer_id(Integer.parseInt(parts[i]));
+                            break;
+                        case 1:
+                            temporary_object.setCustomer_name(parts[i]);
+                            break;
+                        case 2:
+                            temporary_object.setCustomer_lastname(parts[i]);
+                            break;
+                        case 3:
+                            temporary_object.setCustomer_phone(Integer.parseInt(parts[i]));
+                            break;
+                        case 4:
+                            temporary_object.setCustomer_email(parts[i]);
+                            break;
+                        case 5:
+                            temporary_object.setCustomer_province(parts[i]);
+                            break;
+                        case 6:
+                            temporary_object.setCustomer_canton(parts[i]);
+                            break;
+                        case 7:
+                            temporary_object.setCustomer_district(parts[i]);
+                            break;
+                        case 8:
+                            aux_day = Integer.parseInt(parts[i]);
+                            break;
+                        case 9:
+                            aux_month = Integer.parseInt(parts[i]);
+                            break;
+                        case 10:
+                            aux_year = Integer.parseInt(parts[i]);
+                            temporary_object.setCustomer_birthdate(new Date(aux_year-1900, aux_month-1, aux_day));
+                            break;
+                    }
+                    System.out.print(parts[i]+" | ");
+                }
+                customers_list.add(temporary_object);
+                mt.addRow(new Object []{temporary_object.getCustomer_id(), temporary_object.getCustomer_name(), temporary_object.getCustomer_lastname()});
+                SearchTable.updateUI();
+                System.out.println(customers_list);
+                System.out.println("");
+            }
+            reader.close();
+            line = null;
+            parts = null;
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
     
-    private void AddItemProducts(){
+    private void WriteCSV(){
         String archive = Paths.get("src", "DataBase", "Archivo_CSV_Customers.csv").toString();
         FileWriter fw = null;
         PrintWriter pw = null;
@@ -1128,6 +1337,9 @@ public class ScreenCustomers extends javax.swing.JPanel {
     boolean delete_flag = false;
     
     //INITIALIZE
+    private BufferedReader reader;
+    private String line;
+    private String parts[] = null;
     ArrayList<customer_class> customers_list = new ArrayList<>();
     DefaultTableModel mt = new DefaultTableModel();
     String ids [] = {"Id", "Name", "Lastname"};
@@ -1162,6 +1374,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
     private javax.swing.JButton DeleteCustomerButton;
     private javax.swing.JLabel DirectoryPanelLabel;
     private javax.swing.JButton ModifyCustomerButton;
+    private javax.swing.JLabel ModifyDirectLabel;
     private javax.swing.JButton SearchCustomerButton;
     private javax.swing.JScrollPane SearchScrollPane;
     private javax.swing.JTable SearchTable;
