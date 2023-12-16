@@ -36,7 +36,8 @@ public class VerifyUsers {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
-                if (data[0].equals(username) && data[1].equals(password)) {
+                if (data[0].equals(username)) {
+                    //Entry rememberMe
                     if (Boolean.parseBoolean(data[2])) {
                         this.pass = true;
                         MainMenu open = new MainMenu();
@@ -52,19 +53,21 @@ public class VerifyUsers {
                             MainMenu open = new MainMenu();
                             open.setUsernameText(username);
                             open.setVisible(true);
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Username/Password not found Pass");
-                            break;
                         }
                     }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Username/Password not found  User");
-                    break;
                 }
             }
+            if(this.pass){
+                pass();
+            } else {
+                JOptionPane.showMessageDialog(null, "Username/Password not found");
+            }
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Username/Password not found Exc");
+           JOptionPane.showMessageDialog(null, "Username/Password not found Exc");
         }
+    }
+    private static void pass() {
+
     }
 
     private void updateRememberMeFlag(String[] data, boolean value) {
