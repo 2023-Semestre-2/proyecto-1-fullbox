@@ -338,7 +338,7 @@ public class Login extends javax.swing.JFrame {
                 String array [] = line.split("\\,");
                 if (array.length == 8){
                     item.setId_item(Integer.parseInt(array[0]));
-                    item.setCategory_item(Integer.parseInt(array[1]));
+                    item.setCategory_item(array[1]);
                     item.setName_item(array[2]);
                     item.setType_item(array[3]);
                     item.setSize_item(Double.parseDouble(array[4]));

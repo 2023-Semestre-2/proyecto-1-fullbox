@@ -3,7 +3,7 @@ package Classes;
 
 public class item_class {
     private int id_item;
-    private int category_item;
+    private String category_item;
     private String name_item;
     private String type_item;
     private Double size_item;
@@ -18,7 +18,7 @@ public class item_class {
         this.id_item = id_item;
     }
 
-    public void setCategory_item(int category_item) {
+    public void setCategory_item(String category_item) {
         this.category_item = category_item;
     }
 
@@ -53,7 +53,7 @@ public class item_class {
         return id_item;
     }
 
-    public int getCategory_item() {
+    public String getCategory_item() {
         return category_item;
     }
 
