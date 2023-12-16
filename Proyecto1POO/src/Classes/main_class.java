@@ -4,6 +4,7 @@ import java.util.*;
 
 public class main_class {
     public static ArrayList<item_class> items;
+    public static ArrayList<product_class> products;
     public static ArrayList<id_class> ids;
     
     public static void main_item(String[] args){
@@ -12,6 +13,10 @@ public class main_class {
     
     public static void main_id(String[] args){
         ids = new ArrayList<>();
+    }
+    
+    public static void main_product(String[] args){
+        products = new ArrayList<>();
     }
     
     public ArrayList<customer_class> customers_list = new ArrayList<>();

@@ -24,9 +24,13 @@ public class ScreenProducts extends javax.swing.JPanel {
     /**
      * Creates new form ScreenProducts
      */
-    boolean modify_button;
-    boolean delete_button;
-    boolean create_button;
+    boolean modify_button_item;
+    boolean delete_button_item;
+    boolean create_button_item;
+    
+    boolean modify_button_product;
+    boolean delete_button_product;
+    boolean create_button_product;
     
     public ScreenProducts() {
         initComponents();
@@ -34,22 +38,40 @@ public class ScreenProducts extends javax.swing.JPanel {
         Search_P.setVisible(false);
         Size.setVisible(false);
         Size_Label.setVisible(false);
-        modify_button = false;
-        delete_button = false;
-        create_button = false;
+        
+        modify_button_item = false;
+        delete_button_item = false;
+        create_button_item = false;
+
+        modify_button_product = false;
+        delete_button_product = false;
+        create_button_product = false;
         
     }
-    public boolean getmodify_button(){
-        return modify_button;
+    public boolean getmodify_button_item(){
+        return modify_button_item;
     }
     
-    public boolean getdelete_button(){
-        return delete_button;
+    public boolean getdelete_button_item(){
+        return delete_button_item;
     }
     
-    public boolean getcreate_button(){
-        return create_button;
+    public boolean getcreate_button_item(){
+        return create_button_item;
     }
+    
+    public boolean getmodify_button_product(){
+        return modify_button_product;
+    }
+    
+    public boolean getdelete_button_product(){
+        return delete_button_product;
+    }
+    
+    public boolean getcreate_button_product(){
+        return create_button_product;
+    }
+    
 
     
     /**
@@ -143,21 +165,26 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
 
-        Modify_Product.setText("Modify");
+        Modify_Product.setText("Modify Product");
         Modify_Product.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Modify_ProductActionPerformed(evt);
             }
         });
 
-        Search_Product.setText("Search");
+        Search_Product.setText("Search Product");
         Search_Product.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Search_ProductActionPerformed(evt);
             }
         });
 
-        Delete_Product.setText("Delete");
+        Delete_Product.setText("Delete Product");
+        Delete_Product.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Delete_ProductActionPerformed(evt);
+            }
+        });
 
         Product_Category.setEnabled(false);
         Product_Category.addActionListener(new java.awt.event.ActionListener() {
@@ -242,6 +269,11 @@ public class ScreenProducts extends javax.swing.JPanel {
 
         Item_Name.setAutoscrolls(false);
         Item_Name.setEnabled(false);
+        Item_Name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Item_NameActionPerformed(evt);
+            }
+        });
         Item_Name.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 Item_NameKeyTyped(evt);
@@ -269,7 +301,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
 
-        Create_Product.setText("Create");
+        Create_Product.setText("Create Product");
         Create_Product.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Create_ProductActionPerformed(evt);
@@ -346,6 +378,11 @@ public class ScreenProducts extends javax.swing.JPanel {
 
         Cancel_Product.setText("Cancel");
         Cancel_Product.setEnabled(false);
+        Cancel_Product.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cancel_ProductActionPerformed(evt);
+            }
+        });
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel19.setText("Action:");
@@ -462,7 +499,7 @@ public class ScreenProducts extends javax.swing.JPanel {
                         .addComponent(Accept_Product)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Cancel_Product)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(435, Short.MAX_VALUE))
         );
         ProductsViewLayout.setVerticalGroup(
             ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -679,19 +716,19 @@ public class ScreenProducts extends javax.swing.JPanel {
             return;
         }
 
-        if (create_button == true) {
-            Create_item_products();
+        if (create_button_item == true) {
+            Create_item();
             System.out.println("Botón 1 está habilitado. Realizar acciones para boton3.");
 
         } else if (Search_Item.isEnabled()) {
             System.out.println("Botón 2 está habilitado. Realizar acciones para boton2.");
 
-        } else if (modify_button == true) {
-            Modify_item_products(Modify);
-            Add_item_products();
-            modify_button = false;
+        } else if (modify_button_item== true) {
+            Modify_item(Modify_i);
+            Add_item();
+            modify_button_item = false;
             System.out.println("Botón 3 está habilitado. Realizar acciones para boton3.");
-        } else if (delete_button == true) {
+        } else if (delete_button_item == true) {
             System.out.println("Botón 4 está habilitado. Realizar acciones para boton3.");
             boolean result = Delete_item_products();
             if (result == false){
@@ -721,9 +758,9 @@ public class ScreenProducts extends javax.swing.JPanel {
 
         Accept_Item.setEnabled(false);
         Cancel_Item.setEnabled(false);
-        modify_button = false;
-        delete_button = false;
-        create_button = false;
+        modify_button_item = false;
+        delete_button_item = false;
+        create_button_item = false;
 
     }//GEN-LAST:event_Accept_ItemActionPerformed
     private String set_id(String id_mode){
@@ -745,8 +782,9 @@ public class ScreenProducts extends javax.swing.JPanel {
         Delete_Product.setEnabled(false);
         Category_Id.setEnabled(false);
         Name_Product.setEnabled(true);
-        Accept_Item.setEnabled(true);
-        Cancel_Item.setEnabled(true);
+        Accept_Product.setEnabled(true);
+        Cancel_Product.setEnabled(true);
+        create_button_product = true;
     }//GEN-LAST:event_Create_ProductActionPerformed
 
     private void Search_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_ItemActionPerformed
@@ -827,7 +865,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         Search_Item.setEnabled(false);
         Modify_Item.setEnabled(false);
         Delete_Item.setEnabled(false);
-        delete_button = true;
+        delete_button_item = true;
 
         if(opcion == 1){
             Item_Name.setEnabled(true);
@@ -853,7 +891,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         Search_Item.setEnabled(false);
         Delete_Item.setEnabled(false);
         Modify_Item.setEnabled(false);
-        modify_button = true;
+        modify_button_item = true;
 
         if(opcion == 1){
             Item_Name.setEnabled(true);
@@ -896,12 +934,52 @@ public class ScreenProducts extends javax.swing.JPanel {
     }//GEN-LAST:event_Product_CategoryActionPerformed
 
     private void Search_ProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_ProductActionPerformed
-        // TODO add your handling code here:
-        //searchProduct();
+        int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
+            "Search",
+            JOptionPane.YES_NO_OPTION,   // Tipo de opción (sí/no)
+            JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje (pregunta)
+            null,                        // Icono personalizado (en este caso, ninguno)
+            new Object[]{"ID", "NAME"}, // Texto de los botones
+            "Botón 1");                    // Botón predeterminado
+        
+        Create_Product.setEnabled(false);
+        Modify_Product.setEnabled(false);
+        Delete_Product.setEnabled(false);
+        Search_Product.setEnabled(false);
+        if(opcion == 1){
+            Name_Product.setEnabled(true);
+        }else{
+            Category_Id.setEnabled(true);
+
+        }
+        Search_P.setVisible(true);
+        Search_P.setEnabled(true);
+        Cancel_Product.setEnabled(true);
     }//GEN-LAST:event_Search_ProductActionPerformed
 
     private void Modify_ProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modify_ProductActionPerformed
-        // TODO add your handling code here:
+        int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
+            "Search",
+            JOptionPane.YES_NO_OPTION,   // Tipo de opción (sí/no)
+            JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje (pregunta)
+            null,                        // Icono personalizado (en este caso, ninguno)
+            new Object[]{"ID", "NAME"}, // Texto de los botones
+            "Botón 1");                    // Botón predeterminado
+
+        Create_Product.setEnabled(false);
+        Search_Product.setEnabled(false);
+        Delete_Product.setEnabled(false);
+        Modify_Product.setEnabled(false);
+        modify_button_product = true;
+
+        if(opcion == 1){
+            Name_Product.setEnabled(true);
+        }else{
+            Category_Id.setEnabled(true);
+        }
+        Search_P.setVisible(true);
+        Search_P.setEnabled(true);
+        Cancel_Product.setEnabled(true);
     }//GEN-LAST:event_Modify_ProductActionPerformed
 
     private void Create_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Create_ItemActionPerformed
@@ -920,7 +998,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         Amount.setEnabled(true);
         Accept_Item.setEnabled(true);
         Cancel_Item.setEnabled(true);
-        create_button = true;
+        create_button_item = true;
 
     }//GEN-LAST:event_Create_ItemActionPerformed
 
@@ -946,7 +1024,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         String textFromTextField_name = Item_Name.getText();
         int id_item = 0;
         String item_name = "f";
-        Modify = null;
+        Modify_i = null;
         if (textFromTextField_id.isEmpty() && textFromTextField_name.isEmpty()){
             JOptionPane.showMessageDialog(null, "Item Code Without Text");
             return;
@@ -975,8 +1053,8 @@ public class ScreenProducts extends javax.swing.JPanel {
                     Size.setVisible(true);
                     Size_Label.setVisible(true);
                 }
-                if (modify_button == true){
-                    Modify = item;
+                if (modify_button_item == true){
+                    Modify_i = item;
                     Item_Id.setEnabled(false);
                     Search_I.setEnabled(false);
                     Product_Category.setEnabled(true);
@@ -1007,7 +1085,44 @@ public class ScreenProducts extends javax.swing.JPanel {
     }//GEN-LAST:event_Search_IActionPerformed
 
     private void Search_PActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_PActionPerformed
-        JOptionPane.showMessageDialog(this,"xd");
+        String textFromTextField_id = Category_Id.getText();
+        String textFromTextField_name = Name_Product.getText();
+        int id_product = 0;
+        String product_name = "f";
+        Modify_p = null;
+        if (textFromTextField_id.isEmpty() && textFromTextField_name.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Product ID Without Text");
+            return;
+        }
+        if  (!textFromTextField_id.isEmpty()){
+            id_product = Integer.parseInt(textFromTextField_id);
+        }
+        if  (!textFromTextField_name.isEmpty()){
+            product_name = String.valueOf(textFromTextField_name);
+        }
+        Boolean flag_found = false;
+        for (int i = 0; i < main_class.products.size(); i++) {
+            product_class product = main_class.products.get(i);
+
+            if(id_product == product.getId_category()|| product_name.equals(product.getName_product())){
+                JOptionPane.showMessageDialog(this, "Found");
+                flag_found = true;
+                Category_Id.setText(String.valueOf(product.getId_category()));
+                Name_Product.setText(product.getName_product());
+                if (modify_button_product == true){
+                    Modify_p = product;
+                    Category_Id.setEnabled(false);
+                    Name_Product.setEnabled(true);
+                }
+                Accept_Product.setEnabled(true);
+                Cancel_Product.setEnabled(true);
+                Search_P.setEnabled(false);
+                break;
+            }
+        }
+        if(flag_found == false){
+            JOptionPane.showMessageDialog(null, "Not Found");
+        }
     }//GEN-LAST:event_Search_PActionPerformed
 
     private void Accept_ProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accept_ProductActionPerformed
@@ -1027,28 +1142,69 @@ public class ScreenProducts extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Product Name With Spaces At The Ends");
             return;
         }
-        
-        
-        if (create_button == true) {
-            Create_item_products();
+ 
+        if (create_button_product == true) {
+            Create_products();
             System.out.println("Botón 1 está habilitado. Realizar acciones para boton3.");
 
-        } else if (Search_Item.isEnabled()) {
+        } else if (Search_P.isEnabled()) {
             System.out.println("Botón 2 está habilitado. Realizar acciones para boton2.");
 
-        } else if (modify_button == true) {
-            Modify_item_products(Modify);
-            Add_item_products();
-            modify_button = false;
+        } else if (modify_button_product == true) {
+            Modify_product(Modify_p);
+            Add_product();
+            modify_button_product = false;
             System.out.println("Botón 3 está habilitado. Realizar acciones para boton3.");
-        } else if (delete_button == true) {
+        } else if (delete_button_product == true) {
             System.out.println("Botón 4 está habilitado. Realizar acciones para boton3.");
             boolean result = Delete_item_products();
             if (result == false){
                 return;
             }
         }
+        Reset_Texts();
+        Create_Product.setEnabled(true);
+        Modify_Product.setEnabled(true);
+        Search_Product.setEnabled(true);
+        Delete_Product.setEnabled(true);
+
+        Category_Id.setEnabled(false);
+        Name_Product.setEnabled(false);
+        Accept_Product.setEnabled(false);
+        Cancel_Product.setEnabled(false);
+        Search_P.setVisible(false);
+        Search_P.setEnabled(false);
+       
+        modify_button_product = false;
+        delete_button_product = false;
+        create_button_product = false;
+        
+        
+        
     }//GEN-LAST:event_Accept_ProductActionPerformed
+
+    private void Cancel_ProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancel_ProductActionPerformed
+        Reset_Texts();
+        Create_Product.setEnabled(true);
+        Modify_Product.setEnabled(true);
+        Search_Product.setEnabled(true);
+        Delete_Product.setEnabled(true);
+        Category_Id.setEnabled(false);
+        Name_Product.setEnabled(false);
+        Accept_Product.setEnabled(false);
+        Cancel_Product.setEnabled(false);
+        Search_P.setEnabled(false);
+        Search_P.setVisible(false);
+        
+    }//GEN-LAST:event_Cancel_ProductActionPerformed
+
+    private void Delete_ProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete_ProductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Delete_ProductActionPerformed
+
+    private void Item_NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Item_NameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Item_NameActionPerformed
      
 
     
@@ -1062,8 +1218,34 @@ public class ScreenProducts extends javax.swing.JPanel {
         }
     }
     
-    
-    private void Add_item_products(){
+    private void Add_product(){
+        System.out.println("sisis");
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV_PRODUCTS.csv").toString();
+        FileWriter fw = null;
+        PrintWriter pw = null;
+        
+        try{ 
+            fw = new FileWriter(archive);
+            pw = new PrintWriter(fw);
+            for(product_class i: main_class.products){
+                String line = i.getId_category()+ "," + i.getName_product();
+                pw.println(line);
+            }
+            
+        }catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try{
+                if(fw != null){
+                    fw.close();
+            }
+            }catch(Exception ex){
+                    ex.printStackTrace();
+            }      
+        }   
+    }
+    private void Add_item(){
         String archive = Paths.get("src", "DataBase", "Archivo_CSV_ITEMS.csv").toString();
         FileWriter fw = null;
         PrintWriter pw = null;
@@ -1100,7 +1282,7 @@ public class ScreenProducts extends javax.swing.JPanel {
                 if (result == JOptionPane.YES_OPTION){
                     main_class.items.remove(i);
                     JOptionPane.showMessageDialog(this,"Removed");
-                    Add_item_products();
+                    Add_item();
                     return true;
                 }else{
                     JOptionPane.showMessageDialog(this,"Cancelled");
@@ -1110,8 +1292,34 @@ public class ScreenProducts extends javax.swing.JPanel {
         }
         return false;
     }
-    
-    private void Create_item_products(){
+    private void Create_products(){
+        int create_category_product;
+        String create_name_product;
+        Boolean register = false;
+
+        create_category_product = Integer.parseInt(Category_Id.getText());
+        create_name_product = Name_Product.getText();
+        for(product_class A: main_class.products){
+            if(A.getName_product().equals(create_name_product)){
+                register = true;
+                break;}         
+            }
+            if(register){
+                JOptionPane.showMessageDialog(this,"This Name Already Exists ");  
+                return;
+            }else{
+                product_class product = new product_class();
+                product.setId_category(create_category_product);
+                product.setName_product(create_name_product);
+                main_class.products.add(product);
+                add_id("product");
+                Add_product();
+                id_class id = main_class.ids.get(0);
+                id.setId_product(id.getId_product() + 1);
+                JOptionPane.showMessageDialog(this, "Item Added Successfully");   
+            }   
+    }
+    private void Create_item(){
         int create_id_item;
         int create_category_item;
         String create_name_item;
@@ -1155,7 +1363,7 @@ public class ScreenProducts extends javax.swing.JPanel {
                 item.setAmount_item(create_amount_item);
                 main_class.items.add(item);
                 add_id("item");
-                Add_item_products();
+                Add_item();
                 id_class id = main_class.ids.get(0);
                 id.setId_item(id.getId_item() + 1);
                 JOptionPane.showMessageDialog(this, "Item Added Successfully");
@@ -1163,7 +1371,38 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
     }
     
-    private void Modify_item_products(item_class Modify){
+    private void Modify_product(product_class Modify){
+        int modify_category_product;
+        String modify_name_product;
+        Boolean register = false;
+            
+            
+        modify_category_product = Integer.parseInt(Category_Id.getText());
+        modify_name_product = Name_Product.getText();
+        
+         for (product_class A : main_class.products) {
+            if (A.getId_category()== modify_category_product && A.getName_product().equals(modify_name_product)) {
+                // El objeto con el mismo id y nombre ya existe
+                register = false;
+                break;
+            }
+            // Si no encuentras un objeto con el mismo id, puedes permitir el mismo nombre
+            if (A.getId_category()!= modify_category_product && A.getName_product().equals(modify_name_product) ) {
+                register = true;
+            }
+           }
+                    
+            if(register){
+                JOptionPane.showMessageDialog(this,"This Name Already Exists ");  
+                return;
+            }else{
+                Modify.setId_category(modify_category_product);
+                Modify.setName_product(modify_name_product);
+                JOptionPane.showMessageDialog(this, "Item Modified Successfully");
+            }
+    }
+    
+    private void Modify_item(item_class Modify){
         int modify_id_item;
         int modify_category_item;
         String modify_name_item;
@@ -1194,7 +1433,7 @@ public class ScreenProducts extends javax.swing.JPanel {
                 break;
             }
             // Si no encuentras un objeto con el mismo id, puedes permitir el mismo nombre
-            if (A.getId_item() == modify_id_item) {
+            if (A.getId_item() != modify_id_item && A.getName_item().equals(modify_name_item) ) {
                 register = true;
             }
            }
@@ -1218,7 +1457,8 @@ public class ScreenProducts extends javax.swing.JPanel {
         
        
    
-    private item_class Modify;
+    private item_class Modify_i;
+    private product_class Modify_p;
     
  
     

@@ -240,7 +240,47 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
     
-    private void loading_archive_id(){
+    private void loading_archive_products(){
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV_PRODUCTS.csv").toString();
+        FileReader fr = null;
+        BufferedReader br = null;
+        Boolean bandera = false;
+        
+        try{
+            fr = new FileReader(archive);
+            br = new BufferedReader(fr);
+            String line;
+            
+            while((line = br.readLine()) != null){
+                product_class product = new product_class();
+                String array [] = line.split("\\,");
+                if (array.length == 2){
+                    product.setId_category(Integer.parseInt(array[0]));
+                    product.setName_product(array[1]);
+                    main_class.products.add(product);
+                    bandera =true;                     
+                }              
+            }
+            if (bandera){
+                System.out.println("Importado exitosamente");    
+            }else{
+                 JOptionPane.showMessageDialog(this,"Fatal Error: Importation");
+            }
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try{
+                if(fr != null){
+                    fr.close();
+            }
+            }catch(Exception ex){
+                    ex.printStackTrace();
+            }      
+        }
+    }
+    private void loading_archive_ids(){
         String archive = Paths.get("src", "DataBase", "ID's.csv").toString();
         FileReader fr = null;
         BufferedReader br = null;
@@ -281,7 +321,7 @@ public class Login extends javax.swing.JFrame {
         }
     }
         
-    private void loading_archive_products(){    
+    private void loading_archive_items(){    
         String archive = Paths.get("src", "DataBase", "Archivo_CSV_ITEMS.csv").toString();
         System.out.println("Ruta del archivo: " + archive);
         FileReader fr = null;
@@ -294,27 +334,19 @@ public class Login extends javax.swing.JFrame {
             String line;
             
             while((line = br.readLine()) != null){
-                item_class article = new item_class();
+                item_class item = new item_class();
                 String array [] = line.split("\\,");
                 if (array.length == 8){
-                    //System.out.println(array[0]);
-                    //System.out.println(array[1]);
-                    //System.out.println(array[2]);
-                    //System.out.println(array[3]);
-                    //System.out.println(array[4]);
-                    //System.out.println(array[5]);
-                    //System.out.println(array[6]);
-                    //System.out.println(array[7]);
-                    article.setId_item(Integer.parseInt(array[0]));
-                    article.setCategory_item(Integer.parseInt(array[1]));
-                    article.setName_item(array[2]);
-                    article.setType_item(array[3]);
-                    article.setSize_item(Double.parseDouble(array[4]));
-                    article.setBrand_item(array[5]);
-                    article.setPrice_item(Integer.parseInt(array[6]));
-                    article.setAmount_item(Integer.parseInt(array[7]));
-                    main_class.items.add(article);
-                    bandera =true;                     
+                    item.setId_item(Integer.parseInt(array[0]));
+                    item.setCategory_item(Integer.parseInt(array[1]));
+                    item.setName_item(array[2]);
+                    item.setType_item(array[3]);
+                    item.setSize_item(Double.parseDouble(array[4]));
+                    item.setBrand_item(array[5]);
+                    item.setPrice_item(Integer.parseInt(array[6]));
+                    item.setAmount_item(Integer.parseInt(array[7]));
+                    main_class.items.add(item);
+                    bandera = true;                     
                 }              
             }
             if (bandera){
@@ -351,10 +383,13 @@ public class Login extends javax.swing.JFrame {
             
             if(verificador.pass == true){
                 this.setVisible(false);
-                main_class.main_id(new String[]{});
+                main_class.main_product(new String[]{});
                 main_class.main_item(new String[]{});
+                main_class.main_id(new String[]{});
+                
+                loading_archive_items();
                 loading_archive_products();
-                loading_archive_id();
+                loading_archive_ids();
             }
         }
         
