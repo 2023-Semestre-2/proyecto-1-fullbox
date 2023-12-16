@@ -53,13 +53,17 @@ public class VerifyUsers {
                             open.setUsernameText(username);
                             open.setVisible(true);
                         } else {
-                            JOptionPane.showMessageDialog(null, "Username/Password not found");
+                            JOptionPane.showMessageDialog(null, "Username/Password not found Pass");
+                            break;
                         }
                     }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Username/Password not found  User");
+                    break;
                 }
             }
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Username/Password not found");
+            JOptionPane.showMessageDialog(null, "Username/Password not found Exc");
         }
     }
 
