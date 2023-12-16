@@ -70,9 +70,9 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="321" pref="321" max="-2" attributes="0"/>
                           <Component id="Create_Item" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="Search_Item" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           <Component id="Modify_Item" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Component id="Delete_Item" min="-2" max="-2" attributes="0"/>
@@ -235,12 +235,14 @@
                   <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Create_Item" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="Search_Item" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Create_Item" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="Search_Item" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
                       <Component id="Modify_Item" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="Delete_Item" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="32" pref="32" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -307,9 +309,9 @@
                       <Component id="Amount" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Accept_Item" min="-2" max="-2" attributes="0"/>
-                      <Component id="Cancel_Item" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="Cancel_Item" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Accept_Item" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
