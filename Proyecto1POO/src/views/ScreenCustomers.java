@@ -702,6 +702,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
             CustomerDistrictText.setText("");
             CustomerDayText.setText("01");
             CustomerYearText.setText("1900");
+            JOptionPane.showMessageDialog(null, "Added Succesfully");
         
         //THIS IS FOR THE SEARCH OPTION
         } else if(search_flag == true){
@@ -768,14 +769,14 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 System.out.println(customer_id+","+original_id);
                 if(customer_id == original_id){
                     //ORIGINAL INFORMATION
-                    //String original_name = customer.getCustomer_name();
-                    //String original_lastname = customer.getCustomer_lastname();
-                    //int original_phone = customer.getCustomer_phone();
-                    //String original_email = customer.getCustomer_email();
-                    //String original_province = customer.getCustomer_province();
-                    //String original_canton = customer.getCustomer_canton();
-                    //String original_district = customer.getCustomer_district();
-                    //Date original_birthdate = customer.getCustomer_birthdate();
+                    String original_name = actual_customer.getCustomer_name();
+                    String original_lastname = actual_customer.getCustomer_lastname();
+                    int original_phone = actual_customer.getCustomer_phone();
+                    String original_email = actual_customer.getCustomer_email();
+                    String original_province = actual_customer.getCustomer_province();
+                    String original_canton = actual_customer.getCustomer_canton();
+                    String original_district = actual_customer.getCustomer_district();
+                    Date original_birthdate = actual_customer.getCustomer_birthdate();
                     
                     //EL NUEVO CON LAS RESTRICCIONES, NADA DE VACIO.
                     //Collect data from the TextFields and ComboBoxes and Validate
@@ -880,10 +881,11 @@ public class ScreenCustomers extends javax.swing.JPanel {
                         return;
                     }
                     Date date = new Date(year-1900, month-1, day);
+                    String original_date = original_birthdate.getDate()+"/"+(original_birthdate.getMonth()+1)+"/"+(original_birthdate.getYear()+1900);
                     String date_of_birth = date.getDate()+"/"+(date.getMonth()+1)+"/"+(date.getYear()+1900);
                     
                     //Confirm the modify
-                    int confirm_delete = JOptionPane.showConfirmDialog(null, "Submit the modify:\nId: "+actual_customer.getCustomer_id()+"\nName: "+actual_customer.getCustomer_name()+"\nLastname: "+actual_customer.getCustomer_lastname()+"\nPhone: "+actual_customer.getCustomer_phone()+"\neMail: "+actual_customer.getCustomer_email()+"\nProvince: "+actual_customer.getCustomer_province()+"\nCanton: "+actual_customer.getCustomer_canton()+"\nDistrict: "+actual_customer.getCustomer_district()+"\nBirthdate: "+date_of_birth);
+                    int confirm_delete = JOptionPane.showConfirmDialog(null, "Submit the modify:\nBefore:\nId: "+actual_customer.getCustomer_id()+"\nName: "+actual_customer.getCustomer_name()+"\nLastname: "+actual_customer.getCustomer_lastname()+"\nPhone: "+actual_customer.getCustomer_phone()+"\neMail: "+actual_customer.getCustomer_email()+"\nProvince: "+actual_customer.getCustomer_province()+"\nCanton: "+actual_customer.getCustomer_canton()+"\nDistrict: "+actual_customer.getCustomer_district()+"\nBirthdate: "+original_date+"\n"+"\nModified:\nId: "+original_id+"\nName: "+name+"\nLastname: "+lastname+"\nPhone: "+phone+"\neMail: "+email+"\nProvince: "+province+"\nCanton: "+canton+"\nDistrict: "+district+"\nBirthdate: "+date_of_birth);
                     if(confirm_delete != 0){
                         return;
                     } else {
@@ -898,9 +900,6 @@ public class ScreenCustomers extends javax.swing.JPanel {
                         actual_customer.setCustomer_district(district);
                         actual_customer.setCustomer_birthdate(date);
                     }
-
-                    //Create the temporary Object
-                    //customer_class new_object = new customer_class();
 
                     //Add the object to the JTable
                     mt.removeRow(index_aux);
@@ -919,9 +918,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
                     CustomerDistrictText.setText("");
                     CustomerDayText.setText("01");
                     CustomerYearText.setText("1900");
-                    
-                    //LUEGO MOSTRAR AL USUARIO UNA CONFIRMACIÓN COMO LA DEL DELETE **
-                    //FALTA: UN INT PARA CALCULAR CUAL FILA DE LA TABLA QUITAR, MENSAJES DE CONFIRMACION PARA TODA ACCION. FALTA
+                    JOptionPane.showMessageDialog(null, "Modified Succesfully");
                 }
                 index_aux++;
             }
@@ -968,6 +965,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
                         //Reset the Textfields ******
                         CustomerIdText.setText("");
                         CustomerNameText.setText("");
+                        JOptionPane.showMessageDialog(null, "Deleted Succesfully");
                         return;
                     }
                 }
