@@ -63,7 +63,7 @@ public class VerifyUsers {
                 JOptionPane.showMessageDialog(null, "Username/Password not found");
             }
         } catch (IOException e) {
-           JOptionPane.showMessageDialog(null, "Username/Password not found Exc");
+           JOptionPane.showMessageDialog(null, "Username/Password not found");
         }
     }
     private static void pass() {

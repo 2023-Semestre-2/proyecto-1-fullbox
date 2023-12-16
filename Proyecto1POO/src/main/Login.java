@@ -17,7 +17,7 @@ import java.awt.BorderLayout;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import javax.swing.JPanel;
-import main.Register;
+import views.Register;
 
 public class Login extends javax.swing.JFrame {
     
