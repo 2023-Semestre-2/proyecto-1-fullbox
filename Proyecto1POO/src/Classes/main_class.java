@@ -4,9 +4,14 @@ import java.util.*;
 
 public class main_class {
     public static ArrayList<item_class> items;
+    public static ArrayList<id_class> ids;
     
     public static void main_item(String[] args){
         items = new ArrayList<>();
+    }
+    
+    public static void main_id(String[] args){
+        ids = new ArrayList<>();
     }
     
     public ArrayList<customer_class> customers_list = new ArrayList<>();

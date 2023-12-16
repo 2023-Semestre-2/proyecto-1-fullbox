@@ -240,7 +240,47 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
     
-    
+    private void loading_archive_id(){
+        String archive = Paths.get("src", "DataBase", "ID's.csv").toString();
+        FileReader fr = null;
+        BufferedReader br = null;
+        Boolean bandera = false;
+        
+        try{
+            fr = new FileReader(archive);
+            br = new BufferedReader(fr);
+            String line;
+            
+            while((line = br.readLine()) != null){
+                id_class id = new id_class();
+                String array [] = line.split("\\,");
+                if (array.length == 2){
+                    id.setId_product(Integer.parseInt(array[0]));
+                    id.setId_item(Integer.parseInt(array[1]));
+                    main_class.ids.add(id);
+                    bandera =true;                     
+                }              
+            }
+            if (bandera){
+                System.out.println("Importado exitosamente");    
+            }else{
+                 JOptionPane.showMessageDialog(this,"Fatal Error: Importation");
+            }
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try{
+                if(fr != null){
+                    fr.close();
+            }
+            }catch(Exception ex){
+                    ex.printStackTrace();
+            }      
+        }
+    }
+        
     private void loading_archive_products(){    
         String archive = Paths.get("src", "DataBase", "Archivo_CSV_ITEMS.csv").toString();
         System.out.println("Ruta del archivo: " + archive);
@@ -280,7 +320,7 @@ public class Login extends javax.swing.JFrame {
             if (bandera){
                 System.out.println("Importado exitosamente");    
             }else{
-                 JOptionPane.showMessageDialog(this,"Fatal Error: Importacion");
+                 JOptionPane.showMessageDialog(this,"Fatal Error: Importation");
             }
             
         } catch (Exception ex) {
@@ -311,8 +351,10 @@ public class Login extends javax.swing.JFrame {
             
             if(verificador.pass == true){
                 this.setVisible(false);
+                main_class.main_id(new String[]{});
                 main_class.main_item(new String[]{});
                 loading_archive_products();
+                loading_archive_id();
             }
         }
         

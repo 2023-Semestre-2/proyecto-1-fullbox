@@ -30,8 +30,8 @@ public class ScreenProducts extends javax.swing.JPanel {
     
     public ScreenProducts() {
         initComponents();
-        Search_Items.setVisible(false);
-        Search_Products.setVisible(false);
+        Search_I.setVisible(false);
+        Search_P.setVisible(false);
         Size.setVisible(false);
         Size_Label.setVisible(false);
         modify_button = false;
@@ -66,11 +66,11 @@ public class ScreenProducts extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Create_Item = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        Modify_Product = new javax.swing.JButton();
+        Search_Product = new javax.swing.JButton();
+        Delete_Product = new javax.swing.JButton();
         Product_Category = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        Name_Product = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -81,7 +81,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         Size = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        Category_Id = new javax.swing.JTextField();
         Modify_Item = new javax.swing.JButton();
         Delete_Item = new javax.swing.JButton();
         Amount = new javax.swing.JTextField();
@@ -90,16 +90,16 @@ public class ScreenProducts extends javax.swing.JPanel {
         Brand = new javax.swing.JTextField();
         Price = new javax.swing.JTextField();
         Search_Item = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
+        Create_Product = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         Accept_Item = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        Search_Items = new javax.swing.JButton();
+        Search_I = new javax.swing.JButton();
         Cancel_Item = new javax.swing.JButton();
-        Search_Products = new javax.swing.JButton();
+        Search_P = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         Accept_Product = new javax.swing.JButton();
         Cancel_Product = new javax.swing.JButton();
@@ -143,21 +143,21 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
 
-        jButton9.setText("Modify");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        Modify_Product.setText("Modify");
+        Modify_Product.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                Modify_ProductActionPerformed(evt);
             }
         });
 
-        jButton10.setText("Search");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        Search_Product.setText("Search");
+        Search_Product.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                Search_ProductActionPerformed(evt);
             }
         });
 
-        jButton11.setText("Delete");
+        Delete_Product.setText("Delete");
 
         Product_Category.setEnabled(false);
         Product_Category.addActionListener(new java.awt.event.ActionListener() {
@@ -170,6 +170,8 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Product_CategoryKeyTyped(evt);
             }
         });
+
+        Name_Product.setEnabled(false);
 
         jLabel5.setText("Item Id:");
 
@@ -202,6 +204,8 @@ public class ScreenProducts extends javax.swing.JPanel {
         jLabel12.setText("Brand:");
 
         jLabel13.setText("Price:");
+
+        Category_Id.setEnabled(false);
 
         Modify_Item.setText("Modify Item");
         Modify_Item.addActionListener(new java.awt.event.ActionListener() {
@@ -265,10 +269,10 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
 
-        jButton20.setText("Create");
-        jButton20.addActionListener(new java.awt.event.ActionListener() {
+        Create_Product.setText("Create");
+        Create_Product.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton20ActionPerformed(evt);
+                Create_ProductActionPerformed(evt);
             }
         });
 
@@ -306,11 +310,11 @@ public class ScreenProducts extends javax.swing.JPanel {
             .addGap(0, 5, Short.MAX_VALUE)
         );
 
-        Search_Items.setText("S");
-        Search_Items.setEnabled(false);
-        Search_Items.addActionListener(new java.awt.event.ActionListener() {
+        Search_I.setText("S");
+        Search_I.setEnabled(false);
+        Search_I.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Search_ItemsActionPerformed(evt);
+                Search_IActionPerformed(evt);
             }
         });
 
@@ -322,10 +326,10 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
 
-        Search_Products.setText("S");
-        Search_Products.addActionListener(new java.awt.event.ActionListener() {
+        Search_P.setText("S");
+        Search_P.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Search_ProductsActionPerformed(evt);
+                Search_PActionPerformed(evt);
             }
         });
 
@@ -333,8 +337,15 @@ public class ScreenProducts extends javax.swing.JPanel {
         jLabel18.setText("Properties:");
 
         Accept_Product.setText("Accept");
+        Accept_Product.setEnabled(false);
+        Accept_Product.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Accept_ProductActionPerformed(evt);
+            }
+        });
 
         Cancel_Product.setText("Cancel");
+        Cancel_Product.setEnabled(false);
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel19.setText("Action:");
@@ -374,7 +385,7 @@ public class ScreenProducts extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(Item_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15)
-                        .addComponent(Search_Items, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Search_I, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ProductsViewLayout.createSequentialGroup()
                         .addGap(407, 407, 407)
                         .addComponent(jLabel7)
@@ -416,13 +427,13 @@ public class ScreenProducts extends javax.swing.JPanel {
                         .addComponent(Cancel_Item))
                     .addGroup(ProductsViewLayout.createSequentialGroup()
                         .addGap(341, 341, 341)
-                        .addComponent(jButton20)
+                        .addComponent(Create_Product)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton10)
+                        .addComponent(Search_Product)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton9)
+                        .addComponent(Modify_Product)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton11))
+                        .addComponent(Delete_Product))
                     .addGroup(ProductsViewLayout.createSequentialGroup()
                         .addGap(500, 500, 500)
                         .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -438,11 +449,11 @@ public class ScreenProducts extends javax.swing.JPanel {
                             .addComponent(jLabel3))
                         .addGap(18, 18, 18)
                         .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Name_Product, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(ProductsViewLayout.createSequentialGroup()
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Category_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Search_Products, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Search_P, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(ProductsViewLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel18))))
@@ -466,20 +477,20 @@ public class ScreenProducts extends javax.swing.JPanel {
                         .addComponent(jLabel19)))
                 .addGap(6, 6, 6)
                 .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Create_Product, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Search_Product, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Modify_Product, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Delete_Product, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel18)
                 .addGap(10, 10, 10)
                 .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Search_Products))
+                    .addComponent(Category_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Search_P))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Name_Product, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(12, 12, 12)
                 .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -507,7 +518,7 @@ public class ScreenProducts extends javax.swing.JPanel {
                     .addGroup(ProductsViewLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(Item_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Search_Items))
+                    .addComponent(Search_I))
                 .addGap(8, 8, 8)
                 .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ProductsViewLayout.createSequentialGroup()
@@ -573,8 +584,8 @@ public class ScreenProducts extends javax.swing.JPanel {
         Delete_Item.setEnabled(true);
 
         Item_Id.setEnabled(false);
-        Search_Items.setVisible(false);
-        Search_Items.setEnabled(false);
+        Search_I.setVisible(false);
+        Search_I.setEnabled(false);
         Product_Category.setEnabled(false);
         Item_Name.setEnabled(false);
         Type.setEnabled(false);
@@ -590,6 +601,40 @@ public class ScreenProducts extends javax.swing.JPanel {
         Cancel_Item.setEnabled(false);
     }//GEN-LAST:event_Cancel_ItemActionPerformed
 
+    
+
+    private void add_id(String id_mode){
+        String archive = Paths.get("src", "DataBase", "ID's.csv").toString();
+        FileWriter fw = null;
+        PrintWriter pw = null;
+        try{ 
+            fw = new FileWriter(archive);
+            pw = new PrintWriter(fw);
+            for (id_class i : main_class.ids) {
+            String line = null;
+
+            if (id_mode.equals("product")) {
+                 line = (i.getId_product() + 1) + "," + i.getId_item();
+            } else if (id_mode.equals("item")) {
+                 line = i.getId_product() + "," + (i.getId_item() + 1);
+            } 
+            pw.println(line);
+            }
+            
+        }catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try{
+                if(fw != null){
+                    fw.close();
+            }
+            }catch(Exception ex){
+                    ex.printStackTrace();
+            }      
+        }
+    }
+     
     private void Accept_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accept_ItemActionPerformed
 
         String textFromTextField_category = Product_Category.getText();
@@ -661,8 +706,8 @@ public class ScreenProducts extends javax.swing.JPanel {
         Delete_Item.setEnabled(true);
 
         Item_Id.setEnabled(false);
-        Search_Items.setVisible(false);
-        Search_Items.setEnabled(false);
+        Search_I.setVisible(false);
+        Search_I.setEnabled(false);
         Product_Category.setEnabled(false);
         Item_Name.setEnabled(false);
         Type.setEnabled(false);
@@ -681,11 +726,28 @@ public class ScreenProducts extends javax.swing.JPanel {
         create_button = false;
 
     }//GEN-LAST:event_Accept_ItemActionPerformed
+    private String set_id(String id_mode){
+        id_class id = main_class.ids.get(0);
+        if(id_mode == "product"){
+           Category_Id.setText(String.valueOf(id.getId_product()));
+        }else if(id_mode == "item"){
+           Item_Id.setText(String.valueOf(id.getId_item()));    
+        } 
+        return null;
+    }
 
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        // TODO add your handling code here:
-        // createProduct();
-    }//GEN-LAST:event_jButton20ActionPerformed
+        
+    private void Create_ProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Create_ProductActionPerformed
+        set_id("product");
+        Create_Product.setEnabled(false);
+        Modify_Product.setEnabled(false);
+        Search_Product.setEnabled(false);
+        Delete_Product.setEnabled(false);
+        Category_Id.setEnabled(false);
+        Name_Product.setEnabled(true);
+        Accept_Item.setEnabled(true);
+        Cancel_Item.setEnabled(true);
+    }//GEN-LAST:event_Create_ProductActionPerformed
 
     private void Search_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_ItemActionPerformed
         int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
@@ -706,8 +768,8 @@ public class ScreenProducts extends javax.swing.JPanel {
             Item_Id.setEnabled(true);
 
         }
-        Search_Items.setVisible(true);
-        Search_Items.setEnabled(true);
+        Search_I.setVisible(true);
+        Search_I.setEnabled(true);
         Cancel_Item.setEnabled(true);
     }//GEN-LAST:event_Search_ItemActionPerformed
 
@@ -773,8 +835,8 @@ public class ScreenProducts extends javax.swing.JPanel {
             Item_Id.setEnabled(true);
 
         }
-        Search_Items.setVisible(true);
-        Search_Items.setEnabled(true);
+        Search_I.setVisible(true);
+        Search_I.setEnabled(true);
         Cancel_Item.setEnabled(true);
     }//GEN-LAST:event_Delete_ItemActionPerformed
 
@@ -799,8 +861,8 @@ public class ScreenProducts extends javax.swing.JPanel {
             Item_Id.setEnabled(true);
 
         }
-        Search_Items.setVisible(true);
-        Search_Items.setEnabled(true);
+        Search_I.setVisible(true);
+        Search_I.setEnabled(true);
         Cancel_Item.setEnabled(true);
     }//GEN-LAST:event_Modify_ItemActionPerformed
 
@@ -833,19 +895,17 @@ public class ScreenProducts extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Product_CategoryActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void Search_ProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_ProductActionPerformed
         // TODO add your handling code here:
         //searchProduct();
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_Search_ProductActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void Modify_ProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modify_ProductActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_Modify_ProductActionPerformed
 
     private void Create_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Create_ItemActionPerformed
-        String New_Code = String.valueOf(main_class.items.get(main_class.items.size() - 1).getId_item() + 1);
-        Item_Id.setText(New_Code);
-
+        set_id("item");
         Create_Item.setEnabled(false);
         Modify_Item.setEnabled(false);
         Search_Item.setEnabled(false);
@@ -880,7 +940,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView2.png")));
     }//GEN-LAST:event_jButton1MouseEntered
 
-    private void Search_ItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_ItemsActionPerformed
+    private void Search_IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_IActionPerformed
 
         String textFromTextField_id = Item_Id.getText();
         String textFromTextField_name = Item_Name.getText();
@@ -918,7 +978,7 @@ public class ScreenProducts extends javax.swing.JPanel {
                 if (modify_button == true){
                     Modify = item;
                     Item_Id.setEnabled(false);
-                    Search_Items.setEnabled(false);
+                    Search_I.setEnabled(false);
                     Product_Category.setEnabled(true);
                     Item_Name.setEnabled(true);
                     Type.setEnabled(true);
@@ -936,7 +996,7 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Amount.setText(String.valueOf(item.getAmount_item()));
                 Accept_Item.setEnabled(true);
                 Cancel_Item.setEnabled(true);
-                Search_Items.setEnabled(false);
+                Search_I.setEnabled(false);
 
                 break;
             }
@@ -944,16 +1004,56 @@ public class ScreenProducts extends javax.swing.JPanel {
         if(flag_found == false){
             JOptionPane.showMessageDialog(null, "Not Found");
         }
-    }//GEN-LAST:event_Search_ItemsActionPerformed
+    }//GEN-LAST:event_Search_IActionPerformed
 
-    private void Search_ProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_ProductsActionPerformed
+    private void Search_PActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_PActionPerformed
         JOptionPane.showMessageDialog(this,"xd");
-    }//GEN-LAST:event_Search_ProductsActionPerformed
+    }//GEN-LAST:event_Search_PActionPerformed
+
+    private void Accept_ProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accept_ProductActionPerformed
+        String textFromTextField_category = Category_Id.getText();
+        if (textFromTextField_category.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Product Category Without Text");
+            return;
+        }
+        ///////////////////////////////////////////////
+        String textFromTextField_name = Name_Product.getText();
+        if (textFromTextField_name.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Product Name Without Text");
+            return;
+        }
+        if (textFromTextField_name.trim().equals(textFromTextField_name)) {
+        }else {
+            JOptionPane.showMessageDialog(null, "Product Name With Spaces At The Ends");
+            return;
+        }
+        
+        
+        if (create_button == true) {
+            Create_item_products();
+            System.out.println("Botón 1 está habilitado. Realizar acciones para boton3.");
+
+        } else if (Search_Item.isEnabled()) {
+            System.out.println("Botón 2 está habilitado. Realizar acciones para boton2.");
+
+        } else if (modify_button == true) {
+            Modify_item_products(Modify);
+            Add_item_products();
+            modify_button = false;
+            System.out.println("Botón 3 está habilitado. Realizar acciones para boton3.");
+        } else if (delete_button == true) {
+            System.out.println("Botón 4 está habilitado. Realizar acciones para boton3.");
+            boolean result = Delete_item_products();
+            if (result == false){
+                return;
+            }
+        }
+    }//GEN-LAST:event_Accept_ProductActionPerformed
      
 
     
     
-        private void Reset_Texts(){
+    private void Reset_Texts(){
         Component[] components = ProductsView.getComponents();
         for (Component component : components) {
             if (component instanceof JTextField) {
@@ -1054,8 +1154,12 @@ public class ScreenProducts extends javax.swing.JPanel {
                 item.setPrice_item(create_price_item);
                 item.setAmount_item(create_amount_item);
                 main_class.items.add(item);
+                add_id("item");
                 Add_item_products();
+                id_class id = main_class.ids.get(0);
+                id.setId_item(id.getId_item() + 1);
                 JOptionPane.showMessageDialog(this, "Item Added Successfully");
+                
             }
     }
     
@@ -1172,25 +1276,27 @@ public class ScreenProducts extends javax.swing.JPanel {
     private javax.swing.JTextField Brand;
     private javax.swing.JButton Cancel_Item;
     private javax.swing.JButton Cancel_Product;
+    private javax.swing.JTextField Category_Id;
     private javax.swing.JButton Create_Item;
+    private javax.swing.JButton Create_Product;
     private javax.swing.JButton Delete_Item;
+    private javax.swing.JButton Delete_Product;
     private javax.swing.JTextField Item_Id;
     private javax.swing.JTextField Item_Name;
     private javax.swing.JButton Modify_Item;
+    private javax.swing.JButton Modify_Product;
+    private javax.swing.JTextField Name_Product;
     private javax.swing.JTextField Price;
     private javax.swing.JTextField Product_Category;
     private javax.swing.JPanel ProductsView;
+    private javax.swing.JButton Search_I;
     private javax.swing.JButton Search_Item;
-    private javax.swing.JButton Search_Items;
-    private javax.swing.JButton Search_Products;
+    private javax.swing.JButton Search_P;
+    private javax.swing.JButton Search_Product;
     private javax.swing.JComboBox<String> Size;
     private javax.swing.JLabel Size_Label;
     private javax.swing.JComboBox<String> Type;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -1207,8 +1313,6 @@ public class ScreenProducts extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 
 
