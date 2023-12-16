@@ -741,6 +741,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
             
         //THIS IS FOR THE MODIFY OPTION
         } else if(modify_flag == true){
+            System.out.println("MODIFY");
             //SEARCH THE ID
             boolean pass_flag = false;
             int original_id = 0;
@@ -748,135 +749,182 @@ public class ScreenCustomers extends javax.swing.JPanel {
             if(CustomerIdText.getText().equals("")){
                 JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Id");
                 return;
-            } else if(isNumeric(CustomerIdText.getText()) == false){
-                JOptionPane.showMessageDialog(null, "The customer id must be numeric");
-                return;
             } else {
-                pass_flag = true;
+                System.out.println("Hola");
+                if(isNumeric(CustomerIdText.getText()) == false){
+                    JOptionPane.showMessageDialog(null, "The customer id must be numeric");
+                    return;
+                } else {
+                    pass_flag = true;
+                }
             }
+            System.out.println("Pasé");
             if(pass_flag == true){
                 original_id = Integer.parseInt(CustomerIdText.getText());
             }
-            for(customer_class customer:customers_list){
-                if(customer.getCustomer_id() == original_id){
+            int index_aux = 0;
+            for(customer_class actual_customer:customers_list){
+                int customer_id = actual_customer.getCustomer_id();
+                System.out.println(customer_id+","+original_id);
+                if(customer_id == original_id){
                     //ORIGINAL INFORMATION
-                    String original_name = customer.getCustomer_name();
-                    String original_lastname = customer.getCustomer_lastname();
-                    int original_phone = customer.getCustomer_phone();
-                    String original_email = customer.getCustomer_email();
-                    String original_province = customer.getCustomer_province();
-                    String original_canton = customer.getCustomer_canton();
-                    String original_district = customer.getCustomer_district();
-                    Date original_birthdate = customer.getCustomer_birthdate();
+                    //String original_name = customer.getCustomer_name();
+                    //String original_lastname = customer.getCustomer_lastname();
+                    //int original_phone = customer.getCustomer_phone();
+                    //String original_email = customer.getCustomer_email();
+                    //String original_province = customer.getCustomer_province();
+                    //String original_canton = customer.getCustomer_canton();
+                    //String original_district = customer.getCustomer_district();
+                    //Date original_birthdate = customer.getCustomer_birthdate();
                     
                     //EL NUEVO CON LAS RESTRICCIONES, NADA DE VACIO.
-                    //LUEGO MOSTRAR AL USUARIO UNA CONFIRMACIÓN COMO LA DEL DELETE
-                    //FALTA: UN INT PARA CALCULAR CUAL FILA DE LA TABLA QUITAR, MENSAJES DE CONFIRMACION PARA TODA ACCION.
+                    //Collect data from the TextFields and ComboBoxes and Validate
+                    //Name
+                    String name = CustomerNameText.getText();
+                    if(name.equals("")){
+                        JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Name");
+                        return;
+                    }
+                    name = name.trim();
+                    
+                    //Lastname
+                    String lastname = CustomerLastnameText.getText();
+                    if(lastname.equals("")){
+                        JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Lastname");
+                        return;
+                    }
+                    lastname = lastname.trim();
+                    
+                    //Phone
+                    String phone_valid = CustomerPhoneText.getText();
+                    if(phone_valid.equals("")){
+                        JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Phone");
+                        return;
+                    }
+                    boolean result = isNumeric(phone_valid);
+                    if(result == false){
+                        JOptionPane.showMessageDialog(null, "The phone number must be numeric");
+                        return;
+                    }
+                    if(phone_valid.length() != 8){
+                        JOptionPane.showMessageDialog(null, "The phone number must have 8 digits");
+                        return;
+                    }
+                    if(phone_valid.charAt(0) != '2' && phone_valid.charAt(0) != '4' && phone_valid.charAt(0) != '6' && phone_valid.charAt(0) != '8'){
+                        JOptionPane.showMessageDialog(null, "The phone number must start with 2, 4, 6 or 8");
+                        return;
+                    }
+                    int phone = Integer.parseInt(phone_valid);
+                    
+                    //eMail
+                    String email = CustomerMailText.getText();
+                    if(email.equals("")){
+                        JOptionPane.showMessageDialog(null, "You need to complete this data: Customer eMail");
+                        return;
+                    }
+                    email = email.trim();
+                    boolean valid_email = validateMail(email);
+                    if (valid_email == false){
+                        JOptionPane.showMessageDialog(null, "The email must be in the correct format: Google-like format");
+                        return;
+                    }
+                    
+                    //Province (Don't need to be validated)
+                    String province = CustomerProvinceCombo.getSelectedItem().toString();
+                    
+                    //Canton
+                    String canton = CustomerCantonText.getText();
+                    if(canton.equals("")){
+                        JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Canton");
+                        return;
+                    }
+                    canton = canton.trim();
+                    
+                    //District
+                    String district = CustomerDistrictText.getText();
+                    if(district.equals("")){
+                        JOptionPane.showMessageDialog(null, "You need to complete this data: Customer District");
+                        return;
+                    }
+                    district = district.trim();
+                    
+                    //Birthdate (And build the Date)
+                    //Day
+                    if(CustomerDayText.getText().equals("")){
+                        JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Birthdate Day");
+                        return;
+                    }
+                    if(isNumeric(CustomerDayText.getText()) == false){
+                        JOptionPane.showMessageDialog(null, "The phone number must be numeric");
+                        return;
+                    }
+                    int day = Integer.parseInt(CustomerDayText.getText());
+
+                    //Month
+                    int month = Integer.parseInt(CustomerMonthCombo.getSelectedItem().toString());
+
+                    //Year
+                    if(CustomerYearText.getText().equals("")){
+                        JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Birthdate Day");
+                        return;
+                    }
+                    if(isNumeric(CustomerYearText.getText()) == false){
+                        JOptionPane.showMessageDialog(null, "The phone number must be numeric");
+                        return;
+                    }
+                    int year = Integer.parseInt(CustomerYearText.getText());
+
+                    //Next
+                    boolean pass_flag2 = validateDate(day, month, year);
+                    if(pass_flag2 == false){
+                        return;
+                    }
+                    Date date = new Date(year-1900, month-1, day);
+                    String date_of_birth = date.getDate()+"/"+(date.getMonth()+1)+"/"+(date.getYear()+1900);
+                    
+                    //Confirm the modify
+                    int confirm_delete = JOptionPane.showConfirmDialog(null, "Submit the modify:\nId: "+actual_customer.getCustomer_id()+"\nName: "+actual_customer.getCustomer_name()+"\nLastname: "+actual_customer.getCustomer_lastname()+"\nPhone: "+actual_customer.getCustomer_phone()+"\neMail: "+actual_customer.getCustomer_email()+"\nProvince: "+actual_customer.getCustomer_province()+"\nCanton: "+actual_customer.getCustomer_canton()+"\nDistrict: "+actual_customer.getCustomer_district()+"\nBirthdate: "+date_of_birth);
+                    if(confirm_delete != 0){
+                        return;
+                    } else {
+                        //Set the modified object data
+                        actual_customer.setCustomer_id(original_id);
+                        actual_customer.setCustomer_name(name);
+                        actual_customer.setCustomer_lastname(lastname);
+                        actual_customer.setCustomer_phone(phone);
+                        actual_customer.setCustomer_email(email);
+                        actual_customer.setCustomer_province(province);
+                        actual_customer.setCustomer_canton(canton);
+                        actual_customer.setCustomer_district(district);
+                        actual_customer.setCustomer_birthdate(date);
+                    }
+
+                    //Create the temporary Object
+                    //customer_class new_object = new customer_class();
+
+                    //Add the object to the JTable
+                    mt.removeRow(index_aux);
+                    mt.addRow(new Object []{actual_customer.getCustomer_id(), actual_customer.getCustomer_name(), actual_customer.getCustomer_lastname()});
+                    SearchTable.updateUI();
+
+                    //Add items to the CSV file
+                    WriteCSV();
+
+                    //Reset the Textfields ******
+                    CustomerNameText.setText("");
+                    CustomerLastnameText.setText("");
+                    CustomerPhoneText.setText("");
+                    CustomerMailText.setText("");
+                    CustomerCantonText.setText("");
+                    CustomerDistrictText.setText("");
+                    CustomerDayText.setText("01");
+                    CustomerYearText.setText("1900");
+                    
+                    //LUEGO MOSTRAR AL USUARIO UNA CONFIRMACIÓN COMO LA DEL DELETE **
+                    //FALTA: UN INT PARA CALCULAR CUAL FILA DE LA TABLA QUITAR, MENSAJES DE CONFIRMACION PARA TODA ACCION. FALTA
                 }
+                index_aux++;
             }
-            
-            //Collect data from the TextFields and ComboBoxes and Validate
-            //Name
-            String name = CustomerNameText.getText();
-            if(name.equals("")){
-                JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Name");
-                return;
-            }
-            name = name.trim();
-        
-            //Lastname
-            String lastname = CustomerLastnameText.getText();
-            if(lastname.equals("")){
-                JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Lastname");
-                return;
-            }
-            lastname = lastname.trim();
-        
-            //Phone
-            String phone_valid = CustomerPhoneText.getText();
-            if(phone_valid.equals("")){
-                JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Phone");
-                return;
-            }
-            boolean result = isNumeric(phone_valid);
-            if(result == false){
-                JOptionPane.showMessageDialog(null, "The phone number must be numeric");
-                return;
-            }
-            if(phone_valid.length() != 8){
-                JOptionPane.showMessageDialog(null, "The phone number must have 8 digits");
-                return;
-            }
-            if(phone_valid.charAt(0) != '2' && phone_valid.charAt(0) != '4' && phone_valid.charAt(0) != '6' && phone_valid.charAt(0) != '8'){
-                JOptionPane.showMessageDialog(null, "The phone number must start with 2, 4, 6 or 8");
-                return;
-            }
-            int phone = Integer.parseInt(phone_valid);
-        
-            //eMail
-            String email = CustomerMailText.getText();
-            if(email.equals("")){
-                JOptionPane.showMessageDialog(null, "You need to complete this data: Customer eMail");
-                return;
-            }
-            email = email.trim();
-            boolean valid_email = validateMail(email);
-            if (valid_email == false){
-                JOptionPane.showMessageDialog(null, "The email must be in the correct format: Google-like format");
-                return;
-            }
-        
-            //Province (Don't need to be validated)
-            String province = CustomerProvinceCombo.getSelectedItem().toString();
-        
-            //Canton
-            String canton = CustomerCantonText.getText();
-            if(canton.equals("")){
-                JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Canton");
-                return;
-            }
-            canton = canton.trim();
-        
-            //District
-            String district = CustomerDistrictText.getText();
-            if(district.equals("")){
-                JOptionPane.showMessageDialog(null, "You need to complete this data: Customer District");
-                return;
-            }
-            district = district.trim();
-        
-            //Birthdate (And build the Date)
-            //Day
-            if(CustomerDayText.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Birthdate Day");
-                return;
-            }
-            if(isNumeric(CustomerDayText.getText()) == false){
-                JOptionPane.showMessageDialog(null, "The phone number must be numeric");
-                return;
-            }
-            int day = Integer.parseInt(CustomerDayText.getText());
-            
-            //Month
-            int month = Integer.parseInt(CustomerMonthCombo.getSelectedItem().toString());
-            
-            //Year
-            if(CustomerYearText.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Birthdate Day");
-                return;
-            }
-            if(isNumeric(CustomerYearText.getText()) == false){
-                JOptionPane.showMessageDialog(null, "The phone number must be numeric");
-                return;
-            }
-            int year = Integer.parseInt(CustomerYearText.getText());
-            
-            //Next
-            boolean pass_flag2 = validateDate(day, month, year);
-            if(pass_flag == false){
-                return;
-            }
-            Date date = new Date(year-1900, month-1, day);
             
         //THIS IS FOR THE DELETE OPTION    
         } else if(delete_flag == true){
@@ -1240,10 +1288,10 @@ public class ScreenCustomers extends javax.swing.JPanel {
         SearchTable.setModel(mt);
         
         String archive = Paths.get("src", "DataBase", "Archivo_CSV_Customers.csv").toString();
-        customer_class temporary_object = new customer_class();
         try {
             reader = new BufferedReader(new FileReader(archive));
             while((line = reader.readLine()) != null){
+                customer_class temporary_object = new customer_class();
                 parts = line.split(",");
                 int aux_day = 0;
                 int aux_month = 0;
