@@ -332,7 +332,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
                         .addComponent(jLabel8))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(State, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
@@ -357,67 +357,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
     
 
     private void loading_customers(){
-        String archive = Paths.get("src", "DataBase", "Archivo_CSV_Customers.csv").toString();
-        try {
-            reader = new BufferedReader(new FileReader(archive));
-            while((line = reader.readLine()) != null){
-                customer_class temporary_object = new customer_class();
-                parts = line.split(",");
-                int aux_day = 0;
-                int aux_month = 0;
-                int aux_year = 0;
-                Date birthdate = null;
-                for(int i = 0; i < parts.length; i++){
-                    switch(i){
-                        case 0:
-                            temporary_object.setCustomer_id(Integer.parseInt(parts[i]));
-                            break;
-                        case 1:
-                            temporary_object.setCustomer_name(parts[i]);
-                            break;
-                        case 2:
-                            temporary_object.setCustomer_lastname(parts[i]);
-                            break;
-                        case 3:
-                            temporary_object.setCustomer_phone(Integer.parseInt(parts[i]));
-                            break;
-                        case 4:
-                            temporary_object.setCustomer_email(parts[i]);
-                            break;
-                        case 5:
-                            temporary_object.setCustomer_province(parts[i]);
-                            break;
-                        case 6:
-                            temporary_object.setCustomer_canton(parts[i]);
-                            break;
-                        case 7:
-                            temporary_object.setCustomer_district(parts[i]);
-                            break;
-                        case 8:
-                            aux_day = Integer.parseInt(parts[i]);
-                            break;
-                        case 9:
-                            aux_month = Integer.parseInt(parts[i]);
-                            break;
-                        case 10:
-                            aux_year = Integer.parseInt(parts[i]);
-                            temporary_object.setCustomer_birthdate(new Date(aux_year-1900, aux_month-1, aux_day));
-                            break;
-                    }
-                    System.out.print(parts[i]+" | ");
-                }
-                customers_list.add(temporary_object);
-                mt.addRow(new Object []{temporary_object.getCustomer_id(), temporary_object.getCustomer_name(), temporary_object.getCustomer_lastname()});
-                SearchTable.updateUI();
-                System.out.println(customers_list);
-                System.out.println("");
-            }
-            reader.close();
-            line = null;
-            parts = null;
-        } catch(Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+        
     }
     
     
