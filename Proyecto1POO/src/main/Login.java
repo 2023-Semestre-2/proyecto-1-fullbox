@@ -294,9 +294,11 @@ public class Login extends javax.swing.JFrame {
             while((line = br.readLine()) != null){
                 id_class id = new id_class();
                 String array [] = line.split("\\,");
-                if (array.length == 2){
+                if (array.length == 4){
                     id.setId_product(Integer.parseInt(array[0]));
                     id.setId_item(Integer.parseInt(array[1]));
+                    id.setId_customer(Integer.parseInt(array[2]));
+                    id.setId_maintenance(Integer.parseInt(array[3]));
                     main_class.ids.add(id);
                     bandera =true;                     
                 }              
