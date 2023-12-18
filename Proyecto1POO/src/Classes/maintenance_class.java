@@ -4,18 +4,20 @@
  */
 package Classes;
 
+import java.util.Date;
+
 /**
  *
  * @author josem
  */
 public class maintenance_class {
     private int service_id;
-    private int customer_id;
+    private String customer_id;
     private String bicyle_brand;
     private String bicycle_description;
     private int maintenance_price;
-    private String received_date;
-    private String delivery_date;
+    private Date received_date;
+    private Date delivery_date;
     private String maintenance_observations;
     private String maintenance_state;
 
@@ -25,7 +27,7 @@ public class maintenance_class {
         return service_id;
     }
 
-    public int getCustomer_id() {
+    public String getCustomer_id() {
         return customer_id;
     }
 
@@ -41,11 +43,11 @@ public class maintenance_class {
         return maintenance_price;
     }
 
-    public String getReceived_date() {
+    public Date getReceived_date() {
         return received_date;
     }
 
-    public String getDelivery_date() {
+    public Date getDelivery_date() {
         return delivery_date;
     }
 
@@ -64,7 +66,7 @@ public class maintenance_class {
         this.service_id = service_id;
     }
 
-    public void setCustomer_id(int customer_id) {
+    public void setCustomer_id(String customer_id) {
         this.customer_id = customer_id;
     }
 
@@ -80,11 +82,11 @@ public class maintenance_class {
         this.maintenance_price = maintenance_price;
     }
 
-    public void setReceived_date(String received_date) {
+    public void setReceived_date(Date received_date) {
         this.received_date = received_date;
     }
 
-    public void setDelivery_date(String delivery_date) {
+    public void setDelivery_date(Date delivery_date) {
         this.delivery_date = delivery_date;
     }
 

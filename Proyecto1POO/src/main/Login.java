@@ -16,6 +16,8 @@ import Classes.VerifyUsers;
 import java.awt.BorderLayout;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JPanel;
 import views.Register;
 
@@ -370,6 +372,113 @@ public class Login extends javax.swing.JFrame {
             }      
         }
     }
+    
+    private void loading_archive_customers(){    
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV_Customers.csv").toString();
+        FileReader fr = null;
+        BufferedReader br = null;
+        Boolean bandera = false;
+        
+        try{
+            fr = new FileReader(archive);
+            br = new BufferedReader(fr);
+            String line;
+            
+            while((line = br.readLine()) != null){
+                customer_class customer = new customer_class();
+                String array [] = line.split("\\,");
+                if (array.length == 11){
+                    
+                    customer.setCustomer_id(Integer.parseInt(array[0]));
+                    customer.setCustomer_name(array[1]);
+                    customer.setCustomer_lastname(array[2]);
+                    customer.setCustomer_phone(Integer.parseInt(array[3]));
+                    customer.setCustomer_email(array[4]);
+                    customer.setCustomer_province(array[5]);
+                    customer.setCustomer_canton(array[6]);
+                    customer.setCustomer_district(array[7]);
+                    int year  = Integer.parseInt(array[10]);
+                    int month  = Integer.parseInt(array[9]);
+                    int day  = Integer.parseInt(array[9]);
+                    customer.setCustomer_birthdate(new Date(year-1900, month-1, day));
+                    main_class.customers.add(customer);
+                    bandera = true;                     
+                }              
+            }
+            if (bandera){
+                System.out.println("Importado exitosamente");    
+            }else{
+                 JOptionPane.showMessageDialog(this,"Fatal Error: Importation");
+            }
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try{
+                if(fr != null){
+                    fr.close();
+            }
+            }catch(Exception ex){
+                    ex.printStackTrace();
+            }      
+        }
+    }
+    
+    private void loading_archive_maintenance(){
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV_MAINTENANCE.csv").toString();
+        FileReader fr = null;
+        BufferedReader br = null;
+        Boolean bandera = false;
+        
+        try{
+            fr = new FileReader(archive);
+            br = new BufferedReader(fr);
+            String line;
+            
+            while((line = br.readLine()) != null){
+                maintenance_class service = new maintenance_class();
+                String array [] = line.split("\\,");
+                if (array.length == 13){
+  
+                    service.setService_id(Integer.parseInt(array[0]));
+                    service.setCustomer_id(Integer.parseInt(array[1]));
+                    service.setBicyle_brand(array[2]);
+                    service.setBicycle_description(array[3]);
+                    service.setMaintenance_price(Integer.parseInt(array[4]));
+                    int year_r  = Integer.parseInt(array[5]);
+                    int month_r  = Integer.parseInt(array[6]);
+                    int day_r  = Integer.parseInt(array[7]);
+                    service.setReceived_date(new Date(year_r-1900, month_r-1, day_r));
+                    int year_d  = Integer.parseInt(array[8]);
+                    int month_d  = Integer.parseInt(array[9]);
+                    int day_d  = Integer.parseInt(array[10]);
+                    service.setDelivery_date(new Date(year_d-1900, month_d-1, day_d));
+                    service.setMaintenance_observations(array[11]);
+                    service.setMaintenance_state(array[12]);
+                    main_class.maintenance.add(service);
+                    bandera = true;                     
+                }              
+            }
+            if (bandera){
+                System.out.println("Importado exitosamente");    
+            }else{
+                 JOptionPane.showMessageDialog(this,"Fatal Error: Importation");
+            }
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try{
+                if(fr != null){
+                    fr.close();
+            }
+            }catch(Exception ex){
+                    ex.printStackTrace();
+            }      
+        }
+    }
         
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         char[] passwordChar = PasswordText.getPassword();
@@ -388,10 +497,14 @@ public class Login extends javax.swing.JFrame {
                 main_class.main_product(new String[]{});
                 main_class.main_item(new String[]{});
                 main_class.main_id(new String[]{});
+                main_class.main_customer(new String[]{});
+                main_class.main_maintenance(new String[]{});
                 
                 loading_archive_items();
                 loading_archive_products();
                 loading_archive_ids();
+                loading_archive_customers();
+                loading_archive_maintenance();
             }
         }
         
