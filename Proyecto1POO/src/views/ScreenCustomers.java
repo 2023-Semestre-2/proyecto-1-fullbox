@@ -80,7 +80,8 @@ public class ScreenCustomers extends javax.swing.JPanel {
         DirectoryPanelLabel = new javax.swing.JLabel();
         SearchScrollPane = new javax.swing.JScrollPane();
         SearchTable = new javax.swing.JTable();
-        ModifyDirectLabel = new javax.swing.JLabel();
+        SearchModifyButton = new javax.swing.JButton();
+        ResetButton = new javax.swing.JButton();
 
         CustomersView.setBackground(new java.awt.Color(255, 255, 255));
         CustomersView.setPreferredSize(new java.awt.Dimension(1030, 730));
@@ -262,100 +263,107 @@ public class ScreenCustomers extends javax.swing.JPanel {
         });
         SearchScrollPane.setViewportView(SearchTable);
 
-        ModifyDirectLabel.setForeground(new java.awt.Color(255, 255, 255));
-        ModifyDirectLabel.setText("Reference to search and modify →");
+        SearchModifyButton.setText("S");
+        SearchModifyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchModifyButtonActionPerformed(evt);
+            }
+        });
+
+        ResetButton.setText("Reset");
+        ResetButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResetButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout CustomersViewLayout = new javax.swing.GroupLayout(CustomersView);
         CustomersView.setLayout(CustomersViewLayout);
         CustomersViewLayout.setHorizontalGroup(
             CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CustomersViewLayout.createSequentialGroup()
-                .addGap(407, 407, 407)
                 .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CustomersViewLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(CustomersWindowTitle))
-                    .addComponent(CustomersWindowSubtitle))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94))
-            .addGroup(CustomersViewLayout.createSequentialGroup()
-                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(CustomersViewLayout.createSequentialGroup()
-                            .addGap(26, 26, 26)
-                            .addComponent(ModifyDirectLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(CustomerIdLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(DirectoryPanelLabel))
-                        .addGroup(CustomersViewLayout.createSequentialGroup()
-                            .addGap(237, 237, 237)
-                            .addComponent(AddCustomerButton)
-                            .addGap(3, 3, 3)
-                            .addComponent(SearchCustomerButton)
-                            .addGap(10, 10, 10)
-                            .addComponent(ModifyCustomerButton)
-                            .addGap(7, 7, 7)
-                            .addComponent(DeleteCustomerButton)))
+                        .addGap(407, 407, 407)
+                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(CustomersViewLayout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(CustomersWindowTitle))
+                            .addComponent(CustomersWindowSubtitle))
+                        .addGap(430, 430, 430)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(CustomersViewLayout.createSequentialGroup()
+                        .addGap(237, 237, 237)
+                        .addComponent(AddCustomerButton)
+                        .addGap(3, 3, 3)
+                        .addComponent(SearchCustomerButton)
+                        .addGap(10, 10, 10)
+                        .addComponent(ModifyCustomerButton)
+                        .addGap(7, 7, 7)
+                        .addComponent(DeleteCustomerButton))
+                    .addGroup(CustomersViewLayout.createSequentialGroup()
+                        .addGap(215, 215, 215)
+                        .addComponent(CustomerIdLabel)
+                        .addGap(359, 359, 359)
+                        .addComponent(DirectoryPanelLabel))
                     .addGroup(CustomersViewLayout.createSequentialGroup()
                         .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersViewLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersViewLayout.createSequentialGroup()
-                                        .addComponent(CustomerLastnameLabel)
-                                        .addGap(147, 147, 147))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersViewLayout.createSequentialGroup()
-                                        .addComponent(CustomerPhoneLabel)
-                                        .addGap(154, 154, 154))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersViewLayout.createSequentialGroup()
-                                        .addComponent(CustomerMailLabel)
-                                        .addGap(157, 157, 157))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersViewLayout.createSequentialGroup()
-                                        .addComponent(CustomerProvinceLabel)
-                                        .addGap(146, 146, 146))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersViewLayout.createSequentialGroup()
-                                        .addComponent(CustomerCantonLabel)
-                                        .addGap(151, 151, 151))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersViewLayout.createSequentialGroup()
-                                        .addComponent(CustomerDistrictLabel)
-                                        .addGap(149, 149, 149))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersViewLayout.createSequentialGroup()
-                                        .addComponent(CustomerBirthdateLabel)
-                                        .addGap(143, 143, 143))))
-                            .addGroup(CustomersViewLayout.createSequentialGroup()
-                                .addGap(94, 94, 94)
-                                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersViewLayout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(CustomerNameLabel)
-                                        .addGap(159, 159, 159))
+                                .addComponent(SearchModifyButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(CustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CustomerIdText, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CustomerLastnameText, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CustomerPhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CustomerMailText, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CustomerProvinceCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CustomerCantonText, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CustomerDistrictText, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(CustomersViewLayout.createSequentialGroup()
-                                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(CustomersViewLayout.createSequentialGroup()
-                                                .addComponent(CustomerDayText, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(CustomerMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(CustomerYearText, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(CustomerIdText, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(CustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(CustomerLastnameText, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(CustomerPhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(CustomerMailText, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(CustomerProvinceCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(CustomerCantonText, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(CustomerDistrictText, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(CustomersViewLayout.createSequentialGroup()
-                                                    .addGap(61, 61, 61)
-                                                    .addComponent(AcceptCustomerButton)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(CancelCustomerButton))))
-                                        .addGap(31, 31, 31)))))
+                                        .addComponent(CustomerDayText, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(CustomerMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(CustomerYearText, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(CustomersViewLayout.createSequentialGroup()
+                                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(CustomersViewLayout.createSequentialGroup()
+                                        .addGap(205, 205, 205)
+                                        .addComponent(CustomerNameLabel))
+                                    .addGroup(CustomersViewLayout.createSequentialGroup()
+                                        .addGap(198, 198, 198)
+                                        .addComponent(CustomerLastnameLabel))
+                                    .addGroup(CustomersViewLayout.createSequentialGroup()
+                                        .addGap(208, 208, 208)
+                                        .addComponent(CustomerPhoneLabel))
+                                    .addGroup(CustomersViewLayout.createSequentialGroup()
+                                        .addGap(210, 210, 210)
+                                        .addComponent(CustomerMailLabel))
+                                    .addGroup(CustomersViewLayout.createSequentialGroup()
+                                        .addGap(204, 204, 204)
+                                        .addComponent(CustomerProvinceLabel))
+                                    .addGroup(CustomersViewLayout.createSequentialGroup()
+                                        .addGap(206, 206, 206)
+                                        .addComponent(CustomerCantonLabel))
+                                    .addGroup(CustomersViewLayout.createSequentialGroup()
+                                        .addGap(204, 204, 204)
+                                        .addComponent(CustomerDistrictLabel))
+                                    .addGroup(CustomersViewLayout.createSequentialGroup()
+                                        .addGap(205, 205, 205)
+                                        .addComponent(CustomerBirthdateLabel))
+                                    .addGroup(CustomersViewLayout.createSequentialGroup()
+                                        .addGap(174, 174, 174)
+                                        .addComponent(AcceptCustomerButton)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(CancelCustomerButton)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ResetButton)))
+                                .addGap(28, 28, 28)))
                         .addComponent(SearchScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addGap(94, 94, 94))
         );
         CustomersViewLayout.setVerticalGroup(
             CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -375,53 +383,54 @@ public class ScreenCustomers extends javax.swing.JPanel {
                     .addComponent(DeleteCustomerButton))
                 .addGap(12, 12, 12)
                 .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(CustomerIdLabel)
-                        .addComponent(ModifyDirectLabel))
+                    .addComponent(CustomerIdLabel)
                     .addComponent(DirectoryPanelLabel))
                 .addGap(4, 4, 4)
                 .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CustomersViewLayout.createSequentialGroup()
-                        .addComponent(CustomerIdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CustomerIdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SearchModifyButton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CustomerNameLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(CustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(CustomerLastnameLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(CustomerLastnameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(CustomerPhoneLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(CustomerPhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(CustomerMailLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(CustomerMailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(CustomerProvinceLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(CustomerProvinceCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(CustomerCantonLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(CustomerCantonText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(CustomerDistrictLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(CustomerDistrictText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(CustomerBirthdateLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CustomerYearText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(CustomerMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CustomerYearText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(CustomerDayText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(AcceptCustomerButton)
-                            .addComponent(CancelCustomerButton)))
+                            .addComponent(CancelCustomerButton)
+                            .addComponent(ResetButton)))
                     .addComponent(SearchScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(253, Short.MAX_VALUE))
         );
@@ -476,12 +485,15 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomerYearText.setEnabled(true);
         AcceptCustomerButton.setEnabled(true);
         CancelCustomerButton.setEnabled(true);
-        ModifyDirectLabel.setForeground(Color.white);
+        SearchModifyButton.setEnabled(false);
+        SearchModifyButton.setVisible(false);
+        ResetButton.setEnabled(false);
         
         AddCustomerButton.setEnabled(false);
         SearchCustomerButton.setEnabled(false);
         ModifyCustomerButton.setEnabled(false);
         DeleteCustomerButton.setEnabled(false);
+        ResetButton.setEnabled(false);
     }//GEN-LAST:event_AddCustomerButtonActionPerformed
 
     private void ModifyCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyCustomerButtonActionPerformed
@@ -494,19 +506,20 @@ public class ScreenCustomers extends javax.swing.JPanel {
         
         //Set the Buttons visibility
         CustomerIdText.setEnabled(true);
-        CustomerNameText.setEnabled(true);
-        CustomerLastnameText.setEnabled(true);
-        CustomerPhoneText.setEnabled(true);
-        CustomerMailText.setEnabled(true);
-        CustomerProvinceCombo.setEnabled(true);
-        CustomerCantonText.setEnabled(true);
-        CustomerDistrictText.setEnabled(true);
-        CustomerDayText.setEnabled(true);
-        CustomerMonthCombo.setEnabled(true);
-        CustomerYearText.setEnabled(true);
-        AcceptCustomerButton.setEnabled(true);
+        CustomerNameText.setEnabled(false);
+        CustomerLastnameText.setEnabled(false);
+        CustomerPhoneText.setEnabled(false);
+        CustomerMailText.setEnabled(false);
+        CustomerProvinceCombo.setEnabled(false);
+        CustomerCantonText.setEnabled(false);
+        CustomerDistrictText.setEnabled(false);
+        CustomerDayText.setEnabled(false);
+        CustomerMonthCombo.setEnabled(false);
+        CustomerYearText.setEnabled(false);
+        AcceptCustomerButton.setEnabled(false);
         CancelCustomerButton.setEnabled(true);
-        ModifyDirectLabel.setForeground(Color.black);
+        SearchModifyButton.setEnabled(true);
+        SearchModifyButton.setVisible(true);
         
         AddCustomerButton.setEnabled(false);
         SearchCustomerButton.setEnabled(false);
@@ -728,13 +741,30 @@ public class ScreenCustomers extends javax.swing.JPanel {
             }
             for(customer_class customer:customers_list){
                 if(customer.getCustomer_id() == id || customer.getCustomer_name().equals(name)){
-                    Date original_date = customer.getCustomer_birthdate();
-                    String date_of_birth = original_date.getDate()+"/"+(original_date.getMonth()+1)+"/"+(original_date.getYear()+1900);
-                    JOptionPane.showMessageDialog(null, "Information about the Customer:\nId: "+customer.getCustomer_id()+"\nName: "+customer.getCustomer_name()+"\nLastname: "+customer.getCustomer_lastname()+"\nPhone: "+customer.getCustomer_phone()+"\neMail: "+customer.getCustomer_email()+"\nProvince: "+customer.getCustomer_province()+"\nCanton: "+customer.getCustomer_canton()+"\nDistrict: "+customer.getCustomer_district()+"\nBirthdate: "+date_of_birth);
-                    
-                    //Reset the Textfields ******
-                    CustomerIdText.setText("");
-                    CustomerNameText.setText("");
+                    CustomerIdText.setText(customer.getCustomer_id()+"");
+                    CustomerNameText.setText(customer.getCustomer_name());
+                    CustomerLastnameText.setText(customer.getCustomer_lastname());
+                    CustomerPhoneText.setText(customer.getCustomer_phone()+"");
+                    CustomerMailText.setText(customer.getCustomer_email());
+                    CustomerProvinceCombo.setSelectedItem(customer.getCustomer_province());
+                    CustomerCantonText.setText(customer.getCustomer_canton());
+                    CustomerDistrictText.setText(customer.getCustomer_district());
+                    CustomerDayText.setText(customer.getCustomer_birthdate().getDate()+"");
+                    CustomerMonthCombo.setSelectedIndex(customer.getCustomer_birthdate().getMonth());
+                    CustomerYearText.setText((customer.getCustomer_birthdate().getYear()+1900)+"");
+
+                    CustomerIdText.setEnabled(false);
+                    CustomerNameText.setEnabled(false);
+                    CustomerLastnameText.setEnabled(false);
+                    CustomerPhoneText.setEnabled(false);
+                    CustomerMailText.setEnabled(false);
+                    CustomerProvinceCombo.setEnabled(false);
+                    CustomerCantonText.setEnabled(false);
+                    CustomerDistrictText.setEnabled(false);
+                    CustomerDayText.setEnabled(false);
+                    CustomerMonthCombo.setEnabled(false);
+                    CustomerYearText.setEnabled(false);
+                    AcceptCustomerButton.setEnabled(false);
                     return;
                 }
             }
@@ -742,43 +772,15 @@ public class ScreenCustomers extends javax.swing.JPanel {
             
         //THIS IS FOR THE MODIFY OPTION
         } else if(modify_flag == true){
-            System.out.println("MODIFY");
-            //SEARCH THE ID
-            boolean pass_flag = false;
-            int original_id = 0;
-            
-            if(CustomerIdText.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Id");
-                return;
-            } else {
-                System.out.println("Hola");
-                if(isNumeric(CustomerIdText.getText()) == false){
-                    JOptionPane.showMessageDialog(null, "The customer id must be numeric");
-                    return;
-                } else {
-                    pass_flag = true;
-                }
-            }
-            System.out.println("Pasé");
-            if(pass_flag == true){
-                original_id = Integer.parseInt(CustomerIdText.getText());
-            }
+            int original_id = Integer.parseInt(CustomerIdText.getText());
             int index_aux = 0;
             for(customer_class actual_customer:customers_list){
                 int customer_id = actual_customer.getCustomer_id();
-                System.out.println(customer_id+","+original_id);
                 if(customer_id == original_id){
+                    
                     //ORIGINAL INFORMATION
-                    String original_name = actual_customer.getCustomer_name();
-                    String original_lastname = actual_customer.getCustomer_lastname();
-                    int original_phone = actual_customer.getCustomer_phone();
-                    String original_email = actual_customer.getCustomer_email();
-                    String original_province = actual_customer.getCustomer_province();
-                    String original_canton = actual_customer.getCustomer_canton();
-                    String original_district = actual_customer.getCustomer_district();
                     Date original_birthdate = actual_customer.getCustomer_birthdate();
                     
-                    //EL NUEVO CON LAS RESTRICCIONES, NADA DE VACIO.
                     //Collect data from the TextFields and ComboBoxes and Validate
                     //Name
                     String name = CustomerNameText.getText();
@@ -910,6 +912,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
                     WriteCSV();
 
                     //Reset the Textfields ******
+                    CustomerIdText.setText("");
                     CustomerNameText.setText("");
                     CustomerLastnameText.setText("");
                     CustomerPhoneText.setText("");
@@ -918,7 +921,24 @@ public class ScreenCustomers extends javax.swing.JPanel {
                     CustomerDistrictText.setText("");
                     CustomerDayText.setText("01");
                     CustomerYearText.setText("1900");
+                    
+                    CustomerIdText.setEnabled(true);
+                    CustomerNameText.setEnabled(false);
+                    CustomerLastnameText.setEnabled(false);
+                    CustomerPhoneText.setEnabled(false);
+                    CustomerMailText.setEnabled(false);
+                    CustomerProvinceCombo.setEnabled(false);
+                    CustomerCantonText.setEnabled(false);
+                    CustomerDistrictText.setEnabled(false);
+                    CustomerDayText.setEnabled(false);
+                    CustomerMonthCombo.setEnabled(false);
+                    CustomerYearText.setEnabled(false);
+                    AcceptCustomerButton.setEnabled(false);
+                    CancelCustomerButton.setEnabled(true);
+                    SearchModifyButton.setEnabled(true);
+                    SearchModifyButton.setVisible(true);
                     JOptionPane.showMessageDialog(null, "Modified Succesfully");
+                    return;
                 }
                 index_aux++;
             }
@@ -1001,12 +1021,14 @@ public class ScreenCustomers extends javax.swing.JPanel {
             CustomerYearText.setEnabled(false);
             AcceptCustomerButton.setEnabled(false);
             CancelCustomerButton.setEnabled(false);
-            ModifyDirectLabel.setForeground(Color.white);
+            SearchModifyButton.setEnabled(false);
+            SearchModifyButton.setVisible(false);
             
             AddCustomerButton.setEnabled(true);
             SearchCustomerButton.setEnabled(true);
             ModifyCustomerButton.setEnabled(true);
             DeleteCustomerButton.setEnabled(true);
+            ResetButton.setEnabled(false);
             
             //Set the default Text
             CustomerIdText.setText("");
@@ -1048,12 +1070,14 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomerYearText.setEnabled(false);
         AcceptCustomerButton.setEnabled(true);
         CancelCustomerButton.setEnabled(true);
-        ModifyDirectLabel.setForeground(Color.white);
+        SearchModifyButton.setEnabled(false);
+        SearchModifyButton.setVisible(false);
         
         AddCustomerButton.setEnabled(false);
         SearchCustomerButton.setEnabled(false);
         ModifyCustomerButton.setEnabled(false);
         DeleteCustomerButton.setEnabled(false);
+        ResetButton.setEnabled(true);
         
         //UpdateUI - Table
         mt.setColumnIdentifiers(ids);
@@ -1084,17 +1108,98 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomerYearText.setEnabled(false);
         AcceptCustomerButton.setEnabled(true);
         CancelCustomerButton.setEnabled(true);
-        ModifyDirectLabel.setForeground(Color.white);
+        SearchModifyButton.setEnabled(false);
+        SearchModifyButton.setVisible(false);
         
         AddCustomerButton.setEnabled(false);
         SearchCustomerButton.setEnabled(false);
         ModifyCustomerButton.setEnabled(false);
         DeleteCustomerButton.setEnabled(false);
+        ResetButton.setEnabled(false);
         
         mt.setColumnIdentifiers(ids);
         SearchTable.setModel(mt);
         SearchTable.updateUI();
     }//GEN-LAST:event_DeleteCustomerButtonActionPerformed
+
+    private void SearchModifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchModifyButtonActionPerformed
+        //SEARCH THE ID
+        int original_id = 0;
+            
+        if(CustomerIdText.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "You need to complete this data: Customer Id");
+            return;
+        } else {
+            if(isNumeric(CustomerIdText.getText()) == false){
+                JOptionPane.showMessageDialog(null, "The customer id must be numeric");
+                return;
+            } else {
+                original_id = Integer.parseInt(CustomerIdText.getText());
+            }
+        }
+        for(customer_class actual_customer:customers_list){
+            int customer_id = actual_customer.getCustomer_id();
+            if(customer_id == original_id){
+                CustomerIdText.setText(customer_id+"");
+                CustomerNameText.setText(actual_customer.getCustomer_name());
+                CustomerLastnameText.setText(actual_customer.getCustomer_lastname());
+                CustomerPhoneText.setText(actual_customer.getCustomer_phone()+"");
+                CustomerMailText.setText(actual_customer.getCustomer_email());
+                CustomerProvinceCombo.setSelectedItem(actual_customer.getCustomer_province());
+                CustomerCantonText.setText(actual_customer.getCustomer_canton());
+                CustomerDistrictText.setText(actual_customer.getCustomer_district());
+                CustomerDayText.setText(actual_customer.getCustomer_birthdate().getDate()+"");
+                CustomerMonthCombo.setSelectedIndex(actual_customer.getCustomer_birthdate().getMonth());
+                CustomerYearText.setText((actual_customer.getCustomer_birthdate().getYear()+1900)+"");
+                
+                CustomerIdText.setEnabled(false);
+                CustomerNameText.setEnabled(true);
+                CustomerLastnameText.setEnabled(true);
+                CustomerPhoneText.setEnabled(true);
+                CustomerMailText.setEnabled(true);
+                CustomerProvinceCombo.setEnabled(true);
+                CustomerCantonText.setEnabled(true);
+                CustomerDistrictText.setEnabled(true);
+                CustomerDayText.setEnabled(true);
+                CustomerMonthCombo.setEnabled(true);
+                CustomerYearText.setEnabled(true);
+                AcceptCustomerButton.setEnabled(true);
+                SearchModifyButton.setEnabled(false);
+                return;
+            }
+        }
+        JOptionPane.showMessageDialog(null, "Customer not found");
+    }//GEN-LAST:event_SearchModifyButtonActionPerformed
+
+    private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButtonActionPerformed
+        //Set the Buttons visibility
+        CustomerIdText.setEnabled(true);
+        CustomerNameText.setEnabled(true);
+        CustomerLastnameText.setEnabled(false);
+        CustomerPhoneText.setEnabled(false);
+        CustomerMailText.setEnabled(false);
+        CustomerProvinceCombo.setEnabled(false);
+        CustomerCantonText.setEnabled(false);
+        CustomerDistrictText.setEnabled(false);
+        CustomerDayText.setEnabled(false);
+        CustomerMonthCombo.setEnabled(false);
+        CustomerYearText.setEnabled(false);
+        AcceptCustomerButton.setEnabled(true);
+        CancelCustomerButton.setEnabled(true);
+        SearchModifyButton.setEnabled(false);
+        SearchModifyButton.setVisible(false);
+        
+        //Reset the Textfields ******
+        CustomerIdText.setText("");
+        CustomerNameText.setText("");
+        CustomerLastnameText.setText("");
+        CustomerPhoneText.setText("");
+        CustomerMailText.setText("");
+        CustomerCantonText.setText("");
+        CustomerDistrictText.setText("");
+        CustomerDayText.setText("01");
+        CustomerYearText.setText("1900");
+    }//GEN-LAST:event_ResetButtonActionPerformed
                                        
     private static void borrarPanel(JPanel panel) {
         panel.removeAll();
@@ -1285,6 +1390,9 @@ public class ScreenCustomers extends javax.swing.JPanel {
         mt.setColumnIdentifiers(ids);
         SearchTable.setModel(mt);
         
+        SearchModifyButton.setVisible(false);
+        ResetButton.setEnabled(false);
+        
         String archive = Paths.get("src", "DataBase", "Archivo_CSV_Customers.csv").toString();
         try {
             reader = new BufferedReader(new FileReader(archive));
@@ -1420,8 +1528,9 @@ public class ScreenCustomers extends javax.swing.JPanel {
     private javax.swing.JButton DeleteCustomerButton;
     private javax.swing.JLabel DirectoryPanelLabel;
     private javax.swing.JButton ModifyCustomerButton;
-    private javax.swing.JLabel ModifyDirectLabel;
+    private javax.swing.JButton ResetButton;
     private javax.swing.JButton SearchCustomerButton;
+    private javax.swing.JButton SearchModifyButton;
     private javax.swing.JScrollPane SearchScrollPane;
     private javax.swing.JTable SearchTable;
     private javax.swing.JButton jButton1;
