@@ -340,7 +340,7 @@ public class MainMenu extends javax.swing.JFrame {
     }
     
     private void ShowJPanel(JPanel p){
-        p.setSize(1030,720);
+        p.setSize(1030,730);
         p.setLocation(0,0);
         ScreenViews.removeAll();
         ScreenViews.add(p, BorderLayout.CENTER);
