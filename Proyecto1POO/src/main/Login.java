@@ -442,7 +442,7 @@ public class Login extends javax.swing.JFrame {
                 if (array.length == 13){
   
                     service.setService_id(Integer.parseInt(array[0]));
-                    service.setCustomer_id(Integer.parseInt(array[1]));
+                    service.setCustomer_id(array[1]);
                     service.setBicyle_brand(array[2]);
                     service.setBicycle_description(array[3]);
                     service.setMaintenance_price(Integer.parseInt(array[4]));
