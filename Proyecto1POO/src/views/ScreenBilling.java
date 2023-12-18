@@ -4,7 +4,15 @@
  */
 package views;
 
+import Classes.customer_class;
+import Classes.item_class;
+import Classes.maintenance_class;
 import java.awt.BorderLayout;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -115,7 +123,7 @@ public class ScreenBilling extends javax.swing.JPanel {
 
         BillSubtotalText.setEnabled(false);
 
-        jLabel3.setText("Customer Id:");
+        jLabel3.setText("Customer:");
 
         CustomerIdCombo.setEnabled(false);
         CustomerIdCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -179,9 +187,6 @@ public class ScreenBilling extends javax.swing.JPanel {
             .addGroup(BillingInputPanelLayout.createSequentialGroup()
                 .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(jLabel3))
-                    .addGroup(BillingInputPanelLayout.createSequentialGroup()
                         .addGap(129, 129, 129)
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
@@ -218,7 +223,10 @@ public class ScreenBilling extends javax.swing.JPanel {
                         .addComponent(jLabel6))
                     .addGroup(BillingInputPanelLayout.createSequentialGroup()
                         .addGap(180, 180, 180)
-                        .addComponent(jLabel7)))
+                        .addComponent(jLabel7))
+                    .addGroup(BillingInputPanelLayout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addComponent(jLabel3)))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         BillingInputPanelLayout.setVerticalGroup(
@@ -372,6 +380,13 @@ public class ScreenBilling extends javax.swing.JPanel {
     }//GEN-LAST:event_BillTotalTextActionPerformed
 
     private void BillingAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillingAddButtonActionPerformed
+        String[] options = {"Item", "Maintenance"};
+        int selection = JOptionPane.showOptionDialog(null, "Choose a Billing Option:", "BILLING", 0, 3, null, options, options[0]);
+        switch(selection){
+            case 0:
+                
+        }
+
         //Switch Flags
         BillAddFlag = true;
         BillSearchFlag = false;
@@ -425,7 +440,6 @@ public class ScreenBilling extends javax.swing.JPanel {
                 break;
             case 2:
                 CustomerIdCombo.setEnabled(true);
-                jLabel3.setText("Customer Name");
                 
                 BillingAddButton.setEnabled(false);
                 BillingSearchButton.setEnabled(false);
@@ -456,7 +470,6 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillSubtotalText.setText("");
         BillTaxText.setText("");
         BillTotalText.setText("");
-        jLabel3.setText("Customer Id:");
         
         //Disable Buttons
         BillIdText.setEnabled(false);
@@ -495,10 +508,169 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillingView.repaint();
     }
     
+    private void ReadCustomers(){
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV_Customers.csv").toString();
+        try {
+            reader = new BufferedReader(new FileReader(archive));
+            while((line = reader.readLine()) != null){
+                customer_class temporary_object = new customer_class();
+                parts = line.split(",");
+                int aux_day = 0;
+                int aux_month = 0;
+                int aux_year = 0;
+                Date birthdate = null;
+                for(int i = 0; i < parts.length; i++){
+                    switch(i){
+                        case 0:
+                            temporary_object.setCustomer_id(Integer.parseInt(parts[i]));
+                            break;
+                        case 1:
+                            temporary_object.setCustomer_name(parts[i]);
+                            break;
+                        case 2:
+                            temporary_object.setCustomer_lastname(parts[i]);
+                            break;
+                        case 3:
+                            temporary_object.setCustomer_phone(Integer.parseInt(parts[i]));
+                            break;
+                        case 4:
+                            temporary_object.setCustomer_email(parts[i]);
+                            break;
+                        case 5:
+                            temporary_object.setCustomer_province(parts[i]);
+                            break;
+                        case 6:
+                            temporary_object.setCustomer_canton(parts[i]);
+                            break;
+                        case 7:
+                            temporary_object.setCustomer_district(parts[i]);
+                            break;
+                        case 8:
+                            aux_day = Integer.parseInt(parts[i]);
+                            break;
+                        case 9:
+                            aux_month = Integer.parseInt(parts[i]);
+                            break;
+                        case 10:
+                            aux_year = Integer.parseInt(parts[i]);
+                            temporary_object.setCustomer_birthdate(new Date(aux_year-1900, aux_month-1, aux_day));
+                            break;
+                    }
+                }
+                customers_list.add(temporary_object);
+            }
+            reader.close();
+            line = null;
+            parts = null;
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    private void ReadItems(){
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV_ITEMS.csv").toString();
+        try {
+            reader = new BufferedReader(new FileReader(archive));
+            while((line = reader.readLine()) != null){
+                item_class temporary_object = new item_class();
+                parts = line.split(",");
+                for(int i = 0; i < parts.length; i++){
+                    switch(i){
+                        case 0:
+                            temporary_object.setId_item(Integer.parseInt(parts[i]));
+                            break;
+                        case 1:
+                            temporary_object.setCategory_item(parts[i]);
+                            break;
+                        case 2:
+                            temporary_object.setName_item(parts[i]);
+                            break;
+                        case 3:
+                            temporary_object.setType_item(parts[i]);
+                            break;
+                        case 4:
+                            temporary_object.setSize_item(Double.parseDouble(parts[i]));
+                            break;
+                        case 5:
+                            temporary_object.setBrand_item(parts[i]);
+                            break;
+                        case 6:
+                            temporary_object.setPrice_item(Integer.parseInt(parts[i]));
+                            break;
+                        case 7:
+                            temporary_object.setAmount_item(Integer.parseInt(parts[i]));
+                            break;
+                    }
+                }
+                items_list.add(temporary_object);
+            }
+            reader.close();
+            line = null;
+            parts = null;
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    private void ReadMaintenance(){
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV_MAINTENANCE.csv").toString();
+        try {
+            reader = new BufferedReader(new FileReader(archive));
+            while((line = reader.readLine()) != null){
+                maintenance_class temporary_object = new maintenance_class();
+                parts = line.split(",");
+                for(int i = 0; i < parts.length; i++){
+                    switch(i){
+                        case 0:
+                            temporary_object.setService_id(Integer.parseInt(parts[i]));
+                            break;
+                        case 1:
+                            temporary_object.setCustomer_id(parts[i]);
+                            break;
+                        case 2:
+                            temporary_object.setBicycle_brand(parts[i]);
+                            break;
+                        case 3:
+                            temporary_object.setBicycle_description(parts[i]);
+                            break;
+                        case 4:
+                            temporary_object.setMaintenance_price(Integer.parseInt(parts[i]));
+                            break;
+                        case 5:
+                            //temporary_object.setBrand_item(parts[i]);
+                            break;
+                        case 6:
+                            //temporary_object.setPrice_item(Integer.parseInt(parts[i]));
+                            break;
+                        case 7:
+                            //temporary_object.setAmount_item(Integer.parseInt(parts[i]));
+                            break;
+                    }
+                }
+                maintenance_list.add(temporary_object);
+            }
+            reader.close();
+            line = null;
+            parts = null;
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
     //Create Flags
     Boolean BillAddFlag = false;
     Boolean BillSearchFlag = false;
     Boolean BillRevokeFlag = false;
+    
+    //Read CSV
+    private BufferedReader reader;
+    private String line;
+    private String parts[] = null;
+    
+    //Create Lists
+    ArrayList<customer_class> customers_list = new ArrayList<>();
+    ArrayList<item_class> items_list = new ArrayList<>();
+    ArrayList<maintenance_class> maintenance_list = new ArrayList<>();
     
     
 

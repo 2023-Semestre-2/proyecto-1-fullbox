@@ -13,7 +13,7 @@ import java.util.Date;
 public class maintenance_class {
     private int service_id;
     private String customer_id;
-    private String bicyle_brand;
+    private String bicycle_brand;
     private String bicycle_description;
     private int maintenance_price;
     private Date received_date;
@@ -31,8 +31,8 @@ public class maintenance_class {
         return customer_id;
     }
 
-    public String getBicyle_brand() {
-        return bicyle_brand;
+    public String getBicycle_brand() {
+        return bicycle_brand;
     }
 
     public String getBicycle_description() {
@@ -70,8 +70,8 @@ public class maintenance_class {
         this.customer_id = customer_id;
     }
 
-    public void setBicyle_brand(String bicyle_brand) {
-        this.bicyle_brand = bicyle_brand;
+    public void setBicycle_brand(String bicycle_brand) {
+        this.bicycle_brand = bicycle_brand;
     }
 
     public void setBicycle_description(String bicycle_description) {
