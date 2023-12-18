@@ -68,6 +68,10 @@ public class ScreenProducts extends javax.swing.JPanel {
         return create_button_item;
     }
     
+    public boolean getsearch_button_item(){
+        return search_button_item;
+    }
+    
     public boolean getmodify_button_product(){
         return modify_button_product;
     }
@@ -78,6 +82,9 @@ public class ScreenProducts extends javax.swing.JPanel {
     
     public boolean getcreate_button_product(){
         return create_button_product;
+    }
+    public boolean getsearch_button_product(){
+        return search_button_product;
     }
     
 
@@ -665,10 +672,10 @@ public class ScreenProducts extends javax.swing.JPanel {
             String line = null;
 
             if (id_mode.equals("product")) {
-                 line = (i.getId_product() + 1) + "," + i.getId_item();
-            } else if (id_mode.equals("item")) {
-                 line = i.getId_product() + "," + (i.getId_item() + 1);
-            } 
+                 line = (i.getId_product() + 1) + "," + i.getId_item() + "," + i.getId_customer() + "," + i.getId_maintenance();
+            }else if (id_mode.equals("item")) {
+                 line = i.getId_product() + "," + (i.getId_item() + 1) + "," + i.getId_customer() + "," + i.getId_maintenance();
+            }
             pw.println(line);
             }
             
@@ -780,14 +787,13 @@ public class ScreenProducts extends javax.swing.JPanel {
         search_button_item = false;
 
     }//GEN-LAST:event_Accept_ItemActionPerformed
-    private String set_id(String id_mode){
+    private void set_id(String id_mode){
         id_class id = main_class.ids.get(0);
         if(id_mode == "product"){
            Category_Id.setText(String.valueOf(id.getId_product()));
         }else if(id_mode == "item"){
            Item_Id.setText(String.valueOf(id.getId_item()));    
-        } 
-        return null;
+        }   
     }
 
         
