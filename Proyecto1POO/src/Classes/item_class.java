@@ -1,6 +1,10 @@
 
 package Classes;
 
+/**
+* Item Class: Create new items
+* @author josem
+*/
 public class item_class {
     private int id_item;
     private String category_item;
