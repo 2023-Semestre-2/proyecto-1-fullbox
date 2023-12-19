@@ -16,7 +16,7 @@ import java.nio.file.Paths;
 import javax.swing.JOptionPane;
 import main.MainMenu;
 /**
- *
+ * Class to Verify Users
  * @author saymon
  */
 
@@ -26,7 +26,13 @@ public class VerifyUsers {
     private String password;
     private boolean remember;
     public boolean pass = false;
-
+    /**
+    * Class that is responsible for connecting the database and checking the username and password to verify the login and the remember me flag
+    * @author saymon
+    * @param username input username
+    * @param password entry password
+    * @param remember rememberMe input
+    */
     public VerifyUsers(String username, String password, boolean remember) {
         this.username = username;
         this.password = password;
@@ -66,10 +72,18 @@ public class VerifyUsers {
            JOptionPane.showMessageDialog(null, "Username/Password not found");
         }
     }
+    
+    /**
+    * Pass function to continue without performing any process
+    * @author saymon
+    */
     private static void pass() {
 
     }
-
+    /**
+    * Method to update the Remember Me flag in the csv
+    * @author saymon
+    */
     private void updateRememberMeFlag(String[] data, boolean value) {
         List<String> lines = new ArrayList<>();
         String csvFilePath = Paths.get("src", "DataBase", "usuarios.csv").toString();

@@ -288,6 +288,7 @@ public class Register extends javax.swing.JPanel {
     /**
     * Este evento detecta si fue presionado el boton de register para registrar un nuevo usuario en la base de datos
     * @author saimo
+    * 
     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         boolean result = create_user();
