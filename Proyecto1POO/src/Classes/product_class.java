@@ -1,6 +1,10 @@
 
 package Classes;
 
+/**
+ * Product Class: New Products
+ * @author saimo
+ */
 public class product_class {
     private int id_category;
     private String name_product;
