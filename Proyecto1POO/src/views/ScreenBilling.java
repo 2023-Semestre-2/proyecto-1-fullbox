@@ -13,6 +13,7 @@ import java.io.FileReader;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -27,6 +28,11 @@ public class ScreenBilling extends javax.swing.JPanel {
      */
     public ScreenBilling() {
         initComponents();
+        ReadCustomers();
+        ReadItems();
+        //ReadMaintenance();
+        createIdsItems();
+        //createIdsMaintenance();
     }
 
     /**
@@ -64,6 +70,8 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillTotalText = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         BillingCancelButton = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        OptionCombo = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         BillingDirectoryTable = new javax.swing.JTable();
 
@@ -180,58 +188,75 @@ public class ScreenBilling extends javax.swing.JPanel {
             }
         });
 
+        jLabel8.setText("Option:");
+
+        OptionCombo.setEnabled(false);
+        OptionCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OptionComboActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout BillingInputPanelLayout = new javax.swing.GroupLayout(BillingInputPanel);
         BillingInputPanel.setLayout(BillingInputPanelLayout);
         BillingInputPanelLayout.setHorizontalGroup(
             BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BillingInputPanelLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
                 .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                        .addGap(129, 129, 129)
+                        .addGap(79, 79, 79)
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
                         .addComponent(BillingCancelButton))
                     .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                        .addGap(190, 190, 190)
+                        .addGap(140, 140, 140)
                         .addComponent(jLabel1))
                     .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                        .addGap(153, 153, 153)
+                        .addGap(103, 103, 103)
                         .addComponent(jLabel4))
+                    .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(BillTaxText)
+                        .addComponent(BillIdText)
+                        .addComponent(CustomerIdCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(BillingInputPanelLayout.createSequentialGroup()
+                            .addComponent(ReceivementDayText, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(ReceivementMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(12, 12, 12)
+                            .addComponent(ReceivementYearText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(BillStateCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BillSubtotalText)
+                        .addComponent(BillTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(BillingInputPanelLayout.createSequentialGroup()
+                            .addGap(140, 140, 140)
+                            .addComponent(jLabel8))
+                        .addComponent(OptionCombo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(BillTaxText)
-                            .addComponent(BillIdText)
-                            .addComponent(CustomerIdCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                                .addComponent(ReceivementDayText, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ReceivementMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(ReceivementYearText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(BillStateCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BillSubtotalText)
-                            .addComponent(BillTotalText)))
-                    .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                        .addGap(179, 179, 179)
+                        .addGap(129, 129, 129)
                         .addComponent(jLabel5))
                     .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                        .addGap(171, 171, 171)
+                        .addGap(121, 121, 121)
                         .addComponent(jLabel2))
                     .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                        .addGap(183, 183, 183)
+                        .addGap(133, 133, 133)
                         .addComponent(jLabel6))
                     .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                        .addGap(180, 180, 180)
+                        .addGap(130, 130, 130)
                         .addComponent(jLabel7))
                     .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                        .addGap(177, 177, 177)
+                        .addGap(127, 127, 127)
                         .addComponent(jLabel3)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         BillingInputPanelLayout.setVerticalGroup(
             BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BillingInputPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(OptionCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BillIdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -266,7 +291,7 @@ public class ScreenBilling extends javax.swing.JPanel {
                 .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(BillingCancelButton))
-                .addGap(0, 97, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
 
         BillingDirectoryTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -298,6 +323,12 @@ public class ScreenBilling extends javax.swing.JPanel {
                                 .addComponent(BillingWindowTitle)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingViewLayout.createSequentialGroup()
+                        .addContainerGap(78, Short.MAX_VALUE)
+                        .addComponent(BillingInputPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66))
                     .addGroup(BillingViewLayout.createSequentialGroup()
                         .addGap(361, 361, 361)
                         .addComponent(BillingAddButton)
@@ -305,13 +336,7 @@ public class ScreenBilling extends javax.swing.JPanel {
                         .addComponent(BillingSearchButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BillingRevokeButton)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingViewLayout.createSequentialGroup()
-                        .addContainerGap(78, Short.MAX_VALUE)
-                        .addComponent(BillingInputPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         BillingViewLayout.setVerticalGroup(
@@ -332,11 +357,11 @@ public class ScreenBilling extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BillingViewLayout.createSequentialGroup()
-                        .addComponent(BillingInputPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(55, 55, 55))
-                    .addGroup(BillingViewLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(118, Short.MAX_VALUE))
+                    .addGroup(BillingViewLayout.createSequentialGroup()
+                        .addComponent(BillingInputPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(54, 54, 54))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -384,8 +409,15 @@ public class ScreenBilling extends javax.swing.JPanel {
         int selection = JOptionPane.showOptionDialog(null, "Choose a Billing Option:", "BILLING", 0, 3, null, options, options[0]);
         switch(selection){
             case 0:
-                
-        }
+                OptionCombo.setEnabled(true);
+                OptionCombo.setModel(ComboItemsModel);
+                OptionCombo.updateUI();
+            
+            case 1:
+                OptionCombo.setEnabled(true);
+                OptionCombo.setModel(ComboMaintenanceModel);
+                OptionCombo.updateUI();
+        }   
 
         //Switch Flags
         BillAddFlag = true;
@@ -491,6 +523,10 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillSearchFlag = false;
         BillRevokeFlag = false;
     }//GEN-LAST:event_BillingCancelButtonActionPerformed
+
+    private void OptionComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OptionComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OptionComboActionPerformed
                                      
                                                   
     private static void borrarPanel(JPanel panel) {
@@ -657,6 +693,25 @@ public class ScreenBilling extends javax.swing.JPanel {
         }
     }
     
+    private void createIdsItems(){
+        int aux = 0;
+        for(item_class item:items_list){
+            System.out.println(item.getId_item()+"");
+            ComboItemsModel.insertElementAt(item.getId_item()+"", aux);
+            ComboItemsModel.setSelectedItem(item.getId_item()+"");
+        }
+        
+    }
+    
+    private void createIdsMaintenance(){
+        int aux = 0;
+        for(maintenance_class item:maintenance_list){
+            System.out.println(item.getService_id()+"");
+            ComboMaintenanceModel.insertElementAt(item.getService_id()+"", aux);
+            ComboMaintenanceModel.setSelectedItem(item.getService_id()+"");
+        }
+    }
+    
     //Create Flags
     Boolean BillAddFlag = false;
     Boolean BillSearchFlag = false;
@@ -666,6 +721,10 @@ public class ScreenBilling extends javax.swing.JPanel {
     private BufferedReader reader;
     private String line;
     private String parts[] = null;
+    
+    //
+    DefaultComboBoxModel ComboItemsModel = new DefaultComboBoxModel();   
+    DefaultComboBoxModel ComboMaintenanceModel = new DefaultComboBoxModel();
     
     //Create Lists
     ArrayList<customer_class> customers_list = new ArrayList<>();
@@ -690,6 +749,7 @@ public class ScreenBilling extends javax.swing.JPanel {
     private javax.swing.JLabel BillingWindowSubtitle;
     private javax.swing.JLabel BillingWindowTitle;
     private javax.swing.JComboBox<String> CustomerIdCombo;
+    private javax.swing.JComboBox<String> OptionCombo;
     private javax.swing.JTextField ReceivementDayText;
     private javax.swing.JComboBox<String> ReceivementMonthCombo;
     private javax.swing.JTextField ReceivementYearText;
@@ -702,6 +762,7 @@ public class ScreenBilling extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
