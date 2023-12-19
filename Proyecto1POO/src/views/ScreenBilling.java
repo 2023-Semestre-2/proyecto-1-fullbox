@@ -53,27 +53,49 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillingRevokeButton = new javax.swing.JButton();
         BillingInputPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        BillIdText = new javax.swing.JTextField();
+        ItemBillIdText = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        BillSubtotalText = new javax.swing.JTextField();
+        ItemBillSubtotalText = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        CustomerIdCombo = new javax.swing.JComboBox<>();
+        ItemCustomerIdCombo = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        ReceivementDayText = new javax.swing.JTextField();
-        ReceivementMonthCombo = new javax.swing.JComboBox<>();
-        ReceivementYearText = new javax.swing.JTextField();
+        ItemReceivementDayText = new javax.swing.JTextField();
+        ItemReceivementMonthCombo = new javax.swing.JComboBox<>();
+        ItemReceivementYearText = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        BillStateCombo = new javax.swing.JComboBox<>();
+        ItemBillStateCombo = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        BillTaxText = new javax.swing.JTextField();
+        ItemBillTaxText = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        BillTotalText = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        BillingCancelButton = new javax.swing.JButton();
+        ItemBillTotalText = new javax.swing.JTextField();
+        ItemAcceptButton = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        OptionCombo = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        BillingDirectoryTable = new javax.swing.JTable();
+        ItemOptionCombo = new javax.swing.JComboBox<>();
+        ItemSearchButton = new javax.swing.JButton();
+        BillingInputPanel1 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        MaintenanceBillIdText = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        MaintenanceBillSubtotalText = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        MaintenanceCustomerIdCombo = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        MaintenanceReceivementDayText = new javax.swing.JTextField();
+        MaintenanceReceivementMonthCombo = new javax.swing.JComboBox<>();
+        MaintenanceReceivementYearText = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        MaintenanceBillStateCombo = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
+        MaintenanceBillTaxText = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        MaintenanceBillTotalText = new javax.swing.JTextField();
+        MaintenanceAcceptButton = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        MaintenanceOptionCombo = new javax.swing.JComboBox<>();
+        MaintenanceSearchButton = new javax.swing.JButton();
+        BillingWindowTitle1 = new javax.swing.JLabel();
+        BillingWindowTitle2 = new javax.swing.JLabel();
+        BillingCancelButton = new javax.swing.JButton();
 
         BillingView.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -125,61 +147,351 @@ public class ScreenBilling extends javax.swing.JPanel {
 
         jLabel1.setText("Bill Id:");
 
-        BillIdText.setEnabled(false);
+        ItemBillIdText.setEnabled(false);
 
         jLabel2.setText("Bill Subtotal:");
 
-        BillSubtotalText.setEnabled(false);
+        ItemBillSubtotalText.setEnabled(false);
 
         jLabel3.setText("Customer:");
 
-        CustomerIdCombo.setEnabled(false);
-        CustomerIdCombo.addActionListener(new java.awt.event.ActionListener() {
+        ItemCustomerIdCombo.setEnabled(false);
+        ItemCustomerIdCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CustomerIdComboActionPerformed(evt);
+                ItemCustomerIdComboActionPerformed(evt);
             }
         });
 
         jLabel4.setText("Receivement Date:");
 
-        ReceivementDayText.setText("01");
-        ReceivementDayText.setEnabled(false);
+        ItemReceivementDayText.setText("01");
+        ItemReceivementDayText.setEnabled(false);
 
-        ReceivementMonthCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
-        ReceivementMonthCombo.setEnabled(false);
-        ReceivementMonthCombo.addActionListener(new java.awt.event.ActionListener() {
+        ItemReceivementMonthCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        ItemReceivementMonthCombo.setEnabled(false);
+        ItemReceivementMonthCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReceivementMonthComboActionPerformed(evt);
+                ItemReceivementMonthComboActionPerformed(evt);
             }
         });
 
-        ReceivementYearText.setText("1900");
-        ReceivementYearText.setEnabled(false);
+        ItemReceivementYearText.setText("1900");
+        ItemReceivementYearText.setEnabled(false);
 
         jLabel5.setText("Bill State:");
 
-        BillStateCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Valid", "Revoked" }));
-        BillStateCombo.setEnabled(false);
+        ItemBillStateCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Valid", "Revoked" }));
+        ItemBillStateCombo.setEnabled(false);
 
         jLabel6.setText("Bill Tax:");
 
-        BillTaxText.setEnabled(false);
-        BillTaxText.addActionListener(new java.awt.event.ActionListener() {
+        ItemBillTaxText.setEnabled(false);
+        ItemBillTaxText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BillTaxTextActionPerformed(evt);
+                ItemBillTaxTextActionPerformed(evt);
             }
         });
 
         jLabel7.setText("Bill Total:");
 
-        BillTotalText.setEnabled(false);
-        BillTotalText.addActionListener(new java.awt.event.ActionListener() {
+        ItemBillTotalText.setEnabled(false);
+        ItemBillTotalText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BillTotalTextActionPerformed(evt);
+                ItemBillTotalTextActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Accept");
+        ItemAcceptButton.setText("Accept");
+        ItemAcceptButton.setEnabled(false);
+
+        jLabel8.setText("Option:");
+
+        ItemOptionCombo.setEnabled(false);
+        ItemOptionCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItemOptionComboActionPerformed(evt);
+            }
+        });
+
+        ItemSearchButton.setText("S");
+        ItemSearchButton.setEnabled(false);
+
+        javax.swing.GroupLayout BillingInputPanelLayout = new javax.swing.GroupLayout(BillingInputPanel);
+        BillingInputPanel.setLayout(BillingInputPanelLayout);
+        BillingInputPanelLayout.setHorizontalGroup(
+            BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BillingInputPanelLayout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanelLayout.createSequentialGroup()
+                        .addComponent(ItemSearchButton)
+                        .addGap(18, 18, 18)
+                        .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(BillingInputPanelLayout.createSequentialGroup()
+                                .addGap(140, 140, 140)
+                                .addComponent(jLabel1))
+                            .addGroup(BillingInputPanelLayout.createSequentialGroup()
+                                .addGap(103, 103, 103)
+                                .addComponent(jLabel4))
+                            .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(ItemBillTaxText)
+                                .addComponent(ItemBillIdText)
+                                .addComponent(ItemCustomerIdCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(BillingInputPanelLayout.createSequentialGroup()
+                                    .addComponent(ItemReceivementDayText, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(ItemReceivementMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(12, 12, 12)
+                                    .addComponent(ItemReceivementYearText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(ItemBillStateCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ItemBillSubtotalText)
+                                .addComponent(ItemBillTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(BillingInputPanelLayout.createSequentialGroup()
+                                    .addGap(140, 140, 140)
+                                    .addComponent(jLabel8))
+                                .addComponent(ItemOptionCombo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(BillingInputPanelLayout.createSequentialGroup()
+                                .addGap(129, 129, 129)
+                                .addComponent(jLabel5))
+                            .addGroup(BillingInputPanelLayout.createSequentialGroup()
+                                .addGap(121, 121, 121)
+                                .addComponent(jLabel2))
+                            .addGroup(BillingInputPanelLayout.createSequentialGroup()
+                                .addGap(133, 133, 133)
+                                .addComponent(jLabel6))
+                            .addGroup(BillingInputPanelLayout.createSequentialGroup()
+                                .addGap(130, 130, 130)
+                                .addComponent(jLabel7))
+                            .addGroup(BillingInputPanelLayout.createSequentialGroup()
+                                .addGap(127, 127, 127)
+                                .addComponent(jLabel3)))
+                        .addGap(38, 38, 38))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanelLayout.createSequentialGroup()
+                        .addComponent(ItemAcceptButton)
+                        .addGap(160, 160, 160))))
+        );
+        BillingInputPanelLayout.setVerticalGroup(
+            BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BillingInputPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ItemOptionCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ItemSearchButton))
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ItemBillIdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ItemCustomerIdCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ItemReceivementDayText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ItemReceivementMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ItemReceivementYearText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ItemBillStateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ItemBillSubtotalText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ItemBillTaxText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ItemBillTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ItemAcceptButton)
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+
+        BillingInputPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel9.setText("Bill Id:");
+
+        MaintenanceBillIdText.setEnabled(false);
+
+        jLabel10.setText("Bill Subtotal:");
+
+        MaintenanceBillSubtotalText.setEnabled(false);
+
+        jLabel11.setText("Customer:");
+
+        MaintenanceCustomerIdCombo.setEnabled(false);
+        MaintenanceCustomerIdCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MaintenanceCustomerIdComboActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Receivement Date:");
+
+        MaintenanceReceivementDayText.setText("01");
+        MaintenanceReceivementDayText.setEnabled(false);
+
+        MaintenanceReceivementMonthCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        MaintenanceReceivementMonthCombo.setEnabled(false);
+        MaintenanceReceivementMonthCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MaintenanceReceivementMonthComboActionPerformed(evt);
+            }
+        });
+
+        MaintenanceReceivementYearText.setText("1900");
+        MaintenanceReceivementYearText.setEnabled(false);
+
+        jLabel13.setText("Bill State:");
+
+        MaintenanceBillStateCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Valid", "Revoked" }));
+        MaintenanceBillStateCombo.setEnabled(false);
+
+        jLabel14.setText("Bill Tax:");
+
+        MaintenanceBillTaxText.setEnabled(false);
+        MaintenanceBillTaxText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MaintenanceBillTaxTextActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setText("Bill Total:");
+
+        MaintenanceBillTotalText.setEnabled(false);
+        MaintenanceBillTotalText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MaintenanceBillTotalTextActionPerformed(evt);
+            }
+        });
+
+        MaintenanceAcceptButton.setText("Accept");
+        MaintenanceAcceptButton.setEnabled(false);
+
+        jLabel16.setText("Option:");
+
+        MaintenanceOptionCombo.setEnabled(false);
+        MaintenanceOptionCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MaintenanceOptionComboActionPerformed(evt);
+            }
+        });
+
+        MaintenanceSearchButton.setText("S");
+        MaintenanceSearchButton.setEnabled(false);
+
+        javax.swing.GroupLayout BillingInputPanel1Layout = new javax.swing.GroupLayout(BillingInputPanel1);
+        BillingInputPanel1.setLayout(BillingInputPanel1Layout);
+        BillingInputPanel1Layout.setHorizontalGroup(
+            BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BillingInputPanel1Layout.createSequentialGroup()
+                .addContainerGap(33, Short.MAX_VALUE)
+                .addGroup(BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanel1Layout.createSequentialGroup()
+                        .addComponent(MaintenanceSearchButton)
+                        .addGap(18, 18, 18)
+                        .addGroup(BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(BillingInputPanel1Layout.createSequentialGroup()
+                                .addGap(140, 140, 140)
+                                .addComponent(jLabel9))
+                            .addGroup(BillingInputPanel1Layout.createSequentialGroup()
+                                .addGap(103, 103, 103)
+                                .addComponent(jLabel12))
+                            .addGroup(BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(MaintenanceBillTaxText)
+                                .addComponent(MaintenanceBillIdText)
+                                .addComponent(MaintenanceCustomerIdCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(BillingInputPanel1Layout.createSequentialGroup()
+                                    .addComponent(MaintenanceReceivementDayText, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(MaintenanceReceivementMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(12, 12, 12)
+                                    .addComponent(MaintenanceReceivementYearText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(MaintenanceBillStateCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(MaintenanceBillSubtotalText)
+                                .addComponent(MaintenanceBillTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(BillingInputPanel1Layout.createSequentialGroup()
+                                    .addGap(140, 140, 140)
+                                    .addComponent(jLabel16))
+                                .addComponent(MaintenanceOptionCombo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(BillingInputPanel1Layout.createSequentialGroup()
+                                .addGap(129, 129, 129)
+                                .addComponent(jLabel13))
+                            .addGroup(BillingInputPanel1Layout.createSequentialGroup()
+                                .addGap(121, 121, 121)
+                                .addComponent(jLabel10))
+                            .addGroup(BillingInputPanel1Layout.createSequentialGroup()
+                                .addGap(133, 133, 133)
+                                .addComponent(jLabel14))
+                            .addGroup(BillingInputPanel1Layout.createSequentialGroup()
+                                .addGap(130, 130, 130)
+                                .addComponent(jLabel15))
+                            .addGroup(BillingInputPanel1Layout.createSequentialGroup()
+                                .addGap(127, 127, 127)
+                                .addComponent(jLabel11)))
+                        .addGap(38, 38, 38))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanel1Layout.createSequentialGroup()
+                        .addComponent(MaintenanceAcceptButton)
+                        .addGap(159, 159, 159))))
+        );
+        BillingInputPanel1Layout.setVerticalGroup(
+            BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BillingInputPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MaintenanceOptionCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MaintenanceSearchButton))
+                .addGap(17, 17, 17)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(MaintenanceBillIdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(MaintenanceCustomerIdCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MaintenanceReceivementDayText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MaintenanceReceivementMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MaintenanceReceivementYearText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(MaintenanceBillStateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(MaintenanceBillSubtotalText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(MaintenanceBillTaxText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(MaintenanceBillTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(MaintenanceAcceptButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        BillingWindowTitle1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BillingWindowTitle1.setText("Maintenance Billing");
+
+        BillingWindowTitle2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BillingWindowTitle2.setText("Item Billing");
 
         BillingCancelButton.setText("Cancel");
         BillingCancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -188,180 +500,80 @@ public class ScreenBilling extends javax.swing.JPanel {
             }
         });
 
-        jLabel8.setText("Option:");
-
-        OptionCombo.setEnabled(false);
-        OptionCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OptionComboActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout BillingInputPanelLayout = new javax.swing.GroupLayout(BillingInputPanel);
-        BillingInputPanel.setLayout(BillingInputPanelLayout);
-        BillingInputPanelLayout.setHorizontalGroup(
-            BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(BillingCancelButton))
-                    .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(jLabel1))
-                    .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(jLabel4))
-                    .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(BillTaxText)
-                        .addComponent(BillIdText)
-                        .addComponent(CustomerIdCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                            .addComponent(ReceivementDayText, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(ReceivementMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(12, 12, 12)
-                            .addComponent(ReceivementYearText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(BillStateCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BillSubtotalText)
-                        .addComponent(BillTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                            .addGap(140, 140, 140)
-                            .addComponent(jLabel8))
-                        .addComponent(OptionCombo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(jLabel5))
-                    .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(jLabel2))
-                    .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(jLabel6))
-                    .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(jLabel7))
-                    .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(jLabel3)))
-                .addContainerGap(63, Short.MAX_VALUE))
-        );
-        BillingInputPanelLayout.setVerticalGroup(
-            BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OptionCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BillIdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CustomerIdCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ReceivementDayText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ReceivementMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ReceivementYearText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BillStateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BillSubtotalText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BillTaxText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BillTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(BillingCancelButton))
-                .addGap(22, 22, 22))
-        );
-
-        BillingDirectoryTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(BillingDirectoryTable);
-
         javax.swing.GroupLayout BillingViewLayout = new javax.swing.GroupLayout(BillingView);
         BillingView.setLayout(BillingViewLayout);
         BillingViewLayout.setHorizontalGroup(
             BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BillingViewLayout.createSequentialGroup()
-                .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(386, Short.MAX_VALUE)
+                .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(BillingViewLayout.createSequentialGroup()
-                        .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(BillingViewLayout.createSequentialGroup()
-                                .addGap(412, 412, 412)
-                                .addComponent(BillingWindowSubtitle))
-                            .addGroup(BillingViewLayout.createSequentialGroup()
-                                .addGap(458, 458, 458)
-                                .addComponent(BillingWindowTitle)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingViewLayout.createSequentialGroup()
-                        .addContainerGap(78, Short.MAX_VALUE)
-                        .addComponent(BillingInputPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66))
-                    .addGroup(BillingViewLayout.createSequentialGroup()
-                        .addGap(361, 361, 361)
                         .addComponent(BillingAddButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BillingSearchButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BillingRevokeButton)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(389, 389, 389))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingViewLayout.createSequentialGroup()
+                        .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(BillingViewLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BillingCancelButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BillingInputPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(BillingViewLayout.createSequentialGroup()
+                                .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(BillingViewLayout.createSequentialGroup()
+                                        .addGap(51, 51, 51)
+                                        .addComponent(BillingWindowSubtitle))
+                                    .addGroup(BillingViewLayout.createSequentialGroup()
+                                        .addGap(97, 97, 97)
+                                        .addComponent(BillingWindowTitle)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(23, 23, 23))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingViewLayout.createSequentialGroup()
+                .addGap(225, 225, 225)
+                .addComponent(BillingWindowTitle2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BillingWindowTitle1)
+                .addGap(125, 125, 125))
+            .addGroup(BillingViewLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(BillingInputPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         BillingViewLayout.setVerticalGroup(
             BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingViewLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(BillingViewLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(BillingViewLayout.createSequentialGroup()
                         .addComponent(BillingWindowTitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BillingWindowSubtitle)))
-                .addGap(18, 18, 18)
-                .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BillingSearchButton)
-                    .addComponent(BillingAddButton)
-                    .addComponent(BillingRevokeButton))
-                .addGap(18, 18, 18)
+                        .addComponent(BillingWindowSubtitle)
+                        .addGap(18, 18, 18)
+                        .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BillingSearchButton)
+                            .addComponent(BillingAddButton)
+                            .addComponent(BillingRevokeButton))))
                 .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BillingViewLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(118, Short.MAX_VALUE))
-                    .addGroup(BillingViewLayout.createSequentialGroup()
-                        .addComponent(BillingInputPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(54, 54, 54))))
+                        .addGap(12, 12, 12)
+                        .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BillingWindowTitle1)
+                            .addComponent(BillingWindowTitle2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BillingInputPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BillingInputPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingViewLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BillingCancelButton)
+                        .addGap(8, 8, 8)))
+                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -392,31 +604,29 @@ public class ScreenBilling extends javax.swing.JPanel {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView.png")));
     }//GEN-LAST:event_jButton1MouseExited
 
-    private void CustomerIdComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerIdComboActionPerformed
+    private void ItemCustomerIdComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCustomerIdComboActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CustomerIdComboActionPerformed
+    }//GEN-LAST:event_ItemCustomerIdComboActionPerformed
 
-    private void BillTaxTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillTaxTextActionPerformed
+    private void ItemBillTaxTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemBillTaxTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BillTaxTextActionPerformed
+    }//GEN-LAST:event_ItemBillTaxTextActionPerformed
 
-    private void BillTotalTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillTotalTextActionPerformed
+    private void ItemBillTotalTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemBillTotalTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BillTotalTextActionPerformed
+    }//GEN-LAST:event_ItemBillTotalTextActionPerformed
 
     private void BillingAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillingAddButtonActionPerformed
         String[] options = {"Item", "Maintenance"};
         int selection = JOptionPane.showOptionDialog(null, "Choose a Billing Option:", "BILLING", 0, 3, null, options, options[0]);
         switch(selection){
             case 0:
-                OptionCombo.setEnabled(true);
-                OptionCombo.setModel(ComboItemsModel);
-                OptionCombo.updateUI();
+                ItemOptionCombo.setEnabled(true);
+                createIdsItems();
             
             case 1:
-                OptionCombo.setEnabled(true);
-                OptionCombo.setModel(ComboMaintenanceModel);
-                OptionCombo.updateUI();
+                ItemOptionCombo.setEnabled(true);
+                createIdsMaintenance();
         }   
 
         //Switch Flags
@@ -425,14 +635,14 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillRevokeFlag = false;
         
         //Enable Buttons
-        CustomerIdCombo.setEnabled(true);
-        ReceivementDayText.setEnabled(true);
-        ReceivementMonthCombo.setEnabled(true);
-        ReceivementYearText.setEnabled(true);
-        BillSubtotalText.setEnabled(true);
-        BillTaxText.setEnabled(true);
-        BillTotalText.setEnabled(true);
-        BillStateCombo.setSelectedIndex(0);
+        ItemCustomerIdCombo.setEnabled(true);
+        ItemReceivementDayText.setEnabled(true);
+        ItemReceivementMonthCombo.setEnabled(true);
+        ItemReceivementYearText.setEnabled(true);
+        ItemBillSubtotalText.setEnabled(true);
+        ItemBillTaxText.setEnabled(true);
+        ItemBillTotalText.setEnabled(true);
+        ItemBillStateCombo.setSelectedIndex(0);
         
         BillingAddButton.setEnabled(false);
         BillingSearchButton.setEnabled(false);
@@ -441,9 +651,9 @@ public class ScreenBilling extends javax.swing.JPanel {
         
     }//GEN-LAST:event_BillingAddButtonActionPerformed
 
-    private void ReceivementMonthComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReceivementMonthComboActionPerformed
+    private void ItemReceivementMonthComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemReceivementMonthComboActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ReceivementMonthComboActionPerformed
+    }//GEN-LAST:event_ItemReceivementMonthComboActionPerformed
 
     private void BillingSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillingSearchButtonActionPerformed
         //Switch Flags
@@ -455,23 +665,23 @@ public class ScreenBilling extends javax.swing.JPanel {
         int selection = JOptionPane.showOptionDialog(null, "Choose a Searching Option:", "SEARCH", 0, 3, null, options, options[0]);
         switch(selection){
             case 0:
-                BillIdText.setEnabled(true);
+                ItemBillIdText.setEnabled(true);
                 
                 BillingAddButton.setEnabled(false);
                 BillingSearchButton.setEnabled(false);
                 BillingRevokeButton.setEnabled(false);
                 break;
             case 1:
-                ReceivementDayText.setEnabled(true);
-                ReceivementMonthCombo.setEnabled(true);
-                ReceivementYearText.setEnabled(true);
+                ItemReceivementDayText.setEnabled(true);
+                ItemReceivementMonthCombo.setEnabled(true);
+                ItemReceivementYearText.setEnabled(true);
                 
                 BillingAddButton.setEnabled(false);
                 BillingSearchButton.setEnabled(false);
                 BillingRevokeButton.setEnabled(false);
                 break;
             case 2:
-                CustomerIdCombo.setEnabled(true);
+                ItemCustomerIdCombo.setEnabled(true);
                 
                 BillingAddButton.setEnabled(false);
                 BillingSearchButton.setEnabled(false);
@@ -485,48 +695,42 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillAddFlag = false;
         BillSearchFlag = false;
         BillRevokeFlag = true;
-        BillStateCombo.setSelectedIndex(1);
+        ItemBillStateCombo.setSelectedIndex(1);
         
-        BillIdText.setEnabled(true);
+        ItemBillIdText.setEnabled(true);
         
         BillingAddButton.setEnabled(false);
         BillingSearchButton.setEnabled(false);
         BillingRevokeButton.setEnabled(false);
     }//GEN-LAST:event_BillingRevokeButtonActionPerformed
 
+    private void ItemOptionComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemOptionComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ItemOptionComboActionPerformed
+
+    private void MaintenanceCustomerIdComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaintenanceCustomerIdComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MaintenanceCustomerIdComboActionPerformed
+
+    private void MaintenanceReceivementMonthComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaintenanceReceivementMonthComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MaintenanceReceivementMonthComboActionPerformed
+
+    private void MaintenanceBillTaxTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaintenanceBillTaxTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MaintenanceBillTaxTextActionPerformed
+
+    private void MaintenanceBillTotalTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaintenanceBillTotalTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MaintenanceBillTotalTextActionPerformed
+
+    private void MaintenanceOptionComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaintenanceOptionComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MaintenanceOptionComboActionPerformed
+
     private void BillingCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillingCancelButtonActionPerformed
         // TODO add your handling code here:
-        BillIdText.setText("");
-        ReceivementDayText.setText("01");
-        ReceivementYearText.setText("1900");
-        BillSubtotalText.setText("");
-        BillTaxText.setText("");
-        BillTotalText.setText("");
-        
-        //Disable Buttons
-        BillIdText.setEnabled(false);
-        CustomerIdCombo.setEnabled(false);
-        ReceivementDayText.setEnabled(false);
-        ReceivementMonthCombo.setEnabled(false);
-        ReceivementYearText.setEnabled(false);
-        BillSubtotalText.setEnabled(false);
-        BillTaxText.setEnabled(false);
-        BillTotalText.setEnabled(false);
-        BillStateCombo.setSelectedIndex(0);
-        
-        BillingAddButton.setEnabled(true);
-        BillingSearchButton.setEnabled(true);
-        BillingRevokeButton.setEnabled(true);
-        
-        //Set Flags
-        BillAddFlag = false;
-        BillSearchFlag = false;
-        BillRevokeFlag = false;
     }//GEN-LAST:event_BillingCancelButtonActionPerformed
-
-    private void OptionComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OptionComboActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_OptionComboActionPerformed
                                      
                                                   
     private static void borrarPanel(JPanel panel) {
@@ -696,20 +900,23 @@ public class ScreenBilling extends javax.swing.JPanel {
     private void createIdsItems(){
         int aux = 0;
         for(item_class item:items_list){
-            System.out.println(item.getId_item()+"");
-            ComboItemsModel.insertElementAt(item.getId_item()+"", aux);
-            ComboItemsModel.setSelectedItem(item.getId_item()+"");
+            System.out.println(item.getId_item());
+            ComboItemsModel.insertElementAt(item.getId_item(), aux);
+            ComboItemsModel.setSelectedItem(item.getId_item());
         }
-        
+        ItemOptionCombo.setModel(ComboItemsModel);
+        ItemOptionCombo.updateUI();
     }
     
     private void createIdsMaintenance(){
         int aux = 0;
         for(maintenance_class item:maintenance_list){
-            System.out.println(item.getService_id()+"");
-            ComboMaintenanceModel.insertElementAt(item.getService_id()+"", aux);
-            ComboMaintenanceModel.setSelectedItem(item.getService_id()+"");
+            System.out.println(item.getService_id());
+            ComboMaintenanceModel.insertElementAt(item.getService_id(), aux);
+            ComboMaintenanceModel.setSelectedItem(item.getService_id());
         }
+        ItemOptionCombo.setModel(ComboMaintenanceModel);
+        ItemOptionCombo.updateUI();
     }
     
     //Create Flags
@@ -734,28 +941,50 @@ public class ScreenBilling extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField BillIdText;
-    private javax.swing.JComboBox<String> BillStateCombo;
-    private javax.swing.JTextField BillSubtotalText;
-    private javax.swing.JTextField BillTaxText;
-    private javax.swing.JTextField BillTotalText;
     private javax.swing.JButton BillingAddButton;
     private javax.swing.JButton BillingCancelButton;
-    private javax.swing.JTable BillingDirectoryTable;
     private javax.swing.JPanel BillingInputPanel;
+    private javax.swing.JPanel BillingInputPanel1;
     private javax.swing.JButton BillingRevokeButton;
     private javax.swing.JButton BillingSearchButton;
     private javax.swing.JPanel BillingView;
     private javax.swing.JLabel BillingWindowSubtitle;
     private javax.swing.JLabel BillingWindowTitle;
-    private javax.swing.JComboBox<String> CustomerIdCombo;
-    private javax.swing.JComboBox<String> OptionCombo;
-    private javax.swing.JTextField ReceivementDayText;
-    private javax.swing.JComboBox<String> ReceivementMonthCombo;
-    private javax.swing.JTextField ReceivementYearText;
+    private javax.swing.JLabel BillingWindowTitle1;
+    private javax.swing.JLabel BillingWindowTitle2;
+    private javax.swing.JButton ItemAcceptButton;
+    private javax.swing.JTextField ItemBillIdText;
+    private javax.swing.JComboBox<String> ItemBillStateCombo;
+    private javax.swing.JTextField ItemBillSubtotalText;
+    private javax.swing.JTextField ItemBillTaxText;
+    private javax.swing.JTextField ItemBillTotalText;
+    private javax.swing.JComboBox<String> ItemCustomerIdCombo;
+    private javax.swing.JComboBox<String> ItemOptionCombo;
+    private javax.swing.JTextField ItemReceivementDayText;
+    private javax.swing.JComboBox<String> ItemReceivementMonthCombo;
+    private javax.swing.JTextField ItemReceivementYearText;
+    private javax.swing.JButton ItemSearchButton;
+    private javax.swing.JButton MaintenanceAcceptButton;
+    private javax.swing.JTextField MaintenanceBillIdText;
+    private javax.swing.JComboBox<String> MaintenanceBillStateCombo;
+    private javax.swing.JTextField MaintenanceBillSubtotalText;
+    private javax.swing.JTextField MaintenanceBillTaxText;
+    private javax.swing.JTextField MaintenanceBillTotalText;
+    private javax.swing.JComboBox<String> MaintenanceCustomerIdCombo;
+    private javax.swing.JComboBox<String> MaintenanceOptionCombo;
+    private javax.swing.JTextField MaintenanceReceivementDayText;
+    private javax.swing.JComboBox<String> MaintenanceReceivementMonthCombo;
+    private javax.swing.JTextField MaintenanceReceivementYearText;
+    private javax.swing.JButton MaintenanceSearchButton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -763,6 +992,6 @@ public class ScreenBilling extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }

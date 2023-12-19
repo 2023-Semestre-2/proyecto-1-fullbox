@@ -891,6 +891,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
 
             Service_Id.setEnabled(false);
             Customer_Id.setEnabled(false);
+            Customer_Id.setSelectedIndex(0);
             Bicycle_Brand.setEnabled(false);
             Bicycle_Description.setEnabled(false);
             Price.setVisible(false);
@@ -904,6 +905,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
             State.setEnabled(false);
             Accept_Maintenance.setEnabled(false);
             Cancel_Maintenance.setEnabled(false);
+            
 
             Day_Recived.setSelectedItem("01");
             Month_Recived.setSelectedItem("01");
@@ -1128,81 +1130,168 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         if  (!textFromTextField_customer.isEmpty()){
             customer_name = String.valueOf(textFromTextField_customer);
         }
+        
         Boolean flag_found = false;
-        for (int i = 0; i < main_class.products.size(); i++) {
+        Boolean flag_count= false;
+        int count = 0;
+        for (int i = 0; i < main_class.maintenance.size(); i++) {
             maintenance_class service = main_class.maintenance.get(i);
-
-            if(id_service == service.getService_id()|| customer_name.equals(service.getCustomer_id())){
-                JOptionPane.showMessageDialog(this, "Found");
-                flag_found = true;
-                Service_Id.setText(String.valueOf(service.getService_id()));
-                Customer_Id.setSelectedItem(String.valueOf(service.getCustomer_id()));
-                Bicycle_Brand.setText(service.getBicycle_brand());
-                Bicycle_Description.setText(service.getBicycle_description());
-                Price.setText(String.valueOf(service.getMaintenance_price()));
-              
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd MM yyyy");
-                String formattedDate_r = dateFormat.format(service.getReceived_date());
-                String formattedDate_d = dateFormat.format(service.getDelivery_date());
-
-                String day_r = formattedDate_r.substring(0, 2);
-                String month_r = formattedDate_r.substring(3, 5);
-                String year_r = formattedDate_r.substring(6);
-                
-                String day_d = formattedDate_d.substring(0, 2);
-                String month_d = formattedDate_d.substring(3, 5);
-                String year_d = formattedDate_d.substring(6);
-                
-                day_r = String.format("%02d", Integer.parseInt(day_r));
-                month_r = String.format("%02d", Integer.parseInt(month_r));
-                day_d = String.format("%02d", Integer.parseInt(day_d));
-                month_d = String.format("%02d", Integer.parseInt(month_d));
-                
-                Day_Recived.setSelectedItem(day_r);
-                Month_Recived.setSelectedItem(month_r);
-                Year_Recived.setSelectedItem(year_r);
-                Day_Delivery.setSelectedItem(day_d);
-                Month_Delivery.setSelectedItem(month_d);
-                Year_Delivery.setSelectedItem(year_d);
-                
-                Observations.setText(service.getMaintenance_observations());
-                State.setSelectedItem(String.valueOf(service.getMaintenance_state()));
-                
-                
-                if (modify_button_maintenance == true){
-                    Modify_m = service;
-                    Service_Id.setEnabled(false);
-                    Search_M.setEnabled(false);
-                    Customer_Id.setEnabled(true);
-                    Bicycle_Brand.setEnabled(true);
-                    Bicycle_Description.setEnabled(true);
-                    Price.setEnabled(true);
-                    Day_Recived.setEnabled(true);
-                    Month_Recived.setEnabled(true);
-                    Year_Recived.setEnabled(true);
-                    Day_Delivery.setEnabled(true);
-                    Month_Delivery.setEnabled(true);
-                    Year_Delivery.setEnabled(true);
-                    Observations.setEnabled(true);
-                    State.setEnabled(true);
-                    Accept_Maintenance.setEnabled(true);
-                    Cancel_Maintenance.setEnabled(true);
-                }
-                if (search_button_maintenance == true || delete_button_maintenance == true ){
-                    Service_Id.setEnabled(false);
-                }
-                
-                Service_Id.setEnabled(false);
-                Customer_Id.setEnabled(false);
-                Accept_Maintenance.setEnabled(true);
-                Cancel_Maintenance.setEnabled(true);
-                Search_M.setEnabled(false);
-                break;
+            if(customer_name.equals(service.getCustomer_id())){
+                count++;
             }
         }
+        if (count > 1){
+            flag_count = true;
+            try{
+            int userInput = Integer.parseInt(JOptionPane.showInputDialog(this, "Several Services Were Found. Please Enter The Service Id"));
+            id_service = userInput;
+            }
+            catch(NumberFormatException ex){
+                    JOptionPane.showMessageDialog(this,"Invalid");
+                    return;
+                    }
+            }
+            
+        for (int i = 0; i < main_class.maintenance.size(); i++) {
+            maintenance_class service = main_class.maintenance.get(i);
+            
+            if(flag_count){
+               if(id_service == service.getService_id()){
+                    JOptionPane.showMessageDialog(this, "Found");
+                    flag_found = true;
+                    Service_Id.setText(String.valueOf(service.getService_id()));
+                    Customer_Id.setSelectedItem(String.valueOf(service.getCustomer_id()));
+                    Bicycle_Brand.setText(service.getBicycle_brand());
+                    Bicycle_Description.setText(service.getBicycle_description());
+                    Price.setText(String.valueOf(service.getMaintenance_price()));
+
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd MM yyyy");
+                    String formattedDate_r = dateFormat.format(service.getReceived_date());
+                    String formattedDate_d = dateFormat.format(service.getDelivery_date());
+
+                    String day_r = formattedDate_r.substring(0, 2);
+                    String month_r = formattedDate_r.substring(3, 5);
+                    String year_r = formattedDate_r.substring(6);
+
+                    String day_d = formattedDate_d.substring(0, 2);
+                    String month_d = formattedDate_d.substring(3, 5);
+                    String year_d = formattedDate_d.substring(6);
+
+                    day_r = String.format("%02d", Integer.parseInt(day_r));
+                    month_r = String.format("%02d", Integer.parseInt(month_r));
+                    day_d = String.format("%02d", Integer.parseInt(day_d));
+                    month_d = String.format("%02d", Integer.parseInt(month_d));
+
+                    Day_Recived.setSelectedItem(day_r);
+                    Month_Recived.setSelectedItem(month_r);
+                    Year_Recived.setSelectedItem(year_r);
+                    Day_Delivery.setSelectedItem(day_d);
+                    Month_Delivery.setSelectedItem(month_d);
+                    Year_Delivery.setSelectedItem(year_d);
+
+                    Observations.setText(service.getMaintenance_observations());
+                    State.setSelectedItem(String.valueOf(service.getMaintenance_state()));
+                    if (modify_button_maintenance == true){
+                        Modify_m = service;
+                        Service_Id.setEnabled(false);
+                        Search_M.setEnabled(false);
+                        Customer_Id.setEnabled(true);
+                        Bicycle_Brand.setEnabled(true);
+                        Bicycle_Description.setEnabled(true);
+                        Price.setEnabled(true);
+                        Day_Recived.setEnabled(true);
+                        Month_Recived.setEnabled(true);
+                        Year_Recived.setEnabled(true);
+                        Day_Delivery.setEnabled(true);
+                        Month_Delivery.setEnabled(true);
+                        Year_Delivery.setEnabled(true);
+                        Observations.setEnabled(true);
+                        State.setEnabled(true);
+                        Accept_Maintenance.setEnabled(true);
+                        Cancel_Maintenance.setEnabled(true);
+                    }
+                    if (search_button_maintenance == true || delete_button_maintenance == true ){
+                        Service_Id.setEnabled(false);
+                    }
+
+                    Service_Id.setEnabled(false);
+                    Customer_Id.setEnabled(false);
+                    Accept_Maintenance.setEnabled(true);
+                    Cancel_Maintenance.setEnabled(true);
+                    Search_M.setEnabled(false);
+                    break;
+            }
+               
+            }else if(id_service == service.getService_id()|| customer_name.equals(service.getCustomer_id())){
+                    JOptionPane.showMessageDialog(this, "Found");
+                    flag_found = true;
+                    Service_Id.setText(String.valueOf(service.getService_id()));
+                    Customer_Id.setSelectedItem(String.valueOf(service.getCustomer_id()));
+                    Bicycle_Brand.setText(service.getBicycle_brand());
+                    Bicycle_Description.setText(service.getBicycle_description());
+                    Price.setText(String.valueOf(service.getMaintenance_price()));
+
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd MM yyyy");
+                    String formattedDate_r = dateFormat.format(service.getReceived_date());
+                    String formattedDate_d = dateFormat.format(service.getDelivery_date());
+
+                    String day_r = formattedDate_r.substring(0, 2);
+                    String month_r = formattedDate_r.substring(3, 5);
+                    String year_r = formattedDate_r.substring(6);
+
+                    String day_d = formattedDate_d.substring(0, 2);
+                    String month_d = formattedDate_d.substring(3, 5);
+                    String year_d = formattedDate_d.substring(6);
+
+                    day_r = String.format("%02d", Integer.parseInt(day_r));
+                    month_r = String.format("%02d", Integer.parseInt(month_r));
+                    day_d = String.format("%02d", Integer.parseInt(day_d));
+                    month_d = String.format("%02d", Integer.parseInt(month_d));
+
+                    Day_Recived.setSelectedItem(day_r);
+                    Month_Recived.setSelectedItem(month_r);
+                    Year_Recived.setSelectedItem(year_r);
+                    Day_Delivery.setSelectedItem(day_d);
+                    Month_Delivery.setSelectedItem(month_d);
+                    Year_Delivery.setSelectedItem(year_d);
+
+                    Observations.setText(service.getMaintenance_observations());
+                    State.setSelectedItem(String.valueOf(service.getMaintenance_state()));
+                    if (modify_button_maintenance == true){
+                        Modify_m = service;
+                        Service_Id.setEnabled(false);
+                        Search_M.setEnabled(false);
+                        Customer_Id.setEnabled(true);
+                        Bicycle_Brand.setEnabled(true);
+                        Bicycle_Description.setEnabled(true);
+                        Price.setEnabled(true);
+                        Day_Recived.setEnabled(true);
+                        Month_Recived.setEnabled(true);
+                        Year_Recived.setEnabled(true);
+                        Day_Delivery.setEnabled(true);
+                        Month_Delivery.setEnabled(true);
+                        Year_Delivery.setEnabled(true);
+                        Observations.setEnabled(true);
+                        State.setEnabled(true);
+                        Accept_Maintenance.setEnabled(true);
+                        Cancel_Maintenance.setEnabled(true);
+                    }
+                    if (search_button_maintenance == true || delete_button_maintenance == true ){
+                        Service_Id.setEnabled(false);
+                    }
+
+                    Service_Id.setEnabled(false);
+                    Customer_Id.setEnabled(false);
+                    Accept_Maintenance.setEnabled(true);
+                    Cancel_Maintenance.setEnabled(true);
+                    Search_M.setEnabled(false);
+                    break;
+                }
+        }
+
         if(flag_found == false){
             JOptionPane.showMessageDialog(null, "Not Found");
-        }
+        } 
     }//GEN-LAST:event_Search_MActionPerformed
 
     private void Reset_Texts(){
