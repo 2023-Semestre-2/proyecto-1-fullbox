@@ -1128,10 +1128,31 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         if  (!textFromTextField_customer.isEmpty()){
             customer_name = String.valueOf(textFromTextField_customer);
         }
+        
         Boolean flag_found = false;
-        for (int i = 0; i < main_class.products.size(); i++) {
+        Boolean flag_count= false;
+        int count = 0;
+        for (int i = 0; i < main_class.maintenance.size(); i++) {
             maintenance_class service = main_class.maintenance.get(i);
-
+            if(customer_name.equals(service.getCustomer_id())){
+                count++;
+            }
+        }
+        if (count > 1){
+            flag_count = true;
+            try{
+            int userInput = Integer.parseInt(JOptionPane.showInputDialog(this, "Several Services Were Found. Please Enter The Service Id"));
+            id_service = userInput;
+            }
+            catch(NumberFormatException ex){
+                    JOptionPane.showMessageDialog(this,"Invalid");
+                    return;
+                    }
+            }
+            
+        for (int i = 0; i < main_class.maintenance.size(); i++) {
+            maintenance_class service = main_class.maintenance.get(i);
+            
             if(id_service == service.getService_id()|| customer_name.equals(service.getCustomer_id())){
                 JOptionPane.showMessageDialog(this, "Found");
                 flag_found = true;
