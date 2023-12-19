@@ -15,7 +15,7 @@ import java.nio.file.Paths;
 import javax.swing.JOptionPane;
 import main.Login;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
-
+import org.netbeans.lib.awtextra.*;
 /**
  *
  * @author saimo
@@ -213,7 +213,10 @@ public class Register extends javax.swing.JPanel {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jButton1MouseExited
-    
+    /**
+    * Este método sirve para agregar un usuario a la base de datos
+    * @author saimo
+    */
     private void Add_user() {
         String archive = Paths.get("src", "DataBase", "usuarios.csv").toString();
         FileWriter fw = null;
@@ -240,7 +243,10 @@ public class Register extends javax.swing.JPanel {
             }      
         }
     }
-    
+    /**
+    * Este método sirve para crear un nuevo usuario
+    * @author saimo
+    */
     private boolean create_user() {
         
         String create_username;
@@ -279,6 +285,10 @@ public class Register extends javax.swing.JPanel {
             }
         return true;
     }
+    /**
+    * Este evento detecta si fue presionado el boton de register para registrar un nuevo usuario en la base de datos
+    * @author saimo
+    */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         boolean result = create_user();
         if (result) {
@@ -288,6 +298,7 @@ public class Register extends javax.swing.JPanel {
             Login open= new Login();
             open.setVisible(true);
             this.setVisible(false);
+            
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
