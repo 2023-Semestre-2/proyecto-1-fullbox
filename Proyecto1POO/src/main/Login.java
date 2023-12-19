@@ -513,6 +513,7 @@ public class Login extends javax.swing.JFrame {
     private void ShowJPanelRegister(JPanel p){
         p.setSize(450, 490);
         p.setLocation(440,110);
+        
     }
     
     private void UsernameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameTextActionPerformed
@@ -591,8 +592,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3MouseExited
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-        ShowJPanelRegister(new Register());
+        
+        
+         
     }//GEN-LAST:event_jButton3ActionPerformed
     
     
