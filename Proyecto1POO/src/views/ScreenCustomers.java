@@ -1251,6 +1251,10 @@ public class ScreenCustomers extends javax.swing.JPanel {
     /**
     * This function is used to validate any date.
     * @author josem
+    * @param day The date day
+    * @param month The date month
+    * @param year The date year
+    * @return True if is validated correctly, else False
     */
     private static boolean validateDate(int day, int month, int year){
         boolean pass_flag = false;
@@ -1403,6 +1407,10 @@ public class ScreenCustomers extends javax.swing.JPanel {
         return pass_flag;
     }
     
+    /**
+    * This function is used to set the jTable column identifiers and show the information changes.
+    * @author josem
+    */
     private void showTable(){
         mt.setColumnIdentifiers(ids);
         SearchTable.updateUI();
