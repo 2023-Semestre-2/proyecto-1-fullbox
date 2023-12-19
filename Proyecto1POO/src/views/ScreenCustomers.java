@@ -215,6 +215,11 @@ public class ScreenCustomers extends javax.swing.JPanel {
 
         CustomerProvinceCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alajuela", "Cartago", "Guanacaste", "Heredia", "Puntarenas", "San Jose" }));
         CustomerProvinceCombo.setEnabled(false);
+        CustomerProvinceCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CustomerProvinceComboActionPerformed(evt);
+            }
+        });
 
         CustomerMonthCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         CustomerMonthCombo.setEnabled(false);
@@ -1200,6 +1205,10 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomerDayText.setText("01");
         CustomerYearText.setText("1900");
     }//GEN-LAST:event_ResetButtonActionPerformed
+
+    private void CustomerProvinceComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerProvinceComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CustomerProvinceComboActionPerformed
     
     /**
     * This function is used to delete this panel from the Main Menu.

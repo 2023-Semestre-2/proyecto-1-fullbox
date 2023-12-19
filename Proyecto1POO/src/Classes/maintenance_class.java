@@ -7,7 +7,7 @@ package Classes;
 import java.util.Date;
 
 /**
- *
+ * Maintenance Class: Create new Maintenances
  * @author josem
  */
 public class maintenance_class {

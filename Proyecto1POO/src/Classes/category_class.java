@@ -5,7 +5,7 @@
 package Classes;
 
 /**
- *
+ * Category Class: Create new categories
  * @author josem
  */
 public class category_class {

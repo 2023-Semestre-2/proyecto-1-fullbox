@@ -5,7 +5,7 @@
 package Classes;
 
 /**
- *
+ * Bill Class: Create new bills
  * @author josem
  */
 public class bill_class {

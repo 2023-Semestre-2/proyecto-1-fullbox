@@ -2,6 +2,10 @@
 package Classes;
 import java.util.*;
 
+/**
+* Main Class: Create new Lists
+* @author josem
+*/
 public class main_class {
     public static ArrayList<item_class> items;
     public static ArrayList<product_class> products;
