@@ -10,14 +10,10 @@ import Classes.main_class;
 import Classes.maintenance_class;
 import java.awt.BorderLayout;
 import java.awt.Component;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
@@ -75,12 +71,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         Service_Id = new javax.swing.JTextField();
         Bicycle_Brand = new javax.swing.JTextField();
         Price = new javax.swing.JTextField();
-        Day_Recived = new javax.swing.JTextField();
         Month_Recived = new javax.swing.JComboBox<>();
         Month_Delivery = new javax.swing.JComboBox<>();
-        Year_Delivery = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Bike_Description = new javax.swing.JTextArea();
+        Bicycle_Description = new javax.swing.JTextArea();
         State = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -89,8 +83,6 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        Year_Recived = new javax.swing.JTextField();
-        Day_Delivery = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -103,14 +95,11 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         Search_Maintenance = new javax.swing.JButton();
         Modify_Maintenance = new javax.swing.JButton();
         Delete_Maintenance = new javax.swing.JButton();
-<<<<<<< HEAD
         Day_Recived = new javax.swing.JComboBox<>();
         Day_Delivery = new javax.swing.JComboBox<>();
         Year_Recived = new javax.swing.JComboBox<>();
         Year_Delivery = new javax.swing.JComboBox<>();
         Search_M = new javax.swing.JButton();
-=======
->>>>>>> 98c1f9ac6fb45a36674e293a1f2236cccc01bb6f
 
         MaintenanceView.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -132,42 +121,45 @@ public class ScreenMaintenance extends javax.swing.JPanel {
             }
         });
 
+        Service_Id.setEnabled(false);
+
+        Bicycle_Brand.setEnabled(false);
         Bicycle_Brand.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 Bicycle_BrandKeyTyped(evt);
             }
         });
 
+        Price.setEnabled(false);
         Price.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 PriceKeyTyped(evt);
             }
         });
 
-        Month_Recived.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Month_Recived.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        Month_Recived.setEnabled(false);
 
-<<<<<<< HEAD
         Month_Delivery.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         Month_Delivery.setEnabled(false);
-=======
-        Month_Delivery.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
->>>>>>> 98c1f9ac6fb45a36674e293a1f2236cccc01bb6f
 
-        Bike_Description.setColumns(20);
-        Bike_Description.setLineWrap(true);
-        Bike_Description.setRows(5);
-        Bike_Description.setWrapStyleWord(true);
-        Bike_Description.addKeyListener(new java.awt.event.KeyAdapter() {
+        Bicycle_Description.setColumns(20);
+        Bicycle_Description.setLineWrap(true);
+        Bicycle_Description.setRows(5);
+        Bicycle_Description.setWrapStyleWord(true);
+        Bicycle_Description.setEnabled(false);
+        Bicycle_Description.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                Bike_DescriptionKeyPressed(evt);
+                Bicycle_DescriptionKeyPressed(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                Bike_DescriptionKeyTyped(evt);
+                Bicycle_DescriptionKeyTyped(evt);
             }
         });
-        jScrollPane1.setViewportView(Bike_Description);
+        jScrollPane1.setViewportView(Bicycle_Description);
 
         State.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Close", "Open" }));
+        State.setEnabled(false);
 
         jLabel1.setText("Maintenance");
 
@@ -177,7 +169,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
 
         jLabel4.setText("Bicycle Brand:");
 
-        jLabel5.setText("Bike Description:");
+        jLabel5.setText("Bicycle Description:");
 
         jLabel6.setText("Price:");
 
@@ -191,6 +183,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         Observations.setLineWrap(true);
         Observations.setRows(5);
         Observations.setWrapStyleWord(true);
+        Observations.setEnabled(false);
         Observations.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 ObservationsKeyPressed(evt);
@@ -203,18 +196,15 @@ public class ScreenMaintenance extends javax.swing.JPanel {
 
         jLabel10.setText("State:");
 
-<<<<<<< HEAD
         Customer_Id.setEnabled(false);
-=======
-        Customer_Id.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Customer_Id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Customer_IdActionPerformed(evt);
             }
         });
->>>>>>> 98c1f9ac6fb45a36674e293a1f2236cccc01bb6f
 
         Accept_Maintenance.setText("Accept");
+        Accept_Maintenance.setEnabled(false);
         Accept_Maintenance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Accept_MaintenanceActionPerformed(evt);
@@ -222,17 +212,19 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         });
 
         Cancel_Maintenance.setText("Cancel");
-<<<<<<< HEAD
         Cancel_Maintenance.setEnabled(false);
         Cancel_Maintenance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Cancel_MaintenanceActionPerformed(evt);
             }
         });
-=======
->>>>>>> 98c1f9ac6fb45a36674e293a1f2236cccc01bb6f
 
         Create_Maintenance.setText("Create Maintenance");
+        Create_Maintenance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Create_MaintenanceActionPerformed(evt);
+            }
+        });
 
         Search_Maintenance.setText("Search Maintenance");
         Search_Maintenance.addActionListener(new java.awt.event.ActionListener() {
@@ -255,7 +247,6 @@ public class ScreenMaintenance extends javax.swing.JPanel {
             }
         });
 
-<<<<<<< HEAD
         Day_Recived.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         Day_Recived.setEnabled(false);
 
@@ -269,15 +260,12 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         Year_Delivery.setEnabled(false);
 
         Search_M.setText("S");
-        Search_M.setEnabled(false);
         Search_M.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Search_MActionPerformed(evt);
             }
         });
 
-=======
->>>>>>> 98c1f9ac6fb45a36674e293a1f2236cccc01bb6f
         javax.swing.GroupLayout MaintenanceViewLayout = new javax.swing.GroupLayout(MaintenanceView);
         MaintenanceView.setLayout(MaintenanceViewLayout);
         MaintenanceViewLayout.setHorizontalGroup(
@@ -291,21 +279,8 @@ public class ScreenMaintenance extends javax.swing.JPanel {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(MaintenanceViewLayout.createSequentialGroup()
                         .addGap(301, 301, 301)
-<<<<<<< HEAD
                         .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(MaintenanceViewLayout.createSequentialGroup()
-=======
-                        .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addComponent(Day_Recived, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Month_Recived, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Year_Recived, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(MaintenanceViewLayout.createSequentialGroup()
->>>>>>> 98c1f9ac6fb45a36674e293a1f2236cccc01bb6f
                                 .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(MaintenanceViewLayout.createSequentialGroup()
                                         .addComponent(Create_Maintenance)
@@ -314,32 +289,9 @@ public class ScreenMaintenance extends javax.swing.JPanel {
                                     .addGroup(MaintenanceViewLayout.createSequentialGroup()
                                         .addComponent(jLabel9)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-<<<<<<< HEAD
                                         .addComponent(Day_Delivery, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(Month_Delivery, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-=======
-                                        .addComponent(Day_Delivery, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Month_Delivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                            .addComponent(jLabel4)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(Bicycle_Brand, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                            .addComponent(jLabel3)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(Customer_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MaintenanceViewLayout.createSequentialGroup()
-                                            .addComponent(jLabel2)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(Service_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MaintenanceViewLayout.createSequentialGroup()
-                                            .addComponent(jLabel6)
-                                            .addGap(70, 70, 70)
-                                            .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
->>>>>>> 98c1f9ac6fb45a36674e293a1f2236cccc01bb6f
                                     .addGroup(MaintenanceViewLayout.createSequentialGroup()
                                         .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(Accept_Maintenance)
@@ -349,10 +301,8 @@ public class ScreenMaintenance extends javax.swing.JPanel {
                                                 .addComponent(State, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(26, 26, 26)
                                         .addComponent(Cancel_Maintenance)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(MaintenanceViewLayout.createSequentialGroup()
-<<<<<<< HEAD
                                         .addGap(11, 11, 11)
                                         .addComponent(Modify_Maintenance)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -368,6 +318,19 @@ public class ScreenMaintenance extends javax.swing.JPanel {
                                 .addComponent(Month_Recived, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(Year_Recived, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(MaintenanceViewLayout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addGap(37, 37, 37)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(MaintenanceViewLayout.createSequentialGroup()
+                                    .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel6))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(MaintenanceViewLayout.createSequentialGroup()
                                 .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(MaintenanceViewLayout.createSequentialGroup()
@@ -382,38 +345,9 @@ public class ScreenMaintenance extends javax.swing.JPanel {
                                         .addComponent(jLabel2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(Service_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addComponent(Search_M, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                    .addComponent(jLabel8)
-                                    .addGap(37, 37, 37)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                    .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel5)
-                                        .addComponent(jLabel6))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Search_M, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 200, Short.MAX_VALUE)))
-=======
-                                        .addGap(6, 6, 6)
-                                        .addComponent(Modify_Maintenance)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Delete_Maintenance))
-                                    .addComponent(Year_Delivery, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane2))
-                            .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 124, Short.MAX_VALUE)))
->>>>>>> 98c1f9ac6fb45a36674e293a1f2236cccc01bb6f
                 .addContainerGap())
         );
         MaintenanceViewLayout.setVerticalGroup(
@@ -432,12 +366,8 @@ public class ScreenMaintenance extends javax.swing.JPanel {
                 .addGap(31, 31, 31)
                 .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-<<<<<<< HEAD
                     .addComponent(Service_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Search_M))
-=======
-                    .addComponent(Service_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
->>>>>>> 98c1f9ac6fb45a36674e293a1f2236cccc01bb6f
                 .addGap(10, 10, 10)
                 .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -460,15 +390,15 @@ public class ScreenMaintenance extends javax.swing.JPanel {
                 .addGap(33, 33, 33)
                 .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(Day_Recived, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Month_Recived, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Day_Recived, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Year_Recived, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Year_Delivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Month_Delivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
                     .addComponent(Day_Delivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                    .addComponent(Year_Delivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MaintenanceViewLayout.createSequentialGroup()
@@ -1047,7 +977,6 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         
     }//GEN-LAST:event_Create_MaintenanceActionPerformed
 
-<<<<<<< HEAD
     private void Bicycle_DescriptionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Bicycle_DescriptionKeyTyped
         if (Bicycle_Description.getText().length() >= 300){
             evt.consume();
@@ -1126,6 +1055,62 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         Search_M.setEnabled(true);
         Cancel_Maintenance.setEnabled(true);                                  
     }//GEN-LAST:event_Search_MaintenanceActionPerformed
+
+    private void Modify_MaintenanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modify_MaintenanceActionPerformed
+        int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
+            "Search",
+            JOptionPane.YES_NO_OPTION,   // Tipo de opción (sí/no)
+            JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje (pregunta)
+            null,                        // Icono personalizado (en este caso, ninguno)
+            new Object[]{"ID SERVICE", "CUSTOMER NAME"}, // Texto de los botones
+            "Botón 1");                    // Botón predeterminado
+
+        Create_Maintenance.setEnabled(false);
+        Search_Maintenance.setEnabled(false);
+        Delete_Maintenance.setEnabled(false);
+        Modify_Maintenance.setEnabled(false);
+        modify_button_maintenance= true;
+
+        if(opcion == 1){
+            Customer_Id.setEnabled(true);
+        }else{
+            Service_Id.setEnabled(true);
+
+        }
+        Search_M.setEnabled(true);
+        Cancel_Maintenance.setEnabled(true);
+        //loading_list_products();
+    }//GEN-LAST:event_Modify_MaintenanceActionPerformed
+
+    private void Delete_MaintenanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete_MaintenanceActionPerformed
+        int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
+            "Search",
+            JOptionPane.YES_NO_OPTION,   // Tipo de opción (sí/no)
+            JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje (pregunta)
+            null,                        // Icono personalizado (en este caso, ninguno)
+            new Object[]{"ID SERVICE", "CUSTOMER NAME"}, // Texto de los botones
+            "Botón 1");                    // Botón predeterminado
+
+        Create_Maintenance.setEnabled(false);
+        Search_Maintenance.setEnabled(false);
+        Delete_Maintenance.setEnabled(false);
+        Modify_Maintenance.setEnabled(false);
+        delete_button_maintenance= true;
+
+        if(opcion == 1){
+            Customer_Id.setEnabled(true);
+        }else{
+            Service_Id.setEnabled(true);
+
+        }
+        Search_M.setEnabled(true);
+        Cancel_Maintenance.setEnabled(true);
+        //loading_list_products();
+    }//GEN-LAST:event_Delete_MaintenanceActionPerformed
+
+    private void Customer_IdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Customer_IdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Customer_IdActionPerformed
 
     private void Search_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_MActionPerformed
         String textFromTextField_service = Service_Id.getText();
@@ -1220,63 +1205,6 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_Search_MActionPerformed
 
-    private void Modify_MaintenanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modify_MaintenanceActionPerformed
-        int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
-            "Search",
-            JOptionPane.YES_NO_OPTION,   // Tipo de opción (sí/no)
-            JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje (pregunta)
-            null,                        // Icono personalizado (en este caso, ninguno)
-            new Object[]{"ID SERVICE", "CUSTOMER NAME"}, // Texto de los botones
-            "Botón 1");                    // Botón predeterminado
-
-        Create_Maintenance.setEnabled(false);
-        Search_Maintenance.setEnabled(false);
-        Delete_Maintenance.setEnabled(false);
-        Modify_Maintenance.setEnabled(false);
-        modify_button_maintenance= true;
-
-        if(opcion == 1){
-            Customer_Id.setEnabled(true);
-        }else{
-            Service_Id.setEnabled(true);
-
-        }
-        Search_M.setEnabled(true);
-        Cancel_Maintenance.setEnabled(true);
-        //loading_list_products();
-    }//GEN-LAST:event_Modify_MaintenanceActionPerformed
-
-    private void Delete_MaintenanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete_MaintenanceActionPerformed
-        int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
-            "Search",
-            JOptionPane.YES_NO_OPTION,   // Tipo de opción (sí/no)
-            JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje (pregunta)
-            null,                        // Icono personalizado (en este caso, ninguno)
-            new Object[]{"ID SERVICE", "CUSTOMER NAME"}, // Texto de los botones
-            "Botón 1");                    // Botón predeterminado
-
-        Create_Maintenance.setEnabled(false);
-        Search_Maintenance.setEnabled(false);
-        Delete_Maintenance.setEnabled(false);
-        Modify_Maintenance.setEnabled(false);
-        delete_button_maintenance= true;
-
-        if(opcion == 1){
-            Customer_Id.setEnabled(true);
-        }else{
-            Service_Id.setEnabled(true);
-
-        }
-        Search_M.setEnabled(true);
-        Cancel_Maintenance.setEnabled(true);
-        //loading_list_products();
-    }//GEN-LAST:event_Delete_MaintenanceActionPerformed
-=======
-    private void Customer_IdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Customer_IdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Customer_IdActionPerformed
->>>>>>> 98c1f9ac6fb45a36674e293a1f2236cccc01bb6f
-     
     private void Reset_Texts(){
         Component[] components = MaintenanceView.getComponents();
         for (Component component : components) {
@@ -1303,12 +1231,12 @@ public class ScreenMaintenance extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Accept_Maintenance;
     private javax.swing.JTextField Bicycle_Brand;
-    private javax.swing.JTextArea Bike_Description;
+    private javax.swing.JTextArea Bicycle_Description;
     private javax.swing.JButton Cancel_Maintenance;
     private javax.swing.JButton Create_Maintenance;
     private javax.swing.JComboBox<String> Customer_Id;
-    private javax.swing.JTextField Day_Delivery;
-    private javax.swing.JTextField Day_Recived;
+    private javax.swing.JComboBox<String> Day_Delivery;
+    private javax.swing.JComboBox<String> Day_Recived;
     private javax.swing.JButton Delete_Maintenance;
     private javax.swing.JPanel MaintenanceView;
     private javax.swing.JButton Modify_Maintenance;
@@ -1316,11 +1244,12 @@ public class ScreenMaintenance extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> Month_Recived;
     private javax.swing.JTextArea Observations;
     private javax.swing.JTextField Price;
+    private javax.swing.JButton Search_M;
     private javax.swing.JButton Search_Maintenance;
     private javax.swing.JTextField Service_Id;
     private javax.swing.JComboBox<String> State;
-    private javax.swing.JTextField Year_Delivery;
-    private javax.swing.JTextField Year_Recived;
+    private javax.swing.JComboBox<String> Year_Delivery;
+    private javax.swing.JComboBox<String> Year_Recived;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
