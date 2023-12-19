@@ -4,6 +4,18 @@
  */
 package views;
 
+import Classes.main_class;
+import Classes.register_users;
+import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.nio.file.Paths;
+import javax.swing.JOptionPane;
+import main.Login;
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
+
 /**
  *
  * @author saimo
@@ -32,10 +44,11 @@ public class Register extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         UsernameText = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        PasswordText1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
+        PasswordText = new javax.swing.JPasswordField();
+        PasswordTextVisible = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -49,6 +62,7 @@ public class Register extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(450, 490));
 
         jPanel2.setBackground(new java.awt.Color(84, 110, 230));
+        jPanel2.setName(""); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
@@ -71,6 +85,30 @@ public class Register extends javax.swing.JPanel {
             }
         });
         jPanel2.add(UsernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 390, 40));
+
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/salir-redondeado-24.png"))); // NOI18N
+        jButton2.setText("Exit");
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton2MouseExited(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, 80, 30));
 
         jButton1.setBackground(new java.awt.Color(85, 110, 230));
         jButton1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -98,24 +136,24 @@ public class Register extends javax.swing.JPanel {
         jLabel7.setText("Password");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 90, -1));
 
-        PasswordText1.addActionListener(new java.awt.event.ActionListener() {
+        PasswordText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PasswordText1ActionPerformed(evt);
+                PasswordTextActionPerformed(evt);
             }
         });
-        PasswordText1.addKeyListener(new java.awt.event.KeyAdapter() {
+        PasswordText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                PasswordText1KeyPressed(evt);
+                PasswordTextKeyPressed(evt);
             }
         });
-        jPanel2.add(PasswordText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 390, 40));
+        jPanel2.add(PasswordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 390, 40));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        PasswordTextVisible.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                PasswordTextVisibleActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 390, 40));
+        jPanel2.add(PasswordTextVisible, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 390, 40));
 
         jLabel4.setBackground(new java.awt.Color(58, 61, 65));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Card_Content.png"))); // NOI18N
@@ -175,29 +213,123 @@ public class Register extends javax.swing.JPanel {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jButton1MouseExited
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    
+    private void Add_user() {
+        String archive = Paths.get("src", "DataBase", "usuarios.csv").toString();
+        FileWriter fw = null;
+        PrintWriter pw = null;
+        
+        try{ 
+            fw = new FileWriter(archive);
+            pw = new PrintWriter(fw);
+            for(register_users i: main_class.users){
+                String line = i.getUsername() + "," + i.getPassword() + "," + i.getRemember();
+                pw.println(line);
+            }
+            
+        }catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try{
+                if(fw != null){
+                    fw.close();
+            }
+            }catch(Exception ex){
+                    ex.printStackTrace();
+            }      
+        }
+    }
+    
+    private boolean create_user() {
+        
+        String create_username;
+        String create_password;
+        boolean create_remember;
+        Boolean register = false;
         
 
+        create_username = String.valueOf(UsernameText.getText());
+        if (!PasswordTextVisible.getText().equals(String.valueOf(PasswordText.getPassword()))) {
+            JOptionPane.showMessageDialog(this,"Password Is Different");
+            return false;
+        }
+        create_password = String.valueOf(PasswordTextVisible.getText());
+        create_remember = false;
+
+        for(register_users A: main_class.users){
+            if(A.getUsername().equals(create_username)){
+                register = true;
+                break;}         
+            }
+
+            if(register){
+                JOptionPane.showMessageDialog(this,"This Username Already Exists ");  
+                return false;
+            }else{
+                register_users user = new register_users();
+                user.setUsername(create_username);
+                user.setPassword(create_password);
+                user.setRemember(create_remember);
+                main_class.users.add(user);
+                
+                Add_user();
+                JOptionPane.showMessageDialog(this, "User Added Successfully");
+
+            }
+        return true;
+    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        boolean result = create_user();
+        if (result) {
+            UsernameText.setText("");
+            PasswordTextVisible.setText("");
+            PasswordText.setText("");
+            Login open= new Login();
+            open.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void PasswordText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordText1ActionPerformed
+    private void PasswordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PasswordText1ActionPerformed
+    }//GEN-LAST:event_PasswordTextActionPerformed
 
-    private void PasswordText1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordText1KeyPressed
+    private void PasswordTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordTextKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PasswordText1KeyPressed
+    }//GEN-LAST:event_PasswordTextKeyPressed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void PasswordTextVisibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordTextVisibleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_PasswordTextVisibleActionPerformed
+
+    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+        jButton2.setForeground(Color.GRAY);
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/salir-redondeado-24GIF.gif")));
+    }//GEN-LAST:event_jButton2MouseEntered
+
+    private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
+        jButton2.setForeground(Color.black);
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/salir-redondeado-24.png")));
+    }//GEN-LAST:event_jButton2MouseExited
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        UsernameText.setText("");
+        PasswordTextVisible.setText("");
+        PasswordText.setText("");
+        Login open= new Login();
+        open.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField PasswordText1;
+    private javax.swing.JPasswordField PasswordText;
+    private javax.swing.JTextField PasswordTextVisible;
     private javax.swing.JTextField UsernameText;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -208,7 +340,6 @@ public class Register extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,6 +8,7 @@ public class main_class {
     public static ArrayList<customer_class> customers;
     public static ArrayList<maintenance_class> maintenance;
     public static ArrayList<id_class> ids;
+    public static ArrayList<register_users> users;
     
     public static void main_item(String[] args){
         items = new ArrayList<>();
@@ -29,4 +30,7 @@ public class main_class {
         maintenance = new ArrayList<>();
     }
     
+    public static void main_users(String[] args) {
+        users = new ArrayList<>();
+    }
 }

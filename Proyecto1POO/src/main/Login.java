@@ -21,6 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import javax.swing.JPanel;
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import views.Register;
 
 public class Login extends javax.swing.JFrame {
@@ -28,6 +29,8 @@ public class Login extends javax.swing.JFrame {
     
     public Login() {
         initComponents();
+        main_class.main_users(new String[]{});
+        loading_users();
         setIconImage(new ImageIcon(getClass().getResource("../img/boxx.png")).getImage());
         
     }
@@ -229,7 +232,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Union3.png"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-160, 0, 1280, 720));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Ellipse 2092.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 450, -1, -1));
@@ -284,6 +287,49 @@ public class Login extends javax.swing.JFrame {
             }      
         }
     }
+    
+    private void loading_users(){
+        String archive = Paths.get("src", "DataBase", "usuarios.csv").toString();
+        FileReader fr = null;
+        BufferedReader br = null;
+        Boolean bandera = false;
+        
+        try{
+            fr = new FileReader(archive);
+            br = new BufferedReader(fr);
+            String line;
+            
+            while((line = br.readLine()) != null){
+                register_users user = new register_users();
+                String array [] = line.split("\\,");
+                if (array.length == 3){
+                    user.setUsername(array[0]);
+                    user.setPassword(array[1]);
+                    user.setRemember(Boolean.parseBoolean(array[2]));
+                    main_class.users.add(user);
+                    bandera =true;                     
+                }              
+            }
+            if (bandera){
+                System.out.println("Importado exitosamente");    
+            }else{
+                 JOptionPane.showMessageDialog(this,"Fatal Error: Importation");
+            }
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try{
+                if(fr != null){
+                    fr.close();
+            }
+            }catch(Exception ex){
+                    ex.printStackTrace();
+            }      
+        }
+    }
+    
     private void loading_archive_ids(){
         String archive = Paths.get("src", "DataBase", "ID's.csv").toString();
         FileReader fr = null;
@@ -595,10 +641,17 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         jButton3.setForeground(new Color(85,110,230));
     }//GEN-LAST:event_jButton3MouseExited
-
+    
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
-        
+        Register r1 = new Register();
+        r1.setSize(450, 490);
+        r1.setLocation(440,110);
+        jPanel2.setVisible(false);
+        jPanel1.add(r1, new AbsoluteConstraints(440, 110, 450, 490));
+        jPanel1.setComponentZOrder(r1, 0);
+        jPanel1.revalidate();
+        jPanel1.repaint();
          
     }//GEN-LAST:event_jButton3ActionPerformed
     
