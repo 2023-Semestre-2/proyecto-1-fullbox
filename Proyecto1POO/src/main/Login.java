@@ -643,17 +643,22 @@ public class Login extends javax.swing.JFrame {
         jButton3.setForeground(new Color(85,110,230));
     }//GEN-LAST:event_jButton3MouseExited
     
-    
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void RegisterSpace(){
         Register r1 = new Register();
         r1.setSize(450, 490);
         r1.setLocation(440,110);
         jPanel2.setVisible(false);
         jPanel1.add(r1, new AbsoluteConstraints(440, 110, 450, 490));
+        
         jPanel1.setComponentZOrder(r1, 0);
         jPanel1.revalidate();
         jPanel1.repaint();
-         
+    }
+    
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        RegisterSpace();
+        
+        
     }//GEN-LAST:event_jButton3ActionPerformed
     
     

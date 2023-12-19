@@ -346,7 +346,7 @@ public class MainMenu extends javax.swing.JFrame {
         ScreenViews.removeAll();
         ScreenViews.add(p, BorderLayout.CENTER);
         ScreenViews.revalidate();
-        ScreenViews.repaint();  
+        ScreenViews.repaint();
     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

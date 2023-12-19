@@ -429,7 +429,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private maintenance_class Modify_m;
-
+    /**
+    * Este método verifica que los datos de fechas esten con un formato correcto
+    * @author jonns
+    */
     private boolean verify_date(int day, int month, int year){
         boolean pass_flag = false;
         switch(month){
@@ -580,7 +583,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         }
         return pass_flag;
     }
-    
+    /**
+    * Este método crea una nueva peticion de mantenimiento
+    * @author jonns
+    */
     private boolean Create_maintenance(){
         int create_service_id;
         String create_customer_id;
@@ -637,7 +643,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "Item Added Successfully");
         return true;
     }
-    
+    /**
+    * Este método agrega un nuevo objeto a la lista de mantenimiento
+    * @author jonns
+    */
     private void Add_maintenance(){
         String archive = Paths.get("src", "DataBase", "Archivo_CSV_MAINTENANCE.csv").toString();
         FileWriter fw = null;
@@ -664,7 +673,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
             }      
         }   
     }
-    
+    /**
+    * Este método modifica un objeto de la lista de mantenimiento
+    * @author jonns
+    */
     private void Modify_maintenance(maintenance_class Modify){
         int modify_service_id;
         String modify_customer_id;
@@ -721,7 +733,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Item Modified Successfully");
             }
     }
-    
+    /**
+    * Este método elimina un objeto de la lista de mantenimiento
+    * @author jonns
+    */
     private boolean Delete_maintenance(){
         for(int i = 0; i < main_class.maintenance.size(); i++){
             int Id = Integer.parseInt(Service_Id.getText());
@@ -741,13 +756,20 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         return false;
     }
     
+    /**
+    * Este método agrega un objeto a una lista customers para usarlo en un comboBox
+    * @author jonns
+    */
     private void add_list_customers(){
         for (int i = main_class.customers.size() - 1; i >= 0; i--) {
             customer_class customer = main_class.customers.get(i);
             list_customers.add(customer.getCustomer_id() + "-" + customer.getCustomer_name());
     }
     } 
-    
+    /**
+    * Este método carga un objeto a una lista customers
+    * @author jonns
+    */
     private void loading_list_customers(){
         int aux = 0;
         for (String i:list_customers){
@@ -765,7 +787,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
            Service_Id.setText(String.valueOf(id.getId_maintenance()));
         }
     }
-   
+    /**
+    * Este método agrega un id a la base de datos csv
+    * @author jonns
+    */
     private void add_id(String id_mode){
         String archive = Paths.get("src", "DataBase", "ID's.csv").toString();
         FileWriter fw = null;
