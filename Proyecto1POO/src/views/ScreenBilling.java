@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 
 
 /**
- *
+ * Billing Screen
  * @author jonns
  */
 public class ScreenBilling extends javax.swing.JPanel {

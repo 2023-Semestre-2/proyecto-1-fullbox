@@ -5,7 +5,7 @@
 package Classes;
 
 /**
- *
+ * Class to register the user set and get
  * @author saimo
  */
 public class register_users {

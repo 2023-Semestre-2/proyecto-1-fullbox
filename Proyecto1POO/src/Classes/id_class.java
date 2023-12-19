@@ -1,5 +1,9 @@
 package Classes;
 
+/**
+* Class that is responsible for the id getters and setters of the products, items, customers, maintenance.
+* @author saymon
+*/
 public class id_class {
     private int id_product;
     private int id_item;
