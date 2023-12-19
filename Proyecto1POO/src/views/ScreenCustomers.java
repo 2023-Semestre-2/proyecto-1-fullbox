@@ -25,7 +25,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author jonns
+ * @author josem
  */
 public class ScreenCustomers extends javax.swing.JPanel {
 
@@ -1200,12 +1200,21 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomerDayText.setText("01");
         CustomerYearText.setText("1900");
     }//GEN-LAST:event_ResetButtonActionPerformed
-                                       
+    
+    /**
+    * This function is used to delete this panel from the Main Menu.
+    * @author josem
+    */
     private static void borrarPanel(JPanel panel) {
         panel.removeAll();
         panel.revalidate();
         panel.repaint();
     }
+    
+    /**
+    * This function is used to show this panel in the Main Menu.
+    * @author josem
+    */
     private void ShowJPanel(JPanel p){
 
         p.setSize(1030,750);
@@ -1215,6 +1224,11 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomersView.revalidate();
         CustomersView.repaint();
     } 
+    
+    /**
+    * This function is used to check if the input is a numeric String.
+    * @author josem
+    */
     private static boolean isNumeric(String cadena){
         try {
             Integer.parseInt(cadena);
@@ -1224,12 +1238,20 @@ public class ScreenCustomers extends javax.swing.JPanel {
         }
     }
     
+    /**
+    * This function is used to validate any mail (with the Google-like format).
+    * @author josem
+    */
     private static boolean validateMail(String email){
         Pattern pattern = Pattern.compile("([a-z0-9]+(\\.?[a-z0-9])*)+@(([a-z]+)\\.([a-z]+))+");
         Matcher mather = pattern.matcher(email);
         return mather.find() != false;
     }
     
+    /**
+    * This function is used to validate any date.
+    * @author josem
+    */
     private static boolean validateDate(int day, int month, int year){
         boolean pass_flag = false;
         switch(month){
@@ -1386,6 +1408,10 @@ public class ScreenCustomers extends javax.swing.JPanel {
         SearchTable.updateUI();
     }
     
+    /**
+    * This function is used to initialize the jTable content, and read the CSV File, to create the ArrayList.
+    * @author josem
+    */
     private void initializeCustomers(){
         mt.setColumnIdentifiers(ids);
         SearchTable.setModel(mt);
@@ -1456,6 +1482,10 @@ public class ScreenCustomers extends javax.swing.JPanel {
         }
     }
     
+    /**
+    * This function is used to write the CSV file with the new informnation.
+    * @author josem
+    */
     private void WriteCSV(){
         String archive = Paths.get("src", "DataBase", "Archivo_CSV_Customers.csv").toString();
         FileWriter fw = null;
