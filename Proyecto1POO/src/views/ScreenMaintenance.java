@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
- *
+ * Maintenance Screen
  * @author jonns
  */
 public class ScreenMaintenance extends javax.swing.JPanel {
@@ -430,8 +430,11 @@ public class ScreenMaintenance extends javax.swing.JPanel {
 
     private maintenance_class Modify_m;
     /**
-    * Este método verifica que los datos de fechas esten con un formato correcto
+    * This method verifies that the date data is in a correct format
     * @author jonns
+    * @param day entry day data
+    * @param month entry month data
+    * @param year entry year data
     */
     private boolean verify_date(int day, int month, int year){
         boolean pass_flag = false;
@@ -584,7 +587,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         return pass_flag;
     }
     /**
-    * Este método crea una nueva peticion de mantenimiento
+    * This method creates a new maintenance request
     * @author jonns
     */
     private boolean Create_maintenance(){
@@ -644,7 +647,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         return true;
     }
     /**
-    * Este método agrega un nuevo objeto a la lista de mantenimiento
+    * This method adds a new object to the maintenance list
     * @author jonns
     */
     private void Add_maintenance(){
@@ -674,8 +677,9 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         }   
     }
     /**
-    * Este método modifica un objeto de la lista de mantenimiento
+    * This method modifies a maintenance list object
     * @author jonns
+    * @param Modify The parameter you want to modify
     */
     private void Modify_maintenance(maintenance_class Modify){
         int modify_service_id;
@@ -734,7 +738,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
             }
     }
     /**
-    * Este método elimina un objeto de la lista de mantenimiento
+    * This method removes an object from the maintenance list
     * @author jonns
     */
     private boolean Delete_maintenance(){
@@ -757,7 +761,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
     }
     
     /**
-    * Este método agrega un objeto a una lista customers para usarlo en un comboBox
+    * This method adds an object to a customers list to use in a comboBox
     * @author jonns
     */
     private void add_list_customers(){
@@ -767,7 +771,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
     }
     } 
     /**
-    * Este método carga un objeto a una lista customers
+    * This method loads an object to a customers list
     * @author jonns
     */
     private void loading_list_customers(){
@@ -779,7 +783,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         Customer_Id.setModel(model);
         Customer_Id.updateUI();
     }
-
+    
     
     private void set_id(String id_mode){
         id_class id = main_class.ids.get(0);
@@ -788,8 +792,9 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         }
     }
     /**
-    * Este método agrega un id a la base de datos csv
+    * This method adds an id to the csv database
     * @author jonns
+    * @param id_mode id add to database
     */
     private void add_id(String id_mode){
         String archive = Paths.get("src", "DataBase", "ID's.csv").toString();
