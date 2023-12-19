@@ -27,6 +27,9 @@ public class ScreenBilling extends javax.swing.JPanel {
      */
     public ScreenBilling() {
         initComponents();
+        ReadCustomers();
+        ReadItems();
+        //ReadMaintenance();
     }
 
     /**

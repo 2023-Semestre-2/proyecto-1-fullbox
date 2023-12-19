@@ -439,7 +439,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         maintenance_class service = new maintenance_class();
         service.setService_id(create_service_id);
         service.setCustomer_id(create_customer_id);
-        service.setBicyle_brand(create_bicyle_brand);
+        service.setBicycle_brand(create_bicyle_brand);
         service.setBicycle_description(create_bicycle_description);
         service.setMaintenance_price(create_maintenance_price);
         service.setReceived_date(create_received_date);
