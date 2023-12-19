@@ -22,6 +22,7 @@ import java.util.Date;
 import java.util.Locale;
 import javax.swing.JPanel;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
+import org.netbeans.lib.awtextra.*;
 import views.Register;
 
 public class Login extends javax.swing.JFrame {
