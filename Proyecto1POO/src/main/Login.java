@@ -16,8 +16,10 @@ import Classes.VerifyUsers;
 import java.awt.BorderLayout;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import javax.swing.JPanel;
 import views.Register;
 
@@ -439,23 +441,26 @@ public class Login extends javax.swing.JFrame {
             while((line = br.readLine()) != null){
                 maintenance_class service = new maintenance_class();
                 String array [] = line.split("\\,");
-                if (array.length == 13){
+                if (array.length == 9){
   
                     service.setService_id(Integer.parseInt(array[0]));
                     service.setCustomer_id(array[1]);
                     service.setBicycle_brand(array[2]);
                     service.setBicycle_description(array[3]);
                     service.setMaintenance_price(Integer.parseInt(array[4]));
-                    int year_r  = Integer.parseInt(array[5]);
-                    int month_r  = Integer.parseInt(array[6]);
-                    int day_r  = Integer.parseInt(array[7]);
-                    service.setReceived_date(new Date(year_r-1900, month_r-1, day_r));
-                    int year_d  = Integer.parseInt(array[8]);
-                    int month_d  = Integer.parseInt(array[9]);
-                    int day_d  = Integer.parseInt(array[10]);
-                    service.setDelivery_date(new Date(year_d-1900, month_d-1, day_d));
-                    service.setMaintenance_observations(array[11]);
-                    service.setMaintenance_state(array[12]);
+                    String dateString5 = (String) array[5];
+                    String dateString6 = (String) array[6];
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.ENGLISH);
+                    try {
+                        Date receivedDate = dateFormat.parse(dateString5);
+                        Date deliveryDate = dateFormat.parse(dateString6);
+                        service.setReceived_date(receivedDate);
+                        service.setDelivery_date(deliveryDate);
+                    } catch (ParseException e) {
+                        e.printStackTrace(); 
+                    }
+                    service.setMaintenance_observations(array[7]);
+                    service.setMaintenance_state(array[8]);
                     main_class.maintenance.add(service);
                     bandera = true;                     
                 }              
