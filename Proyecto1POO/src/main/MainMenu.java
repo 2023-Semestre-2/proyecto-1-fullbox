@@ -463,6 +463,10 @@ public class MainMenu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
+            /**
+            *
+            * @author josem,sebas,saymon
+            */
             public void run() {
                 new Login().setVisible(true);
             }

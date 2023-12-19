@@ -25,6 +25,11 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.*;
 import views.Register;
 
+
+/**
+ * Login Screen Class
+ * @author saymon
+ */
 public class Login extends javax.swing.JFrame {
     
     
@@ -243,11 +248,14 @@ public class Login extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
-    
+    /**
+    * Load product files from csv database
+    * @author saymon
+    */
     private void loading_archive_products(){
         String archive = Paths.get("src", "DataBase", "Archivo_CSV_PRODUCTS.csv").toString();
         FileReader fr = null;
@@ -288,7 +296,10 @@ public class Login extends javax.swing.JFrame {
             }      
         }
     }
-    
+    /**
+    * Load users from csv database
+    * @author saymon
+    */
     private void loading_users(){
         String archive = Paths.get("src", "DataBase", "usuarios.csv").toString();
         FileReader fr = null;
@@ -330,7 +341,10 @@ public class Login extends javax.swing.JFrame {
             }      
         }
     }
-    
+    /**
+    * Load ids from csv database
+    * @author saymon
+    */
     private void loading_archive_ids(){
         String archive = Paths.get("src", "DataBase", "ID's.csv").toString();
         FileReader fr = null;
@@ -373,7 +387,10 @@ public class Login extends javax.swing.JFrame {
             }      
         }
     }
-        
+    /**
+    * Load items from csv database
+    * @author saymon
+    */
     private void loading_archive_items(){    
         String archive = Paths.get("src", "DataBase", "Archivo_CSV_ITEMS.csv").toString();
         System.out.println("Ruta del archivo: " + archive);
@@ -421,7 +438,10 @@ public class Login extends javax.swing.JFrame {
             }      
         }
     }
-    
+    /**
+    * Load customers from csv database
+    * @author saymon
+    */
     private void loading_archive_customers(){    
         String archive = Paths.get("src", "DataBase", "Archivo_CSV_Customers.csv").toString();
         FileReader fr = null;
@@ -473,7 +493,10 @@ public class Login extends javax.swing.JFrame {
             }      
         }
     }
-    
+    /**
+    * Load maintenance from csv database
+    * @author saymon
+    */
     private void loading_archive_maintenance(){
         String archive = Paths.get("src", "DataBase", "Archivo_CSV_MAINTENANCE.csv").toString();
         FileReader fr = null;
@@ -531,7 +554,11 @@ public class Login extends javax.swing.JFrame {
             }      
         }
     }
-        
+    /**
+    * Login button that checks the username and password to enter the MainMenu or show the JOptionPane not found
+    * @author saymon
+    *  
+    */ 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         char[] passwordChar = PasswordText.getPassword();
         String passwordString = new String(passwordChar);
@@ -581,7 +608,11 @@ public class Login extends javax.swing.JFrame {
         togglePasswordVisibility();
         
     }//GEN-LAST:event_jButton4ActionPerformed
-
+    /**
+    * Eye button to show password or hide it on the login screen
+    * @author saymon
+    *  
+    */ 
     private void togglePasswordVisibility() {
         if (!passwordVisible) {
             // Mostrar contraseña
@@ -642,7 +673,11 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         jButton3.setForeground(new Color(85,110,230));
     }//GEN-LAST:event_jButton3MouseExited
-    
+    /**
+    * Registration panel
+    * @author saymon
+    *  
+    */ 
     private void RegisterSpace(){
         Register r1 = new Register();
         r1.setSize(450, 490);
