@@ -1,4 +1,3 @@
-
 package Classes;
 
 public class id_class {
@@ -40,4 +39,3 @@ public class id_class {
     }
 
 }
-
