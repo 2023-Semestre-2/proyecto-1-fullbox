@@ -156,6 +156,11 @@ public class ScreenBilling extends javax.swing.JPanel {
         jLabel2.setText("Bill Subtotal:");
 
         ItemBillSubtotalText.setEnabled(false);
+        ItemBillSubtotalText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItemBillSubtotalTextActionPerformed(evt);
+            }
+        });
         ItemBillSubtotalText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ItemBillSubtotalTextKeyReleased(evt);
@@ -343,6 +348,11 @@ public class ScreenBilling extends javax.swing.JPanel {
         jLabel10.setText("Bill Subtotal:");
 
         MaintenanceBillSubtotalText.setEnabled(false);
+        MaintenanceBillSubtotalText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                MaintenanceBillSubtotalTextKeyReleased(evt);
+            }
+        });
 
         jLabel11.setText("Customer:");
 
@@ -406,6 +416,11 @@ public class ScreenBilling extends javax.swing.JPanel {
 
         MaintenanceSearchButton.setText("S");
         MaintenanceSearchButton.setEnabled(false);
+        MaintenanceSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MaintenanceSearchButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout BillingInputPanel1Layout = new javax.swing.GroupLayout(BillingInputPanel1);
         BillingInputPanel1.setLayout(BillingInputPanel1Layout);
@@ -645,6 +660,8 @@ public class ScreenBilling extends javax.swing.JPanel {
                 BillAddFlag = true;
                 BillSearchFlag = false;
                 BillRevokeFlag = false;
+                ItemFlag = true;
+                MaintenanceFlag = false;
                 
                 //Disable Functions
                 BillingAddButton.setEnabled(false);
@@ -670,6 +687,8 @@ public class ScreenBilling extends javax.swing.JPanel {
                 BillAddFlag = true;
                 BillSearchFlag = false;
                 BillRevokeFlag = false;
+                ItemFlag = false;
+                MaintenanceFlag = true;
                 
                 //Disable Functions
                 BillingAddButton.setEnabled(false);
@@ -821,6 +840,8 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillAddFlag = false;
         BillSearchFlag = false;
         BillRevokeFlag = false;
+        ItemFlag = false;
+        MaintenanceFlag = false;
         
         //Enable Functions
         BillingAddButton.setEnabled(true);
@@ -845,8 +866,6 @@ public class ScreenBilling extends javax.swing.JPanel {
                 ItemReceivementYearText.setEnabled(true);
                 ItemCustomerIdCombo.setEnabled(true);
                 ItemBillSubtotalText.setEnabled(true);
-                //ItemBillTaxText.setEnabled(true);
-                //ItemBillTotalText.setEnabled(true);
                 
                 ItemBillSubtotalText.setText(item.getPrice_item()+"");
                 ItemBillTaxText.setText(Math.round(item.getPrice_item()*0.13)+"");
@@ -893,6 +912,40 @@ public class ScreenBilling extends javax.swing.JPanel {
             ItemBillTotalText.setText(Integer.parseInt(ItemBillSubtotalText.getText()) + Math.round(Integer.parseInt(ItemBillSubtotalText.getText())*0.13)+"");
         }
     }//GEN-LAST:event_ItemBillSubtotalTextKeyReleased
+
+    private void MaintenanceSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaintenanceSearchButtonActionPerformed
+        // TODO add your handling code here:
+        int aux = Integer.parseInt(MaintenanceOptionCombo.getSelectedItem().toString());
+        for(maintenance_class maint:maintenance_list){
+            if(maint.getService_id()== aux){
+                MaintenanceReceivementDayText.setEnabled(true);
+                MaintenanceReceivementMonthCombo.setEnabled(true);
+                MaintenanceReceivementYearText.setEnabled(true);
+                MaintenanceCustomerIdCombo.setEnabled(true);
+                MaintenanceBillSubtotalText.setEnabled(true);
+                
+                MaintenanceBillSubtotalText.setText(maint.getMaintenance_price()+"");
+                MaintenanceBillTaxText.setText(Math.round(maint.getMaintenance_price()*0.13)+"");
+                MaintenanceBillTotalText.setText(maint.getMaintenance_price()+Math.round(maint.getMaintenance_price()*0.13)+"");
+                
+                MaintenanceAcceptButton.setEnabled(true);
+            }
+        }
+    }//GEN-LAST:event_MaintenanceSearchButtonActionPerformed
+
+    private void ItemBillSubtotalTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemBillSubtotalTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ItemBillSubtotalTextActionPerformed
+
+    private void MaintenanceBillSubtotalTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MaintenanceBillSubtotalTextKeyReleased
+        // TODO add your handling code here:
+        if(isNumeric(MaintenanceBillSubtotalText.getText())){
+            System.out.println(MaintenanceBillSubtotalText.getText());
+            //int aux = Integer.parseInt(ItemBillSubtotalText.getText());
+            MaintenanceBillTaxText.setText(Math.round(Integer.parseInt(MaintenanceBillSubtotalText.getText())*0.13)+"");
+            MaintenanceBillTotalText.setText(Integer.parseInt(MaintenanceBillSubtotalText.getText()) + Math.round(Integer.parseInt(MaintenanceBillSubtotalText.getText())*0.13)+"");
+        }
+    }//GEN-LAST:event_MaintenanceBillSubtotalTextKeyReleased
     
     /**
     * This function is used to check if the input is a numeric String.
@@ -1352,6 +1405,8 @@ public class ScreenBilling extends javax.swing.JPanel {
     Boolean BillAddFlag = false;
     Boolean BillSearchFlag = false;
     Boolean BillRevokeFlag = false;
+    Boolean ItemFlag = false;
+    Boolean MaintenanceFlag = false;
     
     //Read CSV
     private BufferedReader reader;
