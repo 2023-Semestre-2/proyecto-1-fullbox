@@ -21,6 +21,7 @@ import javax.swing.JPanel;
 /**
  * Billing Screen
  * @author jonns
+ * 
  */
 public class ScreenBilling extends javax.swing.JPanel {
 
@@ -516,22 +517,21 @@ public class ScreenBilling extends javax.swing.JPanel {
                         .addComponent(BillingRevokeButton)
                         .addGap(389, 389, 389))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingViewLayout.createSequentialGroup()
-                        .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(BillingCancelButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BillingInputPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))
+                    .addGroup(BillingViewLayout.createSequentialGroup()
+                        .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(BillingViewLayout.createSequentialGroup()
-                                .addComponent(BillingCancelButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BillingInputPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(51, 51, 51)
+                                .addComponent(BillingWindowSubtitle))
                             .addGroup(BillingViewLayout.createSequentialGroup()
-                                .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(BillingViewLayout.createSequentialGroup()
-                                        .addGap(51, 51, 51)
-                                        .addComponent(BillingWindowSubtitle))
-                                    .addGroup(BillingViewLayout.createSequentialGroup()
-                                        .addGap(97, 97, 97)
-                                        .addComponent(BillingWindowTitle)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(23, 23, 23))))
+                                .addGap(97, 97, 97)
+                                .addComponent(BillingWindowTitle)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingViewLayout.createSequentialGroup()
                 .addGap(225, 225, 225)
                 .addComponent(BillingWindowTitle2)

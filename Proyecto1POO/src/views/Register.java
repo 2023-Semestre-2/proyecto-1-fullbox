@@ -12,7 +12,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import main.Login;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.*;
@@ -21,12 +23,14 @@ import org.netbeans.lib.awtextra.*;
  * @author saimo
  */
 public class Register extends javax.swing.JPanel {
+    
 
     /**
      * Creates new form Register
      */
     public Register() {
         initComponents();
+        
     }
 
     /**
@@ -39,7 +43,7 @@ public class Register extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel10 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        PanelRegister = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -61,30 +65,29 @@ public class Register extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(450, 490));
 
-        jPanel2.setBackground(new java.awt.Color(84, 110, 230));
-        jPanel2.setName(""); // NOI18N
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PanelRegister.setBackground(new java.awt.Color(84, 110, 230));
+        PanelRegister.setName(""); // NOI18N
+        PanelRegister.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(73, 80, 87));
         jLabel1.setText("Confirm Password");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 110, 20));
+        PanelRegister.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 110, 20));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Avatar_Container.png"))); // NOI18N
-        jLabel9.setText("jLabel5");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 70, 450, -1));
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Avatar2-fondoBlanco-100.png"))); // NOI18N
+        PanelRegister.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, -1, 110));
 
         jLabel6.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(73, 80, 87));
         jLabel6.setText("Username");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 70, -1));
+        PanelRegister.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 70, -1));
 
         UsernameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UsernameTextActionPerformed(evt);
             }
         });
-        jPanel2.add(UsernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 390, 40));
+        PanelRegister.add(UsernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 390, 40));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
@@ -108,7 +111,7 @@ public class Register extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, 80, 30));
+        PanelRegister.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, 80, 30));
 
         jButton1.setBackground(new java.awt.Color(85, 110, 230));
         jButton1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -129,12 +132,12 @@ public class Register extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 280, 40));
+        PanelRegister.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 280, 40));
 
         jLabel7.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(73, 80, 87));
         jLabel7.setText("Password");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 90, -1));
+        PanelRegister.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 90, -1));
 
         PasswordText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,37 +149,37 @@ public class Register extends javax.swing.JPanel {
                 PasswordTextKeyPressed(evt);
             }
         });
-        jPanel2.add(PasswordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 390, 40));
+        PanelRegister.add(PasswordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 390, 40));
 
         PasswordTextVisible.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PasswordTextVisibleActionPerformed(evt);
             }
         });
-        jPanel2.add(PasswordTextVisible, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 390, 40));
+        PanelRegister.add(PasswordTextVisible, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 390, 40));
 
         jLabel4.setBackground(new java.awt.Color(58, 61, 65));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Card_Content.png"))); // NOI18N
         jLabel4.setText("dw");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 450, -1));
+        PanelRegister.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 450, -1));
 
-        jLabel11.setFont(new java.awt.Font("Dubai Medium", 0, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Dubai Medium", 0, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Register ");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        PanelRegister.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Sign up to continue");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 140, -1));
+        PanelRegister.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 140, -1));
 
         jTextField3.setText("jTextField3");
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 390, 40));
+        PanelRegister.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 390, 40));
 
         jLabel13.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(73, 80, 87));
         jLabel13.setText("Password");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 90, -1));
+        PanelRegister.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 90, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -186,7 +189,7 @@ public class Register extends javax.swing.JPanel {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -195,11 +198,11 @@ public class Register extends javax.swing.JPanel {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void UsernameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_UsernameTextActionPerformed
@@ -290,19 +293,19 @@ public class Register extends javax.swing.JPanel {
     * @author saimo
     * 
     */
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         boolean result = create_user();
         if (result) {
             UsernameText.setText("");
             PasswordTextVisible.setText("");
             PasswordText.setText("");
-            Login open= new Login();
-            open.setVisible(true);
-            this.setVisible(false);
+            Login.hideRegisterPanel();
+            Login.showLoginPanel();
             
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
     private void PasswordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PasswordTextActionPerformed
@@ -326,17 +329,26 @@ public class Register extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2MouseExited
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
         UsernameText.setText("");
         PasswordTextVisible.setText("");
         PasswordText.setText("");
-        Login open= new Login();
-        open.setVisible(true);
-        this.setVisible(false);
+        Login.hideRegisterPanel();
+        Login.showLoginPanel();
+        
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    public void ShowJPanel(JPanel p, JPanel main){
+        p.setSize(450, 490);
+        p.setLocation(440,110);
+        main.add(p, new AbsoluteConstraints(440, 110, 450, 490));
+        main.setComponentZOrder(p, 0);
+        main.revalidate();
+        main.repaint();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelRegister;
     private javax.swing.JPasswordField PasswordText;
     private javax.swing.JTextField PasswordTextVisible;
     private javax.swing.JTextField UsernameText;
@@ -351,7 +363,8 @@ public class Register extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
+
+  
 }

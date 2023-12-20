@@ -35,7 +35,7 @@ public class MainMenu extends javax.swing.JFrame {
         setIconImage(new ImageIcon(getClass().getResource("../img/boxx.png")).getImage());
         this.setLocationRelativeTo(this);
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/img/boxx.png");
-        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel3, "src/img/maina.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel3, "src/img/Avatar2-140.png");
         InitView();
         
     }
