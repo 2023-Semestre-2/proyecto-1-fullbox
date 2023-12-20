@@ -213,7 +213,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
             }
         });
 
-        CustomerProvinceCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alajuela", "Cartago", "Guanacaste", "Heredia", "Puntarenas", "San Jose" }));
+        CustomerProvinceCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alajuela", "Cartago", "Guanacaste", "Heredia", "Limon", "Puntarenas", "San Jose" }));
         CustomerProvinceCombo.setEnabled(false);
         CustomerProvinceCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
