@@ -4,15 +4,20 @@
  */
 package views;
 
+import Classes.bill_class;
 import Classes.customer_class;
 import Classes.item_class;
 import Classes.maintenance_class;
 import java.awt.BorderLayout;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Hashtable;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -30,6 +35,7 @@ public class ScreenBilling extends javax.swing.JPanel {
      */
     public ScreenBilling() {
         initComponents();
+        initializeBilling();
         ReadCustomers();
         ReadItems();
         ReadMaintenance();
@@ -223,7 +229,7 @@ public class ScreenBilling extends javax.swing.JPanel {
             }
         });
 
-        jLabel8.setText("Option:");
+        jLabel8.setText("Item Help to Complete:");
 
         ItemOptionCombo.setEnabled(false);
         ItemOptionCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -270,9 +276,6 @@ public class ScreenBilling extends javax.swing.JPanel {
                                 .addComponent(ItemBillStateCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(ItemBillSubtotalText)
                                 .addComponent(ItemBillTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                                    .addGap(140, 140, 140)
-                                    .addComponent(jLabel8))
                                 .addComponent(ItemOptionCombo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(BillingInputPanelLayout.createSequentialGroup()
                                 .addGap(129, 129, 129)
@@ -292,7 +295,10 @@ public class ScreenBilling extends javax.swing.JPanel {
                         .addGap(160, 160, 160))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanelLayout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addGap(157, 157, 157))))
+                        .addGap(157, 157, 157))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(131, 131, 131))))
         );
         BillingInputPanelLayout.setVerticalGroup(
             BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -404,8 +410,13 @@ public class ScreenBilling extends javax.swing.JPanel {
 
         MaintenanceAcceptButton.setText("Accept");
         MaintenanceAcceptButton.setEnabled(false);
+        MaintenanceAcceptButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MaintenanceAcceptButtonActionPerformed(evt);
+            }
+        });
 
-        jLabel16.setText("Option:");
+        jLabel16.setText("Maintenance Help to Complete:");
 
         MaintenanceOptionCombo.setEnabled(false);
         MaintenanceOptionCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -452,9 +463,6 @@ public class ScreenBilling extends javax.swing.JPanel {
                                 .addComponent(MaintenanceBillStateCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(MaintenanceBillSubtotalText)
                                 .addComponent(MaintenanceBillTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(BillingInputPanel1Layout.createSequentialGroup()
-                                    .addGap(140, 140, 140)
-                                    .addComponent(jLabel16))
                                 .addComponent(MaintenanceOptionCombo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(BillingInputPanel1Layout.createSequentialGroup()
                                 .addGap(129, 129, 129)
@@ -474,7 +482,10 @@ public class ScreenBilling extends javax.swing.JPanel {
                         .addGap(159, 159, 159))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel14)
-                        .addGap(157, 157, 157))))
+                        .addGap(157, 157, 157))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(110, 110, 110))))
         );
         BillingInputPanel1Layout.setVerticalGroup(
             BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -546,10 +557,13 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillingViewLayout.setHorizontalGroup(
             BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BillingViewLayout.createSequentialGroup()
-                .addGap(283, 283, 283)
-                .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(BillingWindowTitle2)
-                    .addComponent(BillingAddButton))
+                .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BillingViewLayout.createSequentialGroup()
+                        .addGap(309, 309, 309)
+                        .addComponent(BillingAddButton))
+                    .addGroup(BillingViewLayout.createSequentialGroup()
+                        .addGap(275, 275, 275)
+                        .addComponent(BillingWindowTitle2)))
                 .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BillingViewLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -726,6 +740,7 @@ public class ScreenBilling extends javax.swing.JPanel {
         switch(selection){
             case 0:
                 ItemBillIdText.setEnabled(true);
+                MaintenanceBillIdText.setEnabled(true);
                 
                 BillingAddButton.setEnabled(false);
                 BillingSearchButton.setEnabled(false);
@@ -736,6 +751,9 @@ public class ScreenBilling extends javax.swing.JPanel {
                 ItemReceivementDayText.setEnabled(true);
                 ItemReceivementMonthCombo.setEnabled(true);
                 ItemReceivementYearText.setEnabled(true);
+                MaintenanceReceivementDayText.setEnabled(true);
+                MaintenanceReceivementMonthCombo.setEnabled(true);
+                MaintenanceReceivementYearText.setEnabled(true);
                 
                 BillingAddButton.setEnabled(false);
                 BillingSearchButton.setEnabled(false);
@@ -744,6 +762,7 @@ public class ScreenBilling extends javax.swing.JPanel {
                 break;
             case 2:
                 ItemCustomerIdCombo.setEnabled(true);
+                MaintenanceCustomerIdCombo.setEnabled(true);
                 
                 BillingAddButton.setEnabled(false);
                 BillingSearchButton.setEnabled(false);
@@ -804,6 +823,7 @@ public class ScreenBilling extends javax.swing.JPanel {
         ItemBillStateCombo.setSelectedIndex(0);
         ItemSearchButton.setEnabled(false);
         ItemAcceptButton.setEnabled(false);
+        ItemBillIdText.setEnabled(false);
         
         ItemOptionCombo.setSelectedIndex(0);
         ItemCustomerIdCombo.setSelectedIndex(0);
@@ -813,6 +833,7 @@ public class ScreenBilling extends javax.swing.JPanel {
         ItemBillSubtotalText.setText("");
         ItemBillTaxText.setText("");
         ItemBillTotalText.setText("");
+        ItemBillIdText.setText("");
         
         //MAINTENANCE SIDE RESET
         MaintenanceOptionCombo.setEnabled(false);
@@ -826,6 +847,7 @@ public class ScreenBilling extends javax.swing.JPanel {
         MaintenanceBillStateCombo.setSelectedIndex(0);
         MaintenanceSearchButton.setEnabled(false);
         MaintenanceAcceptButton.setEnabled(false);
+        MaintenanceBillIdText.setEnabled(false);
         
         MaintenanceOptionCombo.setSelectedIndex(0);
         MaintenanceCustomerIdCombo.setSelectedIndex(0);
@@ -835,6 +857,7 @@ public class ScreenBilling extends javax.swing.JPanel {
         MaintenanceBillSubtotalText.setText("");
         MaintenanceBillTaxText.setText("");
         MaintenanceBillTotalText.setText("");
+        MaintenanceBillIdText.setText("");
         
         //Switch Flags
         BillAddFlag = false;
@@ -859,6 +882,9 @@ public class ScreenBilling extends javax.swing.JPanel {
     private void ItemSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemSearchButtonActionPerformed
         // TODO add your handling code here:
         int aux = Integer.parseInt(ItemOptionCombo.getSelectedItem().toString());
+        int day = calendar.get(Calendar.DATE);
+        int month = calendar.get(Calendar.MONTH);
+        int year = calendar.get(Calendar.YEAR);
         for(item_class item:items_list){
             if(item.getId_item() == aux){
                 ItemReceivementDayText.setEnabled(true);
@@ -866,6 +892,10 @@ public class ScreenBilling extends javax.swing.JPanel {
                 ItemReceivementYearText.setEnabled(true);
                 ItemCustomerIdCombo.setEnabled(true);
                 ItemBillSubtotalText.setEnabled(true);
+                
+                ItemReceivementDayText.setText(day+"");
+                ItemReceivementMonthCombo.setSelectedIndex(month);
+                ItemReceivementYearText.setText(year+"");
                 
                 ItemBillSubtotalText.setText(item.getPrice_item()+"");
                 ItemBillTaxText.setText(Math.round(item.getPrice_item()*0.13)+"");
@@ -878,29 +908,32 @@ public class ScreenBilling extends javax.swing.JPanel {
 
     private void ItemAcceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemAcceptButtonActionPerformed
         // TODO add your handling code here:
-        //Date
-        if(ItemReceivementDayText.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "You need to complete this field: Receivement Date Day");
-            return;
-        }
-        if(ItemReceivementYearText.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "You need to complete this field: Receivement Date Year");
-            return;
-        }
-        boolean valid_date = validateDate(Integer.parseInt(ItemReceivementDayText.getText()), Integer.parseInt(ItemReceivementMonthCombo.getSelectedItem().toString()), Integer.parseInt(ItemReceivementYearText.getText()));
-        if(valid_date == false){
-            return;
-        }
-        
-        //Subtotal
-        if(ItemBillSubtotalText.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "You need to complete this field: Bill Subtotal");
-            return;
-        }
-        if(isNumeric(ItemBillSubtotalText.getText()) == false){
-            JOptionPane.showMessageDialog(null, "Bill Subtotal must be numeric");
-            return;
-        } 
+        if(BillAddFlag == true){
+            //Date
+            if(ItemReceivementDayText.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "You need to complete this field: Receivement Date Day");
+                return;
+            }
+            if(ItemReceivementYearText.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "You need to complete this field: Receivement Date Year");
+                return;
+            }
+            boolean valid_date = validateDate(Integer.parseInt(ItemReceivementDayText.getText()), Integer.parseInt(ItemReceivementMonthCombo.getSelectedItem().toString()), Integer.parseInt(ItemReceivementYearText.getText()));
+            if(valid_date == false){
+                return;
+            }
+            //Subtotal
+            if(ItemBillSubtotalText.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "You need to complete this field: Bill Subtotal");
+                return;
+            }
+            if(isNumeric(ItemBillSubtotalText.getText()) == false){
+                JOptionPane.showMessageDialog(null, "Bill Subtotal must be numeric");
+                return;
+            }
+        } else if(BillSearchFlag == true){
+            
+        }    
     }//GEN-LAST:event_ItemAcceptButtonActionPerformed
 
     private void ItemBillSubtotalTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ItemBillSubtotalTextKeyReleased
@@ -916,6 +949,9 @@ public class ScreenBilling extends javax.swing.JPanel {
     private void MaintenanceSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaintenanceSearchButtonActionPerformed
         // TODO add your handling code here:
         int aux = Integer.parseInt(MaintenanceOptionCombo.getSelectedItem().toString());
+        int day = calendar.get(Calendar.DATE);
+        int month = calendar.get(Calendar.MONTH);
+        int year = calendar.get(Calendar.YEAR);
         for(maintenance_class maint:maintenance_list){
             if(maint.getService_id()== aux){
                 MaintenanceReceivementDayText.setEnabled(true);
@@ -923,6 +959,10 @@ public class ScreenBilling extends javax.swing.JPanel {
                 MaintenanceReceivementYearText.setEnabled(true);
                 MaintenanceCustomerIdCombo.setEnabled(true);
                 MaintenanceBillSubtotalText.setEnabled(true);
+                
+                MaintenanceReceivementDayText.setText(day+"");
+                MaintenanceReceivementMonthCombo.setSelectedIndex(month);
+                MaintenanceReceivementYearText.setText(year+"");
                 
                 MaintenanceBillSubtotalText.setText(maint.getMaintenance_price()+"");
                 MaintenanceBillTaxText.setText(Math.round(maint.getMaintenance_price()*0.13)+"");
@@ -946,6 +986,36 @@ public class ScreenBilling extends javax.swing.JPanel {
             MaintenanceBillTotalText.setText(Integer.parseInt(MaintenanceBillSubtotalText.getText()) + Math.round(Integer.parseInt(MaintenanceBillSubtotalText.getText())*0.13)+"");
         }
     }//GEN-LAST:event_MaintenanceBillSubtotalTextKeyReleased
+
+    private void MaintenanceAcceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaintenanceAcceptButtonActionPerformed
+        // TODO add your handling code here:
+        if(BillAddFlag == true){
+            //Date
+            if(MaintenanceReceivementDayText.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "You need to complete this field: Receivement Date Day");
+                return;
+            }
+            if(MaintenanceReceivementYearText.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "You need to complete this field: Receivement Date Year");
+                return;
+            }
+            boolean valid_date = validateDate(Integer.parseInt(ItemReceivementDayText.getText()), Integer.parseInt(ItemReceivementMonthCombo.getSelectedItem().toString()), Integer.parseInt(ItemReceivementYearText.getText()));
+            if(valid_date == false){
+                return;
+            }
+            //Subtotal
+            if(MaintenanceBillSubtotalText.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "You need to complete this field: Bill Subtotal");
+                return;
+            }
+            if(isNumeric(MaintenanceBillSubtotalText.getText()) == false){
+                JOptionPane.showMessageDialog(null, "Bill Subtotal must be numeric");
+                return;
+            }
+        } else if(BillSearchFlag == true){
+            
+        }
+    }//GEN-LAST:event_MaintenanceAcceptButtonActionPerformed
     
     /**
     * This function is used to check if the input is a numeric String.
@@ -1422,7 +1492,96 @@ public class ScreenBilling extends javax.swing.JPanel {
     ArrayList<customer_class> customers_list = new ArrayList<>();
     ArrayList<item_class> items_list = new ArrayList<>();
     ArrayList<maintenance_class> maintenance_list = new ArrayList<>();
+    ArrayList<bill_class> bills_list = new ArrayList<>();
     Hashtable customers_dict = new Hashtable ();
+    Calendar calendar = new GregorianCalendar();
+    
+    private void initializeBilling(){
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV_Bills.csv").toString();
+        try {
+            reader = new BufferedReader(new FileReader(archive));
+            while((line = reader.readLine()) != null){
+                bill_class temporary_object = new bill_class();
+                parts = line.split(",");
+                int day = 0;
+                int month = 0;
+                int year = 0;
+                Date date = null;
+                for(int i = 0; i < parts.length; i++){
+                    switch(i){
+                        case 0:
+                            temporary_object.setBill_id(Integer.parseInt(parts[i]));
+                            break;
+                        case 1:
+                            temporary_object.setCustomer_id(Integer.parseInt(parts[i]));
+                            break;
+                        case 2:
+                            day = Integer.parseInt(parts[i]);
+                            break;
+                        case 3:
+                            month = Integer.parseInt(parts[i]);
+                            break;
+                        case 4:
+                            year = Integer.parseInt(parts[i]);
+                            date = new Date(year, month, day);
+                            temporary_object.setBill_date(date);
+                            break;
+                        case 5:
+                            temporary_object.setBill_state(parts[i]);
+                            break;
+                        case 6:
+                            temporary_object.setBill_subtotal(Integer.parseInt(parts[i]));
+                            break;
+                        case 7:
+                            temporary_object.setBill_tax(Integer.parseInt(parts[i]));
+                            break;
+                        case 8:
+                            temporary_object.setBill_total(Integer.parseInt(parts[i]));
+                            break;
+                    }
+                }
+                bills_list.add(temporary_object);
+            }
+            reader.close();
+            line = null;
+            parts = null;
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    /**
+    * This function is used to write the CSV file with the new informnation.
+    * @author josem
+    */
+    private void WriteCSV(){
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV_Bills.csv").toString();
+        FileWriter fw = null;
+        PrintWriter pw = null;
+        
+        try{ 
+            fw = new FileWriter(archive);
+            pw = new PrintWriter(fw);
+            for(bill_class i: bills_list){
+                Date original_date = i.getBill_date();
+                String date_off = original_date.getDate()+","+(original_date.getMonth()+1)+","+(original_date.getYear()+1900);
+                String line = i.getBill_id() + "," + i.getCustomer_id()+","+date_off+","+i.getBill_state()+","+i.getBill_subtotal()+","+i.getBill_tax()+","+i.getBill_total();
+                pw.println(line);
+            }
+            
+        }catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try{
+                if(fw != null){
+                    fw.close();
+                }
+            }catch(Exception ex){
+                    ex.printStackTrace();
+            }      
+        }
+    }
     
     
 
