@@ -4,6 +4,8 @@
  */
 package Classes;
 
+import java.util.Date;
+
 /**
  * Bill Class: Create new bills
  * @author josem
@@ -11,7 +13,7 @@ package Classes;
 public class bill_class {
     private int bill_id;
     private int customer_id;
-    private String bill_date;
+    private Date bill_date;
     private String bill_state = "Válido";
     private int bill_subtotal;
     private int bill_tax;
@@ -28,7 +30,7 @@ public class bill_class {
         this.customer_id = customer_id;
     }
 
-    public void setBill_date(String bill_date) {
+    public void setBill_date(Date bill_date) {
         this.bill_date = bill_date;
     }
 
@@ -59,7 +61,7 @@ public class bill_class {
         return customer_id;
     }
 
-    public String getBill_date() {
+    public Date getBill_date() {
         return bill_date;
     }
 
