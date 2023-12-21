@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/saimo/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/main/Login.java</file>
-            <file>file:/C:/Users/saimo/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/views/ScreenCustomers.java</file>
-            <file>file:/C:/Users/saimo/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/views/Register.java</file>
-            <file>file:/C:/Users/saimo/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/main/MainMenu.java</file>
-            <file>file:/C:/Users/saimo/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/views/ScreenProducts.java</file>
-            <file>file:/C:/Users/saimo/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/views/ScreenLogin.java</file>
-            <file>file:/C:/Users/saimo/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/views/ScreenBilling.java</file>
+            <file>file:/C:/Users/josem/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/DataBase/Archivo_CSV_Bills.csv</file>
+            <file>file:/C:/Users/josem/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/DataBase/ID's.csv</file>
+            <file>file:/C:/Users/josem/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/DataBase/Archivo_CSV_Customers.csv</file>
+            <file>file:/C:/Users/josem/Documents/GitHub/proyecto-1-fullbox/Proyecto1POO/src/views/ScreenBilling.java</file>
         </group>
     </open-files>
 </project-private>
