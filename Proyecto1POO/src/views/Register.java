@@ -259,6 +259,20 @@ public class Register extends javax.swing.JPanel {
         
 
         create_username = String.valueOf(UsernameText.getText());
+        String username = UsernameText.getText();
+        if (username == null || username.length() < 4) {
+            JOptionPane.showMessageDialog(this, "Enter a valid username greater than or equal to 4 characters");
+            return false;
+        }
+        String password = PasswordTextVisible.getText();
+        if (password.isEmpty() || password.length() < 8) {
+            JOptionPane.showMessageDialog(this, "Enter a valid password greater than or equal to 8 characters");
+            return false;
+        }
+        if (password.length() < 8) {
+            JOptionPane.showMessageDialog(this, "Enter a valid password greater than or equal to 8 characters");
+            return false;
+        }
         if (!PasswordTextVisible.getText().equals(String.valueOf(PasswordText.getPassword()))) {
             JOptionPane.showMessageDialog(this,"Password Is Different");
             return false;

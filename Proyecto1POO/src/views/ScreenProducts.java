@@ -140,6 +140,8 @@ public class ScreenProducts extends javax.swing.JPanel {
         Accept_Product = new javax.swing.JButton();
         Name_Product = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1030, 720));
         setMinimumSize(new java.awt.Dimension(1030, 720));
@@ -149,6 +151,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         ProductsView.setMaximumSize(new java.awt.Dimension(1030, 730));
         ProductsView.setMinimumSize(new java.awt.Dimension(1030, 730));
         ProductsView.setPreferredSize(new java.awt.Dimension(1030, 730));
+        ProductsView.setLayout(null);
 
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView.png"))); // NOI18N
@@ -169,9 +172,10 @@ public class ScreenProducts extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        ProductsView.add(jButton1);
+        jButton1.setBounds(994, 8, 30, 32);
 
         Create_Item.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        Create_Item.setForeground(new java.awt.Color(0, 0, 0));
         Create_Item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-producto.png"))); // NOI18N
         Create_Item.setText("Create Item");
         Create_Item.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -190,9 +194,10 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Create_ItemActionPerformed(evt);
             }
         });
+        ProductsView.add(Create_Item);
+        Create_Item.setBounds(200, 360, 124, 45);
 
         Modify_Product.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        Modify_Product.setForeground(new java.awt.Color(0, 0, 0));
         Modify_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/editar-producto-32.png"))); // NOI18N
         Modify_Product.setText("Modify Product");
         Modify_Product.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -212,9 +217,10 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Modify_ProductActionPerformed(evt);
             }
         });
+        ProductsView.add(Modify_Product);
+        Modify_Product.setBounds(520, 60, 140, 45);
 
         Search_Product.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        Search_Product.setForeground(new java.awt.Color(0, 0, 0));
         Search_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png"))); // NOI18N
         Search_Product.setText("Search Product");
         Search_Product.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -234,9 +240,10 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Search_ProductActionPerformed(evt);
             }
         });
+        ProductsView.add(Search_Product);
+        Search_Product.setBounds(360, 60, 140, 45);
 
         Delete_Product.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        Delete_Product.setForeground(new java.awt.Color(0, 0, 0));
         Delete_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Delete-32.png"))); // NOI18N
         Delete_Product.setText("Delete Product");
         Delete_Product.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -255,22 +262,28 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Delete_ProductActionPerformed(evt);
             }
         });
+        ProductsView.add(Delete_Product);
+        Delete_Product.setBounds(670, 60, 140, 40);
 
         jLabel5.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Item Id:");
+        ProductsView.add(jLabel5);
+        jLabel5.setBounds(287, 423, 50, 20);
 
         jLabel7.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Category Id:");
+        ProductsView.add(jLabel7);
+        jLabel7.setBounds(287, 459, 69, 24);
 
         jLabel9.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Type:");
+        ProductsView.add(jLabel9);
+        jLabel9.setBounds(320, 533, 31, 24);
 
         jLabel10.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Amount:");
+        ProductsView.add(jLabel10);
+        jLabel10.setBounds(496, 497, 49, 24);
 
         Type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bicycle", "Accessories", "Food Supplements" }));
         Type.setEnabled(false);
@@ -279,10 +292,13 @@ public class ScreenProducts extends javax.swing.JPanel {
                 TypeActionPerformed(evt);
             }
         });
+        ProductsView.add(Type);
+        Type.setBounds(360, 533, 130, 26);
 
         Size_Label.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        Size_Label.setForeground(new java.awt.Color(0, 0, 0));
         Size_Label.setText("Size:");
+        ProductsView.add(Size_Label);
+        Size_Label.setBounds(370, 563, 27, 24);
 
         Size.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "12", "16", "22", "26", "27", "27.5", "29" }));
         Size.setEnabled(false);
@@ -291,27 +307,31 @@ public class ScreenProducts extends javax.swing.JPanel {
                 SizeActionPerformed(evt);
             }
         });
+        ProductsView.add(Size);
+        Size.setBounds(410, 563, 54, 26);
 
         Product_Category.setBorder(null);
         Product_Category.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Product_Category.setEnabled(false);
-        Product_Category.setOpaque(false);
         Product_Category.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Product_CategoryActionPerformed(evt);
             }
         });
+        ProductsView.add(Product_Category);
+        Product_Category.setBounds(361, 457, 130, 26);
 
         jLabel12.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Brand:");
+        ProductsView.add(jLabel12);
+        jLabel12.setBounds(508, 421, 37, 24);
 
         jLabel13.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Price:");
+        ProductsView.add(jLabel13);
+        jLabel13.setBounds(513, 458, 32, 24);
 
         Modify_Item.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        Modify_Item.setForeground(new java.awt.Color(0, 0, 0));
         Modify_Item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/editar-producto-32.png"))); // NOI18N
         Modify_Item.setText("Modify Item");
         Modify_Item.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -330,9 +350,10 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Modify_ItemActionPerformed(evt);
             }
         });
+        ProductsView.add(Modify_Item);
+        Modify_Item.setBounds(520, 360, 124, 43);
 
         Delete_Item.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        Delete_Item.setForeground(new java.awt.Color(0, 0, 0));
         Delete_Item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Delete-32.png"))); // NOI18N
         Delete_Item.setText("Delete Item");
         Delete_Item.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -351,6 +372,8 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Delete_ItemActionPerformed(evt);
             }
         });
+        ProductsView.add(Delete_Item);
+        Delete_Item.setBounds(670, 360, 124, 44);
 
         Amount.setEnabled(false);
         Amount.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -358,6 +381,8 @@ public class ScreenProducts extends javax.swing.JPanel {
                 AmountKeyTyped(evt);
             }
         });
+        ProductsView.add(Amount);
+        Amount.setBounds(557, 496, 134, 24);
 
         Item_Id.setEnabled(false);
         Item_Id.addActionListener(new java.awt.event.ActionListener() {
@@ -370,6 +395,8 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Item_IdKeyTyped(evt);
             }
         });
+        ProductsView.add(Item_Id);
+        Item_Id.setBounds(360, 420, 130, 24);
 
         Item_Name.setAutoscrolls(false);
         Item_Name.setEnabled(false);
@@ -383,6 +410,8 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Item_NameKeyTyped(evt);
             }
         });
+        ProductsView.add(Item_Name);
+        Item_Name.setBounds(361, 496, 130, 24);
 
         Brand.setEnabled(false);
         Brand.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -390,6 +419,8 @@ public class ScreenProducts extends javax.swing.JPanel {
                 BrandKeyTyped(evt);
             }
         });
+        ProductsView.add(Brand);
+        Brand.setBounds(557, 420, 134, 24);
 
         Price.setEnabled(false);
         Price.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -397,9 +428,10 @@ public class ScreenProducts extends javax.swing.JPanel {
                 PriceKeyTyped(evt);
             }
         });
+        ProductsView.add(Price);
+        Price.setBounds(557, 457, 134, 24);
 
         Search_Item.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        Search_Item.setForeground(new java.awt.Color(0, 0, 0));
         Search_Item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png"))); // NOI18N
         Search_Item.setText("Search Item");
         Search_Item.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -418,6 +450,8 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Search_ItemActionPerformed(evt);
             }
         });
+        ProductsView.add(Search_Item);
+        Search_Item.setBounds(360, 360, 124, 45);
 
         Cancel_Item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar-32.png"))); // NOI18N
         Cancel_Item.setText("Cancel");
@@ -441,9 +475,10 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Cancel_ItemActionPerformed(evt);
             }
         });
+        ProductsView.add(Cancel_Item);
+        Cancel_Item.setBounds(640, 530, 120, 40);
 
         Create_Product.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        Create_Product.setForeground(new java.awt.Color(0, 0, 0));
         Create_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-producto.png"))); // NOI18N
         Create_Product.setText("Create Product");
         Create_Product.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -462,14 +497,18 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Create_ProductActionPerformed(evt);
             }
         });
+        ProductsView.add(Create_Product);
+        Create_Product.setBounds(200, 60, 140, 45);
 
         jLabel15.setFont(new java.awt.Font("Dubai Medium", 1, 24)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("PRODUCTS");
+        ProductsView.add(jLabel15);
+        jLabel15.setBounds(440, 20, 124, 42);
 
         jLabel16.setFont(new java.awt.Font("Dubai Medium", 1, 24)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("ITEMS");
+        ProductsView.add(jLabel16);
+        jLabel16.setBounds(470, 320, 70, 42);
 
         Accept_Item.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         Accept_Item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/aceptar-32.png"))); // NOI18N
@@ -492,6 +531,8 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Accept_ItemActionPerformed(evt);
             }
         });
+        ProductsView.add(Accept_Item);
+        Accept_Item.setBounds(520, 530, 120, 40);
 
         Search_I.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png"))); // NOI18N
         Search_I.setBorder(null);
@@ -511,16 +552,22 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Search_IActionPerformed(evt);
             }
         });
+        ProductsView.add(Search_I);
+        Search_I.setBounds(703, 450, 40, 40);
 
         jLabel2.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Category Id:");
+        ProductsView.add(jLabel2);
+        jLabel2.setBounds(360, 130, 69, 24);
 
         jLabel3.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Name:");
+        ProductsView.add(jLabel3);
+        jLabel3.setBounds(390, 170, 38, 24);
 
         Category_Id.setEnabled(false);
+        ProductsView.add(Category_Id);
+        Category_Id.setBounds(430, 130, 130, 24);
 
         Search_P.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png"))); // NOI18N
         Search_P.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -540,6 +587,8 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Search_PActionPerformed(evt);
             }
         });
+        ProductsView.add(Search_P);
+        Search_P.setBounds(590, 140, 40, 40);
 
         Cancel_Product.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         Cancel_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar-32.png"))); // NOI18N
@@ -562,6 +611,8 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Cancel_ProductActionPerformed(evt);
             }
         });
+        ProductsView.add(Cancel_Product);
+        Cancel_Product.setBounds(500, 220, 100, 40);
 
         Accept_Product.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         Accept_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/aceptar-32.png"))); // NOI18N
@@ -584,204 +635,27 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Accept_ProductActionPerformed(evt);
             }
         });
+        ProductsView.add(Accept_Product);
+        Accept_Product.setBounds(390, 220, 100, 40);
 
         Name_Product.setEnabled(false);
+        ProductsView.add(Name_Product);
+        Name_Product.setBounds(430, 170, 130, 24);
 
         jLabel4.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Item Name:");
+        ProductsView.add(jLabel4);
+        jLabel4.setBounds(287, 497, 68, 24);
 
-        javax.swing.GroupLayout ProductsViewLayout = new javax.swing.GroupLayout(ProductsView);
-        ProductsView.setLayout(ProductsViewLayout);
-        ProductsViewLayout.setHorizontalGroup(
-            ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ProductsViewLayout.createSequentialGroup()
-                .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addComponent(Create_Product, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ProductsViewLayout.createSequentialGroup()
-                                .addGap(80, 80, 80)
-                                .addComponent(jLabel15))
-                            .addGroup(ProductsViewLayout.createSequentialGroup()
-                                .addGap(160, 160, 160)
-                                .addComponent(Modify_Product, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Search_Product, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addComponent(Delete_Product, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(184, 184, 184)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(360, 360, 360)
-                        .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addGroup(ProductsViewLayout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel3)))
-                        .addGap(1, 1, 1)
-                        .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Category_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Name_Product, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addComponent(Search_P, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(380, 380, 380)
-                        .addComponent(Accept_Product, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(Cancel_Product, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addComponent(Create_Item, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ProductsViewLayout.createSequentialGroup()
-                                .addGap(160, 160, 160)
-                                .addComponent(Modify_Item, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Search_Item, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(ProductsViewLayout.createSequentialGroup()
-                                .addGap(110, 110, 110)
-                                .addComponent(jLabel16)))
-                        .addGap(26, 26, 26)
-                        .addComponent(Delete_Item, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(320, 320, 320)
-                        .addComponent(jLabel9)
-                        .addGap(9, 9, 9)
-                        .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(ProductsViewLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(Size_Label)
-                                .addGap(13, 13, 13)
-                                .addComponent(Size, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(26, 26, 26)
-                        .addComponent(Accept_Item, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Cancel_Item, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(287, 287, 287)
-                        .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(ProductsViewLayout.createSequentialGroup()
-                                .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Item_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Product_Category, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGap(5, 5, 5)
-                                .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel10)))
-                            .addGroup(ProductsViewLayout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23)
-                                .addComponent(Item_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel12)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Price, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(Amount)
-                            .addComponent(Brand))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Search_I, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(6, 6, 6))
-        );
-        ProductsViewLayout.setVerticalGroup(
-            ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ProductsViewLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(Create_Product, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
-                            .addGroup(ProductsViewLayout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Modify_Product, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Search_Product, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(Delete_Product, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel3))
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addComponent(Category_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)
-                        .addComponent(Name_Product, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(Search_P, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(16, 16, 16)
-                .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Accept_Product, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Cancel_Product, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16)
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Create_Item, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Modify_Item, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Search_Item, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Delete_Item, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(15, 15, 15)
-                .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Item_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12)
-                    .addComponent(Brand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Search_I, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel7)
-                                .addComponent(Product_Category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel13)
-                                .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Item_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4))
-                    .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel10)
-                        .addComponent(Amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addGroup(ProductsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Size_Label)
-                            .addComponent(Size, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(Accept_Item, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ProductsViewLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(Cancel_Item, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Union3.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        ProductsView.add(jLabel1);
+        jLabel1.setBounds(-290, -130, 480, 540);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Ellipse 2092.png"))); // NOI18N
+        jLabel6.setText("jLabel6");
+        ProductsView.add(jLabel6);
+        jLabel6.setBounds(770, 490, 270, 280);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -791,9 +665,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(ProductsView, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(ProductsView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -2110,6 +1982,7 @@ public class ScreenProducts extends javax.swing.JPanel {
     private javax.swing.JLabel Size_Label;
     private javax.swing.JComboBox<String> Type;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -2119,6 +1992,7 @@ public class ScreenProducts extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
