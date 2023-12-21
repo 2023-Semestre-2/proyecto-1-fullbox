@@ -8,6 +8,7 @@ import Classes.customer_class;
 import Classes.id_class;
 import Classes.item_class;
 import Classes.main_class;
+import Classes.maintenance_class;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.io.BufferedReader;
@@ -743,6 +744,18 @@ public class ScreenCustomers extends javax.swing.JPanel {
             }      
         }
     }
+    
+    private boolean verify_use(String customer){
+        System.out.println(customer);
+        for (maintenance_class A : main_class.maintenance) {
+            if(A.getCustomer_id().equals(customer)){
+                JOptionPane.showMessageDialog(this, "This Customer Is Already In Maintenance");
+                return true;
+            }    
+        }
+        return false;
+    }
+    
     private void AcceptCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AcceptCustomerButtonActionPerformed
         // TODO add your handling code here:
         mt.setColumnIdentifiers(ids);
@@ -1122,6 +1135,10 @@ public class ScreenCustomers extends javax.swing.JPanel {
                     if(confirm_delete != 0){
                         return;
                     } else {
+                        boolean found = verify_use(String.valueOf(actual_customer.getCustomer_id() + "-" + actual_customer.getCustomer_name()));
+                        if (found == true){
+                            return;
+                        }
                         //Set the modified object data
                         actual_customer.setCustomer_id(original_id);
                         actual_customer.setCustomer_name(name);
@@ -1205,6 +1222,10 @@ public class ScreenCustomers extends javax.swing.JPanel {
                     if(confirm_delete != 0){
                         return;
                     } else {
+                        boolean found = verify_use(String.valueOf(customer.getCustomer_id() + "-" + customer.getCustomer_name()));
+                        if (found == true){
+                            return;
+                        }
                         customers_list.remove(customer);
                         mt.removeRow(aux2);
                         System.out.println(customers_list);
