@@ -197,7 +197,7 @@ public class MainMenu extends javax.swing.JFrame {
         jButton11.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
         jButton11.setForeground(new java.awt.Color(255, 255, 255));
         jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/settings.png"))); // NOI18N
-        jButton11.setText("Settings");
+        jButton11.setText("Print Bills");
         jButton11.setBorder(null);
         jButton11.setContentAreaFilled(false);
         jButton11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -422,7 +422,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-        ShowJPanel(new ScreenSettings());
+        ShowJPanel(new ScreenPrintBills());
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

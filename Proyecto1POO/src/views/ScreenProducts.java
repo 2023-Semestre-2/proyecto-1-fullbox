@@ -864,9 +864,9 @@ public class ScreenProducts extends javax.swing.JPanel {
             String line = null;
 
             if (id_mode.equals("product")) {
-                 line = (i.getId_product() + 1) + "," + i.getId_item() + "," + i.getId_customer() + "," + i.getId_maintenance();
+                 line = (i.getId_product() + 1) + "," + i.getId_item() + "," + i.getId_customer() + "," + i.getId_maintenance() + "," + i.getId_bill() + "," + i.getId_detail();
             }else if (id_mode.equals("item")) {
-                 line = i.getId_product() + "," + (i.getId_item() + 1) + "," + i.getId_customer() + "," + i.getId_maintenance();
+                 line = i.getId_product() + "," + (i.getId_item() + 1) + "," + i.getId_customer() + "," + i.getId_maintenance() + "," + i.getId_bill() + "," + i.getId_detail();
             }
             pw.println(line);
             }

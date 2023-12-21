@@ -385,11 +385,13 @@ public class ScreenLogin extends javax.swing.JPanel {
             while((line = br.readLine()) != null){
                 id_class id = new id_class();
                 String array [] = line.split("\\,");
-                if (array.length == 4){
+                if (array.length == 6){
                     id.setId_product(Integer.parseInt(array[0]));
                     id.setId_item(Integer.parseInt(array[1]));
                     id.setId_customer(Integer.parseInt(array[2]));
                     id.setId_maintenance(Integer.parseInt(array[3]));
+                    id.setId_bill(Integer.parseInt(array[4]));
+                    id.setId_detail(Integer.parseInt(array[5]));
                     main_class.ids.add(id);
                     bandera =true;                     
                 }              

@@ -809,7 +809,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
             String line = null;
 
             if (id_mode.equals("maintenance")) {
-                 line = i.getId_product() + "," + i.getId_item() + "," + i.getId_customer() + "," + (i.getId_maintenance() + 1);
+                 line = i.getId_product() + "," + i.getId_item() + "," + i.getId_customer() + "," + (i.getId_maintenance() + 1) + "," + i.getId_bill() + "," + i.getId_detail();
             }
             pw.println(line);
             }

@@ -726,7 +726,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
             String line = null;
 
             if (id_mode.equals("customer")) {
-                 line = i.getId_product() + "," + i.getId_item() + "," + (i.getId_customer() + 1) + "," + i.getId_maintenance();
+                 line = i.getId_product() + "," + i.getId_item() + "," + (i.getId_customer() + 1) + "," + i.getId_maintenance() + "," + i.getId_bill() + "," + i.getId_detail();
             }
             pw.println(line);
             }
