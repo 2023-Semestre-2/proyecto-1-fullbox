@@ -888,6 +888,9 @@ public class ScreenProducts extends javax.swing.JPanel {
     * Hace validaciones y redirige a otros metodos dependiendo de cual boton este presionado.
     * @author jonns
     */
+    
+    
+   
     private void Accept_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accept_ItemActionPerformed
 
         String textFromTextField_category = (String) Product_Category.getSelectedItem();
@@ -1425,6 +1428,19 @@ public class ScreenProducts extends javax.swing.JPanel {
     * Hace validaciones para saber que boton se presiono y asi ir a un metodo distinto
     * @author jonns
     */
+    
+    
+    private boolean verify_use(String product){
+        System.out.println(product);
+        for (item_class A : main_class.items) {
+            if(A.getCategory_item().equals(product)){
+                JOptionPane.showMessageDialog(this, "This Product Is Already In Items");
+                return true;
+            }
+                
+        }
+        return false;
+    }
     private void Accept_ProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accept_ProductActionPerformed
         String textFromTextField_category = Category_Id.getText();
         if (textFromTextField_category.isEmpty()){
@@ -1452,6 +1468,10 @@ public class ScreenProducts extends javax.swing.JPanel {
             System.out.println("Botón 2 está habilitado. Realizar acciones para boton2.");
 
         } else if (modify_button_product == true) {
+            boolean found = verify_use(String.valueOf(Modify_p.getId_category()) + "-" + Modify_p.getName_product());
+            if (found == true){
+                return;
+            }
             Modify_product(Modify_p);
             Add_product();
             
@@ -1464,6 +1484,10 @@ public class ScreenProducts extends javax.swing.JPanel {
             System.out.println("Botón 3 está habilitado. Realizar acciones para boton3.");
         } else if (delete_button_product == true) {
             System.out.println("Botón 4 está habilitado. Realizar acciones para boton3.");
+            boolean found = verify_use(String.valueOf(Category_Id.getText() + "-" + Name_Product.getText()));
+            if (found == true){
+                return;
+            }
             boolean result = Delete_product();
             if (result == false){
                 return;

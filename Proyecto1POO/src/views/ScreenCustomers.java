@@ -5,6 +5,7 @@
 package views;
 
 import Classes.customer_class;
+import Classes.id_class;
 import Classes.item_class;
 import Classes.main_class;
 import java.awt.BorderLayout;
@@ -614,10 +615,16 @@ public class ScreenCustomers extends javax.swing.JPanel {
         // TODO add your handling code here:
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView.png")));
     }//GEN-LAST:event_jButton1MouseExited
-
+   
+    private void set_id(String id_mode){
+        id_class id = main_class.ids.get(0);
+        if(id_mode == "customer"){
+           CustomerIdText.setText(String.valueOf(id.getId_customer()));
+        }
+    }
     private void AddCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCustomerButtonActionPerformed
         // TODO add your handling code here:
-        //Set the ButtonFlags
+        set_id("customer");
         add_flag = true;
         search_flag = false;
         modify_flag = false;
@@ -706,7 +713,36 @@ public class ScreenCustomers extends javax.swing.JPanel {
     private void CustomerDistrictTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerDistrictTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CustomerDistrictTextActionPerformed
+    
+    private void add_id(String id_mode){
+        String archive = Paths.get("src", "DataBase", "ID's.csv").toString();
+        FileWriter fw = null;
+        PrintWriter pw = null;
+        try{ 
+            fw = new FileWriter(archive);
+            pw = new PrintWriter(fw);
+            for (id_class i : main_class.ids) {
+            String line = null;
 
+            if (id_mode.equals("customer")) {
+                 line = i.getId_product() + "," + i.getId_item() + "," + (i.getId_customer() + 1) + "," + i.getId_maintenance();
+            }
+            pw.println(line);
+            }
+            
+        }catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try{
+                if(fw != null){
+                    fw.close();
+            }
+            }catch(Exception ex){
+                    ex.printStackTrace();
+            }      
+        }
+    }
     private void AcceptCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AcceptCustomerButtonActionPerformed
         // TODO add your handling code here:
         mt.setColumnIdentifiers(ids);
@@ -868,6 +904,49 @@ public class ScreenCustomers extends javax.swing.JPanel {
             CustomerDayText.setText("01");
             CustomerYearText.setText("1900");
             JOptionPane.showMessageDialog(null, "Added Succesfully");
+            add_id("customer");
+            id_class id = main_class.ids.get(0);
+            id.setId_customer(id.getId_customer()+ 1);
+            
+            //Set the ButtonFlags
+            search_flag = false;
+            add_flag = false;
+            modify_flag = false;
+            delete_flag = false;
+        
+            //Set the Buttons visibility
+            CustomerIdText.setEnabled(false);
+            CustomerNameText.setEnabled(false);
+            CustomerLastnameText.setEnabled(false);
+            CustomerPhoneText.setEnabled(false);
+            CustomerMailText.setEnabled(false);
+            CustomerProvinceCombo.setEnabled(false);
+            CustomerCantonText.setEnabled(false);
+            CustomerDistrictText.setEnabled(false);
+            CustomerDayText.setEnabled(false);
+            CustomerMonthCombo.setEnabled(false);
+            CustomerYearText.setEnabled(false);
+            AcceptCustomerButton.setEnabled(false);
+            CancelCustomerButton.setEnabled(false);
+            SearchModifyButton.setEnabled(false);
+            SearchModifyButton.setVisible(false);
+            
+            AddCustomerButton.setEnabled(true);
+            SearchCustomerButton.setEnabled(true);
+            ModifyCustomerButton.setEnabled(true);
+            DeleteCustomerButton.setEnabled(true);
+            ResetButton.setEnabled(false);
+            
+            //Set the default Text
+            CustomerIdText.setText("");
+            CustomerNameText.setText("");
+            CustomerLastnameText.setText("");
+            CustomerPhoneText.setText("");
+            CustomerMailText.setText("");
+            CustomerCantonText.setText("");
+            CustomerDistrictText.setText("");
+            CustomerDayText.setText("01");
+            CustomerYearText.setText("1900");
         
         //THIS IS FOR THE SEARCH OPTION
         } else if(search_flag == true){
