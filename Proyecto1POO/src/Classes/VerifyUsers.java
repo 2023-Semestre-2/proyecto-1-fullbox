@@ -19,7 +19,6 @@ import main.MainMenu;
  * Class to Verify Users
  * @author saymon
  */
-
 public class VerifyUsers {
 
     private String username;

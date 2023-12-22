@@ -38,8 +38,8 @@ import javax.swing.table.DefaultTableModel;
 
 
 /**
- *
- * @author jonns
+ * The jPanel screen to show information and actions to the user about bill printing (details).
+ * @author josem
  */
 public class ScreenPrintBills extends javax.swing.JPanel {
 
@@ -48,12 +48,13 @@ public class ScreenPrintBills extends javax.swing.JPanel {
      */
     public ScreenPrintBills() {
         initComponents();
+        TableBillsModel.setColumnIdentifiers(ids);
+        TableDetailsModel.setColumnIdentifiers(ids);
         initializeBilling();
         initializeDetail();
         createIdsBills();
-        TableBillsModel.setColumnIdentifiers(ids);
-        TableDetailsModel.setColumnIdentifiers(ids);
-        
+        ActualBillsTable.setModel(TableBillsModel);
+        ActualPrintedTable.setModel(TableDetailsModel);
     }
     
     //Read CSV variables
@@ -317,7 +318,7 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setText("Other Settings");
+        jLabel7.setText("Settings");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -332,7 +333,6 @@ public class ScreenPrintBills extends javax.swing.JPanel {
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
@@ -344,7 +344,10 @@ public class ScreenPrintBills extends javax.swing.JPanel {
                         .addGap(20, 20, 20)
                         .addComponent(jLabel4)
                         .addGap(26, 26, 26)
-                        .addComponent(jLabel5)))
+                        .addComponent(jLabel5))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel7)))
                 .addContainerGap(263, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -460,23 +463,43 @@ public class ScreenPrintBills extends javax.swing.JPanel {
             .addComponent(SettingsView, javax.swing.GroupLayout.PREFERRED_SIZE, 658, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    /**
+     * Creates a jButton for the close of this screen.
+     * @param evt The press button action.
+     * @author josem
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         borrarPanel(new ScreenProducts());
         ShowJPanel(new ScreenMain());
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    /**
+     * Creates an animation of the jButton1 when the mouse is in the Button.
+     * @param evt The mouse exit action.
+     * @author josem
+     */
     private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
         // TODO add your handling code here:
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView.png")));
     }//GEN-LAST:event_jButton1MouseExited
-
+    
+    /**
+     * Creates an animation of the jButton1 when the mouse is in the Button.
+     * @param evt The mouse enter action.
+     * @author josem
+     */
     private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
         // TODO add your handling code here:
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView2.png")));
     }//GEN-LAST:event_jButton1MouseEntered
-
+    
+    /**
+     * A redirection to the user manual.
+     * @param evt The press button action.
+     * @author josem
+     */
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
     String youtubeVideoURL = "https://youtu.be/dQw4w9WgXcQ?si=rUJiW77yVZZw813f";
@@ -487,25 +510,41 @@ public class ScreenPrintBills extends javax.swing.JPanel {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_jButton6ActionPerformed
-
+    
+    /**
+     * A redirection to the project documentation.
+     * @param evt The press button action.
+     * @author josem
+     */
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         String archive = Paths.get("src", "Documentation", "Documentacion_Proyecto1_POO.docx").toString();
 
-        // Crear un objeto File con la ruta especificada
+        // Create a file object with the new path.
         File file = new File(archive);
 
         try {
-            // Abrir el archivo en la aplicación predeterminada
+            // Open the file with the user default app.
             Desktop.getDesktop().open(file);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_jButton7ActionPerformed
-
+    
+    /**
+     * A pop up with the project authors.
+     * @param evt The press button action.
+     * @author josem
+     */
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         JOptionPane.showMessageDialog(null,"Creators:\nSebastian Ceciliano Piedra\nJose Mario Jimenez Vargas\nSaymon Porras Briones");
     }//GEN-LAST:event_jButton9ActionPerformed
-
+    
+    /**
+     * This function is for the setting of the textfields and comboboxes
+     * of the screen, and set the next detail id.
+     * @param evt The press button action.
+     * @author josem
+     */
     private void NewDetailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewDetailButtonActionPerformed
         // TODO add your handling code here:
         set_id("detail");
@@ -522,7 +561,14 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         NumberItemsText.setEnabled(true);
         DetailAcceptButton.setEnabled(true);
     }//GEN-LAST:event_NewDetailButtonActionPerformed
-
+    
+    /**
+     * This method is for the accept printing button, it get and validate the 
+     * texts from the screen and create the PDF file to be printed, then save
+     * the detail in the CSV file and include the detail in the details jTable.
+     * @param evt The press button action.
+     * @author josem
+     */
     private void DetailAcceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DetailAcceptButtonActionPerformed
         //Variables for the Document information and object creation.
         String DetailID_text = DetailIdText.getText();
@@ -624,11 +670,18 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         
         details_list.add(temporary_object);
         WriteCSV();
+        TableDetailsModel.addRow(new Object []{temporary_object.getDetail_id(), temporary_object.getDetail_total()});
         add_id("detail");
         id_class id = main_class.ids.get(0);
         id.setId_detail(id.getId_detail() + 1);
         
         JOptionPane.showMessageDialog(null, "Detail created succesfully!");
+        try {
+            File path = new File(filename+".pdf");
+            Desktop.getDesktop().open(path);
+        } catch(Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
         
         BillIdCombo.setEnabled(false);
         NumberItemsText.setEnabled(false);
@@ -636,11 +689,21 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         UnitPriceText.setText("");
         TotalText.setText("");
     }//GEN-LAST:event_DetailAcceptButtonActionPerformed
-
+    
+    /**
+     * Nothing.
+     * @param evt The press button action.
+     */
     private void BillIdComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillIdComboActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BillIdComboActionPerformed
-
+    
+    /**
+     * This function takes the information of the textfield and generates a new
+     * arithmetic information in the screen textfields, for the efectively working.
+     * @param evt The key release action.
+     * @author josem
+     */
     private void NumberItemsTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NumberItemsTextKeyReleased
         // TODO add your handling code here:
         for(bill_class bill:bills_list){
@@ -653,7 +716,13 @@ public class ScreenPrintBills extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_NumberItemsTextKeyReleased
-
+    
+    /**
+     * This function takes the information of the combobox and generates a new
+     * arithmetic information in the screen textfields, for the efectively working.
+     * @param evt The item state change action.
+     * @author josem
+     */
     private void BillIdComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_BillIdComboItemStateChanged
         // TODO add your handling code here:
         for(bill_class bill:bills_list){
@@ -667,6 +736,11 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_BillIdComboItemStateChanged
     
+    /**
+     * This function is for the set of the Bills combobox items and set the bills
+     * combobox new model to show the information.
+     * @author josem
+     */
     private void createIdsBills(){
         int aux = 0;
         for(bill_class item:bills_list){
@@ -677,20 +751,10 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         BillIdCombo.updateUI();
     }
     
-    private void createIdsDetails(){
-        int aux = 0;
-        for(bill_class item:bills_list){
-            ComboBillIdModel.insertElementAt(item.getBill_id(), aux);
-            ComboBillIdModel.setSelectedItem(item.getBill_id());
-        }
-        BillIdCombo.setModel(ComboBillIdModel);
-        BillIdCombo.updateUI();
-    }
-    
     /**
-    * Carga en el archivo id's un id nuevo,sumandole 1 al respectivo que se uso.
+    * Load a new id to the Id's file (add 1 to the last ID).
     * @author jonns
-    * @param id_mode ayuda a identificar cual id incrementar.
+    * @param id_mode to the identify the ID.
     */
     private void add_id(String id_mode){
         String archive = Paths.get("src", "DataBase", "ID's.csv").toString();
@@ -723,9 +787,10 @@ public class ScreenPrintBills extends javax.swing.JPanel {
     }
     
     /**
-    * Hace un set al textfiel correspondiente con su nuevo id.
+    * Set to the textfiel with the new ID.
     * @author jonns
-    * @param id_mode identifica cual es el id a incrementar.
+    * @param id_mode Identifies the ID.
+    * @author josem
     */
     private void set_id(String id_mode){
         id_class id = main_class.ids.get(0);
@@ -735,7 +800,7 @@ public class ScreenPrintBills extends javax.swing.JPanel {
     }
     
     /**
-    * This function is used to write the CSV file with the new informnation.
+    * This function is used to write the CSV file with the new information.
     * @author josem
     */
     private void WriteCSV(){
@@ -765,9 +830,15 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         }
     }
     
+    /**
+     * This function read the details CSV and generate a list with all the created
+     * details.
+     * @author josem
+     */
     private void initializeDetail(){
         String archive = Paths.get("src", "DataBase", "Archivo_CSV_Details.csv").toString();
         try {
+            //Read and generate the objects to the arraylists.
             reader = new BufferedReader(new FileReader(archive));
             while((line = reader.readLine()) != null){
                 detail_class temporary_object = new detail_class();
@@ -791,8 +862,10 @@ public class ScreenPrintBills extends javax.swing.JPanel {
                             break;
                     }
                 }
+                
+                //Add the object to the details list
                 details_list.add(temporary_object);
-                TableBillsModel.addRow(new Object []{temporary_object.getDetail_id(), temporary_object.getDetail_total()});
+                TableDetailsModel.addRow(new Object []{temporary_object.getDetail_id(), temporary_object.getDetail_total()});
             }
             reader.close();
             line = null;
@@ -802,9 +875,15 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         }
     }
     
+    /**
+     * This function read the bills CSV and generate a list with all the created
+     * bills.
+     * @author josem
+     */
     private void initializeBilling(){
         String archive = Paths.get("src", "DataBase", "Archivo_CSV_Bills.csv").toString();
         try {
+            //Read and generate the objects to the arraylists.
             reader = new BufferedReader(new FileReader(archive));
             while((line = reader.readLine()) != null){
                 bill_class temporary_object = new bill_class();
@@ -846,6 +925,8 @@ public class ScreenPrintBills extends javax.swing.JPanel {
                             break;
                     }
                 }
+                
+                //Add the object to the bills list
                 bills_list.add(temporary_object);
                 TableBillsModel.addRow(new Object []{temporary_object.getBill_id(), temporary_object.getBill_total()});
             }
@@ -870,11 +951,20 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         }
     }
     
+    /**
+    * This function is used to delete the actual panel.
+    * @author josem
+    */
     private static void borrarPanel(JPanel panel) {
         panel.removeAll();
         panel.revalidate();
         panel.repaint();
     }
+    
+    /**
+    * This function is used to show this actual panel.
+    * @author josem
+    */
     private void ShowJPanel(JPanel p){
 
         p.setSize(1030,750);

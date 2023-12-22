@@ -4,6 +4,7 @@
  */
 package views;
 
+import Classes.bill_class;
 import Classes.customer_class;
 import Classes.id_class;
 import Classes.main_class;
@@ -18,13 +19,15 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import java.util.Date;
+import java.util.Dictionary;
+import java.util.Hashtable;
 import javax.swing.JOptionPane;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ * The jPanel screen to show information and actions to the user about customers.
  * @author josem
  */
 public class ScreenCustomers extends javax.swing.JPanel {
@@ -36,6 +39,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
         initComponents();
         showTable();
         initializeCustomers();
+        LoadBilling();
     }
 
     /**
@@ -794,6 +798,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
 
             //Add the object to the ArrayList and the JTable
             customers_list.add(new_object);
+            customers_dict.put(new_object.getCustomer_name(), new_object.getCustomer_id()+"");
             mt.addRow(new Object []{new_object.getCustomer_id(), new_object.getCustomer_name(), new_object.getCustomer_lastname()});
             SearchTable.updateUI();
             
@@ -1105,6 +1110,14 @@ public class ScreenCustomers extends javax.swing.JPanel {
             }
             if(pass_flag == true){
                 id = Integer.parseInt(CustomerIdText.getText());
+            }
+            
+            //VALIDATE IF THE COSTUMER HAVE A BILL
+            for(bill_class bill:bills_list){
+                if(bill.getCustomer_id() == id && bill.getBill_state().equals("Valid")){
+                    JOptionPane.showMessageDialog(null, "This customer can't be deleted, we found this customer in a bill");
+                    return;
+                }
             }
             int aux2 = 0;
             for(customer_class customer:customers_list){
@@ -1656,6 +1669,59 @@ public class ScreenCustomers extends javax.swing.JPanel {
         SearchTable.updateUI();
     }
     
+    private void LoadBilling(){
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV_Bills.csv").toString();
+        try {
+            reader = new BufferedReader(new FileReader(archive));
+            while((line = reader.readLine()) != null){
+                bill_class temporary_object = new bill_class();
+                parts = line.split(",");
+                int day = 0;
+                int month = 0;
+                int year = 0;
+                Date date = null;
+                for(int i = 0; i < parts.length; i++){
+                    switch(i){
+                        case 0:
+                            temporary_object.setBill_id(Integer.parseInt(parts[i]));
+                            break;
+                        case 1:
+                            temporary_object.setCustomer_id(Integer.parseInt(parts[i]));
+                            break;
+                        case 2:
+                            day = Integer.parseInt(parts[i]);
+                            break;
+                        case 3:
+                            month = Integer.parseInt(parts[i]) - 1;
+                            break;
+                        case 4:
+                            year = Integer.parseInt(parts[i]) - 1900;
+                            date = new Date(year, month, day);
+                            temporary_object.setBill_date(date);
+                            break;
+                        case 5:
+                            temporary_object.setBill_state(parts[i]);
+                            break;
+                        case 6:
+                            temporary_object.setBill_subtotal(Integer.parseInt(parts[i]));
+                            break;
+                        case 7:
+                            temporary_object.setBill_tax(Integer.parseInt(parts[i]));
+                            break;
+                        case 8:
+                            temporary_object.setBill_total(Integer.parseInt(parts[i]));
+                            break;
+                    }
+                }
+                bills_list.add(temporary_object);
+            }
+            reader.close();
+            line = null;
+            parts = null;
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     /**
     * This function is used to initialize the jTable content, and read the CSV File, to create the ArrayList.
     * @author josem
@@ -1714,13 +1780,11 @@ public class ScreenCustomers extends javax.swing.JPanel {
                             temporary_object.setCustomer_birthdate(new Date(aux_year-1900, aux_month-1, aux_day));
                             break;
                     }
-                    System.out.print(parts[i]+" | ");
                 }
                 customers_list.add(temporary_object);
+                customers_dict.put(temporary_object.getCustomer_name(), temporary_object.getCustomer_id()+"");
                 mt.addRow(new Object []{temporary_object.getCustomer_id(), temporary_object.getCustomer_name(), temporary_object.getCustomer_lastname()});
                 SearchTable.updateUI();
-                System.out.println(customers_list);
-                System.out.println("");
             }
             reader.close();
             line = null;
@@ -1773,6 +1837,8 @@ public class ScreenCustomers extends javax.swing.JPanel {
     private String line;
     private String parts[] = null;
     ArrayList<customer_class> customers_list = new ArrayList<>();
+    ArrayList<bill_class> bills_list = new ArrayList<>();
+    Dictionary customers_dict = new Hashtable ();
     DefaultTableModel mt = new DefaultTableModel();
     String ids [] = {"Id", "Name", "Lastname"};
 
