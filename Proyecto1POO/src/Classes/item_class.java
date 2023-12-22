@@ -2,7 +2,7 @@
 package Classes;
 
 /**
-* Item Class: Create new items
+* Item Class: To manage items.
 * @author josem
 */
 public class item_class {

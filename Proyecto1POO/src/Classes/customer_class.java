@@ -7,7 +7,7 @@ package Classes;
 import java.util.Date;
 
 /**
- * Customer Class: Manage all customers
+ * Customer Class: To manage all customers.
  * @author josem
  */
 public class customer_class {
