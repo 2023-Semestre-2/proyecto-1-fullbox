@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.Locale;
 import javax.swing.JPanel;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
-import views.Register;
+import views.ScreenRegister;
 import views.ScreenLogin;
 
 
@@ -40,7 +40,7 @@ public class Login extends javax.swing.JFrame {
         loading_users();
         setIconImage(new ImageIcon(getClass().getResource("../img/boxx.png")).getImage());
         LoginPanel = new ScreenLogin();
-        RegisterPanel = new Register();
+        RegisterPanel = new ScreenRegister();
         
         ShowJPanel(LoginPanel);
         ShowJPanel(RegisterPanel);

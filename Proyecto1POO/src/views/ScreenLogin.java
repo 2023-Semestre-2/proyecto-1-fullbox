@@ -277,7 +277,7 @@ public class ScreenLogin extends javax.swing.JPanel {
         }
     }
     private void RegisterSpace(){
-        Register Rp =new Register();
+        ScreenRegister Rp =new ScreenRegister();
         Rp.setVisible(true);
         this.setVisible(false);
         Rp.setSize(450, 490);

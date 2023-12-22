@@ -22,13 +22,13 @@ import org.netbeans.lib.awtextra.*;
  *
  * @author saimo
  */
-public class Register extends javax.swing.JPanel {
+public class ScreenRegister extends javax.swing.JPanel {
     
 
     /**
      * Creates new form Register
      */
-    public Register() {
+    public ScreenRegister() {
         initComponents();
         
     }

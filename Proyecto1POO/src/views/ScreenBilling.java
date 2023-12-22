@@ -11,6 +11,7 @@ import Classes.item_class;
 import Classes.main_class;
 import Classes.maintenance_class;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -85,7 +86,6 @@ public class ScreenBilling extends javax.swing.JPanel {
         ItemOptionCombo = new javax.swing.JComboBox<>();
         ItemSearchButton = new javax.swing.JButton();
         BillingInputPanel1 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         MaintenanceBillIdText = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         MaintenanceBillSubtotalText = new javax.swing.JTextField();
@@ -105,11 +105,15 @@ public class ScreenBilling extends javax.swing.JPanel {
         jLabel16 = new javax.swing.JLabel();
         MaintenanceOptionCombo = new javax.swing.JComboBox<>();
         MaintenanceSearchButton = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         BillingWindowTitle1 = new javax.swing.JLabel();
-        BillingWindowTitle2 = new javax.swing.JLabel();
         BillingCancelButton = new javax.swing.JButton();
+        BillingWindowTitle2 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         BillingView.setBackground(new java.awt.Color(255, 255, 255));
+        BillingView.setLayout(null);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView.png"))); // NOI18N
         jButton1.setContentAreaFilled(false);
@@ -128,40 +132,108 @@ public class ScreenBilling extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        BillingView.add(jButton1);
+        jButton1.setBounds(992, 6, 32, 32);
 
-        BillingWindowTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BillingWindowTitle.setText("Billing");
+        BillingWindowTitle.setFont(new java.awt.Font("Dubai Medium", 1, 24)); // NOI18N
+        BillingWindowTitle.setForeground(new java.awt.Color(0, 0, 0));
+        BillingWindowTitle.setText("BILLING");
+        BillingView.add(BillingWindowTitle);
+        BillingWindowTitle.setBounds(480, 10, 87, 42);
 
+        BillingWindowSubtitle.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        BillingWindowSubtitle.setForeground(new java.awt.Color(0, 0, 0));
         BillingWindowSubtitle.setText("Select the action to perform");
+        BillingView.add(BillingWindowSubtitle);
+        BillingWindowSubtitle.setBounds(440, 40, 170, 24);
 
+        BillingAddButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        BillingAddButton.setForeground(new java.awt.Color(0, 0, 0));
+        BillingAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-factura-32.png"))); // NOI18N
         BillingAddButton.setText("Add Bill");
+        BillingAddButton.setBorder(null);
+        BillingAddButton.setContentAreaFilled(false);
+        BillingAddButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BillingAddButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BillingAddButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BillingAddButtonMouseExited(evt);
+            }
+        });
         BillingAddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BillingAddButtonActionPerformed(evt);
             }
         });
+        BillingView.add(BillingAddButton);
+        BillingAddButton.setBounds(300, 60, 100, 50);
 
+        BillingSearchButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        BillingSearchButton.setForeground(new java.awt.Color(0, 0, 0));
+        BillingSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar-mantenimiento-32.png"))); // NOI18N
         BillingSearchButton.setText("Search Bill");
+        BillingSearchButton.setBorder(null);
+        BillingSearchButton.setContentAreaFilled(false);
+        BillingSearchButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BillingSearchButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BillingSearchButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BillingSearchButtonMouseExited(evt);
+            }
+        });
         BillingSearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BillingSearchButtonActionPerformed(evt);
             }
         });
+        BillingView.add(BillingSearchButton);
+        BillingSearchButton.setBounds(410, 60, 110, 50);
 
+        BillingRevokeButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        BillingRevokeButton.setForeground(new java.awt.Color(0, 0, 0));
+        BillingRevokeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar-mantenimiento-32.png"))); // NOI18N
         BillingRevokeButton.setText("Revoke Bill");
+        BillingRevokeButton.setBorder(null);
+        BillingRevokeButton.setContentAreaFilled(false);
+        BillingRevokeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BillingRevokeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BillingRevokeButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BillingRevokeButtonMouseExited(evt);
+            }
+        });
         BillingRevokeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BillingRevokeButtonActionPerformed(evt);
             }
         });
+        BillingView.add(BillingRevokeButton);
+        BillingRevokeButton.setBounds(530, 60, 110, 50);
 
         BillingInputPanel.setBackground(new java.awt.Color(255, 255, 255));
+        BillingInputPanel.setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Bill Id:");
+        BillingInputPanel.add(jLabel1);
+        jLabel1.setBounds(80, 70, 50, 24);
 
         ItemBillIdText.setEnabled(false);
+        BillingInputPanel.add(ItemBillIdText);
+        ItemBillIdText.setBounds(80, 90, 310, 24);
 
+        jLabel2.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Bill Subtotal:");
+        BillingInputPanel.add(jLabel2);
+        jLabel2.setBounds(80, 270, 80, 24);
 
         ItemBillSubtotalText.setEnabled(false);
         ItemBillSubtotalText.addActionListener(new java.awt.event.ActionListener() {
@@ -174,38 +246,69 @@ public class ScreenBilling extends javax.swing.JPanel {
                 ItemBillSubtotalTextKeyReleased(evt);
             }
         });
+        BillingInputPanel.add(ItemBillSubtotalText);
+        ItemBillSubtotalText.setBounds(80, 290, 310, 24);
 
+        jLabel3.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Customer:");
+        BillingInputPanel.add(jLabel3);
+        jLabel3.setBounds(80, 120, 70, 24);
 
+        ItemCustomerIdCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ItemCustomerIdCombo.setEnabled(false);
         ItemCustomerIdCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ItemCustomerIdComboActionPerformed(evt);
             }
         });
+        BillingInputPanel.add(ItemCustomerIdCombo);
+        ItemCustomerIdCombo.setBounds(80, 140, 310, 26);
 
+        jLabel4.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Receivement Date:");
+        BillingInputPanel.add(jLabel4);
+        jLabel4.setBounds(80, 170, 110, 24);
 
         ItemReceivementDayText.setText("01");
         ItemReceivementDayText.setEnabled(false);
+        BillingInputPanel.add(ItemReceivementDayText);
+        ItemReceivementDayText.setBounds(80, 190, 78, 24);
 
         ItemReceivementMonthCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        ItemReceivementMonthCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ItemReceivementMonthCombo.setEnabled(false);
         ItemReceivementMonthCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ItemReceivementMonthComboActionPerformed(evt);
             }
         });
+        BillingInputPanel.add(ItemReceivementMonthCombo);
+        ItemReceivementMonthCombo.setBounds(170, 190, 100, 26);
 
         ItemReceivementYearText.setText("1900");
         ItemReceivementYearText.setEnabled(false);
+        BillingInputPanel.add(ItemReceivementYearText);
+        ItemReceivementYearText.setBounds(280, 190, 108, 24);
 
+        jLabel5.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Bill State:");
+        BillingInputPanel.add(jLabel5);
+        jLabel5.setBounds(80, 220, 70, 24);
 
         ItemBillStateCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Valid", "Revoked" }));
+        ItemBillStateCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ItemBillStateCombo.setEnabled(false);
+        BillingInputPanel.add(ItemBillStateCombo);
+        ItemBillStateCombo.setBounds(80, 240, 310, 26);
 
+        jLabel6.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Bill Tax (13%):");
+        BillingInputPanel.add(jLabel6);
+        jLabel6.setBounds(80, 320, 90, 24);
 
         ItemBillTaxText.setEnabled(false);
         ItemBillTaxText.addActionListener(new java.awt.event.ActionListener() {
@@ -213,8 +316,14 @@ public class ScreenBilling extends javax.swing.JPanel {
                 ItemBillTaxTextActionPerformed(evt);
             }
         });
+        BillingInputPanel.add(ItemBillTaxText);
+        ItemBillTaxText.setBounds(80, 340, 310, 24);
 
+        jLabel7.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Bill Total:");
+        BillingInputPanel.add(jLabel7);
+        jLabel7.setBounds(80, 370, 60, 24);
 
         ItemBillTotalText.setEnabled(false);
         ItemBillTotalText.addActionListener(new java.awt.event.ActionListener() {
@@ -222,139 +331,84 @@ public class ScreenBilling extends javax.swing.JPanel {
                 ItemBillTotalTextActionPerformed(evt);
             }
         });
+        BillingInputPanel.add(ItemBillTotalText);
+        ItemBillTotalText.setBounds(80, 390, 310, 24);
 
+        ItemAcceptButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        ItemAcceptButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/aceptar-32.png"))); // NOI18N
         ItemAcceptButton.setText("Accept");
+        ItemAcceptButton.setBorder(null);
+        ItemAcceptButton.setContentAreaFilled(false);
+        ItemAcceptButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ItemAcceptButton.setEnabled(false);
+        ItemAcceptButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ItemAcceptButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ItemAcceptButtonMouseExited(evt);
+            }
+        });
         ItemAcceptButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ItemAcceptButtonActionPerformed(evt);
             }
         });
+        BillingInputPanel.add(ItemAcceptButton);
+        ItemAcceptButton.setBounds(190, 430, 90, 50);
 
+        jLabel8.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Item Help to Complete:");
+        BillingInputPanel.add(jLabel8);
+        jLabel8.setBounds(80, 16, 140, 30);
 
+        ItemOptionCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ItemOptionCombo.setEnabled(false);
         ItemOptionCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ItemOptionComboActionPerformed(evt);
             }
         });
+        BillingInputPanel.add(ItemOptionCombo);
+        ItemOptionCombo.setBounds(80, 40, 310, 26);
 
-        ItemSearchButton.setText("S");
+        ItemSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png"))); // NOI18N
+        ItemSearchButton.setBorder(null);
+        ItemSearchButton.setContentAreaFilled(false);
+        ItemSearchButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ItemSearchButton.setEnabled(false);
+        ItemSearchButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ItemSearchButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ItemSearchButtonMouseExited(evt);
+            }
+        });
         ItemSearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ItemSearchButtonActionPerformed(evt);
             }
         });
+        BillingInputPanel.add(ItemSearchButton);
+        ItemSearchButton.setBounds(20, 30, 50, 50);
 
-        javax.swing.GroupLayout BillingInputPanelLayout = new javax.swing.GroupLayout(BillingInputPanel);
-        BillingInputPanel.setLayout(BillingInputPanelLayout);
-        BillingInputPanelLayout.setHorizontalGroup(
-            BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
-                .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanelLayout.createSequentialGroup()
-                        .addComponent(ItemSearchButton)
-                        .addGap(18, 18, 18)
-                        .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                                .addGap(140, 140, 140)
-                                .addComponent(jLabel1))
-                            .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                                .addGap(103, 103, 103)
-                                .addComponent(jLabel4))
-                            .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                                .addGap(129, 129, 129)
-                                .addComponent(jLabel5))
-                            .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                                .addGap(121, 121, 121)
-                                .addComponent(jLabel2))
-                            .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                                .addGap(130, 130, 130)
-                                .addComponent(jLabel7))
-                            .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                                .addGap(127, 127, 127)
-                                .addComponent(jLabel3))
-                            .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                                    .addComponent(ItemAcceptButton)
-                                    .addGap(122, 122, 122))
-                                .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(ItemBillTaxText)
-                                    .addComponent(ItemBillIdText)
-                                    .addComponent(ItemCustomerIdCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                                        .addComponent(ItemReceivementDayText, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(ItemReceivementMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(12, 12, 12)
-                                        .addComponent(ItemReceivementYearText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(ItemBillStateCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ItemBillSubtotalText)
-                                    .addComponent(ItemBillTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ItemOptionCombo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(38, 38, 38))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(157, 157, 157))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(131, 131, 131))))
-        );
-        BillingInputPanelLayout.setVerticalGroup(
-            BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ItemOptionCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ItemSearchButton))
-                .addGap(17, 17, 17)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ItemBillIdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ItemCustomerIdCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ItemReceivementDayText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ItemReceivementMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ItemReceivementYearText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ItemBillStateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ItemBillSubtotalText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ItemBillTaxText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ItemBillTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(ItemAcceptButton)
-                .addContainerGap(39, Short.MAX_VALUE))
-        );
+        BillingView.add(BillingInputPanel);
+        BillingInputPanel.setBounds(100, 160, 390, 560);
 
         BillingInputPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel9.setText("Bill Id:");
+        BillingInputPanel1.setLayout(null);
 
         MaintenanceBillIdText.setEnabled(false);
+        BillingInputPanel1.add(MaintenanceBillIdText);
+        MaintenanceBillIdText.setBounds(90, 90, 310, 24);
 
+        jLabel10.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Bill Subtotal:");
+        BillingInputPanel1.add(jLabel10);
+        jLabel10.setBounds(90, 270, 80, 24);
 
         MaintenanceBillSubtotalText.setEnabled(false);
         MaintenanceBillSubtotalText.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -362,38 +416,69 @@ public class ScreenBilling extends javax.swing.JPanel {
                 MaintenanceBillSubtotalTextKeyReleased(evt);
             }
         });
+        BillingInputPanel1.add(MaintenanceBillSubtotalText);
+        MaintenanceBillSubtotalText.setBounds(90, 290, 310, 24);
 
+        jLabel11.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Customer:");
+        BillingInputPanel1.add(jLabel11);
+        jLabel11.setBounds(90, 120, 70, 24);
 
+        MaintenanceCustomerIdCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         MaintenanceCustomerIdCombo.setEnabled(false);
         MaintenanceCustomerIdCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MaintenanceCustomerIdComboActionPerformed(evt);
             }
         });
+        BillingInputPanel1.add(MaintenanceCustomerIdCombo);
+        MaintenanceCustomerIdCombo.setBounds(90, 140, 310, 26);
 
+        jLabel12.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Receivement Date:");
+        BillingInputPanel1.add(jLabel12);
+        jLabel12.setBounds(90, 170, 110, 24);
 
         MaintenanceReceivementDayText.setText("01");
         MaintenanceReceivementDayText.setEnabled(false);
+        BillingInputPanel1.add(MaintenanceReceivementDayText);
+        MaintenanceReceivementDayText.setBounds(90, 190, 78, 24);
 
         MaintenanceReceivementMonthCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        MaintenanceReceivementMonthCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         MaintenanceReceivementMonthCombo.setEnabled(false);
         MaintenanceReceivementMonthCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MaintenanceReceivementMonthComboActionPerformed(evt);
             }
         });
+        BillingInputPanel1.add(MaintenanceReceivementMonthCombo);
+        MaintenanceReceivementMonthCombo.setBounds(180, 190, 100, 26);
 
         MaintenanceReceivementYearText.setText("1900");
         MaintenanceReceivementYearText.setEnabled(false);
+        BillingInputPanel1.add(MaintenanceReceivementYearText);
+        MaintenanceReceivementYearText.setBounds(290, 190, 108, 24);
 
+        jLabel13.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Bill State:");
+        BillingInputPanel1.add(jLabel13);
+        jLabel13.setBounds(90, 220, 70, 24);
 
         MaintenanceBillStateCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Valid", "Revoked" }));
+        MaintenanceBillStateCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         MaintenanceBillStateCombo.setEnabled(false);
+        BillingInputPanel1.add(MaintenanceBillStateCombo);
+        MaintenanceBillStateCombo.setBounds(90, 240, 310, 26);
 
+        jLabel14.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Bill Tax (13%):");
+        BillingInputPanel1.add(jLabel14);
+        jLabel14.setBounds(90, 320, 90, 24);
 
         MaintenanceBillTaxText.setEnabled(false);
         MaintenanceBillTaxText.addActionListener(new java.awt.event.ActionListener() {
@@ -401,8 +486,14 @@ public class ScreenBilling extends javax.swing.JPanel {
                 MaintenanceBillTaxTextActionPerformed(evt);
             }
         });
+        BillingInputPanel1.add(MaintenanceBillTaxText);
+        MaintenanceBillTaxText.setBounds(90, 340, 310, 24);
 
+        jLabel15.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Bill Total:");
+        BillingInputPanel1.add(jLabel15);
+        jLabel15.setBounds(90, 370, 60, 24);
 
         MaintenanceBillTotalText.setEnabled(false);
         MaintenanceBillTotalText.addActionListener(new java.awt.event.ActionListener() {
@@ -410,219 +501,134 @@ public class ScreenBilling extends javax.swing.JPanel {
                 MaintenanceBillTotalTextActionPerformed(evt);
             }
         });
+        BillingInputPanel1.add(MaintenanceBillTotalText);
+        MaintenanceBillTotalText.setBounds(90, 390, 310, 24);
 
+        MaintenanceAcceptButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        MaintenanceAcceptButton.setForeground(new java.awt.Color(0, 0, 0));
+        MaintenanceAcceptButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/aceptar-32.png"))); // NOI18N
         MaintenanceAcceptButton.setText("Accept");
+        MaintenanceAcceptButton.setBorder(null);
+        MaintenanceAcceptButton.setContentAreaFilled(false);
         MaintenanceAcceptButton.setEnabled(false);
+        MaintenanceAcceptButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                MaintenanceAcceptButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                MaintenanceAcceptButtonMouseExited(evt);
+            }
+        });
         MaintenanceAcceptButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MaintenanceAcceptButtonActionPerformed(evt);
             }
         });
+        BillingInputPanel1.add(MaintenanceAcceptButton);
+        MaintenanceAcceptButton.setBounds(210, 430, 90, 50);
 
+        jLabel16.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Maintenance Help to Complete:");
+        BillingInputPanel1.add(jLabel16);
+        jLabel16.setBounds(90, 20, 190, 24);
 
+        MaintenanceOptionCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         MaintenanceOptionCombo.setEnabled(false);
         MaintenanceOptionCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MaintenanceOptionComboActionPerformed(evt);
             }
         });
+        BillingInputPanel1.add(MaintenanceOptionCombo);
+        MaintenanceOptionCombo.setBounds(90, 40, 310, 26);
 
-        MaintenanceSearchButton.setText("S");
+        MaintenanceSearchButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        MaintenanceSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png"))); // NOI18N
+        MaintenanceSearchButton.setBorder(null);
+        MaintenanceSearchButton.setContentAreaFilled(false);
+        MaintenanceSearchButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         MaintenanceSearchButton.setEnabled(false);
+        MaintenanceSearchButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                MaintenanceSearchButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                MaintenanceSearchButtonMouseExited(evt);
+            }
+        });
         MaintenanceSearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MaintenanceSearchButtonActionPerformed(evt);
             }
         });
+        BillingInputPanel1.add(MaintenanceSearchButton);
+        MaintenanceSearchButton.setBounds(30, 30, 50, 50);
 
-        javax.swing.GroupLayout BillingInputPanel1Layout = new javax.swing.GroupLayout(BillingInputPanel1);
-        BillingInputPanel1.setLayout(BillingInputPanel1Layout);
-        BillingInputPanel1Layout.setHorizontalGroup(
-            BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BillingInputPanel1Layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
-                .addGroup(BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanel1Layout.createSequentialGroup()
-                        .addComponent(MaintenanceSearchButton)
-                        .addGap(18, 18, 18)
-                        .addGroup(BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(BillingInputPanel1Layout.createSequentialGroup()
-                                .addGap(140, 140, 140)
-                                .addComponent(jLabel9))
-                            .addGroup(BillingInputPanel1Layout.createSequentialGroup()
-                                .addGap(103, 103, 103)
-                                .addComponent(jLabel12))
-                            .addGroup(BillingInputPanel1Layout.createSequentialGroup()
-                                .addGap(129, 129, 129)
-                                .addComponent(jLabel13))
-                            .addGroup(BillingInputPanel1Layout.createSequentialGroup()
-                                .addGap(121, 121, 121)
-                                .addComponent(jLabel10))
-                            .addGroup(BillingInputPanel1Layout.createSequentialGroup()
-                                .addGap(130, 130, 130)
-                                .addComponent(jLabel15))
-                            .addGroup(BillingInputPanel1Layout.createSequentialGroup()
-                                .addGap(127, 127, 127)
-                                .addComponent(jLabel11))
-                            .addGroup(BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(BillingInputPanel1Layout.createSequentialGroup()
-                                    .addComponent(MaintenanceAcceptButton)
-                                    .addGap(121, 121, 121))
-                                .addGroup(BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(MaintenanceBillTaxText)
-                                    .addComponent(MaintenanceBillIdText)
-                                    .addComponent(MaintenanceCustomerIdCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(BillingInputPanel1Layout.createSequentialGroup()
-                                        .addComponent(MaintenanceReceivementDayText, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(MaintenanceReceivementMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(12, 12, 12)
-                                        .addComponent(MaintenanceReceivementYearText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(MaintenanceBillStateCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(MaintenanceBillSubtotalText)
-                                    .addComponent(MaintenanceBillTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(MaintenanceOptionCombo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(38, 38, 38))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addGap(157, 157, 157))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addGap(110, 110, 110))))
-        );
-        BillingInputPanel1Layout.setVerticalGroup(
-            BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BillingInputPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MaintenanceOptionCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MaintenanceSearchButton))
-                .addGap(17, 17, 17)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MaintenanceBillIdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MaintenanceCustomerIdCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MaintenanceReceivementDayText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MaintenanceReceivementMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MaintenanceReceivementYearText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MaintenanceBillStateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MaintenanceBillSubtotalText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MaintenanceBillTaxText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MaintenanceBillTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(MaintenanceAcceptButton)
-                .addContainerGap(39, Short.MAX_VALUE))
-        );
+        jLabel9.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Bill Id:");
+        BillingInputPanel1.add(jLabel9);
+        jLabel9.setBounds(90, 70, 40, 20);
 
-        BillingWindowTitle1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Ellipse 2092.png"))); // NOI18N
+        jLabel17.setText("jLabel17");
+        BillingInputPanel1.add(jLabel17);
+        jLabel17.setBounds(240, 360, 433, 270);
+
+        BillingView.add(BillingInputPanel1);
+        BillingInputPanel1.setBounds(490, 160, 540, 590);
+
+        BillingWindowTitle1.setFont(new java.awt.Font("Dubai Medium", 1, 18)); // NOI18N
+        BillingWindowTitle1.setForeground(new java.awt.Color(0, 0, 0));
         BillingWindowTitle1.setText("Maintenance Billing");
+        BillingView.add(BillingWindowTitle1);
+        BillingWindowTitle1.setBounds(650, 130, 156, 40);
 
-        BillingWindowTitle2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BillingWindowTitle2.setText("Item Billing");
-
+        BillingCancelButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        BillingCancelButton.setForeground(new java.awt.Color(0, 0, 0));
+        BillingCancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar-32.png"))); // NOI18N
         BillingCancelButton.setText("Cancel");
+        BillingCancelButton.setBorder(null);
+        BillingCancelButton.setContentAreaFilled(false);
+        BillingCancelButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BillingCancelButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BillingCancelButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BillingCancelButtonMouseExited(evt);
+            }
+        });
         BillingCancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BillingCancelButtonActionPerformed(evt);
             }
         });
+        BillingView.add(BillingCancelButton);
+        BillingCancelButton.setBounds(640, 60, 100, 50);
 
-        javax.swing.GroupLayout BillingViewLayout = new javax.swing.GroupLayout(BillingView);
-        BillingView.setLayout(BillingViewLayout);
-        BillingViewLayout.setHorizontalGroup(
-            BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BillingViewLayout.createSequentialGroup()
-                .addGap(275, 275, 275)
-                .addComponent(BillingWindowTitle2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 316, Short.MAX_VALUE)
-                .addComponent(BillingWindowTitle1)
-                .addGap(171, 171, 171))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingViewLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingViewLayout.createSequentialGroup()
-                        .addComponent(BillingInputPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BillingInputPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingViewLayout.createSequentialGroup()
-                        .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BillingWindowSubtitle)
-                            .addGroup(BillingViewLayout.createSequentialGroup()
-                                .addGap(46, 46, 46)
-                                .addComponent(BillingWindowTitle)))
-                        .addGap(393, 393, 393)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingViewLayout.createSequentialGroup()
-                        .addComponent(BillingAddButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BillingSearchButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BillingRevokeButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BillingCancelButton)
-                        .addGap(333, 333, 333))))
-        );
-        BillingViewLayout.setVerticalGroup(
-            BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingViewLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(BillingViewLayout.createSequentialGroup()
-                        .addComponent(BillingWindowTitle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BillingWindowSubtitle)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BillingRevokeButton)
-                    .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(BillingAddButton)
-                        .addComponent(BillingSearchButton)
-                        .addComponent(BillingCancelButton)))
-                .addGap(12, 12, 12)
-                .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BillingWindowTitle2)
-                    .addComponent(BillingWindowTitle1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BillingInputPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BillingInputPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(35, 35, 35))
-        );
+        BillingWindowTitle2.setFont(new java.awt.Font("Dubai Medium", 1, 18)); // NOI18N
+        BillingWindowTitle2.setForeground(new java.awt.Color(0, 0, 0));
+        BillingWindowTitle2.setText("Item Billing");
+        BillingView.add(BillingWindowTitle2);
+        BillingWindowTitle2.setBounds(290, 130, 100, 40);
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Union3.png"))); // NOI18N
+        BillingView.add(jLabel18);
+        jLabel18.setBounds(-250, -190, 1426, 520);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BillingView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(BillingView, javax.swing.GroupLayout.PREFERRED_SIZE, 1031, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BillingView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BillingView, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1239,6 +1245,94 @@ public class ScreenBilling extends javax.swing.JPanel {
             return;
         }
     }//GEN-LAST:event_MaintenanceAcceptButtonActionPerformed
+
+    private void BillingCancelButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingCancelButtonMouseEntered
+        if (BillingCancelButton.isEnabled()) {
+        BillingCancelButton.setForeground(Color.GRAY);
+        BillingCancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar-42GIF.gif")));
+       }
+    }//GEN-LAST:event_BillingCancelButtonMouseEntered
+
+    private void BillingCancelButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingCancelButtonMouseExited
+        if (BillingCancelButton.isEnabled()) {
+       BillingCancelButton.setForeground(Color.black);
+       BillingCancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar-32.png")));
+       }
+    }//GEN-LAST:event_BillingCancelButtonMouseExited
+
+    private void BillingRevokeButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingRevokeButtonMouseEntered
+       BillingRevokeButton.setForeground(Color.GRAY);
+       BillingRevokeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar-mantenimiento-42.png")));
+    }//GEN-LAST:event_BillingRevokeButtonMouseEntered
+
+    private void BillingRevokeButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingRevokeButtonMouseExited
+       BillingRevokeButton.setForeground(Color.black);
+       BillingRevokeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar-mantenimiento-32.png")));
+    }//GEN-LAST:event_BillingRevokeButtonMouseExited
+
+    private void BillingSearchButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingSearchButtonMouseExited
+       BillingSearchButton.setForeground(Color.black);
+       BillingSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar-mantenimiento-32.png")));
+    }//GEN-LAST:event_BillingSearchButtonMouseExited
+
+    private void BillingSearchButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingSearchButtonMouseEntered
+       BillingSearchButton.setForeground(Color.GRAY);
+       BillingSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar-mantenimiento-42.png")));
+    }//GEN-LAST:event_BillingSearchButtonMouseEntered
+
+    private void BillingAddButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingAddButtonMouseEntered
+       BillingAddButton.setForeground(Color.GRAY);
+       BillingAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-factura-42.png")));
+    }//GEN-LAST:event_BillingAddButtonMouseEntered
+
+    private void BillingAddButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingAddButtonMouseExited
+       BillingAddButton.setForeground(Color.black);
+       BillingAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-factura-32.png")));
+    }//GEN-LAST:event_BillingAddButtonMouseExited
+
+    private void ItemSearchButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ItemSearchButtonMouseEntered
+        ItemSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-42.png")));
+    }//GEN-LAST:event_ItemSearchButtonMouseEntered
+
+    private void ItemSearchButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ItemSearchButtonMouseExited
+        ItemSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png")));
+    }//GEN-LAST:event_ItemSearchButtonMouseExited
+
+    private void MaintenanceSearchButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaintenanceSearchButtonMouseEntered
+        MaintenanceSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-42.png")));
+    }//GEN-LAST:event_MaintenanceSearchButtonMouseEntered
+
+    private void MaintenanceSearchButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaintenanceSearchButtonMouseExited
+        MaintenanceSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png")));
+    }//GEN-LAST:event_MaintenanceSearchButtonMouseExited
+
+    private void MaintenanceAcceptButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaintenanceAcceptButtonMouseEntered
+        if (MaintenanceAcceptButton.isEnabled()) {
+        MaintenanceAcceptButton.setForeground(Color.GRAY);
+        MaintenanceAcceptButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Aceptar-42GIF.gif")));
+       }
+    }//GEN-LAST:event_MaintenanceAcceptButtonMouseEntered
+
+    private void MaintenanceAcceptButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaintenanceAcceptButtonMouseExited
+       if (MaintenanceAcceptButton.isEnabled()) {
+       MaintenanceAcceptButton.setForeground(Color.black);
+       MaintenanceAcceptButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/aceptar-32.png")));
+       }
+    }//GEN-LAST:event_MaintenanceAcceptButtonMouseExited
+
+    private void ItemAcceptButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ItemAcceptButtonMouseEntered
+        if (ItemAcceptButton.isEnabled()) {
+        ItemAcceptButton.setForeground(Color.GRAY);
+        ItemAcceptButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Aceptar-42GIF.gif")));
+       }
+    }//GEN-LAST:event_ItemAcceptButtonMouseEntered
+
+    private void ItemAcceptButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ItemAcceptButtonMouseExited
+       if (ItemAcceptButton.isEnabled()) {
+       ItemAcceptButton.setForeground(Color.black);
+       ItemAcceptButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/aceptar-32.png")));
+       }
+    }//GEN-LAST:event_ItemAcceptButtonMouseExited
     
     /**
     * This function is used to check if the input is a numeric String.
@@ -1904,6 +1998,8 @@ public class ScreenBilling extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
