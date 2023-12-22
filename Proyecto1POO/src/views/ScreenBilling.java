@@ -669,8 +669,6 @@ public class ScreenBilling extends javax.swing.JPanel {
                 BillAddFlag = true;
                 BillSearchFlag = false;
                 BillRevokeFlag = false;
-                //ItemFlag = true;
-                //MaintenanceFlag = false;
                 
                 //Disable Functions
                 BillingAddButton.setEnabled(false);
@@ -695,8 +693,6 @@ public class ScreenBilling extends javax.swing.JPanel {
                 BillAddFlag = true;
                 BillSearchFlag = false;
                 BillRevokeFlag = false;
-                //ItemFlag = false;
-                //MaintenanceFlag = true;
                 
                 //Disable Functions
                 BillingAddButton.setEnabled(false);
@@ -873,9 +869,7 @@ public class ScreenBilling extends javax.swing.JPanel {
             BillSearchFlag = false;
             BillRevokeFlag = false;
             caso = "";
-            //ItemFlag = false;
-            //MaintenanceFlag = false;
-
+            
             //Enable Functions
             BillingAddButton.setEnabled(true);
             BillingSearchButton.setEnabled(true);
@@ -996,8 +990,6 @@ public class ScreenBilling extends javax.swing.JPanel {
                     Date date_comparison = new Date(Integer.parseInt(ItemReceivementYearText.getText()) - 1900, Integer.parseInt(ItemReceivementMonthCombo.getSelectedItem().toString()) - 1, Integer.parseInt(ItemReceivementDayText.getText()));
                     
                     for(bill_class bill_searched:bills_list){
-                        System.out.println(bill_searched.getBill_date());
-                        System.out.println(date_comparison);
                         if(bill_searched.getBill_date().equals(date_comparison)){
                             String customer = customers_dict2.get(bill_searched.getCustomer_id()).toString();
                             ItemBillIdText.setText(bill_searched.getBill_id()+"");
@@ -1054,7 +1046,6 @@ public class ScreenBilling extends javax.swing.JPanel {
     private void ItemBillSubtotalTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ItemBillSubtotalTextKeyReleased
         // TODO add your handling code here:
         if(isNumeric(ItemBillSubtotalText.getText())){
-            System.out.println(ItemBillSubtotalText.getText());
             //int aux = Integer.parseInt(ItemBillSubtotalText.getText());
             ItemBillTaxText.setText(Math.round(Integer.parseInt(ItemBillSubtotalText.getText())*0.13)+"");
             ItemBillTotalText.setText(Integer.parseInt(ItemBillSubtotalText.getText()) + Math.round(Integer.parseInt(ItemBillSubtotalText.getText())*0.13)+"");
@@ -1099,7 +1090,6 @@ public class ScreenBilling extends javax.swing.JPanel {
     private void MaintenanceBillSubtotalTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MaintenanceBillSubtotalTextKeyReleased
         // TODO add your handling code here:
         if(isNumeric(MaintenanceBillSubtotalText.getText())){
-            System.out.println(MaintenanceBillSubtotalText.getText());
             //int aux = Integer.parseInt(ItemBillSubtotalText.getText());
             MaintenanceBillTaxText.setText(Math.round(Integer.parseInt(MaintenanceBillSubtotalText.getText())*0.13)+"");
             MaintenanceBillTotalText.setText(Integer.parseInt(MaintenanceBillSubtotalText.getText()) + Math.round(Integer.parseInt(MaintenanceBillSubtotalText.getText())*0.13)+"");
@@ -1134,7 +1124,6 @@ public class ScreenBilling extends javax.swing.JPanel {
             
             //Create the bill
             bill_class temporary_object_maintenance = new bill_class();
-            System.out.println(MaintenanceBillIdText.getText());
             temporary_object_maintenance.setBill_id(Integer.parseInt(MaintenanceBillIdText.getText()));
             temporary_object_maintenance.setCustomer_id(Integer.parseInt(customers_dict.get(MaintenanceCustomerIdCombo.getSelectedItem().toString()).toString()));
             temporary_object_maintenance.setBill_date(new Date((Integer.parseInt(MaintenanceReceivementYearText.getText()) - 1900), (Integer.parseInt(MaintenanceReceivementMonthCombo.getSelectedItem().toString()) - 1), Integer.parseInt(MaintenanceReceivementDayText.getText())));
@@ -1191,8 +1180,6 @@ public class ScreenBilling extends javax.swing.JPanel {
                     Date date_comparison = new Date(Integer.parseInt(MaintenanceReceivementYearText.getText()) - 1900, Integer.parseInt(MaintenanceReceivementMonthCombo.getSelectedItem().toString()) - 1, Integer.parseInt(MaintenanceReceivementDayText.getText()));
                     
                     for(bill_class bill_searched:bills_list){
-                        System.out.println(bill_searched.getBill_date());
-                        System.out.println(date_comparison);
                         if(bill_searched.getBill_date().equals(date_comparison)){
                             String customer = customers_dict2.get(bill_searched.getCustomer_id()).toString();
                             MaintenanceBillIdText.setText(bill_searched.getBill_id()+"");
@@ -1748,12 +1735,10 @@ public class ScreenBilling extends javax.swing.JPanel {
                             //day
                             aux1 = parts[i].charAt(8) + "" + parts[i].charAt(9);
                             aux_day = Integer.parseInt(aux1);
-                            System.out.println(aux_day);
                             
                             //month
                             aux1 = parts[i].charAt(4) + "" + parts[i].charAt(5) + parts[i].charAt(6);
                             aux_month = MonthInt(aux1);
-                            System.out.println(aux_month);
                             
                             //year
                             aux1 = parts[i].charAt(24) + "" + parts[i].charAt(25) + parts[i].charAt(26) + parts[i].charAt(27);
@@ -1765,12 +1750,10 @@ public class ScreenBilling extends javax.swing.JPanel {
                             //day
                             aux1 = parts[i].charAt(8) + "" + parts[i].charAt(9);
                             aux_day = Integer.parseInt(aux1);
-                            System.out.println(aux_day);
                             
                             //month
                             aux1 = parts[i].charAt(4) + "" + parts[i].charAt(5) + parts[i].charAt(6);
                             aux_month = MonthInt(aux1);
-                            System.out.println(aux_month);
                             
                             //year
                             aux1 = parts[i].charAt(24) + "" + parts[i].charAt(25) + parts[i].charAt(26) + parts[i].charAt(27);
@@ -1801,7 +1784,6 @@ public class ScreenBilling extends javax.swing.JPanel {
     private void createIdsItems(){
         int aux = 0;
         for(item_class item:items_list){
-            System.out.println(item.getId_item());
             ComboItemsModel.insertElementAt(item.getId_item(), aux);
             ComboItemsModel.setSelectedItem(item.getId_item());
         }
@@ -1812,7 +1794,6 @@ public class ScreenBilling extends javax.swing.JPanel {
     private void createIdsMaintenance(){
         int aux = 0;
         for(maintenance_class item:maintenance_list){
-            System.out.println(item.getService_id()+""+item.getReceived_date());
             ComboMaintenanceModel.insertElementAt(item.getService_id(), aux);
             ComboMaintenanceModel.setSelectedItem(item.getService_id());
         }
@@ -1823,7 +1804,6 @@ public class ScreenBilling extends javax.swing.JPanel {
     private void createIdsCustomers(){
         int aux = 0;
         for(customer_class item:customers_list){
-            System.out.println(item.getCustomer_id());
             ComboCustomersModel.insertElementAt(item.getCustomer_name(), aux);
             ComboCustomersModel.setSelectedItem(item.getCustomer_name());
             
@@ -1834,7 +1814,6 @@ public class ScreenBilling extends javax.swing.JPanel {
         MaintenanceCustomerIdCombo.setModel(ComboCustomersModel);
         ItemCustomerIdCombo.updateUI();
         MaintenanceCustomerIdCombo.updateUI();
-        System.out.println(customers_dict);
     }
     
     //Create Flags
@@ -1842,8 +1821,6 @@ public class ScreenBilling extends javax.swing.JPanel {
     Boolean BillSearchFlag = false;
     Boolean BillRevokeFlag = false;
     String caso = "";
-    //Boolean ItemFlag = false;
-    //Boolean MaintenanceFlag = false;
     
     //Read CSV
     private BufferedReader reader;

@@ -314,6 +314,7 @@ public class ScreenLogin extends javax.swing.JPanel {
                 }              
             }
             if (bandera){
+                System.out.println("PRODUCTS");
                 System.out.println("Importado exitosamente");    
             }else{
                  JOptionPane.showMessageDialog(this,"Fatal Error: Importation");
@@ -359,6 +360,7 @@ public class ScreenLogin extends javax.swing.JPanel {
                 }              
             }
             if (bandera){
+                System.out.println("USERS");
                 System.out.println("Importado exitosamente");    
             }else{
                  JOptionPane.showMessageDialog(this,"Fatal Error: Importation");
@@ -407,6 +409,7 @@ public class ScreenLogin extends javax.swing.JPanel {
                 }              
             }
             if (bandera){
+                System.out.println("IDS");
                 System.out.println("Importado exitosamente");    
             }else{
                  JOptionPane.showMessageDialog(this,"Fatal Error: Importation");
@@ -458,6 +461,7 @@ public class ScreenLogin extends javax.swing.JPanel {
                 }              
             }
             if (bandera){
+                System.out.println("ITEMS");
                 System.out.println("Importado exitosamente");    
             }else{
                  JOptionPane.showMessageDialog(this,"Fatal Error: Importation");
@@ -513,6 +517,7 @@ public class ScreenLogin extends javax.swing.JPanel {
                 }              
             }
             if (bandera){
+                System.out.println("CUSTOMERS");
                 System.out.println("Importado exitosamente");    
             }else{
                  JOptionPane.showMessageDialog(this,"Fatal Error: Importation");
@@ -574,6 +579,7 @@ public class ScreenLogin extends javax.swing.JPanel {
                 }              
             }
             if (bandera){
+                System.out.println("MAINTENANCE");
                 System.out.println("Importado exitosamente");    
             }else{
                  JOptionPane.showMessageDialog(this,"Fatal Error: Importation");
