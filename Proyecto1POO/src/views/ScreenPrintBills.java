@@ -48,12 +48,13 @@ public class ScreenPrintBills extends javax.swing.JPanel {
      */
     public ScreenPrintBills() {
         initComponents();
+        TableBillsModel.setColumnIdentifiers(ids);
+        TableDetailsModel.setColumnIdentifiers(ids);
         initializeBilling();
         initializeDetail();
         createIdsBills();
-        TableBillsModel.setColumnIdentifiers(ids);
-        TableDetailsModel.setColumnIdentifiers(ids);
-        
+        ActualBillsTable.setModel(TableBillsModel);
+        ActualPrintedTable.setModel(TableDetailsModel);
     }
     
     //Read CSV variables
@@ -317,7 +318,7 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setText("Other Settings");
+        jLabel7.setText("Settings");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -332,7 +333,6 @@ public class ScreenPrintBills extends javax.swing.JPanel {
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
@@ -344,7 +344,10 @@ public class ScreenPrintBills extends javax.swing.JPanel {
                         .addGap(20, 20, 20)
                         .addComponent(jLabel4)
                         .addGap(26, 26, 26)
-                        .addComponent(jLabel5)))
+                        .addComponent(jLabel5))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel7)))
                 .addContainerGap(263, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -624,11 +627,18 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         
         details_list.add(temporary_object);
         WriteCSV();
+        TableDetailsModel.addRow(new Object []{temporary_object.getDetail_id(), temporary_object.getDetail_total()});
         add_id("detail");
         id_class id = main_class.ids.get(0);
         id.setId_detail(id.getId_detail() + 1);
         
         JOptionPane.showMessageDialog(null, "Detail created succesfully!");
+        try {
+            File path = new File(filename+".pdf");
+            Desktop.getDesktop().open(path);
+        } catch(Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
         
         BillIdCombo.setEnabled(false);
         NumberItemsText.setEnabled(false);
@@ -792,7 +802,7 @@ public class ScreenPrintBills extends javax.swing.JPanel {
                     }
                 }
                 details_list.add(temporary_object);
-                TableBillsModel.addRow(new Object []{temporary_object.getDetail_id(), temporary_object.getDetail_total()});
+                TableDetailsModel.addRow(new Object []{temporary_object.getDetail_id(), temporary_object.getDetail_total()});
             }
             reader.close();
             line = null;
