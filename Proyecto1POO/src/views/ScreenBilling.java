@@ -265,20 +265,6 @@ public class ScreenBilling extends javax.swing.JPanel {
                             .addGroup(BillingInputPanelLayout.createSequentialGroup()
                                 .addGap(103, 103, 103)
                                 .addComponent(jLabel4))
-                            .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(ItemBillTaxText)
-                                .addComponent(ItemBillIdText)
-                                .addComponent(ItemCustomerIdCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(BillingInputPanelLayout.createSequentialGroup()
-                                    .addComponent(ItemReceivementDayText, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(ItemReceivementMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(12, 12, 12)
-                                    .addComponent(ItemReceivementYearText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(ItemBillStateCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ItemBillSubtotalText)
-                                .addComponent(ItemBillTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(ItemOptionCombo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(BillingInputPanelLayout.createSequentialGroup()
                                 .addGap(129, 129, 129)
                                 .addComponent(jLabel5))
@@ -290,11 +276,26 @@ public class ScreenBilling extends javax.swing.JPanel {
                                 .addComponent(jLabel7))
                             .addGroup(BillingInputPanelLayout.createSequentialGroup()
                                 .addGap(127, 127, 127)
-                                .addComponent(jLabel3)))
+                                .addComponent(jLabel3))
+                            .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(BillingInputPanelLayout.createSequentialGroup()
+                                    .addComponent(ItemAcceptButton)
+                                    .addGap(122, 122, 122))
+                                .addGroup(BillingInputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ItemBillTaxText)
+                                    .addComponent(ItemBillIdText)
+                                    .addComponent(ItemCustomerIdCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(BillingInputPanelLayout.createSequentialGroup()
+                                        .addComponent(ItemReceivementDayText, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(ItemReceivementMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(12, 12, 12)
+                                        .addComponent(ItemReceivementYearText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(ItemBillStateCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ItemBillSubtotalText)
+                                    .addComponent(ItemBillTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ItemOptionCombo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(38, 38, 38))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanelLayout.createSequentialGroup()
-                        .addComponent(ItemAcceptButton)
-                        .addGap(160, 160, 160))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanelLayout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addGap(157, 157, 157))
@@ -452,20 +453,6 @@ public class ScreenBilling extends javax.swing.JPanel {
                             .addGroup(BillingInputPanel1Layout.createSequentialGroup()
                                 .addGap(103, 103, 103)
                                 .addComponent(jLabel12))
-                            .addGroup(BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(MaintenanceBillTaxText)
-                                .addComponent(MaintenanceBillIdText)
-                                .addComponent(MaintenanceCustomerIdCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(BillingInputPanel1Layout.createSequentialGroup()
-                                    .addComponent(MaintenanceReceivementDayText, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(MaintenanceReceivementMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(12, 12, 12)
-                                    .addComponent(MaintenanceReceivementYearText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(MaintenanceBillStateCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(MaintenanceBillSubtotalText)
-                                .addComponent(MaintenanceBillTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(MaintenanceOptionCombo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(BillingInputPanel1Layout.createSequentialGroup()
                                 .addGap(129, 129, 129)
                                 .addComponent(jLabel13))
@@ -477,11 +464,26 @@ public class ScreenBilling extends javax.swing.JPanel {
                                 .addComponent(jLabel15))
                             .addGroup(BillingInputPanel1Layout.createSequentialGroup()
                                 .addGap(127, 127, 127)
-                                .addComponent(jLabel11)))
+                                .addComponent(jLabel11))
+                            .addGroup(BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(BillingInputPanel1Layout.createSequentialGroup()
+                                    .addComponent(MaintenanceAcceptButton)
+                                    .addGap(121, 121, 121))
+                                .addGroup(BillingInputPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(MaintenanceBillTaxText)
+                                    .addComponent(MaintenanceBillIdText)
+                                    .addComponent(MaintenanceCustomerIdCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(BillingInputPanel1Layout.createSequentialGroup()
+                                        .addComponent(MaintenanceReceivementDayText, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(MaintenanceReceivementMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(12, 12, 12)
+                                        .addComponent(MaintenanceReceivementYearText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(MaintenanceBillStateCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(MaintenanceBillSubtotalText)
+                                    .addComponent(MaintenanceBillTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(MaintenanceOptionCombo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(38, 38, 38))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanel1Layout.createSequentialGroup()
-                        .addComponent(MaintenanceAcceptButton)
-                        .addGap(159, 159, 159))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingInputPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addGap(157, 157, 157))
@@ -531,7 +533,7 @@ public class ScreenBilling extends javax.swing.JPanel {
                 .addComponent(MaintenanceBillTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(MaintenanceAcceptButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         BillingWindowTitle1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -595,11 +597,12 @@ public class ScreenBilling extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BillingWindowSubtitle)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BillingAddButton)
+                .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BillingRevokeButton)
-                    .addComponent(BillingSearchButton)
-                    .addComponent(BillingCancelButton))
+                    .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(BillingAddButton)
+                        .addComponent(BillingSearchButton)
+                        .addComponent(BillingCancelButton)))
                 .addGap(12, 12, 12)
                 .addGroup(BillingViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BillingWindowTitle2)
@@ -660,8 +663,8 @@ public class ScreenBilling extends javax.swing.JPanel {
                 BillAddFlag = true;
                 BillSearchFlag = false;
                 BillRevokeFlag = false;
-                ItemFlag = true;
-                MaintenanceFlag = false;
+                //ItemFlag = true;
+                //MaintenanceFlag = false;
                 
                 //Disable Functions
                 BillingAddButton.setEnabled(false);
@@ -686,8 +689,8 @@ public class ScreenBilling extends javax.swing.JPanel {
                 BillAddFlag = true;
                 BillSearchFlag = false;
                 BillRevokeFlag = false;
-                ItemFlag = false;
-                MaintenanceFlag = true;
+                //ItemFlag = false;
+                //MaintenanceFlag = true;
                 
                 //Disable Functions
                 BillingAddButton.setEnabled(false);
@@ -723,14 +726,19 @@ public class ScreenBilling extends javax.swing.JPanel {
         int selection = JOptionPane.showOptionDialog(null, "Choose a Searching Option:", "SEARCH", 0, 3, null, options, options[0]);
         switch(selection){
             case 0:
+                caso = "0";
                 ItemBillIdText.setEnabled(true);
                 MaintenanceBillIdText.setEnabled(true);
                 
                 BillingAddButton.setEnabled(false);
                 BillingSearchButton.setEnabled(false);
                 BillingRevokeButton.setEnabled(false);
+                
+                ItemAcceptButton.setEnabled(true);
+                MaintenanceAcceptButton.setEnabled(true);
                 break;
             case 1:
+                caso = "1";
                 ItemReceivementDayText.setEnabled(true);
                 ItemReceivementMonthCombo.setEnabled(true);
                 ItemReceivementYearText.setEnabled(true);
@@ -741,14 +749,21 @@ public class ScreenBilling extends javax.swing.JPanel {
                 BillingAddButton.setEnabled(false);
                 BillingSearchButton.setEnabled(false);
                 BillingRevokeButton.setEnabled(false);
+                
+                ItemAcceptButton.setEnabled(true);
+                MaintenanceAcceptButton.setEnabled(true);
                 break;
             case 2:
+                caso = "2";
                 ItemCustomerIdCombo.setEnabled(true);
                 MaintenanceCustomerIdCombo.setEnabled(true);
                 
                 BillingAddButton.setEnabled(false);
                 BillingSearchButton.setEnabled(false);
                 BillingRevokeButton.setEnabled(false);
+                
+                ItemAcceptButton.setEnabled(true);
+                MaintenanceAcceptButton.setEnabled(true);
                 break;
         }
     }//GEN-LAST:event_BillingSearchButtonActionPerformed
@@ -759,8 +774,13 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillSearchFlag = false;
         BillRevokeFlag = true;
         ItemBillStateCombo.setSelectedIndex(1);
+        MaintenanceBillStateCombo.setSelectedIndex(1);
         
         ItemBillIdText.setEnabled(true);
+        MaintenanceBillIdText.setEnabled(true);
+        
+        ItemAcceptButton.setEnabled(true);
+        MaintenanceAcceptButton.setEnabled(true);
         
         BillingAddButton.setEnabled(false);
         BillingSearchButton.setEnabled(false);
@@ -809,6 +829,7 @@ public class ScreenBilling extends javax.swing.JPanel {
             ItemBillIdText.setEnabled(false);
 
             ItemOptionCombo.setSelectedIndex(0);
+            ItemBillIdText.setText("");
             ItemCustomerIdCombo.setSelectedIndex(0);
             ItemReceivementDayText.setText("");
             ItemReceivementMonthCombo.setSelectedIndex(0);
@@ -833,6 +854,7 @@ public class ScreenBilling extends javax.swing.JPanel {
             MaintenanceBillIdText.setEnabled(false);
 
             MaintenanceOptionCombo.setSelectedIndex(0);
+            MaintenanceBillIdText.setText("");
             MaintenanceCustomerIdCombo.setSelectedIndex(0);
             MaintenanceReceivementDayText.setText("");
             MaintenanceReceivementMonthCombo.setSelectedIndex(0);
@@ -846,8 +868,9 @@ public class ScreenBilling extends javax.swing.JPanel {
             BillAddFlag = false;
             BillSearchFlag = false;
             BillRevokeFlag = false;
-            ItemFlag = false;
-            MaintenanceFlag = false;
+            caso = "";
+            //ItemFlag = false;
+            //MaintenanceFlag = false;
 
             //Enable Functions
             BillingAddButton.setEnabled(true);
@@ -944,8 +967,84 @@ public class ScreenBilling extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Bill added succesfully!");
             
         } else if(BillSearchFlag == true){
-            
-        }    
+            switch(caso){
+                case "0":
+                    //Bill ID search
+                    for(bill_class bill_searched:bills_list){
+                        if(Integer.parseInt(ItemBillIdText.getText()) == bill_searched.getBill_id()){
+                            String customer = customers_dict2.get(bill_searched.getCustomer_id()).toString();
+                            ItemCustomerIdCombo.setSelectedItem(customer);
+                            ItemReceivementDayText.setText(bill_searched.getBill_date().getDate()+"");
+                            ItemReceivementMonthCombo.setSelectedIndex(bill_searched.getBill_date().getMonth());
+                            ItemReceivementYearText.setText((bill_searched.getBill_date().getYear() + 1900)+"");
+                            ItemBillStateCombo.setSelectedItem(bill_searched.getBill_state());
+                            ItemBillSubtotalText.setText(bill_searched.getBill_subtotal()+"");
+                            ItemBillTaxText.setText(bill_searched.getBill_tax()+"");
+                            ItemBillTotalText.setText(bill_searched.getBill_total()+"");
+                            JOptionPane.showMessageDialog(null, "Bill found!");
+                            return;
+                        }
+                    }
+                    JOptionPane.showMessageDialog(null, "Bill not found");
+                    break;
+                case "1":
+                    //Date search
+                    Date date_comparison = new Date(Integer.parseInt(ItemReceivementYearText.getText()) - 1900, Integer.parseInt(ItemReceivementMonthCombo.getSelectedItem().toString()) - 1, Integer.parseInt(ItemReceivementDayText.getText()));
+                    
+                    for(bill_class bill_searched:bills_list){
+                        System.out.println(bill_searched.getBill_date());
+                        System.out.println(date_comparison);
+                        if(bill_searched.getBill_date().equals(date_comparison)){
+                            String customer = customers_dict2.get(bill_searched.getCustomer_id()).toString();
+                            ItemBillIdText.setText(bill_searched.getBill_id()+"");
+                            ItemCustomerIdCombo.setSelectedItem(customer);
+                            ItemBillStateCombo.setSelectedItem(bill_searched.getBill_state());
+                            ItemBillSubtotalText.setText(bill_searched.getBill_subtotal()+"");
+                            ItemBillTaxText.setText(bill_searched.getBill_tax()+"");
+                            ItemBillTotalText.setText(bill_searched.getBill_total()+"");
+                            JOptionPane.showMessageDialog(null, "Bill found!");
+                            return;
+                        }
+                    }
+                    JOptionPane.showMessageDialog(null, "Bill not found");
+                    break;
+                case "2":
+                    //Customer search
+                    int CustomerId = Integer.parseInt(customers_dict.get(ItemCustomerIdCombo.getSelectedItem().toString()).toString());
+                    for(bill_class bill_searched:bills_list){
+                        if(CustomerId == bill_searched.getCustomer_id()){
+                            ItemBillIdText.setText(bill_searched.getBill_id()+"");
+                            ItemReceivementDayText.setText(bill_searched.getBill_date().getDate()+"");
+                            ItemReceivementMonthCombo.setSelectedIndex(bill_searched.getBill_date().getMonth());
+                            ItemReceivementYearText.setText((bill_searched.getBill_date().getYear() + 1900)+"");
+                            ItemBillStateCombo.setSelectedItem(bill_searched.getBill_state());
+                            ItemBillSubtotalText.setText(bill_searched.getBill_subtotal()+"");
+                            ItemBillTaxText.setText(bill_searched.getBill_tax()+"");
+                            ItemBillTotalText.setText(bill_searched.getBill_total()+"");
+                            JOptionPane.showMessageDialog(null, "Bill found!");
+                            return;
+                        }
+                    }
+                    JOptionPane.showMessageDialog(null, "Bill not found");
+                    break;
+            }
+        } else if(BillRevokeFlag == true) {
+            for(bill_class bill_searched:bills_list){
+                if(Integer.parseInt(ItemBillIdText.getText()) == bill_searched.getBill_id()){
+                    int pass = JOptionPane.showConfirmDialog(null, "Are you sure to revoke this bill?");
+                    if(pass == 0){
+                        bill_searched.setBill_state(ItemBillStateCombo.getSelectedItem().toString());
+                        WriteCSV();
+                        JOptionPane.showMessageDialog(null, "Bill revoked");
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Bill not found");
+            return;
+        }
     }//GEN-LAST:event_ItemAcceptButtonActionPerformed
 
     private void ItemBillSubtotalTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ItemBillSubtotalTextKeyReleased
@@ -1063,7 +1162,83 @@ public class ScreenBilling extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Bill added succesfully!");
             
         } else if(BillSearchFlag == true){
-            
+            switch(caso){
+                case "0":
+                    //Bill ID search
+                    for(bill_class bill_searched:bills_list){
+                        if(Integer.parseInt(MaintenanceBillIdText.getText()) == bill_searched.getBill_id()){
+                            String customer = customers_dict2.get(bill_searched.getCustomer_id()).toString();
+                            MaintenanceCustomerIdCombo.setSelectedItem(customer);
+                            MaintenanceReceivementDayText.setText(bill_searched.getBill_date().getDate()+"");
+                            MaintenanceReceivementMonthCombo.setSelectedIndex(bill_searched.getBill_date().getMonth());
+                            MaintenanceReceivementYearText.setText((bill_searched.getBill_date().getYear() + 1900)+"");
+                            MaintenanceBillStateCombo.setSelectedItem(bill_searched.getBill_state());
+                            MaintenanceBillSubtotalText.setText(bill_searched.getBill_subtotal()+"");
+                            MaintenanceBillTaxText.setText(bill_searched.getBill_tax()+"");
+                            MaintenanceBillTotalText.setText(bill_searched.getBill_total()+"");
+                            JOptionPane.showMessageDialog(null, "Bill found!");
+                            return;
+                        }
+                    }
+                    JOptionPane.showMessageDialog(null, "Bill not found");
+                    break;
+                case "1":
+                    //Date search
+                    Date date_comparison = new Date(Integer.parseInt(MaintenanceReceivementYearText.getText()) - 1900, Integer.parseInt(MaintenanceReceivementMonthCombo.getSelectedItem().toString()) - 1, Integer.parseInt(MaintenanceReceivementDayText.getText()));
+                    
+                    for(bill_class bill_searched:bills_list){
+                        System.out.println(bill_searched.getBill_date());
+                        System.out.println(date_comparison);
+                        if(bill_searched.getBill_date().equals(date_comparison)){
+                            String customer = customers_dict2.get(bill_searched.getCustomer_id()).toString();
+                            MaintenanceBillIdText.setText(bill_searched.getBill_id()+"");
+                            MaintenanceCustomerIdCombo.setSelectedItem(customer);
+                            MaintenanceBillStateCombo.setSelectedItem(bill_searched.getBill_state());
+                            MaintenanceBillSubtotalText.setText(bill_searched.getBill_subtotal()+"");
+                            MaintenanceBillTaxText.setText(bill_searched.getBill_tax()+"");
+                            MaintenanceBillTotalText.setText(bill_searched.getBill_total()+"");
+                            JOptionPane.showMessageDialog(null, "Bill found!");
+                            return;
+                        }
+                    }
+                    JOptionPane.showMessageDialog(null, "Bill not found");
+                    break;
+                case "2":
+                    //Customer search
+                    int CustomerId = Integer.parseInt(customers_dict.get(MaintenanceCustomerIdCombo.getSelectedItem().toString()).toString());
+                    for(bill_class bill_searched:bills_list){
+                        if(CustomerId == bill_searched.getCustomer_id()){
+                            MaintenanceBillIdText.setText(bill_searched.getBill_id()+"");
+                            MaintenanceReceivementDayText.setText(bill_searched.getBill_date().getDate()+"");
+                            MaintenanceReceivementMonthCombo.setSelectedIndex(bill_searched.getBill_date().getMonth());
+                            MaintenanceReceivementYearText.setText((bill_searched.getBill_date().getYear() + 1900)+"");
+                            MaintenanceBillStateCombo.setSelectedItem(bill_searched.getBill_state());
+                            MaintenanceBillSubtotalText.setText(bill_searched.getBill_subtotal()+"");
+                            MaintenanceBillTaxText.setText(bill_searched.getBill_tax()+"");
+                            MaintenanceBillTotalText.setText(bill_searched.getBill_total()+"");
+                            JOptionPane.showMessageDialog(null, "Bill found!");
+                            return;
+                        }
+                    }
+                    JOptionPane.showMessageDialog(null, "Bill not found");
+                    break;
+            }
+        } else if(BillRevokeFlag == true) {
+            for(bill_class bill_searched:bills_list){
+                if(Integer.parseInt(MaintenanceBillIdText.getText()) == bill_searched.getBill_id()){
+                    int pass = JOptionPane.showConfirmDialog(null, "Are you sure to revoke this bill?");
+                    if(pass == 0){
+                        bill_searched.setBill_state(MaintenanceBillStateCombo.getSelectedItem().toString());
+                        WriteCSV();
+                        JOptionPane.showMessageDialog(null, "Bill revoked");
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Bill not found");
+            return;
         }
     }//GEN-LAST:event_MaintenanceAcceptButtonActionPerformed
     
@@ -1561,6 +1736,7 @@ public class ScreenBilling extends javax.swing.JPanel {
             ComboCustomersModel.setSelectedItem(item.getCustomer_name());
             
             customers_dict.put(item.getCustomer_name(), item.getCustomer_id());
+            customers_dict2.put(item.getCustomer_id(), item.getCustomer_name());
         }
         ItemCustomerIdCombo.setModel(ComboCustomersModel);
         MaintenanceCustomerIdCombo.setModel(ComboCustomersModel);
@@ -1573,8 +1749,9 @@ public class ScreenBilling extends javax.swing.JPanel {
     Boolean BillAddFlag = false;
     Boolean BillSearchFlag = false;
     Boolean BillRevokeFlag = false;
-    Boolean ItemFlag = false;
-    Boolean MaintenanceFlag = false;
+    String caso = "";
+    //Boolean ItemFlag = false;
+    //Boolean MaintenanceFlag = false;
     
     //Read CSV
     private BufferedReader reader;
@@ -1592,6 +1769,7 @@ public class ScreenBilling extends javax.swing.JPanel {
     ArrayList<maintenance_class> maintenance_list = new ArrayList<>();
     ArrayList<bill_class> bills_list = new ArrayList<>();
     Dictionary customers_dict = new Hashtable ();
+    Dictionary customers_dict2 = new Hashtable ();
     Calendar calendar = new GregorianCalendar();
     
     private void initializeBilling(){
@@ -1617,10 +1795,10 @@ public class ScreenBilling extends javax.swing.JPanel {
                             day = Integer.parseInt(parts[i]);
                             break;
                         case 3:
-                            month = Integer.parseInt(parts[i]);
+                            month = Integer.parseInt(parts[i]) - 1;
                             break;
                         case 4:
-                            year = Integer.parseInt(parts[i]);
+                            year = Integer.parseInt(parts[i]) - 1900;
                             date = new Date(year, month, day);
                             temporary_object.setBill_date(date);
                             break;
