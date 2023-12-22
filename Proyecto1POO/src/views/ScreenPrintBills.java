@@ -51,6 +51,9 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         initializeBilling();
         initializeDetail();
         createIdsBills();
+        TableBillsModel.setColumnIdentifiers(ids);
+        TableDetailsModel.setColumnIdentifiers(ids);
+        
     }
     
     //Read CSV variables
@@ -406,9 +409,9 @@ public class ScreenPrintBills extends javax.swing.JPanel {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(13, 13, 13))
                             .addGroup(SettingsViewLayout.createSequentialGroup()
-                                .addGap(83, 83, 83)
+                                .addGap(81, 81, 81)
                                 .addComponent(jLabel9)
-                                .addGap(187, 187, 187)
+                                .addGap(189, 189, 189)
                                 .addComponent(jLabel10))))
                     .addGroup(SettingsViewLayout.createSequentialGroup()
                         .addGap(468, 468, 468)
@@ -843,6 +846,7 @@ public class ScreenPrintBills extends javax.swing.JPanel {
                     }
                 }
                 bills_list.add(temporary_object);
+                TableBillsModel.addRow(new Object []{temporary_object.getCustomer_id(), temporary_object.getCustomer_name(), temporary_object.getCustomer_lastname()});
             }
             reader.close();
             line = null;

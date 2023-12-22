@@ -6,7 +6,6 @@ package views;
 
 import Classes.customer_class;
 import Classes.id_class;
-import Classes.item_class;
 import Classes.main_class;
 import Classes.maintenance_class;
 import java.awt.BorderLayout;
@@ -19,7 +18,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import java.util.Date;
-import java.util.HashSet;
 import javax.swing.JOptionPane;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
