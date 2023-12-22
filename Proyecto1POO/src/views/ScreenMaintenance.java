@@ -23,7 +23,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
- * Maintenance Screen
+ * Initialize buttons and create a list for a combobox.
  * @author jonns
  */
 public class ScreenMaintenance extends javax.swing.JPanel {
@@ -36,6 +36,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
     DefaultComboBoxModel model = new DefaultComboBoxModel();
     ArrayList<String> list_customers = new ArrayList<>();
     
+    /**
+    * Assigns initial values to the variables buttons adds to the previously created list
+    * @author jonns
+    */
     public ScreenMaintenance() {
         initComponents();
         add_list_customers();
@@ -273,11 +277,6 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         jLabel12.setBounds(180, 190, 30, 40);
 
         Customer_Id.setEnabled(false);
-        Customer_Id.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Customer_IdActionPerformed(evt);
-            }
-        });
         MaintenanceView.add(Customer_Id);
         Customer_Id.setBounds(320, 300, 130, 26);
 
@@ -485,7 +484,12 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+    * Create object to modify in maintenance.
+    * @author jonns
+    */
     private maintenance_class Modify_m;
+    
     /**
     * This method verifies that the date data is in a correct format
     * @author jonns
@@ -734,9 +738,9 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         }   
     }
     /**
-    * This method modifies a maintenance list object
+    * This method modifies a maintenance list object.
     * @author jonns
-    * @param Modify The parameter you want to modify
+    * @param Modify The parameter you want to modify.
     */
     private void Modify_maintenance(maintenance_class Modify){
         int modify_service_id;
@@ -795,7 +799,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
             }
     }
     /**
-    * This method removes an object from the maintenance list
+    * This method removes an object from the maintenance list.
     * @author jonns
     */
     private boolean Delete_maintenance(){
@@ -841,7 +845,11 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         Customer_Id.updateUI();
     }
     
-    
+    /**
+    * Set id maintenance in textfield.
+    * @author jonns
+    * @param id_mode id search to database.
+    */
     private void set_id(String id_mode){
         id_class id = main_class.ids.get(0);
         if(id_mode == "maintenance"){
@@ -849,7 +857,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         }
     }
     /**
-    * This method adds an id to the csv database
+    * This method adds an id to the csv database.
     * @author jonns
     * @param id_mode id add to database
     */
@@ -882,23 +890,39 @@ public class ScreenMaintenance extends javax.swing.JPanel {
             }      
         }
     }
-        
+     
+    /**
+    * Delete the current panel and return to the main.
+    * @author jonns
+    */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         borrarPanel(new ScreenProducts());
         ShowJPanel(new ScreenMain());
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
         // TODO add your handling code here:
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView2.png")));
     }//GEN-LAST:event_jButton1MouseEntered
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
         // TODO add your handling code here:
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView.png")));
     }//GEN-LAST:event_jButton1MouseExited
 
+    /**
+    * Accesses different methods depending on the button previously pressed.
+    * @author jonns
+    */
     private void Accept_MaintenanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accept_MaintenanceActionPerformed
         String textFromTextField_customer = (String) Customer_Id.getSelectedItem();
         if (textFromTextField_customer.isEmpty()){
@@ -951,18 +975,14 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         boolean pass_flag = true;
         if (create_button_maintenance == true) {
             pass_flag = Create_maintenance();
-            System.out.println("Botón 1 está habilitado. Realizar acciones para boton3.");
 
         } else if (Search_M.isEnabled()) {
-            System.out.println("Botón 2 está habilitado. Realizar acciones para boton2.");
 
         } else if (modify_button_maintenance == true) {
             Modify_maintenance(Modify_m);
             Add_maintenance();
             modify_button_maintenance = false;
-            System.out.println("Botón 3 está habilitado. Realizar acciones para boton3.");
         } else if (delete_button_maintenance == true) {
-            System.out.println("Botón 4 está habilitado. Realizar acciones para boton3.");
             boolean result = Delete_maintenance();
             if (result == false){
                 return;
@@ -1018,24 +1038,41 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_Accept_MaintenanceActionPerformed
 
+    
+    /**
+    * Brand validation.
+    * @author jonns
+    */
     private void Bicycle_BrandKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Bicycle_BrandKeyTyped
         if(Bicycle_Brand.getText().length() >= 15){
             evt.consume();
         }
     }//GEN-LAST:event_Bicycle_BrandKeyTyped
 
+    /**
+    * Observations validation.
+    * @author jonns
+    */
     private void ObservationsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ObservationsKeyPressed
         if (evt.getKeyChar() == '\n') {
             evt.consume();
         }    
     }//GEN-LAST:event_ObservationsKeyPressed
 
+    /**
+    * Observations validation.
+    * @author jonns
+    */
     private void ObservationsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ObservationsKeyTyped
         if (Observations.getText().length() >= 300){
             evt.consume();
         }
     }//GEN-LAST:event_ObservationsKeyTyped
 
+    /**
+    * Price validation.
+    * @author jonns
+    */
     private void PriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PriceKeyTyped
         if(Price.getText().length() >= 15){
             evt.consume();
@@ -1044,6 +1081,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         if (c<'0' || c>'9') evt.consume();   
     }//GEN-LAST:event_PriceKeyTyped
 
+    /**
+    * Button that establishes what condition the interface structures will be in.
+    * @author jonns
+    */
     private void Create_MaintenanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Create_MaintenanceActionPerformed
         set_id("maintenance");
         Create_Maintenance.setEnabled(false);
@@ -1071,18 +1112,30 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         
     }//GEN-LAST:event_Create_MaintenanceActionPerformed
 
+    /**
+    * Description validation.
+    * @author jonns
+    */
     private void Bicycle_DescriptionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Bicycle_DescriptionKeyTyped
         if (Bicycle_Description.getText().length() >= 300){
             evt.consume();
         }
     }//GEN-LAST:event_Bicycle_DescriptionKeyTyped
 
+    /**
+    * Description validation.
+    * @author jonns
+    */
     private void Bicycle_DescriptionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Bicycle_DescriptionKeyPressed
         if (evt.getKeyChar() == '\n') {
             evt.consume();
         }
     }//GEN-LAST:event_Bicycle_DescriptionKeyPressed
 
+    /**
+    * Reset the textfields and other interface structures.
+    * @author jonns
+    */
     private void Cancel_MaintenanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancel_MaintenanceActionPerformed
         Reset_Texts();
         Cancel_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar-32.png")));
@@ -1128,6 +1181,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         search_button_maintenance = false;
     }//GEN-LAST:event_Cancel_MaintenanceActionPerformed
 
+    /**
+    * Button that establishes what condition the interface structures will be in.
+    * @author jonns
+    */
     private void Search_MaintenanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_MaintenanceActionPerformed
         int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
             "Search",
@@ -1155,6 +1212,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         Cancel_Maintenance.setEnabled(true);                                  
     }//GEN-LAST:event_Search_MaintenanceActionPerformed
 
+    /**
+    * Button that establishes what condition the interface structures will be in.
+    * @author jonns
+    */
     private void Modify_MaintenanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modify_MaintenanceActionPerformed
         int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
             "Search",
@@ -1184,6 +1245,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         //loading_list_products();
     }//GEN-LAST:event_Modify_MaintenanceActionPerformed
 
+    /**
+    * Button that establishes what condition the interface structures will be in.
+    * @author jonns
+    */
     private void Delete_MaintenanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete_MaintenanceActionPerformed
         int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
             "Search",
@@ -1213,10 +1278,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         //loading_list_products();
     }//GEN-LAST:event_Delete_MaintenanceActionPerformed
 
-    private void Customer_IdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Customer_IdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Customer_IdActionPerformed
-
+    /**
+    * It searches the array of objects and if it finds it, it opens another method.
+    * @author jonns
+    */
     private void Search_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_MActionPerformed
         String textFromTextField_service = Service_Id.getText();
         String textFromTextField_customer = String.valueOf(Customer_Id.getSelectedItem());
@@ -1397,50 +1462,86 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         } 
     }//GEN-LAST:event_Search_MActionPerformed
 
+    /**
+    * Button Animation.
+    * @author jonns
+    */
     private void Create_MaintenanceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Create_MaintenanceMouseEntered
         Create_Maintenance.setForeground(Color.GRAY);
         Create_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mantenimiento-42.png")));
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/añadir-25.png")));
     }//GEN-LAST:event_Create_MaintenanceMouseEntered
 
+    /**
+    * Button Animation.
+    * @author jonns
+    */
     private void Create_MaintenanceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Create_MaintenanceMouseExited
         Create_Maintenance.setForeground(Color.black);
         Create_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mantenimiento-32.png")));
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/añadir-15.png")));
     }//GEN-LAST:event_Create_MaintenanceMouseExited
 
+    /**
+    * Button Animation.
+    * @author jonns
+    */
     private void Search_MaintenanceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_MaintenanceMouseEntered
         Search_Maintenance.setForeground(Color.GRAY);
         Search_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar-mantenimiento-42.png")));
     }//GEN-LAST:event_Search_MaintenanceMouseEntered
 
+    /**
+    * Button Animation.
+    * @author jonns
+    */
     private void Search_MaintenanceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_MaintenanceMouseExited
         Search_Maintenance.setForeground(Color.black);
         Search_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar-mantenimiento-32.png")));
     }//GEN-LAST:event_Search_MaintenanceMouseExited
 
+    /**
+    * Button Animation.
+    * @author jonns
+    */
     private void Modify_MaintenanceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Modify_MaintenanceMouseEntered
         Modify_Maintenance.setForeground(Color.GRAY);
         Modify_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/editar-mantenimiento-42.png")));
     }//GEN-LAST:event_Modify_MaintenanceMouseEntered
 
+    /**
+    * Button Animation.
+    * @author jonns
+    */
     private void Modify_MaintenanceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Modify_MaintenanceMouseExited
         Modify_Maintenance.setForeground(Color.black);
         Modify_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/editar-mantenimiento-32.png")));
     }//GEN-LAST:event_Modify_MaintenanceMouseExited
 
+    /**
+    * Button Animation.
+    * @author jonns
+    */
     private void Delete_MaintenanceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Delete_MaintenanceMouseEntered
         Delete_Maintenance.setForeground(Color.GRAY);
         Delete_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mantenimiento-42.png")));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar-30.png")));
     }//GEN-LAST:event_Delete_MaintenanceMouseEntered
 
+    /**
+    * Button Animation.
+    * @author jonns
+    */
     private void Delete_MaintenanceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Delete_MaintenanceMouseExited
         Delete_Maintenance.setForeground(Color.black);
         Delete_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mantenimiento-32.png")));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar-20.png")));
     }//GEN-LAST:event_Delete_MaintenanceMouseExited
 
+    /**
+    * Button Animation.
+    * @author jonns
+    */
     private void Search_MMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_MMouseEntered
         Search_M.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-42.png")));
 
@@ -1450,6 +1551,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         Search_M.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png")));
     }//GEN-LAST:event_Search_MMouseExited
 
+    /**
+    * Button Animation.
+    * @author jonns
+    */
     private void Accept_MaintenanceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Accept_MaintenanceMouseEntered
         if (Accept_Maintenance.isEnabled()) {
         Accept_Maintenance.setForeground(Color.GRAY);
@@ -1457,6 +1562,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_Accept_MaintenanceMouseEntered
 
+    /**
+    * Button Animation.
+    * @author jonns
+    */
     private void Accept_MaintenanceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Accept_MaintenanceMouseExited
        if (Accept_Maintenance.isEnabled()) {
        Accept_Maintenance.setForeground(Color.black);
@@ -1464,6 +1573,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_Accept_MaintenanceMouseExited
 
+    /**
+    * Button Animation.
+    * @author jonns
+    */
     private void Cancel_MaintenanceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cancel_MaintenanceMouseEntered
         if (Cancel_Maintenance.isEnabled()) {
         Cancel_Maintenance.setForeground(Color.GRAY);
@@ -1471,6 +1584,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_Cancel_MaintenanceMouseEntered
 
+    /**
+    * Button Animation.
+    * @author jonns
+    */
     private void Cancel_MaintenanceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cancel_MaintenanceMouseExited
        if (Cancel_Maintenance.isEnabled()) {
        Cancel_Maintenance.setForeground(Color.black);
@@ -1478,6 +1595,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_Cancel_MaintenanceMouseExited
 
+    /**
+    * Reset all textfill in the screen.
+    * @author jonns
+    */
     private void Reset_Texts(){
         Component[] components = MaintenanceView.getComponents();
         for (Component component : components) {
@@ -1486,11 +1607,21 @@ public class ScreenMaintenance extends javax.swing.JPanel {
             }
         }
     }
+    
+    /**
+    * Delete this panel.
+    * @author jonns
+    */
     private static void borrarPanel(JPanel panel) {
         panel.removeAll();
         panel.revalidate();
         panel.repaint();
     }
+    
+    /**
+    * Show this panel
+    * @author jonns
+    */
     private void ShowJPanel(JPanel p){
 
         p.setSize(1030,750);

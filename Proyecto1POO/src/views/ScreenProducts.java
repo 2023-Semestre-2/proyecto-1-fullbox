@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 
 
 /**
- * Establece los valores de botones presionados y crea la lista de productos.
+ * Set the button press values and create the product list.
  * @author jonns
  */
 
@@ -39,7 +39,7 @@ public class ScreenProducts extends javax.swing.JPanel {
     
     
     /**
-    * Coloca los valores booleanos respectivos, a los botones genera los get y los set.
+    * Place the respective boolean values, generate get and set buttons.
     * @author jonns
     */
     public ScreenProducts() {
@@ -302,11 +302,6 @@ public class ScreenProducts extends javax.swing.JPanel {
 
         Size.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "12", "16", "22", "26", "27", "27.5", "29" }));
         Size.setEnabled(false);
-        Size.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SizeActionPerformed(evt);
-            }
-        });
         ProductsView.add(Size);
         Size.setBounds(410, 563, 54, 26);
 
@@ -400,11 +395,6 @@ public class ScreenProducts extends javax.swing.JPanel {
 
         Item_Name.setAutoscrolls(false);
         Item_Name.setEnabled(false);
-        Item_Name.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Item_NameActionPerformed(evt);
-            }
-        });
         Item_Name.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 Item_NameKeyTyped(evt);
@@ -671,7 +661,7 @@ public class ScreenProducts extends javax.swing.JPanel {
 
     
     /**
-    * Restablece los valores originales de las estructuras en la interfaz
+    * Resets the original values of the structures in the interface.
     * @author jonns
     */
     private void Cancel_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancel_ItemActionPerformed
@@ -708,7 +698,7 @@ public class ScreenProducts extends javax.swing.JPanel {
     }//GEN-LAST:event_Cancel_ItemActionPerformed
 
     /**
-    * Carga de la lista productos al modelo que se usara en el combobox en items.
+    * Loading the list of products to the model that will be used in the combobox in items.
     * @author jonns
     */
     private void loading_list_products(){
@@ -721,9 +711,9 @@ public class ScreenProducts extends javax.swing.JPanel {
         Product_Category.updateUI();
     }
     /**
-    * Carga en el archivo id's un id nuevo,sumandole 1 al respectivo que se uso.
+    * Load a new id into the id's file, adding 1 to the respective one used.
     * @author jonns
-    * @param id_mode ayuda a identificar cual id incrementar.
+    * @param id_mode helps identify which id to increment.
     */
     private void add_id(String id_mode){
         String archive = Paths.get("src", "DataBase", "ID's.csv").toString();
@@ -756,13 +746,12 @@ public class ScreenProducts extends javax.swing.JPanel {
             }      
         }
     }
+    
+    
     /**
-    * Hace validaciones y redirige a otros metodos dependiendo de cual boton este presionado.
+    * It validates and redirects to other methods depending on which button is pressed.
     * @author jonns
     */
-    
-    
-   
     private void Accept_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accept_ItemActionPerformed
 
         String textFromTextField_category = (String) Product_Category.getSelectedItem();
@@ -809,18 +798,14 @@ public class ScreenProducts extends javax.swing.JPanel {
 
         if (create_button_item == true) {
             Create_item();
-            System.out.println("Botón 1 está habilitado. Realizar acciones para boton3.");
 
         } else if (Search_Item.isEnabled()) {
-            System.out.println("Botón 2 está habilitado. Realizar acciones para boton2.");
 
         } else if (modify_button_item == true) {
             Modify_item(Modify_i);
             Add_item();
             modify_button_item = false;
-            System.out.println("Botón 3 está habilitado. Realizar acciones para boton3.");
         } else if (delete_button_item == true) {
-            System.out.println("Botón 4 está habilitado. Realizar acciones para boton3.");
             boolean result = Delete_item();
             if (result == false){
                 return;
@@ -860,9 +845,9 @@ public class ScreenProducts extends javax.swing.JPanel {
 
     }//GEN-LAST:event_Accept_ItemActionPerformed
     /**
-    * Hace un set al textfiel correspondiente con su nuevo id.
+    * Sets the corresponding textfield with its new id.
     * @author jonns
-    * @param id_mode identifica cual es el id a incrementar.
+    * @param id_mode identifies which is the id to increment.
     */
     private void set_id(String id_mode){
         id_class id = main_class.ids.get(0);
@@ -874,7 +859,7 @@ public class ScreenProducts extends javax.swing.JPanel {
     }
 
     /**
-    * Boton que establece en que condicion van a estar las estructuras de la interfaz.
+    * Button that establishes what condition the interface structures will be in.
     * @author jonns
     */   
     private void Create_ProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Create_ProductActionPerformed
@@ -890,18 +875,18 @@ public class ScreenProducts extends javax.swing.JPanel {
         create_button_product = true;
     }//GEN-LAST:event_Create_ProductActionPerformed
     /**
-    * Genera una solicitud para ver por cual modo de busqueda se quiere y  establece en que condicion van a estar las estructuras de la interfaz
+    * Generates a request to see which search mode is desired and establishes what condition the interface structures will be in.
     * @author jonns
     */ 
     private void Search_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_ItemActionPerformed
         
         int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
             "Search",
-            JOptionPane.YES_NO_OPTION,   // Tipo de opción (sí/no)
-            JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje (pregunta)
-            null,                        // Icono personalizado (en este caso, ninguno)
-            new Object[]{"ID", "NAME"}, // Texto de los botones
-            "Botón 1");                    // Botón predeterminado
+            JOptionPane.YES_NO_OPTION,   
+            JOptionPane.QUESTION_MESSAGE, 
+            null,                        
+            new Object[]{"ID", "NAME"}, 
+            "Botón 1");                   
         Create_Item.setEnabled(false);
         Modify_Item.setEnabled(false);
         Delete_Item.setEnabled(false);
@@ -921,7 +906,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         
     }//GEN-LAST:event_Search_ItemActionPerformed
     /**
-    * Validacion del price
+    * Price validation.
     * @author jonns
     */ 
     private void PriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PriceKeyTyped
@@ -932,7 +917,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         if (c<'0' || c>'9') evt.consume();
     }//GEN-LAST:event_PriceKeyTyped
     /**
-    * Validacion del la brand
+    * Brand validation.
     * @author jonns
     */ 
     private void BrandKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BrandKeyTyped
@@ -941,7 +926,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_BrandKeyTyped
     /**
-    * Validacion del Item_Name
+    * Item_Name Validation.
     * @author jonns
     */ 
     private void Item_NameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Item_NameKeyTyped
@@ -951,7 +936,7 @@ public class ScreenProducts extends javax.swing.JPanel {
     }//GEN-LAST:event_Item_NameKeyTyped
     
     /**
-    * Validacion del Item_Id
+    * Item_Id validation.
     * @author jonns
     */
     private void Item_IdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Item_IdKeyTyped
@@ -967,7 +952,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Item_IdActionPerformed
     /**
-    * Validacion del Amount
+    * Amount Validation.
     * @author jonns
     */
     private void AmountKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AmountKeyTyped
@@ -979,22 +964,18 @@ public class ScreenProducts extends javax.swing.JPanel {
     }//GEN-LAST:event_AmountKeyTyped
     
     /**
-    * Genera una solicitud para ver por cual modo de busqueda se quiere y  establece en que condicion van a estar las estructuras de la interfaz
+    * Generates a request to see which search mode is desired and establishes what condition the interface structures will be in.
     * @author jonns
     */
     private void Delete_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete_ItemActionPerformed
-        //String iconPath = "/Img/boxx.png";
-
-        // Cargar la imagen como un ImageIcon
-        //ImageIcon customIcon = new ImageIcon(iconPath);
-        
+      
         int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
             "Search",
-            JOptionPane.YES_NO_OPTION,   // Tipo de opción (sí/no)
-            JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje (pregunta)
-            null,                        // Icono personalizado (en este caso, ninguno)
-            new Object[]{"ID", "NAME"}, // Texto de los botones
-            "Botón 1");                    // Botón predeterminado
+            JOptionPane.YES_NO_OPTION,   
+            JOptionPane.QUESTION_MESSAGE, 
+            null,                        
+            new Object[]{"ID", "NAME"}, 
+            "Botón 1");                    
 
         Create_Item.setEnabled(false);
         Search_Item.setEnabled(false);
@@ -1015,17 +996,17 @@ public class ScreenProducts extends javax.swing.JPanel {
     }//GEN-LAST:event_Delete_ItemActionPerformed
 
     /**
-    * Genera una solicitud para ver por cual modo de busqueda se quiere y  establece en que condicion van a estar las estructuras de la interfaz
+    * Generates a request to see which search mode is desired and establishes what condition the interface structures will be in.
     * @author jonns
     */
     private void Modify_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modify_ItemActionPerformed
         int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
             "Search",
-            JOptionPane.YES_NO_OPTION,   // Tipo de opción (sí/no)
-            JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje (pregunta)
-            null,                        // Icono personalizado (en este caso, ninguno)
-            new Object[]{"ID", "NAME"}, // Texto de los botones
-            "Botón 1");                    // Botón predeterminado
+            JOptionPane.YES_NO_OPTION,   
+            JOptionPane.QUESTION_MESSAGE, 
+            null,                        
+            new Object[]{"ID", "NAME"}, 
+            "Botón 1");                   
 
         Create_Item.setEnabled(false);
         Search_Item.setEnabled(false);
@@ -1045,12 +1026,8 @@ public class ScreenProducts extends javax.swing.JPanel {
         loading_list_products();
     }//GEN-LAST:event_Modify_ItemActionPerformed
 
-    private void SizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SizeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SizeActionPerformed
-
     /**
-    * Validacion del Type
+    * Type Validation.
     * @author jonns
     */
     private void TypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TypeActionPerformed
@@ -1066,17 +1043,17 @@ public class ScreenProducts extends javax.swing.JPanel {
 
     }//GEN-LAST:event_TypeActionPerformed
     /**
-    * Genera una solicitud para ver por cual modo de busqueda se quiere y  establece en que condicion van a estar las estructuras de la interfaz
+    * Generates a request to see which search mode is desired and establishes what condition the interface structures will be in.
     * @author jonns
     */
     private void Search_ProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_ProductActionPerformed
         int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
             "Search",
-            JOptionPane.YES_NO_OPTION,   // Tipo de opción (sí/no)
-            JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje (pregunta)
-            null,                        // Icono personalizado (en este caso, ninguno)
-            new Object[]{"ID", "NAME"}, // Texto de los botones
-            "Botón 1");                    // Botón predeterminado
+            JOptionPane.YES_NO_OPTION,  
+            JOptionPane.QUESTION_MESSAGE, 
+            null,                       
+            new Object[]{"ID", "NAME"}, 
+            "Botón 1");                   
         
         Create_Product.setEnabled(false);
         Modify_Product.setEnabled(false);
@@ -1094,17 +1071,17 @@ public class ScreenProducts extends javax.swing.JPanel {
         Cancel_Product.setEnabled(true);
     }//GEN-LAST:event_Search_ProductActionPerformed
     /**
-    * Genera una solicitud para ver por cual modo de busqueda se quiere y  establece en que condicion van a estar las estructuras de la interfaz
+    * Generates a request to see which search mode is desired and establishes what condition the interface structures will be in.
     * @author jonns
     */
     private void Modify_ProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modify_ProductActionPerformed
         int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
             "Search",
-            JOptionPane.YES_NO_OPTION,   // Tipo de opción (sí/no)
-            JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje (pregunta)
-            null,                        // Icono personalizado (en este caso, ninguno)
-            new Object[]{"ID", "NAME"}, // Texto de los botones
-            "Botón 1");                    // Botón predeterminado
+            JOptionPane.YES_NO_OPTION,  
+            JOptionPane.QUESTION_MESSAGE, 
+            null,                        
+            new Object[]{"ID", "NAME"}, 
+            "Botón 1");                  
 
         Create_Product.setEnabled(false);
         Search_Product.setEnabled(false);
@@ -1122,7 +1099,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         Cancel_Product.setEnabled(true);
     }//GEN-LAST:event_Modify_ProductActionPerformed
     /**
-    * agrega a una lista.
+    * Adds the product objects in memory to a list.
     * @author jonns
     */
     private void add_list_products(){
@@ -1132,7 +1109,7 @@ public class ScreenProducts extends javax.swing.JPanel {
     }
     }
     /**
-    * Establece en que condicion van a estar las estructuras de la interfaz
+    * Establishes what condition the interface structures will be in.
     * @author jonns
     */
     private void Create_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Create_ItemActionPerformed
@@ -1156,24 +1133,36 @@ public class ScreenProducts extends javax.swing.JPanel {
 
     }//GEN-LAST:event_Create_ItemActionPerformed
 
+    /**
+    * Delete the current screen and return to the main screen.
+    * @author jonns
+    */ 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         borrarPanel(new ScreenProducts());
         ShowJPanel(new ScreenMain());
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    /**
+    * Exit button animation.
+    * @author jonns
+    */    
     private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
         // TODO add your handling code here:
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView.png")));
     }//GEN-LAST:event_jButton1MouseExited
 
+    /**
+    * Exit button animation.
+    * @author jonns
+    */ 
     private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
         // TODO add your handling code here:
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView2.png")));
     }//GEN-LAST:event_jButton1MouseEntered
     
     /**
-    * Hace una busqueda en el array de objetos y si lo encuentra abre otro metodo.
+    * It searches the array of objects and if it finds it, it opens another method.
     * @author jonns
     */
     private void Search_IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_IActionPerformed
@@ -1247,7 +1236,7 @@ public class ScreenProducts extends javax.swing.JPanel {
     }//GEN-LAST:event_Search_IActionPerformed
 
     /**
-    * Hace una busqueda en el array de objetos y si lo encuentra abre otro metodo.
+    * It searches the array of objects and if it finds it, it opens another method.
     * @author jonns
     */
     private void Search_PActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_PActionPerformed
@@ -1297,11 +1286,9 @@ public class ScreenProducts extends javax.swing.JPanel {
     }//GEN-LAST:event_Search_PActionPerformed
 
     /**
-    * Hace validaciones para saber que boton se presiono y asi ir a un metodo distinto
+    * Makes validations to know which button was pressed and thus go to a different method.
     * @author jonns
     */
-    
-    
     private boolean verify_use(String product){
         System.out.println(product);
         for (item_class A : main_class.items) {
@@ -1313,13 +1300,18 @@ public class ScreenProducts extends javax.swing.JPanel {
         }
         return false;
     }
+    
+    /**
+    * Access different methods depending on the main buttons selected
+    * @author jonns
+    */
     private void Accept_ProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accept_ProductActionPerformed
         String textFromTextField_category = Category_Id.getText();
         if (textFromTextField_category.isEmpty()){
             JOptionPane.showMessageDialog(null, "Product Category Without Text");
             return;
         }
-        ///////////////////////////////////////////////
+    
         String textFromTextField_name = Name_Product.getText();
         if (textFromTextField_name.isEmpty()){
             JOptionPane.showMessageDialog(null, "Product Name Without Text");
@@ -1334,10 +1326,8 @@ public class ScreenProducts extends javax.swing.JPanel {
  
         if (create_button_product == true) {
             Create_products();
-            System.out.println("Botón 1 está habilitado. Realizar acciones para boton3.");
 
         } else if (Search_P.isEnabled()) {
-            System.out.println("Botón 2 está habilitado. Realizar acciones para boton2.");
 
         } else if (modify_button_product == true) {
             boolean found = verify_use(String.valueOf(Modify_p.getCategory_id()) + "-" + Modify_p.getCategory_name());
@@ -1353,9 +1343,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             loading_list_products();
             
             modify_button_product = false;
-            System.out.println("Botón 3 está habilitado. Realizar acciones para boton3.");
         } else if (delete_button_product == true) {
-            System.out.println("Botón 4 está habilitado. Realizar acciones para boton3.");
             boolean found = verify_use(String.valueOf(Category_Id.getText() + "-" + Name_Product.getText()));
             if (found == true){
                 return;
@@ -1394,7 +1382,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         
     }//GEN-LAST:event_Accept_ProductActionPerformed
     /**
-    * Resetear los textfield y las demas estructuras de la interfaz.
+    * Reset the textfields and other interface structures.
     * @author jonns
     */
     private void Cancel_ProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancel_ProductActionPerformed
@@ -1419,17 +1407,17 @@ public class ScreenProducts extends javax.swing.JPanel {
         
     }//GEN-LAST:event_Cancel_ProductActionPerformed
     /**
-    * Genera una solicitud para ver por cual modo de busqueda se quiere y  establece en que condicion van a estar las estructuras de la interfaz
+    * Generates a request to see which search mode is desired and establishes what condition the interface structures will be in.
     * @author jonns
     */
     private void Delete_ProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete_ProductActionPerformed
         int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
             "Search",
-            JOptionPane.YES_NO_OPTION,   // Tipo de opción (sí/no)
-            JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje (pregunta)
-            null,                        // Icono personalizado (en este caso, ninguno)
-            new Object[]{"ID", "NAME"}, // Texto de los botones
-            "Botón 1");                    // Botón predeterminado
+            JOptionPane.YES_NO_OPTION,   
+            JOptionPane.QUESTION_MESSAGE, 
+            null,                       
+            new Object[]{"ID", "NAME"},
+            "Botón 1");                    
 
         Create_Product.setEnabled(false);
         Search_Product.setEnabled(false);
@@ -1447,56 +1435,87 @@ public class ScreenProducts extends javax.swing.JPanel {
         Cancel_Product.setEnabled(true);
     }//GEN-LAST:event_Delete_ProductActionPerformed
 
-    private void Item_NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Item_NameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Item_NameActionPerformed
-
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Create_ProductMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Create_ProductMouseEntered
         
         Create_Product.setForeground(Color.GRAY);
         Create_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-producto42.png")));
     }//GEN-LAST:event_Create_ProductMouseEntered
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Create_ProductMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Create_ProductMouseExited
         
         Create_Product.setForeground(Color.black);
         Create_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-producto.png")));
     }//GEN-LAST:event_Create_ProductMouseExited
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Modify_ProductMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Modify_ProductMouseEntered
         
         Modify_Product.setForeground(Color.GRAY);
-        Modify_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/editar-producto-42.png")));
-        
+        Modify_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/editar-producto-42.png")));  
     }//GEN-LAST:event_Modify_ProductMouseEntered
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Modify_ProductMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Modify_ProductMouseExited
         
         Modify_Product.setForeground(Color.black);
         Modify_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/editar-producto-32.png")));
     }//GEN-LAST:event_Modify_ProductMouseExited
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Search_ProductMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_ProductMouseEntered
         
         Search_Product.setForeground(Color.GRAY);
         Search_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-42.png")));
     }//GEN-LAST:event_Search_ProductMouseEntered
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Search_ProductMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_ProductMouseExited
         Search_Product.setForeground(Color.black);
         Search_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png")));
     }//GEN-LAST:event_Search_ProductMouseExited
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Delete_ProductMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Delete_ProductMouseEntered
         Delete_Product.setForeground(Color.GRAY);
         Delete_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Delete-42.png")));
     }//GEN-LAST:event_Delete_ProductMouseEntered
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Delete_ProductMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Delete_ProductMouseExited
         Delete_Product.setForeground(Color.black);
         Delete_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Delete-32.png")));
     }//GEN-LAST:event_Delete_ProductMouseExited
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Search_PMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_PMouseEntered
        if (Search_P.isEnabled()){
         Search_P.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-42.png")));
@@ -1504,60 +1523,108 @@ public class ScreenProducts extends javax.swing.JPanel {
         
     }//GEN-LAST:event_Search_PMouseEntered
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Search_PMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_PMouseExited
        Search_P.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png")));
     }//GEN-LAST:event_Search_PMouseExited
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Product_CategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Product_CategoryActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Product_CategoryActionPerformed
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Create_ItemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Create_ItemMouseEntered
         Create_Item.setForeground(Color.GRAY);
         Create_Item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-producto42.png")));
     }//GEN-LAST:event_Create_ItemMouseEntered
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Create_ItemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Create_ItemMouseExited
         Create_Item.setForeground(Color.black);
         Create_Item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-producto.png")));
     }//GEN-LAST:event_Create_ItemMouseExited
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Delete_ItemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Delete_ItemMouseEntered
         Delete_Item.setForeground(Color.GRAY);
         Delete_Item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Delete-42.png")));
     }//GEN-LAST:event_Delete_ItemMouseEntered
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Delete_ItemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Delete_ItemMouseExited
         Delete_Item.setForeground(Color.black);
         Delete_Item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Delete-32.png")));
     }//GEN-LAST:event_Delete_ItemMouseExited
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Modify_ItemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Modify_ItemMouseEntered
         Modify_Item.setForeground(Color.GRAY);
         Modify_Item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/editar-producto-42.png")));
     }//GEN-LAST:event_Modify_ItemMouseEntered
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Modify_ItemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Modify_ItemMouseExited
         Modify_Item.setForeground(Color.black);
         Modify_Item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/editar-producto-32.png")));
     }//GEN-LAST:event_Modify_ItemMouseExited
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Search_ItemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_ItemMouseEntered
         Search_Item.setForeground(Color.GRAY);
         Search_Item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-42.png")));
     }//GEN-LAST:event_Search_ItemMouseEntered
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Search_ItemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_ItemMouseExited
         Search_Item.setForeground(Color.black);
         Search_Item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png")));
     }//GEN-LAST:event_Search_ItemMouseExited
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Search_IMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_IMouseEntered
         if (Search_I.isEnabled()) {
             Search_I.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-42.png")));
         }
     }//GEN-LAST:event_Search_IMouseEntered
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Search_IMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_IMouseExited
         
         Search_I.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png")));
@@ -1565,6 +1632,10 @@ public class ScreenProducts extends javax.swing.JPanel {
         
     }//GEN-LAST:event_Search_IMouseExited
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Accept_ProductMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Accept_ProductMouseEntered
        if (Accept_Product.isEnabled()) {
         Accept_Product.setForeground(Color.GRAY);
@@ -1572,6 +1643,10 @@ public class ScreenProducts extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_Accept_ProductMouseEntered
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Accept_ProductMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Accept_ProductMouseExited
        if (Accept_Product.isEnabled()) {
        Accept_Product.setForeground(Color.black);
@@ -1579,6 +1654,10 @@ public class ScreenProducts extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_Accept_ProductMouseExited
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Cancel_ProductMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cancel_ProductMouseEntered
         if (Cancel_Product.isEnabled()) {
         Cancel_Product.setForeground(Color.GRAY);
@@ -1586,6 +1665,10 @@ public class ScreenProducts extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_Cancel_ProductMouseEntered
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Cancel_ProductMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cancel_ProductMouseExited
        if (Cancel_Product.isEnabled()) {
        Cancel_Product.setForeground(Color.black);
@@ -1593,6 +1676,10 @@ public class ScreenProducts extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_Cancel_ProductMouseExited
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Accept_ItemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Accept_ItemMouseEntered
         if (Accept_Item.isEnabled()) {
         Accept_Item.setForeground(Color.GRAY);
@@ -1600,6 +1687,10 @@ public class ScreenProducts extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_Accept_ItemMouseEntered
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Accept_ItemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Accept_ItemMouseExited
         if (Accept_Item.isEnabled()) {
         Accept_Item.setForeground(Color.black);
@@ -1607,6 +1698,10 @@ public class ScreenProducts extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_Accept_ItemMouseExited
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Cancel_ItemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cancel_ItemMouseEntered
         if (Cancel_Item.isEnabled()) {
         Cancel_Item.setForeground(Color.GRAY);
@@ -1614,6 +1709,10 @@ public class ScreenProducts extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_Cancel_ItemMouseEntered
 
+    /**
+    * Button animation.
+    * @author jonns
+    */
     private void Cancel_ItemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cancel_ItemMouseExited
        if (Cancel_Item.isEnabled()) {
        Cancel_Item.setForeground(Color.black);
@@ -1624,7 +1723,7 @@ public class ScreenProducts extends javax.swing.JPanel {
 
     
     /**
-    * Resetea todos los textfiel en el panel.
+    * Reset all text fields in the panel.
     * @author jonns
     */
     private void Reset_Texts(){
@@ -1637,7 +1736,7 @@ public class ScreenProducts extends javax.swing.JPanel {
     }
     
     /**
-    * Agrega al csv el nuevo producto
+    * Add the new product to the CSV.
     * @author jonns
     */
     private void Add_product(){
@@ -1667,7 +1766,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         }   
     }
     /**
-    * Agrega al csv el nuevo item
+    * Add the new item to the CSV.
     * @author jonns
     */
     private void Add_item(){
@@ -1698,7 +1797,7 @@ public class ScreenProducts extends javax.swing.JPanel {
     }
     
     /**
-    * Remover del lista de objetos de productos el seleccionado.
+    * Remove the selected one from the list of product objects.
     * @author jonns
     */
     private boolean Delete_product(){
@@ -1720,7 +1819,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         return false;
     }
     /**
-    * Remover de la lista de objetos de items el seleccionado.
+    * Remove the selected one from the list of item objects.
     * @author jonns
     */
     private boolean Delete_item(){
@@ -1742,7 +1841,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         return false;
     }
     /**
-    * Agregar al array de productos el nuevo objeto.
+    * Add the new object to the products array.
     * @author jonns
     */
     private void Create_products(){
@@ -1774,7 +1873,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             }   
     }
     /**
-    * Agregar al array de items el nuevo objeto.
+    * Add the new object to the array of items.
     * @author jonns
     */
     private void Create_item(){
@@ -1829,9 +1928,9 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
     }
     /**
-    * Modificar un objeto producto
+    * Modify a product object.
     * @author jonns
-    * @param Modify es el objeto a modificar de productos.
+    * @param Modify It is the object to modify products.
     */
     private void Modify_product(category_class Modify){
         int modify_category_product;
@@ -1844,11 +1943,11 @@ public class ScreenProducts extends javax.swing.JPanel {
         
          for (category_class A : main_class.products) {
             if (A.getCategory_id()== modify_category_product && A.getCategory_name().equals(modify_name_product)) {
-                // El objeto con el mismo id y nombre ya existe
+                // The object with the same id and name already exists.
                 register = false;
                 break;
             }
-            // Si no encuentras un objeto con el mismo id, puedes permitir el mismo nombre
+            // If you don't find an object with the same id, you can allow the same name.
             if (A.getCategory_id()!= modify_category_product && A.getCategory_name().equals(modify_name_product) ) {
                 register = true;
             }
@@ -1864,9 +1963,9 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
     }
     /**
-    * Agregar al array de productos el nuevo objeto.
+    * Add the new object to the products array.
     * @author jonns
-    * @param Modify es el objeto a modificar de items.
+    * @param Modify It is the object to modify items.
     */
     private void Modify_item(item_class Modify){
         int modify_id_item;
@@ -1894,11 +1993,11 @@ public class ScreenProducts extends javax.swing.JPanel {
 
          for (item_class A : main_class.items) {
             if (A.getId_item() == modify_id_item && A.getName_item().equals(modify_name_item)) {
-                // El objeto con el mismo id y nombre ya existe
+                // The object with the same id and name already exists.
                 register = false;
                 break;
             }
-            // Si no encuentras un objeto con el mismo id, puedes permitir el mismo nombre
+            // If you don't find an object with the same id, you can allow the same name.
             if (A.getId_item() != modify_id_item && A.getName_item().equals(modify_name_item) ) {
                 register = true;
             }
@@ -1922,16 +2021,23 @@ public class ScreenProducts extends javax.swing.JPanel {
     }
         
        
-   
+    /**
+    * Create modified object items.
+    * @author jonns
+    */   
     private item_class Modify_i;
+    /**
+    * Create modified object product.
+    * @author jonns
+    */   
     private category_class Modify_p;
     
  
     
     /**
-    * Borra el panel expuesto actualmente.
+    * Clears the currently exposed panel.
     * @author jonns
-    * @param panel panel a remover.
+    * @param panel Panel to remove.
     */   
     private static void borrarPanel(JPanel panel) {
         panel.removeAll();
@@ -1939,9 +2045,9 @@ public class ScreenProducts extends javax.swing.JPanel {
         panel.repaint();
     }
     /**
-    * Muestra un panel
+    * Show a panel
     * @author jonns
-    * @param p panel a mostrar.
+    * @param p Panel to display.
     */ 
     private void ShowJPanel(JPanel p){
 
