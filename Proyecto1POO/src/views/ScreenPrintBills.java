@@ -792,6 +792,7 @@ public class ScreenPrintBills extends javax.swing.JPanel {
                     }
                 }
                 details_list.add(temporary_object);
+                TableBillsModel.addRow(new Object []{temporary_object.getDetail_id(), temporary_object.getDetail_total()});
             }
             reader.close();
             line = null;
