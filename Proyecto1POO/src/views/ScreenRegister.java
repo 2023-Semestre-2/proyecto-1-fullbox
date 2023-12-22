@@ -20,14 +20,11 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
  * @author saimo
  */
 public class ScreenRegister extends javax.swing.JPanel {
-    
-
     /**
      * Creates new form Register
      */
     public ScreenRegister() {
         initComponents();
-        
     }
 
     /**
@@ -47,7 +44,9 @@ public class ScreenRegister extends javax.swing.JPanel {
         UsernameText = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        RecoveryEmail = new javax.swing.JTextField();
         PasswordText = new javax.swing.JPasswordField();
         PasswordTextVisible = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -78,7 +77,7 @@ public class ScreenRegister extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(73, 80, 87));
         jLabel6.setText("Username");
         PanelRegister.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 70, -1));
-        PanelRegister.add(UsernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 390, 40));
+        PanelRegister.add(UsernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 390, 30));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
@@ -102,7 +101,7 @@ public class ScreenRegister extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        PanelRegister.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, 80, 30));
+        PanelRegister.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, 80, 30));
 
         jButton1.setBackground(new java.awt.Color(85, 110, 230));
         jButton1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -110,27 +109,25 @@ public class ScreenRegister extends javax.swing.JPanel {
         jButton1.setText("Register");
         jButton1.setBorder(null);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton1MouseExited(evt);
-            }
-        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        PanelRegister.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 280, 40));
+        PanelRegister.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 280, 40));
+
+        jLabel2.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Recovery email");
+        PanelRegister.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(73, 80, 87));
         jLabel7.setText("Password");
-        PanelRegister.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 90, -1));
-        PanelRegister.add(PasswordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 390, 40));
-        PanelRegister.add(PasswordTextVisible, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 390, 40));
+        PanelRegister.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 90, -1));
+        PanelRegister.add(RecoveryEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 390, 30));
+        PanelRegister.add(PasswordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 390, 30));
+        PanelRegister.add(PasswordTextVisible, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 390, 30));
 
         jLabel4.setBackground(new java.awt.Color(58, 61, 65));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Card_Content.png"))); // NOI18N
@@ -176,16 +173,6 @@ public class ScreenRegister extends javax.swing.JPanel {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jButton1MouseEntered
-
-    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jButton1MouseExited
     /**
     * This method is used to add a user to the database with the corresponding structure using the csv
     * @author saimo
@@ -199,7 +186,7 @@ public class ScreenRegister extends javax.swing.JPanel {
             fw = new FileWriter(archive);
             pw = new PrintWriter(fw);
             for(register_users i: main_class.users){
-                String line = i.getUsername() + "," + i.getPassword() + "," + i.getRemember();
+                String line = i.getUsername() + "," + i.getPassword() + "," + i.getRemember() + "," + i.getRecoveryEmail();
                 pw.println(line);
             }
             
@@ -224,11 +211,13 @@ public class ScreenRegister extends javax.swing.JPanel {
         
         String create_username;
         String create_password;
+        String create_recoveryEmail;
         boolean create_remember;
         Boolean register = false;
 
         create_username = String.valueOf(UsernameText.getText());
         String username = UsernameText.getText();
+        create_recoveryEmail = RecoveryEmail.getText();
         if (username == null || username.length() < 4 || username.length() > 16) {
             JOptionPane.showMessageDialog(this, "Enter a user from 4 characters to 16 characters maximum");
             return false;
@@ -263,6 +252,7 @@ public class ScreenRegister extends javax.swing.JPanel {
                 user.setUsername(create_username);
                 user.setPassword(create_password);
                 user.setRemember(create_remember);
+                user.setRecoveryEmail(create_recoveryEmail);
                 main_class.users.add(user);
                 
                 Add_user();
@@ -289,7 +279,7 @@ public class ScreenRegister extends javax.swing.JPanel {
             
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-        // Button Animation
+    // Button Animation
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
         jButton2.setForeground(Color.GRAY);
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/salir-redondeado-24GIF.gif")));
@@ -330,6 +320,7 @@ public class ScreenRegister extends javax.swing.JPanel {
     private javax.swing.JPanel PanelRegister;
     private javax.swing.JPasswordField PasswordText;
     private javax.swing.JTextField PasswordTextVisible;
+    private javax.swing.JTextField RecoveryEmail;
     private javax.swing.JTextField UsernameText;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -338,6 +329,7 @@ public class ScreenRegister extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

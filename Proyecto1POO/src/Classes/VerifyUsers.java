@@ -42,7 +42,6 @@ public class VerifyUsers {
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
                 if (data[0].equals(username)) {
-                    //Entry rememberMe
                     if (Boolean.parseBoolean(data[2])) {
                         this.pass = true;
                         MainMenu open = new MainMenu();

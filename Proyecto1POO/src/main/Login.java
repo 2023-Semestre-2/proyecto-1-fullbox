@@ -109,10 +109,11 @@ public class Login extends javax.swing.JFrame {
             while((line = br.readLine()) != null){
                 register_users user = new register_users();
                 String array [] = line.split("\\,");
-                if (array.length == 3){
+                if (array.length == 4){
                     user.setUsername(array[0]);
                     user.setPassword(array[1]);
                     user.setRemember(Boolean.parseBoolean(array[2]));
+                    user.setRecoveryEmail(array[3]);
                     main_class.users.add(user);
                     bandera =true;                     
                 }              

@@ -11,6 +11,7 @@ package Classes;
 public class register_users {
     private String username;
     private String password;
+    private String RecoveryEmail;
     private boolean remember;
     
     //Getters
@@ -31,6 +32,14 @@ public class register_users {
     */
     public String getPassword() {
         return password;
+    }
+
+    public String getRecoveryEmail() {
+        return RecoveryEmail;
+    }
+
+    public void setRecoveryEmail(String RecoveryEmail) {
+        this.RecoveryEmail = RecoveryEmail;
     }
     
     /**

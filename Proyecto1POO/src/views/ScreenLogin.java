@@ -12,6 +12,7 @@ import Classes.item_class;
 import Classes.main_class;
 import Classes.maintenance_class;
 import Classes.register_users;
+import Classes.RecoverPassword;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Desktop;
@@ -33,6 +34,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import main.Login;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
+
 
 /**
  * This is the login panel to enter the main program with the correct credentials
@@ -634,6 +636,7 @@ public class ScreenLogin extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Recover password
+        RecoverPassword.recoverPassword();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void ButtonRegisterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRegisterMouseEntered
