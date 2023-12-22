@@ -29,8 +29,8 @@ import javax.swing.JPanel;
 
 
 /**
- * Billing Screen
- * @author jonns
+ * The jPanel screen to show information and actions to the user about billing.
+ * @author josem
  */
 public class ScreenBilling extends javax.swing.JPanel {
 

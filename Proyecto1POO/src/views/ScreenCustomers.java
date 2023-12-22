@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ * The jPanel screen to show information and actions to the user about customers.
  * @author josem
  */
 public class ScreenCustomers extends javax.swing.JPanel {
