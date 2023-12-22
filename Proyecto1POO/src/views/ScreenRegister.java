@@ -7,19 +7,16 @@ package views;
 import Classes.main_class;
 import Classes.register_users;
 import java.awt.Color;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import main.Login;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
-import org.netbeans.lib.awtextra.*;
+
 /**
- *
+ * Register panel with all the logic to add a new user to the database
  * @author saimo
  */
 public class ScreenRegister extends javax.swing.JPanel {
@@ -81,12 +78,6 @@ public class ScreenRegister extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(73, 80, 87));
         jLabel6.setText("Username");
         PanelRegister.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 70, -1));
-
-        UsernameText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsernameTextActionPerformed(evt);
-            }
-        });
         PanelRegister.add(UsernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 390, 40));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
@@ -138,24 +129,7 @@ public class ScreenRegister extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(73, 80, 87));
         jLabel7.setText("Password");
         PanelRegister.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 90, -1));
-
-        PasswordText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PasswordTextActionPerformed(evt);
-            }
-        });
-        PasswordText.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                PasswordTextKeyPressed(evt);
-            }
-        });
         PanelRegister.add(PasswordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 390, 40));
-
-        PasswordTextVisible.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PasswordTextVisibleActionPerformed(evt);
-            }
-        });
         PanelRegister.add(PasswordTextVisible, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 390, 40));
 
         jLabel4.setBackground(new java.awt.Color(58, 61, 65));
@@ -203,10 +177,6 @@ public class ScreenRegister extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
     
-    private void UsernameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsernameTextActionPerformed
-
     private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
         // TODO add your handling code here:
         
@@ -217,7 +187,7 @@ public class ScreenRegister extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jButton1MouseExited
     /**
-    * Este método sirve para agregar un usuario a la base de datos
+    * This method is used to add a user to the database with the corresponding structure using the csv
     * @author saimo
     */
     private void Add_user() {
@@ -247,7 +217,7 @@ public class ScreenRegister extends javax.swing.JPanel {
         }
     }
     /**
-    * Este método sirve para crear un nuevo usuario
+    * This method is used to create a new user and performs validations so as not to add invalid users to the database
     * @author saimo
     */
     private boolean create_user() {
@@ -256,21 +226,20 @@ public class ScreenRegister extends javax.swing.JPanel {
         String create_password;
         boolean create_remember;
         Boolean register = false;
-        
 
         create_username = String.valueOf(UsernameText.getText());
         String username = UsernameText.getText();
-        if (username == null || username.length() < 4) {
-            JOptionPane.showMessageDialog(this, "Enter a valid username greater than or equal to 4 characters");
+        if (username == null || username.length() < 4 || username.length() > 16) {
+            JOptionPane.showMessageDialog(this, "Enter a user from 4 characters to 16 characters maximum");
             return false;
         }
         String password = PasswordTextVisible.getText();
-        if (password.isEmpty() || password.length() < 8) {
-            JOptionPane.showMessageDialog(this, "Enter a valid password greater than or equal to 8 characters");
+        if (password.isEmpty() || password.length() < 8 || password.length() > 32) {
+            JOptionPane.showMessageDialog(this, "Enter a valid password of minimum 8 to maximum 32 characters");
             return false;
         }
         if (password.length() < 8) {
-            JOptionPane.showMessageDialog(this, "Enter a valid password greater than or equal to 8 characters");
+            JOptionPane.showMessageDialog(this, "Enter a valid password of minimum 8 to maximum 32 characters");
             return false;
         }
         if (!PasswordTextVisible.getText().equals(String.valueOf(PasswordText.getPassword()))) {
@@ -303,11 +272,12 @@ public class ScreenRegister extends javax.swing.JPanel {
         return true;
     }
     /**
-    * Este evento detecta si fue presionado el boton de register para registrar un nuevo usuario en la base de datos
+    * This event detects if the register button was pressed to register a new user in the database 
+    * and hide the register panel and show the login panel
+    * @param evt
     * @author saimo
     * 
     */
-    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         boolean result = create_user();
         if (result) {
@@ -319,39 +289,34 @@ public class ScreenRegister extends javax.swing.JPanel {
             
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-    
-    private void PasswordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PasswordTextActionPerformed
-
-    private void PasswordTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordTextKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PasswordTextKeyPressed
-
-    private void PasswordTextVisibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordTextVisibleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PasswordTextVisibleActionPerformed
-
+        // Button Animation
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
         jButton2.setForeground(Color.GRAY);
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/salir-redondeado-24GIF.gif")));
     }//GEN-LAST:event_jButton2MouseEntered
-
+    // Button Animation
     private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
         jButton2.setForeground(Color.black);
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/salir-redondeado-24.png")));
     }//GEN-LAST:event_jButton2MouseExited
-
+    /**
+     * Exit button that resets the fields and hides the register panel and shows the login panel
+     * @param evt 
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         UsernameText.setText("");
         PasswordTextVisible.setText("");
         PasswordText.setText("");
         Login.hideRegisterPanel();
         Login.showLoginPanel();
-        
-        
-        
     }//GEN-LAST:event_jButton2ActionPerformed
+    
+    /**
+     * This method is responsible for showing a panel in a specific panel. 
+     * In the program it is responsible for showing the register panel on the login screen.
+     * @param p Panel to show
+     * @param main Panel where it will be displayed
+     */
     public void ShowJPanel(JPanel p, JPanel main){
         p.setSize(450, 490);
         p.setLocation(440,110);

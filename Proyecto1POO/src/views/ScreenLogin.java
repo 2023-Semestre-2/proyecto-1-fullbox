@@ -12,7 +12,6 @@ import Classes.item_class;
 import Classes.main_class;
 import Classes.maintenance_class;
 import Classes.register_users;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Desktop;
@@ -36,7 +35,7 @@ import main.Login;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
 /**
- *
+ * This is the login panel to enter the main program with the correct credentials
  * @author saimo
  */
 public class ScreenLogin extends javax.swing.JPanel {
@@ -63,15 +62,15 @@ public class ScreenLogin extends javax.swing.JPanel {
         UsernameText = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel10 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        ButtonLogIn = new javax.swing.JButton();
+        ButtonShowPassword = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         PasswordText = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        ButtonRegister = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -87,12 +86,6 @@ public class ScreenLogin extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(73, 80, 87));
         jLabel6.setText("Username");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 70, -1));
-
-        UsernameText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsernameTextActionPerformed(evt);
-            }
-        });
         jPanel2.add(UsernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 390, 40));
 
         jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
@@ -102,11 +95,6 @@ public class ScreenLogin extends javax.swing.JPanel {
         jCheckBox1.setBorder(null);
         jCheckBox1.setContentAreaFilled(false);
         jCheckBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
         jPanel2.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 140, -1));
 
         jLabel10.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
@@ -114,37 +102,37 @@ public class ScreenLogin extends javax.swing.JPanel {
         jLabel10.setText("© 2023 Crafted and designed by FullBox.");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 210, -1));
 
-        jButton1.setBackground(new java.awt.Color(85, 110, 230));
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Log In");
-        jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        ButtonLogIn.setBackground(new java.awt.Color(85, 110, 230));
+        ButtonLogIn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ButtonLogIn.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonLogIn.setText("Log In");
+        ButtonLogIn.setBorder(null);
+        ButtonLogIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ButtonLogIn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton1MouseEntered(evt);
+                ButtonLogInMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton1MouseExited(evt);
+                ButtonLogInMouseExited(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ButtonLogIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ButtonLogInActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 390, 40));
+        jPanel2.add(ButtonLogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 390, 40));
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo-cerrado.png"))); // NOI18N
-        jButton4.setBorder(null);
-        jButton4.setContentAreaFilled(false);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        ButtonShowPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo-cerrado.png"))); // NOI18N
+        ButtonShowPassword.setBorder(null);
+        ButtonShowPassword.setContentAreaFilled(false);
+        ButtonShowPassword.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ButtonShowPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                ButtonShowPasswordActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 30, 20));
+        jPanel2.add(ButtonShowPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 30, 20));
 
         jLabel7.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(73, 80, 87));
@@ -160,11 +148,6 @@ public class ScreenLogin extends javax.swing.JPanel {
         });
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 460, 20, 20));
 
-        PasswordText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PasswordTextActionPerformed(evt);
-            }
-        });
         PasswordText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 PasswordTextKeyPressed(evt);
@@ -200,26 +183,26 @@ public class ScreenLogin extends javax.swing.JPanel {
         jLabel3.setText("Don’t have an account?");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, -1, -1));
 
-        jButton3.setForeground(new java.awt.Color(85, 110, 230));
-        jButton3.setText("Signup now");
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        ButtonRegister.setForeground(new java.awt.Color(85, 110, 230));
+        ButtonRegister.setText("Signup now");
+        ButtonRegister.setBorder(null);
+        ButtonRegister.setBorderPainted(false);
+        ButtonRegister.setContentAreaFilled(false);
+        ButtonRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ButtonRegister.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton3MouseEntered(evt);
+                ButtonRegisterMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton3MouseExited(evt);
+                ButtonRegisterMouseExited(evt);
             }
         });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        ButtonRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                ButtonRegisterActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, -1, -1));
+        jPanel2.add(ButtonRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(58, 61, 65));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Card_Content.png"))); // NOI18N
@@ -259,35 +242,26 @@ public class ScreenLogin extends javax.swing.JPanel {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
+    
+    /**
+     * This method is created to give the logic to the show password or hide password button
+     */
     private void togglePasswordVisibility() {
         if (!passwordVisible) {
-            // Mostrar contraseña
             jTextField3.setText(new String(PasswordText.getPassword()));
-            PasswordText.setEchoChar((char) 0); // Mostrar texto original
+            PasswordText.setEchoChar((char) 0);
             passwordVisible = true;
         } else {
-            // Ocultar contraseña
-            PasswordText.setEchoChar('*'); // Ocultar texto nuevamente
+            PasswordText.setEchoChar('*');
             passwordVisible = false;
         }
         if (!passwordVisible) {
-            jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo-cerrado.png")));
+            ButtonShowPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo-cerrado.png")));
         } else {
-            jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo-visible.png")));
+            ButtonShowPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo-visible.png")));
         }
     }
-    private void RegisterSpace(){
-        ScreenRegister Rp =new ScreenRegister();
-        Rp.setVisible(true);
-        this.setVisible(false);
-        Rp.setSize(450, 490);
-        Rp.setLocation(440,110);
-        jPanel2.removeAll();
-        jPanel2.add(Rp, BorderLayout.CENTER);
-        jPanel2.revalidate();
-        jPanel2.repaint();
-    }
-    
+
     /**
     * Load product files from csv database
     * @author saymon
@@ -359,9 +333,9 @@ public class ScreenLogin extends javax.swing.JPanel {
                 }              
             }
             if (bandera){
-                System.out.println("Importado exitosamente");    
+                //System.out.println("Imported successfully");    
             }else{
-                 JOptionPane.showMessageDialog(this,"Fatal Error: Importation");
+                JOptionPane.showMessageDialog(this,"Fatal Error: Importation");
             }
             
         } catch (Exception ex) {
@@ -407,7 +381,7 @@ public class ScreenLogin extends javax.swing.JPanel {
                 }              
             }
             if (bandera){
-                System.out.println("Importado exitosamente");    
+                //System.out.println("Imported successfully");    
             }else{
                  JOptionPane.showMessageDialog(this,"Fatal Error: Importation");
             }
@@ -458,7 +432,7 @@ public class ScreenLogin extends javax.swing.JPanel {
                 }              
             }
             if (bandera){
-                System.out.println("Importado exitosamente");    
+                //System.out.println("Imported successfully");    
             }else{
                  JOptionPane.showMessageDialog(this,"Fatal Error: Importation");
             }
@@ -513,7 +487,7 @@ public class ScreenLogin extends javax.swing.JPanel {
                 }              
             }
             if (bandera){
-                System.out.println("Importado exitosamente");    
+                //System.out.println("Imported successfully");    
             }else{
                  JOptionPane.showMessageDialog(this,"Fatal Error: Importation");
             }
@@ -574,7 +548,7 @@ public class ScreenLogin extends javax.swing.JPanel {
                 }              
             }
             if (bandera){
-                System.out.println("Importado exitosamente");    
+                //System.out.println("Imported successfully");    
             }else{
                  JOptionPane.showMessageDialog(this,"Fatal Error: Importation");
             }
@@ -591,26 +565,22 @@ public class ScreenLogin extends javax.swing.JPanel {
                     ex.printStackTrace();
             }      
         }
-    }
-    private void UsernameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsernameTextActionPerformed
+    }    
+    //Button Animation
+    private void ButtonLogInMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonLogInMouseEntered
+        
+        ButtonLogIn.setForeground(new Color(200,200,200));
+    }//GEN-LAST:event_ButtonLogInMouseEntered
+    //Button Animation
+    private void ButtonLogInMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonLogInMouseExited
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
-
-    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
-        // TODO add your handling code here:
-        jButton1.setForeground(new Color(200,200,200));
-    }//GEN-LAST:event_jButton1MouseEntered
-
-    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
-        // TODO add your handling code here:
-        jButton1.setForeground(new Color(255,255,255));
-    }//GEN-LAST:event_jButton1MouseExited
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ButtonLogIn.setForeground(new Color(255,255,255));
+    }//GEN-LAST:event_ButtonLogInMouseExited
+    /**
+     * Logic of the login button that is responsible for verifying the username and password to allow entry to the main program
+     * @param evt 
+     */
+    private void ButtonLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLogInActionPerformed
         char[] passwordChar = PasswordText.getPassword();
         String passwordString = new String(passwordChar);
         String UsernameString = UsernameText.getText();
@@ -638,54 +608,53 @@ public class ScreenLogin extends javax.swing.JPanel {
                 loading_archive_maintenance();
             }
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ButtonLogInActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // Boton Mostrar contraseña
+    private void ButtonShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowPasswordActionPerformed
+        // Show password button
         togglePasswordVisibility();
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void PasswordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PasswordTextActionPerformed
+    }//GEN-LAST:event_ButtonShowPasswordActionPerformed
 
     private void PasswordTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordTextKeyPressed
-        // TODO add your handling code here:
+        // Click on the login button when you hit enter
         if(evt.getKeyCode()==KeyEvent.VK_ENTER) {
-            jButton1.doClick();
+            ButtonLogIn.doClick();
         }
     }//GEN-LAST:event_PasswordTextKeyPressed
-
+    
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
-        // TODO add your handling code here:
+        // Button Animation
         jButton2.setForeground(new Color(85,110,230));
     }//GEN-LAST:event_jButton2MouseEntered
 
     private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
-        // TODO add your handling code here:
+        // Button Animation
         jButton2.setForeground(new Color(116,120,141));
     }//GEN-LAST:event_jButton2MouseExited
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // Recover password
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
-        // TODO add your handling code here:
-        jButton3.setForeground(new Color(116,120,141));
-    }//GEN-LAST:event_jButton3MouseEntered
+    private void ButtonRegisterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRegisterMouseEntered
+        // Button Animation
+        ButtonRegister.setForeground(new Color(116,120,141));
+    }//GEN-LAST:event_ButtonRegisterMouseEntered
 
-    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
-        // TODO add your handling code here:
-        jButton3.setForeground(new Color(85,110,230));
-    }//GEN-LAST:event_jButton3MouseExited
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void ButtonRegisterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRegisterMouseExited
+        // Button Animation
+        ButtonRegister.setForeground(new Color(85,110,230));
+    }//GEN-LAST:event_ButtonRegisterMouseExited
+    /**
+     * This button hides the login panel and shows the register panel
+     * @param evt 
+     */
+    private void ButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegisterActionPerformed
         Login.showRegisterPanel();
         Login.hideLoginPanel();
 
-    }//GEN-LAST:event_jButton3ActionPerformed
-
+    }//GEN-LAST:event_ButtonRegisterActionPerformed
+    //easter egg
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
 
     String youtubeVideoURL = "https://www.youtube.com/watch?v=S47loCIF4b0";
@@ -696,7 +665,12 @@ public class ScreenLogin extends javax.swing.JPanel {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_jLabel5MouseClicked
-
+    /**
+     * This method is responsible for showing a panel in a specific panel. 
+     * In the program it is responsible for showing the register panel on the login screen.
+     * @param p Panel to show
+     * @param main Panel where it will be displayed
+     */
     public void ShowJPanel(JPanel p, JPanel main){
         p.setSize(450, 490);
         p.setLocation(440,110);
@@ -707,12 +681,12 @@ public class ScreenLogin extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonLogIn;
+    private javax.swing.JButton ButtonRegister;
+    private javax.swing.JButton ButtonShowPassword;
     private javax.swing.JPasswordField PasswordText;
     private javax.swing.JTextField UsernameText;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

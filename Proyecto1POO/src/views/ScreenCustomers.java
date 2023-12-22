@@ -111,19 +111,16 @@ public class ScreenCustomers extends javax.swing.JPanel {
         jButton1.setBounds(990, 10, 32, 32);
 
         CustomersWindowTitle.setFont(new java.awt.Font("Dubai Medium", 1, 24)); // NOI18N
-        CustomersWindowTitle.setForeground(new java.awt.Color(0, 0, 0));
         CustomersWindowTitle.setText("CUSTOMERS");
         CustomersView.add(CustomersWindowTitle);
         CustomersWindowTitle.setBounds(420, 10, 150, 42);
 
         CustomersWindowSubtitle.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        CustomersWindowSubtitle.setForeground(new java.awt.Color(0, 0, 0));
         CustomersWindowSubtitle.setText("Select the action to perform");
         CustomersView.add(CustomersWindowSubtitle);
         CustomersWindowSubtitle.setBounds(410, 40, 161, 24);
 
         AddCustomerButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        AddCustomerButton.setForeground(new java.awt.Color(0, 0, 0));
         AddCustomerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-usuario-32.png"))); // NOI18N
         AddCustomerButton.setText("Add Customer");
         AddCustomerButton.setBorder(null);
@@ -146,7 +143,6 @@ public class ScreenCustomers extends javax.swing.JPanel {
         AddCustomerButton.setBounds(170, 80, 140, 40);
 
         SearchCustomerButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        SearchCustomerButton.setForeground(new java.awt.Color(0, 0, 0));
         SearchCustomerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar-usuario-32.png"))); // NOI18N
         SearchCustomerButton.setText("Search Customer");
         SearchCustomerButton.setBorder(null);
@@ -169,7 +165,6 @@ public class ScreenCustomers extends javax.swing.JPanel {
         SearchCustomerButton.setBounds(320, 80, 150, 40);
 
         DeleteCustomerButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        DeleteCustomerButton.setForeground(new java.awt.Color(0, 0, 0));
         DeleteCustomerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar-usuario-32.png"))); // NOI18N
         DeleteCustomerButton.setText("Delete Customer");
         DeleteCustomerButton.setBorder(null);
@@ -192,7 +187,6 @@ public class ScreenCustomers extends javax.swing.JPanel {
         DeleteCustomerButton.setBounds(640, 80, 160, 40);
 
         ModifyCustomerButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        ModifyCustomerButton.setForeground(new java.awt.Color(0, 0, 0));
         ModifyCustomerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/modificar-usuario-32.png"))); // NOI18N
         ModifyCustomerButton.setText("Modify Customer");
         ModifyCustomerButton.setBorder(null);
@@ -215,14 +209,10 @@ public class ScreenCustomers extends javax.swing.JPanel {
         ModifyCustomerButton.setBounds(480, 80, 150, 40);
 
         CustomerIdLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        CustomerIdLabel.setForeground(new java.awt.Color(0, 0, 0));
         CustomerIdLabel.setText("Customer Id:");
         CustomersView.add(CustomerIdLabel);
         CustomerIdLabel.setBounds(100, 150, 73, 24);
 
-        CustomerIdText.setBackground(new java.awt.Color(255, 255, 255));
-        CustomerIdText.setForeground(new java.awt.Color(0, 0, 0));
-        CustomerIdText.setCaretColor(new java.awt.Color(0, 0, 0));
         CustomerIdText.setEnabled(false);
         CustomerIdText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,7 +223,6 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomerIdText.setBounds(100, 170, 350, 24);
 
         CustomerNameLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        CustomerNameLabel.setForeground(new java.awt.Color(0, 0, 0));
         CustomerNameLabel.setText("Customer Name:");
         CustomersView.add(CustomerNameLabel);
         CustomerNameLabel.setBounds(100, 200, 97, 24);
@@ -248,7 +237,6 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomerNameText.setBounds(100, 220, 350, 24);
 
         CustomerLastnameLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        CustomerLastnameLabel.setForeground(new java.awt.Color(0, 0, 0));
         CustomerLastnameLabel.setText("Customer Lastname:");
         CustomersView.add(CustomerLastnameLabel);
         CustomerLastnameLabel.setBounds(100, 250, 119, 24);
@@ -263,7 +251,6 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomerLastnameText.setBounds(100, 270, 350, 24);
 
         CustomerPhoneLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        CustomerPhoneLabel.setForeground(new java.awt.Color(0, 0, 0));
         CustomerPhoneLabel.setText("Customer Phone:");
         CustomersView.add(CustomerPhoneLabel);
         CustomerPhoneLabel.setBounds(100, 300, 98, 24);
@@ -278,7 +265,6 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomerPhoneText.setBounds(100, 320, 350, 24);
 
         CustomerMailLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        CustomerMailLabel.setForeground(new java.awt.Color(0, 0, 0));
         CustomerMailLabel.setText("Customer eMail:");
         CustomersView.add(CustomerMailLabel);
         CustomerMailLabel.setBounds(100, 350, 94, 24);
@@ -293,13 +279,11 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomerMailText.setBounds(100, 370, 350, 24);
 
         CustomerProvinceLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        CustomerProvinceLabel.setForeground(new java.awt.Color(0, 0, 0));
         CustomerProvinceLabel.setText("Customer Province:");
         CustomersView.add(CustomerProvinceLabel);
         CustomerProvinceLabel.setBounds(100, 400, 111, 24);
 
         CustomerCantonLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        CustomerCantonLabel.setForeground(new java.awt.Color(0, 0, 0));
         CustomerCantonLabel.setText("Customer Canton:");
         CustomersView.add(CustomerCantonLabel);
         CustomerCantonLabel.setBounds(100, 450, 103, 24);
@@ -314,7 +298,6 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomerCantonText.setBounds(100, 470, 350, 24);
 
         CustomerDistrictLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        CustomerDistrictLabel.setForeground(new java.awt.Color(0, 0, 0));
         CustomerDistrictLabel.setText("Customer Disctrict:");
         CustomersView.add(CustomerDistrictLabel);
         CustomerDistrictLabel.setBounds(100, 500, 110, 24);
@@ -329,13 +312,11 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomerDistrictText.setBounds(100, 520, 350, 24);
 
         CustomerBirthdateLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        CustomerBirthdateLabel.setForeground(new java.awt.Color(0, 0, 0));
         CustomerBirthdateLabel.setText("Customer Birthdate:");
         CustomersView.add(CustomerBirthdateLabel);
         CustomerBirthdateLabel.setBounds(100, 550, 116, 24);
 
         AcceptCustomerButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        AcceptCustomerButton.setForeground(new java.awt.Color(0, 0, 0));
         AcceptCustomerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/aceptar-32.png"))); // NOI18N
         AcceptCustomerButton.setText("Accept");
         AcceptCustomerButton.setBorder(null);
@@ -386,7 +367,6 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CustomerYearText.setBounds(260, 580, 190, 24);
 
         CancelCustomerButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        CancelCustomerButton.setForeground(new java.awt.Color(0, 0, 0));
         CancelCustomerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar-32.png"))); // NOI18N
         CancelCustomerButton.setText("Cancel");
         CancelCustomerButton.setBorder(null);
@@ -410,14 +390,12 @@ public class ScreenCustomers extends javax.swing.JPanel {
         CancelCustomerButton.setBounds(230, 630, 100, 40);
 
         DirectoryPanelLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        DirectoryPanelLabel.setForeground(new java.awt.Color(0, 0, 0));
         DirectoryPanelLabel.setText("Directory Panel:");
         CustomersView.add(DirectoryPanelLabel);
         DirectoryPanelLabel.setBounds(700, 150, 91, 24);
 
         SearchTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         SearchTable.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        SearchTable.setForeground(new java.awt.Color(0, 0, 0));
         SearchTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -445,12 +423,12 @@ public class ScreenCustomers extends javax.swing.JPanel {
             }
         });
         SearchTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SearchTable.setEnabled(false);
         SearchScrollPane.setViewportView(SearchTable);
 
         CustomersView.add(SearchScrollPane);
         SearchScrollPane.setBounds(520, 170, 450, 430);
 
-        SearchModifyButton.setForeground(new java.awt.Color(0, 0, 0));
         SearchModifyButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/boton_buscar-24.png"))); // NOI18N
         SearchModifyButton.setBorder(null);
         SearchModifyButton.setContentAreaFilled(false);
@@ -472,7 +450,6 @@ public class ScreenCustomers extends javax.swing.JPanel {
         SearchModifyButton.setBounds(470, 170, 30, 30);
 
         ResetButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        ResetButton.setForeground(new java.awt.Color(0, 0, 0));
         ResetButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/reset-32.png"))); // NOI18N
         ResetButton.setText("Reset");
         ResetButton.setBorder(null);
