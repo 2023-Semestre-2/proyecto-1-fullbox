@@ -8,8 +8,16 @@ import Classes.bill_class;
 import Classes.detail_class;
 import Classes.id_class;
 import Classes.main_class;
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.PageSize;
+import com.lowagie.text.pdf.PdfContentByte;
+import com.lowagie.text.pdf.PdfWriter;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -23,11 +31,10 @@ import java.net.URISyntaxException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -57,6 +64,11 @@ public class ScreenPrintBills extends javax.swing.JPanel {
     
     //Create ComboBox model
     DefaultComboBoxModel ComboBillIdModel = new DefaultComboBoxModel();
+    
+    //Table variables
+    DefaultTableModel TableBillsModel = new DefaultTableModel();
+    DefaultTableModel TableDetailsModel = new DefaultTableModel();
+    String ids [] = {"Id", "Amount"};
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -138,10 +150,25 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         jLabel11.setText("Bill ID:");
 
         BillIdCombo.setEnabled(false);
+        BillIdCombo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                BillIdComboItemStateChanged(evt);
+            }
+        });
+        BillIdCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BillIdComboActionPerformed(evt);
+            }
+        });
 
         jLabel12.setText("Number of Items:");
 
         NumberItemsText.setEnabled(false);
+        NumberItemsText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                NumberItemsTextKeyReleased(evt);
+            }
+        });
 
         jLabel13.setText("Unit Price:");
 
@@ -479,26 +506,175 @@ public class ScreenPrintBills extends javax.swing.JPanel {
     private void NewDetailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewDetailButtonActionPerformed
         // TODO add your handling code here:
         set_id("detail");
-        NumberItemsText.setText("0");
+        NumberItemsText.setText("1");
+        for(bill_class bill:bills_list){
+            if(bill.getBill_id() == Integer.parseInt(BillIdCombo.getSelectedItem().toString())){
+                UnitPriceText.setText(bill.getBill_total()+"");
+                if(isNumeric(NumberItemsText.getText())){
+                    TotalText.setText((bill.getBill_total()*Integer.parseInt(NumberItemsText.getText()))+"");
+                }
+            }
+        }
         BillIdCombo.setEnabled(true);
         NumberItemsText.setEnabled(true);
         DetailAcceptButton.setEnabled(true);
     }//GEN-LAST:event_NewDetailButtonActionPerformed
 
     private void DetailAcceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DetailAcceptButtonActionPerformed
-        // TODO add your handling code here:
+        //Variables for the Document information and object creation.
+        String DetailID_text = DetailIdText.getText();
+        String BillID_text = BillIdCombo.getSelectedItem().toString();
+        String NumberDetails_text = NumberItemsText.getText();
+        String UnitPrice_text = UnitPriceText.getText();
+        String TotalPrice_text = TotalText.getText();
         
+        //VARIABLE VALIDATION
+        if(NumberDetails_text.equals("")){
+            JOptionPane.showMessageDialog(null, "You need to complete this field: Numbers of Items");
+            return;
+        }
+        if(isNumeric(NumberDetails_text) == false){
+            JOptionPane.showMessageDialog(null, "Numbers of Items must be numeric");
+            return;
+        }
+        if(Integer.parseInt(NumberDetails_text) < 1){
+            JOptionPane.showMessageDialog(null, "Numbers of Items must be higher than 0");
+            return;
+        }
         
+        //Variables for rhe Document creation.
+        String filename = "Detail_" + DetailID_text;
+        Document document = new Document();
         
-        //.add a lista details_list.add()
-        //WriteCSV();
-        //add_id("bill");
-        //id_class id = main_class.ids.get(0);
-        //id.setId_bill(id.getId_detail() + 1);
-        //JOptionPane.showMessageDialog(null, "Detail created succesfully!");
+        //START OF THE DOCUMENT CREATION
+        try {
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filename+".pdf"));
+            
+            document.open();
+            
+            PdfContentByte cb = writer.getDirectContent();
+            Graphics g = cb.createGraphicsShapes(PageSize.LETTER.getWidth(), PageSize.LETTER.getHeight());
+            
+            //---------------- PAGE ----------------
+            g.setColor(Color.black);
+            g.drawRect(1, 1, 593, 790);
+            g.drawLine(1, 240, 593, 240);
+            g.drawLine(1, 285, 593, 285);
+            g.drawLine(1, 450, 593, 450);
+            
+            //Set Fonts
+            Font font1 = new Font("Tahoma", Font.BOLD, 40);
+            Font font2 = new Font("Arial", Font.BOLD, 16);
+            Font font3 = new Font("Arial", 0, 10);
+            Font font4 = new Font("Tahoma", 0, 24);
+            
+            g.setFont(font1);
+            g.drawString("BILL DETAIL", 170, 150);
+            
+            g.setFont(font4);
+            g.drawString("DETAIL                            AMOUNT", 100, 270);
+            
+            g.setFont(font3);
+            g.drawString("(This detail will be saved in the program,", 210, 170);
+            g.drawString("but cannot be recovered)", 240, 185);
+            
+            g.setFont(font2);
+            //Detail ID
+            g.drawString("Detail ID:", 100, 350);
+            g.drawString(DetailID_text, 410, 350);
+            
+            //Bill ID
+            g.drawString("Bill ID:", 100, 400);
+            g.drawString(BillID_text, 410, 400);
+            
+            //Number of items
+            g.drawString("Number of Items:", 100, 500);
+            g.drawString(NumberDetails_text, 410, 500);
+            
+            //Unit Price
+            g.drawString("Unit Price:", 100, 550);
+            g.drawString(UnitPrice_text, 410, 550);
+            
+            //Total
+            g.drawString("Total:", 100, 600);
+            g.drawString(TotalPrice_text, 410, 600);
+            
+            g.drawString("Created by FullBox", 100, 740);
+            
+            
+        } catch (DocumentException de) {
+            System.err.println(de.getMessage());
+        } catch (FileNotFoundException ex) {
+            System.err.println(ex.getMessage());
+        }
+        
+        document.close();
+        //FINISH OF THE DOCUMENT CREATION
+        
+        //CREATE THE OBJECT AND ADD TO THE ARRAYLIST
+        detail_class temporary_object = new detail_class();
+        temporary_object.setDetail_id(Integer.parseInt(DetailID_text));
+        temporary_object.setBill_id(Integer.parseInt(BillID_text));
+        temporary_object.setNumber_details(Integer.parseInt(NumberDetails_text));
+        temporary_object.setUnit_price(Integer.parseInt(UnitPrice_text));
+        temporary_object.setDetail_total(Integer.parseInt(TotalPrice_text));
+        
+        details_list.add(temporary_object);
+        WriteCSV();
+        add_id("detail");
+        id_class id = main_class.ids.get(0);
+        id.setId_detail(id.getId_detail() + 1);
+        
+        JOptionPane.showMessageDialog(null, "Detail created succesfully!");
+        
+        BillIdCombo.setEnabled(false);
+        NumberItemsText.setEnabled(false);
+        DetailAcceptButton.setEnabled(false);
+        UnitPriceText.setText("");
+        TotalText.setText("");
     }//GEN-LAST:event_DetailAcceptButtonActionPerformed
+
+    private void BillIdComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillIdComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BillIdComboActionPerformed
+
+    private void NumberItemsTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NumberItemsTextKeyReleased
+        // TODO add your handling code here:
+        for(bill_class bill:bills_list){
+            if(bill.getBill_id() == Integer.parseInt(BillIdCombo.getSelectedItem().toString())){
+                UnitPriceText.setText(bill.getBill_total()+"");
+                if(isNumeric(NumberItemsText.getText())){
+                    TotalText.setText((bill.getBill_total()*Integer.parseInt(NumberItemsText.getText()))+"");
+                }
+                return;
+            }
+        }
+    }//GEN-LAST:event_NumberItemsTextKeyReleased
+
+    private void BillIdComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_BillIdComboItemStateChanged
+        // TODO add your handling code here:
+        for(bill_class bill:bills_list){
+            if(bill.getBill_id() == Integer.parseInt(BillIdCombo.getSelectedItem().toString())){
+                UnitPriceText.setText(bill.getBill_total()+"");
+                if(isNumeric(NumberItemsText.getText())){
+                    TotalText.setText((bill.getBill_total()*Integer.parseInt(NumberItemsText.getText()))+"");
+                }
+                return;
+            }
+        }
+    }//GEN-LAST:event_BillIdComboItemStateChanged
     
     private void createIdsBills(){
+        int aux = 0;
+        for(bill_class item:bills_list){
+            ComboBillIdModel.insertElementAt(item.getBill_id(), aux);
+            ComboBillIdModel.setSelectedItem(item.getBill_id());
+        }
+        BillIdCombo.setModel(ComboBillIdModel);
+        BillIdCombo.updateUI();
+    }
+    
+    private void createIdsDetails(){
         int aux = 0;
         for(bill_class item:bills_list){
             ComboBillIdModel.insertElementAt(item.getBill_id(), aux);
@@ -523,8 +699,8 @@ public class ScreenPrintBills extends javax.swing.JPanel {
             for (id_class i : main_class.ids) {
             String line = null;
 
-            if (id_mode.equals("bill")) {
-                 line = i.getId_product() + "," + i.getId_item() + "," + i.getId_customer() + "," + i.getId_maintenance() + "," + i.getId_bill() + "," + (i.getId_detail() + 1);
+            if (id_mode.equals("detail")) {
+                 line = i.getId_product() + "," + i.getId_item() + "," + i.getId_customer() + "," + i.getId_maintenance() + "," + i.getId_bill() + "," + (i.getId_detail()+ 1);
             }
             pw.println(line);
             }
@@ -587,7 +763,7 @@ public class ScreenPrintBills extends javax.swing.JPanel {
     }
     
     private void initializeDetail(){
-        String archive = Paths.get("src", "DataBase", "Archivo_CSV_Bills.csv").toString();
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV_Details.csv").toString();
         try {
             reader = new BufferedReader(new FileReader(archive));
             while((line = reader.readLine()) != null){
@@ -673,6 +849,19 @@ public class ScreenPrintBills extends javax.swing.JPanel {
             parts = null;
         } catch(Exception e) {
             JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    /**
+    * This function is used to check if the input is a numeric String.
+    * @author josem
+    */
+    private static boolean isNumeric(String cadena){
+        try {
+            Integer.parseInt(cadena);
+            return true;
+        } catch (NumberFormatException nfe){
+        return false;
         }
     }
     
