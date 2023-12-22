@@ -12,6 +12,8 @@ import java.awt.BorderLayout;
 import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -21,9 +23,12 @@ import java.net.URISyntaxException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
 
 /**
  *
@@ -485,14 +490,15 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         
-        //.add a lista
+        
+        //.add a lista details_list.add()
         //WriteCSV();
         //add_id("bill");
         //id_class id = main_class.ids.get(0);
         //id.setId_bill(id.getId_detail() + 1);
         //JOptionPane.showMessageDialog(null, "Detail created succesfully!");
     }//GEN-LAST:event_DetailAcceptButtonActionPerformed
-
+    
     private void createIdsBills(){
         int aux = 0;
         for(bill_class item:bills_list){
