@@ -37,8 +37,6 @@ public class ScreenMain extends javax.swing.JPanel {
         jPanel1.setPreferredSize(new java.awt.Dimension(1030, 720));
 
         Box.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/boxx.png"))); // NOI18N
-        Box.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Box.setPreferredSize(new java.awt.Dimension(512, 512));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

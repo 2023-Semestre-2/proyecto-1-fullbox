@@ -85,9 +85,11 @@ public class ScreenCustomers extends javax.swing.JPanel {
         SearchModifyButton = new javax.swing.JButton();
         ResetButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         CustomersView.setBackground(new java.awt.Color(255, 255, 255));
         CustomersView.setPreferredSize(new java.awt.Dimension(1030, 730));
+        CustomersView.setLayout(null);
 
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView.png"))); // NOI18N
@@ -107,14 +109,20 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        CustomersView.add(jButton1);
+        jButton1.setBounds(990, 10, 32, 32);
 
-        CustomersWindowTitle.setFont(new java.awt.Font("Dubai Medium", 1, 18)); // NOI18N
+        CustomersWindowTitle.setFont(new java.awt.Font("Dubai Medium", 1, 24)); // NOI18N
         CustomersWindowTitle.setForeground(new java.awt.Color(0, 0, 0));
         CustomersWindowTitle.setText("CUSTOMERS");
+        CustomersView.add(CustomersWindowTitle);
+        CustomersWindowTitle.setBounds(420, 10, 150, 42);
 
         CustomersWindowSubtitle.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         CustomersWindowSubtitle.setForeground(new java.awt.Color(0, 0, 0));
         CustomersWindowSubtitle.setText("Select the action to perform");
+        CustomersView.add(CustomersWindowSubtitle);
+        CustomersWindowSubtitle.setBounds(410, 40, 161, 24);
 
         AddCustomerButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         AddCustomerButton.setForeground(new java.awt.Color(0, 0, 0));
@@ -136,6 +144,8 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 AddCustomerButtonActionPerformed(evt);
             }
         });
+        CustomersView.add(AddCustomerButton);
+        AddCustomerButton.setBounds(170, 80, 140, 40);
 
         SearchCustomerButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         SearchCustomerButton.setForeground(new java.awt.Color(0, 0, 0));
@@ -157,6 +167,8 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 SearchCustomerButtonActionPerformed(evt);
             }
         });
+        CustomersView.add(SearchCustomerButton);
+        SearchCustomerButton.setBounds(320, 80, 150, 40);
 
         DeleteCustomerButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         DeleteCustomerButton.setForeground(new java.awt.Color(0, 0, 0));
@@ -178,6 +190,8 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 DeleteCustomerButtonActionPerformed(evt);
             }
         });
+        CustomersView.add(DeleteCustomerButton);
+        DeleteCustomerButton.setBounds(640, 80, 160, 40);
 
         ModifyCustomerButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         ModifyCustomerButton.setForeground(new java.awt.Color(0, 0, 0));
@@ -199,10 +213,14 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 ModifyCustomerButtonActionPerformed(evt);
             }
         });
+        CustomersView.add(ModifyCustomerButton);
+        ModifyCustomerButton.setBounds(480, 80, 150, 40);
 
         CustomerIdLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         CustomerIdLabel.setForeground(new java.awt.Color(0, 0, 0));
         CustomerIdLabel.setText("Customer Id:");
+        CustomersView.add(CustomerIdLabel);
+        CustomerIdLabel.setBounds(100, 150, 73, 24);
 
         CustomerIdText.setBackground(new java.awt.Color(255, 255, 255));
         CustomerIdText.setForeground(new java.awt.Color(0, 0, 0));
@@ -213,10 +231,14 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 CustomerIdTextActionPerformed(evt);
             }
         });
+        CustomersView.add(CustomerIdText);
+        CustomerIdText.setBounds(100, 170, 350, 24);
 
         CustomerNameLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         CustomerNameLabel.setForeground(new java.awt.Color(0, 0, 0));
         CustomerNameLabel.setText("Customer Name:");
+        CustomersView.add(CustomerNameLabel);
+        CustomerNameLabel.setBounds(100, 200, 97, 24);
 
         CustomerNameText.setEnabled(false);
         CustomerNameText.addActionListener(new java.awt.event.ActionListener() {
@@ -224,10 +246,14 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 CustomerNameTextActionPerformed(evt);
             }
         });
+        CustomersView.add(CustomerNameText);
+        CustomerNameText.setBounds(100, 220, 350, 24);
 
         CustomerLastnameLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         CustomerLastnameLabel.setForeground(new java.awt.Color(0, 0, 0));
         CustomerLastnameLabel.setText("Customer Lastname:");
+        CustomersView.add(CustomerLastnameLabel);
+        CustomerLastnameLabel.setBounds(100, 250, 119, 24);
 
         CustomerLastnameText.setEnabled(false);
         CustomerLastnameText.addActionListener(new java.awt.event.ActionListener() {
@@ -235,10 +261,14 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 CustomerLastnameTextActionPerformed(evt);
             }
         });
+        CustomersView.add(CustomerLastnameText);
+        CustomerLastnameText.setBounds(100, 270, 350, 24);
 
         CustomerPhoneLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         CustomerPhoneLabel.setForeground(new java.awt.Color(0, 0, 0));
         CustomerPhoneLabel.setText("Customer Phone:");
+        CustomersView.add(CustomerPhoneLabel);
+        CustomerPhoneLabel.setBounds(100, 300, 98, 24);
 
         CustomerPhoneText.setEnabled(false);
         CustomerPhoneText.addActionListener(new java.awt.event.ActionListener() {
@@ -246,10 +276,14 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 CustomerPhoneTextActionPerformed(evt);
             }
         });
+        CustomersView.add(CustomerPhoneText);
+        CustomerPhoneText.setBounds(100, 320, 350, 24);
 
         CustomerMailLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         CustomerMailLabel.setForeground(new java.awt.Color(0, 0, 0));
         CustomerMailLabel.setText("Customer eMail:");
+        CustomersView.add(CustomerMailLabel);
+        CustomerMailLabel.setBounds(100, 350, 94, 24);
 
         CustomerMailText.setEnabled(false);
         CustomerMailText.addActionListener(new java.awt.event.ActionListener() {
@@ -257,14 +291,20 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 CustomerMailTextActionPerformed(evt);
             }
         });
+        CustomersView.add(CustomerMailText);
+        CustomerMailText.setBounds(100, 370, 350, 24);
 
         CustomerProvinceLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         CustomerProvinceLabel.setForeground(new java.awt.Color(0, 0, 0));
         CustomerProvinceLabel.setText("Customer Province:");
+        CustomersView.add(CustomerProvinceLabel);
+        CustomerProvinceLabel.setBounds(100, 400, 111, 24);
 
         CustomerCantonLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         CustomerCantonLabel.setForeground(new java.awt.Color(0, 0, 0));
         CustomerCantonLabel.setText("Customer Canton:");
+        CustomersView.add(CustomerCantonLabel);
+        CustomerCantonLabel.setBounds(100, 450, 103, 24);
 
         CustomerCantonText.setEnabled(false);
         CustomerCantonText.addActionListener(new java.awt.event.ActionListener() {
@@ -272,10 +312,14 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 CustomerCantonTextActionPerformed(evt);
             }
         });
+        CustomersView.add(CustomerCantonText);
+        CustomerCantonText.setBounds(100, 470, 350, 24);
 
         CustomerDistrictLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         CustomerDistrictLabel.setForeground(new java.awt.Color(0, 0, 0));
         CustomerDistrictLabel.setText("Customer Disctrict:");
+        CustomersView.add(CustomerDistrictLabel);
+        CustomerDistrictLabel.setBounds(100, 500, 110, 24);
 
         CustomerDistrictText.setEnabled(false);
         CustomerDistrictText.addActionListener(new java.awt.event.ActionListener() {
@@ -283,10 +327,14 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 CustomerDistrictTextActionPerformed(evt);
             }
         });
+        CustomersView.add(CustomerDistrictText);
+        CustomerDistrictText.setBounds(100, 520, 350, 24);
 
         CustomerBirthdateLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         CustomerBirthdateLabel.setForeground(new java.awt.Color(0, 0, 0));
         CustomerBirthdateLabel.setText("Customer Birthdate:");
+        CustomersView.add(CustomerBirthdateLabel);
+        CustomerBirthdateLabel.setBounds(100, 550, 116, 24);
 
         AcceptCustomerButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         AcceptCustomerButton.setForeground(new java.awt.Color(0, 0, 0));
@@ -309,6 +357,8 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 AcceptCustomerButtonActionPerformed(evt);
             }
         });
+        CustomersView.add(AcceptCustomerButton);
+        AcceptCustomerButton.setBounds(130, 630, 100, 40);
 
         CustomerProvinceCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alajuela", "Cartago", "Guanacaste", "Heredia", "Limon", "Puntarenas", "San Jose" }));
         CustomerProvinceCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -318,16 +368,24 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 CustomerProvinceComboActionPerformed(evt);
             }
         });
+        CustomersView.add(CustomerProvinceCombo);
+        CustomerProvinceCombo.setBounds(100, 420, 350, 26);
 
         CustomerMonthCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         CustomerMonthCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CustomerMonthCombo.setEnabled(false);
+        CustomersView.add(CustomerMonthCombo);
+        CustomerMonthCombo.setBounds(180, 580, 61, 26);
 
         CustomerDayText.setText("01");
         CustomerDayText.setEnabled(false);
+        CustomersView.add(CustomerDayText);
+        CustomerDayText.setBounds(100, 580, 60, 24);
 
         CustomerYearText.setText("1900");
         CustomerYearText.setEnabled(false);
+        CustomersView.add(CustomerYearText);
+        CustomerYearText.setBounds(260, 580, 190, 24);
 
         CancelCustomerButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         CancelCustomerButton.setForeground(new java.awt.Color(0, 0, 0));
@@ -350,10 +408,14 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 CancelCustomerButtonActionPerformed(evt);
             }
         });
+        CustomersView.add(CancelCustomerButton);
+        CancelCustomerButton.setBounds(230, 630, 100, 40);
 
         DirectoryPanelLabel.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         DirectoryPanelLabel.setForeground(new java.awt.Color(0, 0, 0));
         DirectoryPanelLabel.setText("Directory Panel:");
+        CustomersView.add(DirectoryPanelLabel);
+        DirectoryPanelLabel.setBounds(700, 150, 91, 24);
 
         SearchTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         SearchTable.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
@@ -387,6 +449,9 @@ public class ScreenCustomers extends javax.swing.JPanel {
         SearchTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SearchScrollPane.setViewportView(SearchTable);
 
+        CustomersView.add(SearchScrollPane);
+        SearchScrollPane.setBounds(520, 170, 450, 430);
+
         SearchModifyButton.setForeground(new java.awt.Color(0, 0, 0));
         SearchModifyButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/boton_buscar-24.png"))); // NOI18N
         SearchModifyButton.setBorder(null);
@@ -405,6 +470,8 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 SearchModifyButtonActionPerformed(evt);
             }
         });
+        CustomersView.add(SearchModifyButton);
+        SearchModifyButton.setBounds(470, 170, 30, 30);
 
         ResetButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         ResetButton.setForeground(new java.awt.Color(0, 0, 0));
@@ -427,167 +494,18 @@ public class ScreenCustomers extends javax.swing.JPanel {
                 ResetButtonActionPerformed(evt);
             }
         });
+        CustomersView.add(ResetButton);
+        ResetButton.setBounds(320, 630, 110, 40);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Ellipse 2092.png"))); // NOI18N
         jLabel2.setText("jLabel1");
+        CustomersView.add(jLabel2);
+        jLabel2.setBounds(750, 540, 370, 270);
 
-        javax.swing.GroupLayout CustomersViewLayout = new javax.swing.GroupLayout(CustomersView);
-        CustomersView.setLayout(CustomersViewLayout);
-        CustomersViewLayout.setHorizontalGroup(
-            CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CustomersViewLayout.createSequentialGroup()
-                .addGap(410, 410, 410)
-                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CustomersViewLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(CustomersWindowTitle))
-                    .addComponent(CustomersWindowSubtitle))
-                .addGap(419, 419, 419)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(CustomersViewLayout.createSequentialGroup()
-                .addGap(170, 170, 170)
-                .addComponent(AddCustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(SearchCustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(ModifyCustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(DeleteCustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(CustomersViewLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CustomerIdText, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CustomerIdLabel)
-                    .addComponent(CustomerNameLabel)
-                    .addComponent(CustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CustomerLastnameText, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CustomerLastnameLabel)
-                    .addComponent(CustomerPhoneLabel)
-                    .addComponent(CustomerPhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CustomerMailText, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CustomerMailLabel)
-                    .addComponent(CustomerProvinceLabel)
-                    .addComponent(CustomerProvinceCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CustomerCantonLabel)
-                    .addComponent(CustomerCantonText, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CustomerDistrictLabel)
-                    .addComponent(CustomerDistrictText, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CustomerBirthdateLabel)
-                    .addGroup(CustomersViewLayout.createSequentialGroup()
-                        .addComponent(CustomerDayText, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(CustomerMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19)
-                        .addComponent(CustomerYearText, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(CustomersViewLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(AcceptCustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(CustomersViewLayout.createSequentialGroup()
-                                .addGap(90, 90, 90)
-                                .addComponent(ResetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(CancelCustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(20, 20, 20)
-                .addComponent(SearchModifyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CustomersViewLayout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(DirectoryPanelLabel))
-                    .addComponent(SearchScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(CustomersViewLayout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-        CustomersViewLayout.setVerticalGroup(
-            CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CustomersViewLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CustomersWindowTitle)
-                    .addGroup(CustomersViewLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(CustomersWindowSubtitle))
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AddCustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SearchCustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ModifyCustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DeleteCustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CustomersViewLayout.createSequentialGroup()
-                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(CustomersViewLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(CustomerIdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(CustomerIdLabel))
-                        .addGap(6, 6, 6)
-                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CustomerNameLabel)
-                            .addGroup(CustomersViewLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(CustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(6, 6, 6)
-                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(CustomersViewLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(CustomerLastnameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(CustomerLastnameLabel))
-                        .addGap(6, 6, 6)
-                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CustomerPhoneLabel)
-                            .addGroup(CustomersViewLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(CustomerPhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(6, 6, 6)
-                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(CustomersViewLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(CustomerMailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(CustomerMailLabel))
-                        .addGap(6, 6, 6)
-                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CustomerProvinceLabel)
-                            .addGroup(CustomersViewLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(CustomerProvinceCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(4, 4, 4)
-                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CustomerCantonLabel)
-                            .addGroup(CustomersViewLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(CustomerCantonText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(6, 6, 6)
-                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CustomerDistrictLabel)
-                            .addGroup(CustomersViewLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(CustomerDistrictText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(6, 6, 6)
-                        .addComponent(CustomerBirthdateLabel)
-                        .addGap(6, 6, 6)
-                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CustomerDayText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CustomerMonthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CustomerYearText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24)
-                        .addGroup(CustomersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AcceptCustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ResetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CancelCustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(CustomersViewLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(SearchModifyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(DirectoryPanelLabel)
-                    .addGroup(CustomersViewLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(SearchScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(CustomersViewLayout.createSequentialGroup()
-                        .addGap(390, 390, 390)
-                        .addComponent(jLabel2))))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Union3.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        CustomersView.add(jLabel1);
+        jLabel1.setBounds(-250, -100, 490, 470);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -1919,6 +1837,7 @@ public class ScreenCustomers extends javax.swing.JPanel {
     private javax.swing.JScrollPane SearchScrollPane;
     private javax.swing.JTable SearchTable;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

@@ -106,7 +106,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         jButton5.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/usuario2.png"))); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/usuario-32.png"))); // NOI18N
         jButton5.setText("Customers");
         jButton5.setBorder(null);
         jButton5.setContentAreaFilled(false);
@@ -128,7 +128,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         jButton6.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Maintenance.png"))); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/maintenance-32.png"))); // NOI18N
         jButton6.setText("Maintenance");
         jButton6.setBorder(null);
         jButton6.setContentAreaFilled(false);
@@ -150,7 +150,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/carrito2.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/carrito-de-compras-32.png"))); // NOI18N
         jButton1.setText("Products");
         jButton1.setBorder(null);
         jButton1.setContentAreaFilled(false);
@@ -173,7 +173,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         jButton10.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
         jButton10.setForeground(new java.awt.Color(255, 255, 255));
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Billing.png"))); // NOI18N
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/facturaMain-32.png"))); // NOI18N
         jButton10.setText("Billing");
         jButton10.setBorder(null);
         jButton10.setContentAreaFilled(false);
@@ -196,7 +196,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         jButton11.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
         jButton11.setForeground(new java.awt.Color(255, 255, 255));
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/settings.png"))); // NOI18N
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/impresora-32.png"))); // NOI18N
         jButton11.setText("Print Bills");
         jButton11.setBorder(null);
         jButton11.setContentAreaFilled(false);
@@ -267,7 +267,6 @@ public class MainMenu extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, OptionsLayout.createSequentialGroup()
                                 .addGroup(OptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, OptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                                         .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -279,7 +278,8 @@ public class MainMenu extends javax.swing.JFrame {
                                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(715, 715, 715))
                     .addGroup(OptionsLayout.createSequentialGroup()
                         .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -370,42 +370,52 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
        jButton1.setForeground(Color.darkGray);
+       jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/carrito-de-compras-42.png")));
     }//GEN-LAST:event_jButton1MouseEntered
 
     private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
         jButton1.setForeground(new Color(255,255,255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/carrito-de-compras-32.png")));
     }//GEN-LAST:event_jButton1MouseExited
 
     private void jButton5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseEntered
         jButton5.setForeground(Color.darkGray);
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/usuario-42.png")));
     }//GEN-LAST:event_jButton5MouseEntered
 
     private void jButton5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseExited
         jButton5.setForeground(new Color(255,255,255));
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/usuario-32.png")));
     }//GEN-LAST:event_jButton5MouseExited
 
     private void jButton6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseEntered
         jButton6.setForeground(Color.darkGray);
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/maintenance-42.png")));
     }//GEN-LAST:event_jButton6MouseEntered
 
     private void jButton6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseExited
         jButton6.setForeground(new Color(255,255,255));
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/maintenance-32.png")));
     }//GEN-LAST:event_jButton6MouseExited
 
     private void jButton10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseEntered
         jButton10.setForeground(Color.darkGray);
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/facturaMain-42.png")));
     }//GEN-LAST:event_jButton10MouseEntered
 
     private void jButton10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseExited
         jButton10.setForeground(new Color(255,255,255));
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/facturaMain-32.png")));
     }//GEN-LAST:event_jButton10MouseExited
 
     private void jButton11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseEntered
         jButton11.setForeground(Color.darkGray);
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/impresora-42.png")));
     }//GEN-LAST:event_jButton11MouseEntered
 
     private void jButton11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseExited
         jButton11.setForeground(new Color(255,255,255));
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/impresora-32.png")));
     }//GEN-LAST:event_jButton11MouseExited
 
     private void jButton12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseEntered

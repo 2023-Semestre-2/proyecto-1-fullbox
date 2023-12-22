@@ -15,9 +15,13 @@ import Classes.register_users;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Desktop;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -148,7 +152,13 @@ public class ScreenLogin extends javax.swing.JPanel {
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 90, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/box.png"))); // NOI18N
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 460, 30, 20));
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 460, 20, 20));
 
         PasswordText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -675,6 +685,17 @@ public class ScreenLogin extends javax.swing.JPanel {
         Login.hideLoginPanel();
 
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+
+    String youtubeVideoURL = "https://www.youtube.com/watch?v=S47loCIF4b0";
+
+    try {
+            Desktop.getDesktop().browse(new URI(youtubeVideoURL));
+        } catch (IOException | URISyntaxException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     public void ShowJPanel(JPanel p, JPanel main){
         p.setSize(450, 490);

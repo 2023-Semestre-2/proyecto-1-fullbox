@@ -9,6 +9,7 @@ import Classes.id_class;
 import Classes.main_class;
 import Classes.maintenance_class;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -88,6 +89,8 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         Observations = new javax.swing.JTextArea();
         jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         Customer_Id = new javax.swing.JComboBox<>();
         Accept_Maintenance = new javax.swing.JButton();
         Cancel_Maintenance = new javax.swing.JButton();
@@ -100,8 +103,11 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         Year_Recived = new javax.swing.JComboBox<>();
         Year_Delivery = new javax.swing.JComboBox<>();
         Search_M = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         MaintenanceView.setBackground(new java.awt.Color(255, 255, 255));
+        MaintenanceView.setLayout(null);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView.png"))); // NOI18N
         jButton1.setContentAreaFilled(false);
@@ -120,8 +126,12 @@ public class ScreenMaintenance extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        MaintenanceView.add(jButton1);
+        jButton1.setBounds(990, 10, 32, 32);
 
         Service_Id.setEnabled(false);
+        MaintenanceView.add(Service_Id);
+        Service_Id.setBounds(320, 270, 130, 24);
 
         Bicycle_Brand.setEnabled(false);
         Bicycle_Brand.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -129,6 +139,8 @@ public class ScreenMaintenance extends javax.swing.JPanel {
                 Bicycle_BrandKeyTyped(evt);
             }
         });
+        MaintenanceView.add(Bicycle_Brand);
+        Bicycle_Brand.setBounds(320, 330, 130, 24);
 
         Price.setEnabled(false);
         Price.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -136,12 +148,18 @@ public class ScreenMaintenance extends javax.swing.JPanel {
                 PriceKeyTyped(evt);
             }
         });
+        MaintenanceView.add(Price);
+        Price.setBounds(320, 360, 130, 24);
 
         Month_Recived.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         Month_Recived.setEnabled(false);
+        MaintenanceView.add(Month_Recived);
+        Month_Recived.setBounds(640, 360, 65, 26);
 
         Month_Delivery.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         Month_Delivery.setEnabled(false);
+        MaintenanceView.add(Month_Delivery);
+        Month_Delivery.setBounds(640, 390, 63, 26);
 
         Bicycle_Description.setColumns(20);
         Bicycle_Description.setLineWrap(true);
@@ -158,26 +176,67 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(Bicycle_Description);
 
+        MaintenanceView.add(jScrollPane1);
+        jScrollPane1.setBounds(460, 270, 410, 83);
+
         State.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Close", "Open" }));
         State.setEnabled(false);
+        MaintenanceView.add(State);
+        State.setBounds(790, 390, 70, 26);
 
-        jLabel1.setText("Maintenance");
+        jLabel1.setFont(new java.awt.Font("Dubai Medium", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("MAINTENANCE");
+        MaintenanceView.add(jLabel1);
+        jLabel1.setBounds(420, 130, 180, 42);
 
+        jLabel2.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Service Id:");
+        MaintenanceView.add(jLabel2);
+        jLabel2.setBounds(260, 270, 60, 24);
 
-        jLabel3.setText("Customer Id:");
+        jLabel3.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("  Customer Id:");
+        MaintenanceView.add(jLabel3);
+        jLabel3.setBounds(240, 290, 100, 40);
 
+        jLabel4.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Bicycle Brand:");
+        MaintenanceView.add(jLabel4);
+        jLabel4.setBounds(240, 330, 80, 24);
 
+        jLabel5.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Bicycle Description:");
+        MaintenanceView.add(jLabel5);
+        jLabel5.setBounds(460, 250, 120, 24);
 
-        jLabel6.setText("Price:");
+        jLabel6.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("  Price:");
+        MaintenanceView.add(jLabel6);
+        jLabel6.setBounds(280, 360, 50, 24);
 
-        jLabel7.setText("Date Received:");
+        jLabel7.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText(" Date Received:");
+        MaintenanceView.add(jLabel7);
+        jLabel7.setBounds(470, 360, 90, 20);
 
+        jLabel9.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Date Of Delivery:");
+        MaintenanceView.add(jLabel9);
+        jLabel9.setBounds(460, 390, 110, 20);
 
+        jLabel8.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Observations:");
+        MaintenanceView.add(jLabel8);
+        jLabel8.setBounds(190, 400, 79, 24);
 
         Observations.setColumns(20);
         Observations.setLineWrap(true);
@@ -194,7 +253,24 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(Observations);
 
+        MaintenanceView.add(jScrollPane2);
+        jScrollPane2.setBounds(190, 420, 450, 83);
+
+        jLabel10.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("State:");
+        MaintenanceView.add(jLabel10);
+        jLabel10.setBounds(790, 370, 40, 24);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar-20.png"))); // NOI18N
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MaintenanceView.add(jLabel11);
+        jLabel11.setBounds(710, 190, 30, 40);
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/añadir-15.png"))); // NOI18N
+        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MaintenanceView.add(jLabel12);
+        jLabel12.setBounds(180, 190, 30, 40);
 
         Customer_Id.setEnabled(false);
         Customer_Id.addActionListener(new java.awt.event.ActionListener() {
@@ -202,231 +278,210 @@ public class ScreenMaintenance extends javax.swing.JPanel {
                 Customer_IdActionPerformed(evt);
             }
         });
+        MaintenanceView.add(Customer_Id);
+        Customer_Id.setBounds(320, 300, 130, 26);
 
+        Accept_Maintenance.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        Accept_Maintenance.setForeground(new java.awt.Color(0, 0, 0));
+        Accept_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/aceptar-32.png"))); // NOI18N
         Accept_Maintenance.setText("Accept");
+        Accept_Maintenance.setBorder(null);
+        Accept_Maintenance.setContentAreaFilled(false);
+        Accept_Maintenance.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Accept_Maintenance.setEnabled(false);
+        Accept_Maintenance.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Accept_MaintenanceMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Accept_MaintenanceMouseExited(evt);
+            }
+        });
         Accept_Maintenance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Accept_MaintenanceActionPerformed(evt);
             }
         });
+        MaintenanceView.add(Accept_Maintenance);
+        Accept_Maintenance.setBounds(660, 440, 100, 50);
 
+        Cancel_Maintenance.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        Cancel_Maintenance.setForeground(new java.awt.Color(0, 0, 0));
+        Cancel_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar-32.png"))); // NOI18N
         Cancel_Maintenance.setText("Cancel");
+        Cancel_Maintenance.setBorder(null);
+        Cancel_Maintenance.setContentAreaFilled(false);
+        Cancel_Maintenance.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Cancel_Maintenance.setEnabled(false);
+        Cancel_Maintenance.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Cancel_MaintenanceMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Cancel_MaintenanceMouseExited(evt);
+            }
+        });
         Cancel_Maintenance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Cancel_MaintenanceActionPerformed(evt);
             }
         });
+        MaintenanceView.add(Cancel_Maintenance);
+        Cancel_Maintenance.setBounds(760, 440, 100, 50);
 
+        Create_Maintenance.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        Create_Maintenance.setForeground(new java.awt.Color(0, 0, 0));
+        Create_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mantenimiento-32.png"))); // NOI18N
         Create_Maintenance.setText("Create Maintenance");
+        Create_Maintenance.setBorder(null);
+        Create_Maintenance.setContentAreaFilled(false);
+        Create_Maintenance.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Create_Maintenance.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Create_MaintenanceMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Create_MaintenanceMouseExited(evt);
+            }
+        });
         Create_Maintenance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Create_MaintenanceActionPerformed(evt);
             }
         });
+        MaintenanceView.add(Create_Maintenance);
+        Create_Maintenance.setBounds(150, 180, 170, 50);
 
+        Search_Maintenance.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        Search_Maintenance.setForeground(new java.awt.Color(0, 0, 0));
+        Search_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar-mantenimiento-32.png"))); // NOI18N
         Search_Maintenance.setText("Search Maintenance");
+        Search_Maintenance.setBorder(null);
+        Search_Maintenance.setContentAreaFilled(false);
+        Search_Maintenance.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Search_Maintenance.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Search_MaintenanceMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Search_MaintenanceMouseExited(evt);
+            }
+        });
         Search_Maintenance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Search_MaintenanceActionPerformed(evt);
             }
         });
+        MaintenanceView.add(Search_Maintenance);
+        Search_Maintenance.setBounds(330, 180, 170, 50);
 
+        Modify_Maintenance.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        Modify_Maintenance.setForeground(new java.awt.Color(0, 0, 0));
+        Modify_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/editar-mantenimiento-32.png"))); // NOI18N
         Modify_Maintenance.setText("Modify Maintenance");
+        Modify_Maintenance.setBorder(null);
+        Modify_Maintenance.setContentAreaFilled(false);
+        Modify_Maintenance.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Modify_Maintenance.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Modify_MaintenanceMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Modify_MaintenanceMouseExited(evt);
+            }
+        });
         Modify_Maintenance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Modify_MaintenanceActionPerformed(evt);
             }
         });
+        MaintenanceView.add(Modify_Maintenance);
+        Modify_Maintenance.setBounds(510, 180, 170, 50);
 
+        Delete_Maintenance.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        Delete_Maintenance.setForeground(new java.awt.Color(0, 0, 0));
+        Delete_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mantenimiento-32.png"))); // NOI18N
         Delete_Maintenance.setText("Delete Maintenance");
+        Delete_Maintenance.setBorder(null);
+        Delete_Maintenance.setContentAreaFilled(false);
+        Delete_Maintenance.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Delete_Maintenance.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Delete_MaintenanceMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Delete_MaintenanceMouseExited(evt);
+            }
+        });
         Delete_Maintenance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Delete_MaintenanceActionPerformed(evt);
             }
         });
+        MaintenanceView.add(Delete_Maintenance);
+        Delete_Maintenance.setBounds(680, 180, 170, 50);
 
         Day_Recived.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         Day_Recived.setEnabled(false);
+        MaintenanceView.add(Day_Recived);
+        Day_Recived.setBounds(560, 360, 75, 26);
 
         Day_Delivery.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         Day_Delivery.setEnabled(false);
+        MaintenanceView.add(Day_Delivery);
+        Day_Delivery.setBounds(560, 390, 76, 26);
 
         Year_Recived.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1900", "1901", "1902", "1903", "1904", "1905", "1906", "1907", "1908", "1909", "1910", "1911", "1912", "1913", "1914", "1915", "1916", "1917", "1918", "1919", "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024" }));
         Year_Recived.setEnabled(false);
+        MaintenanceView.add(Year_Recived);
+        Year_Recived.setBounds(710, 360, 73, 26);
 
         Year_Delivery.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1900", "1901", "1902", "1903", "1904", "1905", "1906", "1907", "1908", "1909", "1910", "1911", "1912", "1913", "1914", "1915", "1916", "1917", "1918", "1919", "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024" }));
         Year_Delivery.setEnabled(false);
+        MaintenanceView.add(Year_Delivery);
+        Year_Delivery.setBounds(710, 390, 73, 26);
 
-        Search_M.setText("S");
+        Search_M.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
+        Search_M.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png"))); // NOI18N
+        Search_M.setBorder(null);
+        Search_M.setContentAreaFilled(false);
+        Search_M.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Search_M.setEnabled(false);
+        Search_M.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Search_MMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Search_MMouseExited(evt);
+            }
+        });
         Search_M.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Search_MActionPerformed(evt);
             }
         });
+        MaintenanceView.add(Search_M);
+        Search_M.setBounds(180, 300, 50, 50);
 
-        javax.swing.GroupLayout MaintenanceViewLayout = new javax.swing.GroupLayout(MaintenanceView);
-        MaintenanceView.setLayout(MaintenanceViewLayout);
-        MaintenanceViewLayout.setHorizontalGroup(
-            MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MaintenanceViewLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(399, 399, 399)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                        .addGap(301, 301, 301)
-                        .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                        .addComponent(Create_Maintenance)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Search_Maintenance))
-                                    .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(Day_Delivery, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(Month_Delivery, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                        .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(Accept_Maintenance)
-                                            .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                                .addComponent(jLabel10)
-                                                .addGap(71, 71, 71)
-                                                .addComponent(State, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(26, 26, 26)
-                                        .addComponent(Cancel_Maintenance)))
-                                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                        .addGap(11, 11, 11)
-                                        .addComponent(Modify_Maintenance)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Delete_Maintenance))
-                                    .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(Year_Delivery, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                    .addComponent(jLabel8)
-                                    .addGap(37, 37, 37)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                                        .addComponent(Bicycle_Brand, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Customer_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MaintenanceViewLayout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Service_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Search_M, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel6))
-                                .addGap(18, 18, 18)
-                                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                                        .addComponent(Day_Recived, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(12, 12, 12)
-                                        .addComponent(Month_Recived, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(Year_Recived, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 200, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        MaintenanceViewLayout.setVerticalGroup(
-            MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(41, 41, 41)
-                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Create_Maintenance)
-                    .addComponent(Search_Maintenance)
-                    .addComponent(Modify_Maintenance)
-                    .addComponent(Delete_Maintenance))
-                .addGap(31, 31, 31)
-                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(Service_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Search_M))
-                .addGap(10, 10, 10)
-                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(Customer_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Bicycle_Brand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel5)))
-                .addGap(46, 46, 46)
-                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(Month_Recived, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Day_Recived, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Year_Recived, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Month_Delivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(Day_Delivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Year_Delivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MaintenanceViewLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel8))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(State, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(MaintenanceViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Accept_Maintenance)
-                    .addComponent(Cancel_Maintenance))
-                .addGap(94, 94, 94))
-        );
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Union3.png"))); // NOI18N
+        jLabel13.setText("jLabel13");
+        MaintenanceView.add(jLabel13);
+        jLabel13.setBounds(-140, -210, 2120, 530);
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Ellipse 2092.png"))); // NOI18N
+        jLabel14.setText("jLabel14");
+        MaintenanceView.add(jLabel14);
+        jLabel14.setBounds(710, 530, 380, 270);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MaintenanceView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(MaintenanceView, javax.swing.GroupLayout.DEFAULT_SIZE, 1030, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MaintenanceView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(MaintenanceView, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -916,11 +971,14 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         
         if(pass_flag == true){
             Reset_Texts();
+            Accept_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/aceptar-32.png")));
             Create_Maintenance.setEnabled(true);
             Modify_Maintenance.setEnabled(true);
             Search_Maintenance.setEnabled(true);
             Delete_Maintenance.setEnabled(true);
-
+            jLabel11.setEnabled(true);
+            jLabel12.setEnabled(true);
+            
             Service_Id.setEnabled(false);
             Customer_Id.setEnabled(false);
             Customer_Id.setSelectedIndex(0);
@@ -992,6 +1050,8 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         Modify_Maintenance.setEnabled(false);
         Search_Maintenance.setEnabled(false);
         Delete_Maintenance.setEnabled(false);
+        jLabel11.setEnabled(false);
+        jLabel12.setEnabled(false);
         
         Customer_Id.setEnabled(true);
         Bicycle_Brand.setEnabled(true);
@@ -1025,11 +1085,13 @@ public class ScreenMaintenance extends javax.swing.JPanel {
 
     private void Cancel_MaintenanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancel_MaintenanceActionPerformed
         Reset_Texts();
+        Cancel_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar-32.png")));
         Create_Maintenance.setEnabled(true);
         Modify_Maintenance.setEnabled(true);
         Search_Maintenance.setEnabled(true);
         Delete_Maintenance.setEnabled(true);
-
+        jLabel11.setEnabled(true);
+        jLabel12.setEnabled(true);
         Service_Id.setEnabled(false);
         Customer_Id.setEnabled(false);
         Bicycle_Brand.setEnabled(false);
@@ -1069,16 +1131,18 @@ public class ScreenMaintenance extends javax.swing.JPanel {
     private void Search_MaintenanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_MaintenanceActionPerformed
         int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
             "Search",
-            JOptionPane.YES_NO_OPTION,   // Tipo de opción (sí/no)
-            JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje (pregunta)
-            null,                        // Icono personalizado (en este caso, ninguno)
-            new Object[]{"ID SERVICE", "CUSTOMER NAME"}, // Texto de los botones
-            "Botón 1");                    // Botón predeterminado
+            JOptionPane.YES_NO_OPTION,   
+            JOptionPane.QUESTION_MESSAGE, 
+            null,                        
+            new Object[]{"ID SERVICE", "CUSTOMER NAME"}, 
+            "Botón 1");                    
         
         Create_Maintenance.setEnabled(false);
         Modify_Maintenance.setEnabled(false);
         Delete_Maintenance.setEnabled(false);
         Search_Maintenance.setEnabled(false);
+        jLabel11.setEnabled(false);
+        jLabel12.setEnabled(false);
         search_button_maintenance = true;
         if(opcion == 1){
             Customer_Id.setEnabled(true);
@@ -1094,22 +1158,25 @@ public class ScreenMaintenance extends javax.swing.JPanel {
     private void Modify_MaintenanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modify_MaintenanceActionPerformed
         int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
             "Search",
-            JOptionPane.YES_NO_OPTION,   // Tipo de opción (sí/no)
-            JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje (pregunta)
-            null,                        // Icono personalizado (en este caso, ninguno)
-            new Object[]{"ID SERVICE", "CUSTOMER NAME"}, // Texto de los botones
-            "Botón 1");                    // Botón predeterminado
+            JOptionPane.YES_NO_OPTION,   
+            JOptionPane.QUESTION_MESSAGE, 
+            null,                        
+            new Object[]{"ID SERVICE", "CUSTOMER NAME"}, 
+            "Botón 1");                    
 
         Create_Maintenance.setEnabled(false);
         Search_Maintenance.setEnabled(false);
         Delete_Maintenance.setEnabled(false);
         Modify_Maintenance.setEnabled(false);
+        jLabel11.setEnabled(false);
+        jLabel12.setEnabled(false);
         modify_button_maintenance= true;
 
         if(opcion == 1){
             Customer_Id.setEnabled(true);
         }else{
             Service_Id.setEnabled(true);
+            Customer_Id.setSelectedIndex(-1);
 
         }
         Search_M.setEnabled(true);
@@ -1120,22 +1187,25 @@ public class ScreenMaintenance extends javax.swing.JPanel {
     private void Delete_MaintenanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete_MaintenanceActionPerformed
         int opcion = JOptionPane.showOptionDialog(this,"Choose A Search Method",
             "Search",
-            JOptionPane.YES_NO_OPTION,   // Tipo de opción (sí/no)
-            JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje (pregunta)
-            null,                        // Icono personalizado (en este caso, ninguno)
-            new Object[]{"ID SERVICE", "CUSTOMER NAME"}, // Texto de los botones
-            "Botón 1");                    // Botón predeterminado
+            JOptionPane.YES_NO_OPTION,   
+            JOptionPane.QUESTION_MESSAGE, 
+            null,                        
+            new Object[]{"ID SERVICE", "CUSTOMER NAME"}, 
+            "Botón 1");                   
 
         Create_Maintenance.setEnabled(false);
         Search_Maintenance.setEnabled(false);
         Delete_Maintenance.setEnabled(false);
         Modify_Maintenance.setEnabled(false);
+        jLabel11.setEnabled(false);
+        jLabel12.setEnabled(false);
         delete_button_maintenance= true;
 
         if(opcion == 1){
             Customer_Id.setEnabled(true);
         }else{
             Service_Id.setEnabled(true);
+            Customer_Id.setSelectedIndex(-1);
 
         }
         Search_M.setEnabled(true);
@@ -1327,6 +1397,87 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         } 
     }//GEN-LAST:event_Search_MActionPerformed
 
+    private void Create_MaintenanceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Create_MaintenanceMouseEntered
+        Create_Maintenance.setForeground(Color.GRAY);
+        Create_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mantenimiento-42.png")));
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/añadir-25.png")));
+    }//GEN-LAST:event_Create_MaintenanceMouseEntered
+
+    private void Create_MaintenanceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Create_MaintenanceMouseExited
+        Create_Maintenance.setForeground(Color.black);
+        Create_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mantenimiento-32.png")));
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/añadir-15.png")));
+    }//GEN-LAST:event_Create_MaintenanceMouseExited
+
+    private void Search_MaintenanceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_MaintenanceMouseEntered
+        Search_Maintenance.setForeground(Color.GRAY);
+        Search_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar-mantenimiento-42.png")));
+    }//GEN-LAST:event_Search_MaintenanceMouseEntered
+
+    private void Search_MaintenanceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_MaintenanceMouseExited
+        Search_Maintenance.setForeground(Color.black);
+        Search_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar-mantenimiento-32.png")));
+    }//GEN-LAST:event_Search_MaintenanceMouseExited
+
+    private void Modify_MaintenanceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Modify_MaintenanceMouseEntered
+        Modify_Maintenance.setForeground(Color.GRAY);
+        Modify_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/editar-mantenimiento-42.png")));
+    }//GEN-LAST:event_Modify_MaintenanceMouseEntered
+
+    private void Modify_MaintenanceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Modify_MaintenanceMouseExited
+        Modify_Maintenance.setForeground(Color.black);
+        Modify_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/editar-mantenimiento-32.png")));
+    }//GEN-LAST:event_Modify_MaintenanceMouseExited
+
+    private void Delete_MaintenanceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Delete_MaintenanceMouseEntered
+        Delete_Maintenance.setForeground(Color.GRAY);
+        Delete_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mantenimiento-42.png")));
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar-30.png")));
+    }//GEN-LAST:event_Delete_MaintenanceMouseEntered
+
+    private void Delete_MaintenanceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Delete_MaintenanceMouseExited
+        Delete_Maintenance.setForeground(Color.black);
+        Delete_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mantenimiento-32.png")));
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar-20.png")));
+    }//GEN-LAST:event_Delete_MaintenanceMouseExited
+
+    private void Search_MMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_MMouseEntered
+        Search_M.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-42.png")));
+
+    }//GEN-LAST:event_Search_MMouseEntered
+
+    private void Search_MMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_MMouseExited
+        Search_M.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png")));
+    }//GEN-LAST:event_Search_MMouseExited
+
+    private void Accept_MaintenanceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Accept_MaintenanceMouseEntered
+        if (Accept_Maintenance.isEnabled()) {
+        Accept_Maintenance.setForeground(Color.GRAY);
+        Accept_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Aceptar-42GIF.gif")));
+       }
+    }//GEN-LAST:event_Accept_MaintenanceMouseEntered
+
+    private void Accept_MaintenanceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Accept_MaintenanceMouseExited
+       if (Accept_Maintenance.isEnabled()) {
+       Accept_Maintenance.setForeground(Color.black);
+       Accept_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/aceptar-32.png")));
+       }
+    }//GEN-LAST:event_Accept_MaintenanceMouseExited
+
+    private void Cancel_MaintenanceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cancel_MaintenanceMouseEntered
+        if (Cancel_Maintenance.isEnabled()) {
+        Cancel_Maintenance.setForeground(Color.GRAY);
+        Cancel_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar-42GIF.gif")));
+       }
+    }//GEN-LAST:event_Cancel_MaintenanceMouseEntered
+
+    private void Cancel_MaintenanceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cancel_MaintenanceMouseExited
+       if (Cancel_Maintenance.isEnabled()) {
+       Cancel_Maintenance.setForeground(Color.black);
+       Cancel_Maintenance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar-32.png")));
+       }
+    }//GEN-LAST:event_Cancel_MaintenanceMouseExited
+
     private void Reset_Texts(){
         Component[] components = MaintenanceView.getComponents();
         for (Component component : components) {
@@ -1375,6 +1526,10 @@ public class ScreenMaintenance extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

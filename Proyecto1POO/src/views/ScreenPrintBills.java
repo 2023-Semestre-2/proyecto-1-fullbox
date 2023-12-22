@@ -262,11 +262,10 @@ public class ScreenPrintBills extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1MouseEntered
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-    
+
     String youtubeVideoURL = "https://youtu.be/dQw4w9WgXcQ?si=rUJiW77yVZZw813f";
    
     try {
-            // Abre la URL en el navegador web predeterminado
             Desktop.getDesktop().browse(new URI(youtubeVideoURL));
         } catch (IOException | URISyntaxException ex) {
             ex.printStackTrace();

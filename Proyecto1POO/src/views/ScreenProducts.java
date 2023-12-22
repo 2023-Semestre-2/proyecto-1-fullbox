@@ -173,7 +173,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
         ProductsView.add(jButton1);
-        jButton1.setBounds(994, 8, 30, 32);
+        jButton1.setBounds(990, 10, 30, 32);
 
         Create_Item.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         Create_Item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-producto.png"))); // NOI18N
@@ -195,7 +195,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
         ProductsView.add(Create_Item);
-        Create_Item.setBounds(200, 360, 124, 45);
+        Create_Item.setBounds(220, 360, 124, 45);
 
         Modify_Product.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         Modify_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/editar-producto-32.png"))); // NOI18N
@@ -241,7 +241,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
         ProductsView.add(Search_Product);
-        Search_Product.setBounds(360, 60, 140, 45);
+        Search_Product.setBounds(370, 60, 140, 45);
 
         Delete_Product.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         Delete_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Delete-32.png"))); // NOI18N
@@ -268,7 +268,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         jLabel5.setText("Item Id:");
         ProductsView.add(jLabel5);
-        jLabel5.setBounds(287, 423, 50, 20);
+        jLabel5.setBounds(310, 420, 50, 30);
 
         jLabel7.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         jLabel7.setText("Category Id:");
@@ -283,7 +283,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         jLabel10.setText("Amount:");
         ProductsView.add(jLabel10);
-        jLabel10.setBounds(496, 497, 49, 24);
+        jLabel10.setBounds(496, 497, 49, 30);
 
         Type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bicycle", "Accessories", "Food Supplements" }));
         Type.setEnabled(false);
@@ -324,12 +324,12 @@ public class ScreenProducts extends javax.swing.JPanel {
         jLabel12.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         jLabel12.setText("Brand:");
         ProductsView.add(jLabel12);
-        jLabel12.setBounds(508, 421, 37, 24);
+        jLabel12.setBounds(508, 421, 37, 30);
 
         jLabel13.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         jLabel13.setText("Price:");
         ProductsView.add(jLabel13);
-        jLabel13.setBounds(513, 458, 32, 24);
+        jLabel13.setBounds(513, 458, 32, 30);
 
         Modify_Item.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         Modify_Item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/editar-producto-32.png"))); // NOI18N
@@ -382,7 +382,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
         ProductsView.add(Amount);
-        Amount.setBounds(557, 496, 134, 24);
+        Amount.setBounds(550, 500, 134, 24);
 
         Item_Id.setEnabled(false);
         Item_Id.addActionListener(new java.awt.event.ActionListener() {
@@ -420,7 +420,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
         ProductsView.add(Brand);
-        Brand.setBounds(557, 420, 134, 24);
+        Brand.setBounds(550, 420, 134, 24);
 
         Price.setEnabled(false);
         Price.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -429,7 +429,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
         ProductsView.add(Price);
-        Price.setBounds(557, 457, 134, 24);
+        Price.setBounds(550, 460, 134, 24);
 
         Search_Item.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         Search_Item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png"))); // NOI18N
@@ -451,7 +451,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
         ProductsView.add(Search_Item);
-        Search_Item.setBounds(360, 360, 124, 45);
+        Search_Item.setBounds(370, 360, 124, 45);
 
         Cancel_Item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar-32.png"))); // NOI18N
         Cancel_Item.setText("Cancel");
@@ -476,7 +476,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
         ProductsView.add(Cancel_Item);
-        Cancel_Item.setBounds(640, 530, 120, 40);
+        Cancel_Item.setBounds(620, 530, 100, 40);
 
         Create_Product.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         Create_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-producto.png"))); // NOI18N
@@ -498,7 +498,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
         ProductsView.add(Create_Product);
-        Create_Product.setBounds(200, 60, 140, 45);
+        Create_Product.setBounds(220, 60, 140, 45);
 
         jLabel15.setFont(new java.awt.Font("Dubai Medium", 1, 24)); // NOI18N
         jLabel15.setText("PRODUCTS");
@@ -532,7 +532,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
         ProductsView.add(Accept_Item);
-        Accept_Item.setBounds(520, 530, 120, 40);
+        Accept_Item.setBounds(520, 530, 100, 40);
 
         Search_I.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png"))); // NOI18N
         Search_I.setBorder(null);
@@ -612,7 +612,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             }
         });
         ProductsView.add(Cancel_Product);
-        Cancel_Product.setBounds(500, 220, 100, 40);
+        Cancel_Product.setBounds(490, 220, 100, 40);
 
         Accept_Product.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         Accept_Product.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/aceptar-32.png"))); // NOI18N
@@ -650,7 +650,7 @@ public class ScreenProducts extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Union3.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         ProductsView.add(jLabel1);
-        jLabel1.setBounds(-290, -130, 480, 540);
+        jLabel1.setBounds(-290, -130, 500, 540);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Ellipse 2092.png"))); // NOI18N
         jLabel6.setText("jLabel6");
