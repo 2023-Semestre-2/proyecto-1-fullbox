@@ -4,13 +4,24 @@
  */
 package views;
 
+import Classes.bill_class;
+import Classes.detail_class;
+import Classes.id_class;
+import Classes.main_class;
 import java.awt.BorderLayout;
 import java.awt.Desktop;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -25,7 +36,22 @@ public class ScreenPrintBills extends javax.swing.JPanel {
      */
     public ScreenPrintBills() {
         initComponents();
+        initializeBilling();
+        initializeDetail();
+        createIdsBills();
     }
+    
+    //Read CSV variables
+    private BufferedReader reader;
+    private String line;
+    private String parts[] = null;
+    
+    //Create the Arraylists
+    ArrayList<detail_class> details_list = new ArrayList<>();
+    ArrayList<bill_class> bills_list = new ArrayList<>();
+    
+    //Create ComboBox model
+    DefaultComboBoxModel ComboBillIdModel = new DefaultComboBoxModel();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,10 +65,22 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         SettingsView = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        DetailsInformationPanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        DetailIdText = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        BillIdCombo = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        NumberItemsText = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        UnitPriceText = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        TotalText = new javax.swing.JTextField();
+        NewDetailButton = new javax.swing.JButton();
+        DetailAcceptButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ActualPrintedTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -53,8 +91,15 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ActualBillsTable = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         SettingsView.setBackground(new java.awt.Color(255, 255, 255));
+        SettingsView.setMinimumSize(new java.awt.Dimension(1070, 730));
+        SettingsView.setPreferredSize(new java.awt.Dimension(1040, 730));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView.png"))); // NOI18N
         jButton1.setContentAreaFilled(false);
@@ -77,39 +122,131 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Bill Print");
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        DetailsInformationPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel6.setText("Bill Information");
+        jLabel6.setText("Detail Information");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(195, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(188, 188, 188))
+        jLabel8.setText("Detail ID:");
+
+        DetailIdText.setEnabled(false);
+
+        jLabel11.setText("Bill ID:");
+
+        BillIdCombo.setEnabled(false);
+
+        jLabel12.setText("Number of Items:");
+
+        NumberItemsText.setEnabled(false);
+
+        jLabel13.setText("Unit Price:");
+
+        UnitPriceText.setEnabled(false);
+
+        jLabel14.setText("Total:");
+
+        TotalText.setEnabled(false);
+
+        NewDetailButton.setText("New Detail");
+        NewDetailButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewDetailButtonActionPerformed(evt);
+            }
+        });
+
+        DetailAcceptButton.setText("Accept Print");
+        DetailAcceptButton.setEnabled(false);
+        DetailAcceptButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DetailAcceptButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout DetailsInformationPanelLayout = new javax.swing.GroupLayout(DetailsInformationPanel);
+        DetailsInformationPanel.setLayout(DetailsInformationPanelLayout);
+        DetailsInformationPanelLayout.setHorizontalGroup(
+            DetailsInformationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DetailsInformationPanelLayout.createSequentialGroup()
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addGroup(DetailsInformationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DetailsInformationPanelLayout.createSequentialGroup()
+                        .addGroup(DetailsInformationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(DetailsInformationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(DetailsInformationPanelLayout.createSequentialGroup()
+                                    .addGap(133, 133, 133)
+                                    .addComponent(jLabel11)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(BillIdCombo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(NumberItemsText, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(DetailsInformationPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(101, 101, 101))
+                            .addGroup(DetailsInformationPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(126, 126, 126))
+                            .addComponent(DetailIdText, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(UnitPriceText, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TotalText, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(79, 79, 79))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DetailsInformationPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(181, 181, 181))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DetailsInformationPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(201, 201, 201))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DetailsInformationPanelLayout.createSequentialGroup()
+                        .addComponent(DetailAcceptButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(NewDetailButton)
+                        .addGap(132, 132, 132))))
+            .addGroup(DetailsInformationPanelLayout.createSequentialGroup()
+                .addGap(169, 169, 169)
+                .addComponent(jLabel14)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+        DetailsInformationPanelLayout.setVerticalGroup(
+            DetailsInformationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DetailsInformationPanelLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
                 .addComponent(jLabel6)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DetailIdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BillIdCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(NumberItemsText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(UnitPriceText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TotalText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(DetailsInformationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NewDetailButton)
+                    .addComponent(DetailAcceptButton))
+                .addGap(28, 28, 28))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ActualPrintedTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Amount"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(ActualPrintedTable);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -173,14 +310,14 @@ public class ScreenPrintBills extends javax.swing.JPanel {
                         .addComponent(jLabel4)
                         .addGap(26, 26, 26)
                         .addComponent(jLabel5)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
@@ -197,51 +334,95 @@ public class ScreenPrintBills extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        ActualBillsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "ID", "Amount"
+            }
+        ));
+        jScrollPane2.setViewportView(ActualBillsTable);
+
+        jLabel9.setText("Actual Bills");
+
+        jLabel10.setText("Details (All)");
+
         javax.swing.GroupLayout SettingsViewLayout = new javax.swing.GroupLayout(SettingsView);
         SettingsView.setLayout(SettingsViewLayout);
         SettingsViewLayout.setHorizontalGroup(
             SettingsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SettingsViewLayout.createSequentialGroup()
-                .addGap(468, 468, 468)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addGap(59, 59, 59))
             .addGroup(SettingsViewLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(SettingsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1027, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(SettingsViewLayout.createSequentialGroup()
+                .addGroup(SettingsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(SettingsViewLayout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(92, Short.MAX_VALUE))
+                        .addGap(47, 47, 47)
+                        .addComponent(DetailsInformationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(SettingsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SettingsViewLayout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(13, 13, 13))
+                            .addGroup(SettingsViewLayout.createSequentialGroup()
+                                .addGap(83, 83, 83)
+                                .addComponent(jLabel9)
+                                .addGap(187, 187, 187)
+                                .addComponent(jLabel10))))
+                    .addGroup(SettingsViewLayout.createSequentialGroup()
+                        .addGap(468, 468, 468)
+                        .addComponent(jLabel1))
+                    .addGroup(SettingsViewLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         SettingsViewLayout.setVerticalGroup(
             SettingsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SettingsViewLayout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addGroup(SettingsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(SettingsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addGroup(SettingsViewLayout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
+                        .addGroup(SettingsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(SettingsViewLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(SettingsViewLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(SettingsViewLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(DetailsInformationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SettingsView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(SettingsView, javax.swing.GroupLayout.PREFERRED_SIZE, 1024, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SettingsView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(SettingsView, javax.swing.GroupLayout.PREFERRED_SIZE, 658, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -289,7 +470,206 @@ public class ScreenPrintBills extends javax.swing.JPanel {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         JOptionPane.showMessageDialog(null,"Creators:\nSebastian Ceciliano Piedra\nJose Mario Jimenez Vargas\nSaymon Porras Briones");
     }//GEN-LAST:event_jButton9ActionPerformed
-                                                          
+
+    private void NewDetailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewDetailButtonActionPerformed
+        // TODO add your handling code here:
+        set_id("detail");
+        NumberItemsText.setText("0");
+        BillIdCombo.setEnabled(true);
+        NumberItemsText.setEnabled(true);
+        DetailAcceptButton.setEnabled(true);
+    }//GEN-LAST:event_NewDetailButtonActionPerformed
+
+    private void DetailAcceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DetailAcceptButtonActionPerformed
+        // TODO add your handling code here:
+        
+        
+        //.add a lista
+        //WriteCSV();
+        //add_id("bill");
+        //id_class id = main_class.ids.get(0);
+        //id.setId_bill(id.getId_detail() + 1);
+        //JOptionPane.showMessageDialog(null, "Detail created succesfully!");
+    }//GEN-LAST:event_DetailAcceptButtonActionPerformed
+
+    private void createIdsBills(){
+        int aux = 0;
+        for(bill_class item:bills_list){
+            ComboBillIdModel.insertElementAt(item.getBill_id(), aux);
+            ComboBillIdModel.setSelectedItem(item.getBill_id());
+        }
+        BillIdCombo.setModel(ComboBillIdModel);
+        BillIdCombo.updateUI();
+    }
+    
+    /**
+    * Carga en el archivo id's un id nuevo,sumandole 1 al respectivo que se uso.
+    * @author jonns
+    * @param id_mode ayuda a identificar cual id incrementar.
+    */
+    private void add_id(String id_mode){
+        String archive = Paths.get("src", "DataBase", "ID's.csv").toString();
+        FileWriter fw = null;
+        PrintWriter pw = null;
+        try{ 
+            fw = new FileWriter(archive);
+            pw = new PrintWriter(fw);
+            for (id_class i : main_class.ids) {
+            String line = null;
+
+            if (id_mode.equals("bill")) {
+                 line = i.getId_product() + "," + i.getId_item() + "," + i.getId_customer() + "," + i.getId_maintenance() + "," + i.getId_bill() + "," + (i.getId_detail() + 1);
+            }
+            pw.println(line);
+            }
+            
+        }catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try{
+                if(fw != null){
+                    fw.close();
+            }
+            }catch(Exception ex){
+                    ex.printStackTrace();
+            }      
+        }
+    }
+    
+    /**
+    * Hace un set al textfiel correspondiente con su nuevo id.
+    * @author jonns
+    * @param id_mode identifica cual es el id a incrementar.
+    */
+    private void set_id(String id_mode){
+        id_class id = main_class.ids.get(0);
+        if(id_mode.equals("detail")){
+           DetailIdText.setText(id.getId_detail()+"");
+        }
+    }
+    
+    /**
+    * This function is used to write the CSV file with the new informnation.
+    * @author josem
+    */
+    private void WriteCSV(){
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV_Details.csv").toString();
+        FileWriter fw = null;
+        PrintWriter pw = null;
+        
+        try{ 
+            fw = new FileWriter(archive);
+            pw = new PrintWriter(fw);
+            for(detail_class i: details_list){
+                String line = i.getDetail_id() + "," + i.getBill_id() + "," + i.getNumber_details() + "," + i.getUnit_price() + "," + i.getDetail_total();
+                pw.println(line);
+            }
+            
+        }catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try{
+                if(fw != null){
+                    fw.close();
+                }
+            }catch(Exception ex){
+                    ex.printStackTrace();
+            }      
+        }
+    }
+    
+    private void initializeDetail(){
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV_Bills.csv").toString();
+        try {
+            reader = new BufferedReader(new FileReader(archive));
+            while((line = reader.readLine()) != null){
+                detail_class temporary_object = new detail_class();
+                parts = line.split(",");
+                for(int i = 0; i < parts.length; i++){
+                    switch(i){
+                        case 0:
+                            temporary_object.setDetail_id(Integer.parseInt(parts[i]));
+                            break;
+                        case 1:
+                            temporary_object.setBill_id(Integer.parseInt(parts[i]));
+                            break;
+                        case 2:
+                            temporary_object.setNumber_details(Integer.parseInt(parts[i]));
+                            break;
+                        case 3:
+                            temporary_object.setUnit_price(Integer.parseInt(parts[i]));
+                            break;
+                        case 4:
+                            temporary_object.setDetail_total(Integer.parseInt(parts[i]));
+                            break;
+                    }
+                }
+                details_list.add(temporary_object);
+            }
+            reader.close();
+            line = null;
+            parts = null;
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    private void initializeBilling(){
+        String archive = Paths.get("src", "DataBase", "Archivo_CSV_Bills.csv").toString();
+        try {
+            reader = new BufferedReader(new FileReader(archive));
+            while((line = reader.readLine()) != null){
+                bill_class temporary_object = new bill_class();
+                parts = line.split(",");
+                int day = 0;
+                int month = 0;
+                int year = 0;
+                Date date = null;
+                for(int i = 0; i < parts.length; i++){
+                    switch(i){
+                        case 0:
+                            temporary_object.setBill_id(Integer.parseInt(parts[i]));
+                            break;
+                        case 1:
+                            temporary_object.setCustomer_id(Integer.parseInt(parts[i]));
+                            break;
+                        case 2:
+                            day = Integer.parseInt(parts[i]);
+                            break;
+                        case 3:
+                            month = Integer.parseInt(parts[i]) - 1;
+                            break;
+                        case 4:
+                            year = Integer.parseInt(parts[i]) - 1900;
+                            date = new Date(year, month, day);
+                            temporary_object.setBill_date(date);
+                            break;
+                        case 5:
+                            temporary_object.setBill_state(parts[i]);
+                            break;
+                        case 6:
+                            temporary_object.setBill_subtotal(Integer.parseInt(parts[i]));
+                            break;
+                        case 7:
+                            temporary_object.setBill_tax(Integer.parseInt(parts[i]));
+                            break;
+                        case 8:
+                            temporary_object.setBill_total(Integer.parseInt(parts[i]));
+                            break;
+                    }
+                }
+                bills_list.add(temporary_object);
+            }
+            reader.close();
+            line = null;
+            parts = null;
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
     private static void borrarPanel(JPanel panel) {
         panel.removeAll();
         panel.revalidate();
@@ -306,22 +686,39 @@ public class ScreenPrintBills extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable ActualBillsTable;
+    private javax.swing.JTable ActualPrintedTable;
+    private javax.swing.JComboBox<String> BillIdCombo;
+    private javax.swing.JButton DetailAcceptButton;
+    private javax.swing.JTextField DetailIdText;
+    private javax.swing.JPanel DetailsInformationPanel;
+    private javax.swing.JButton NewDetailButton;
+    private javax.swing.JTextField NumberItemsText;
     private javax.swing.JPanel SettingsView;
+    private javax.swing.JTextField TotalText;
+    private javax.swing.JTextField UnitPriceText;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

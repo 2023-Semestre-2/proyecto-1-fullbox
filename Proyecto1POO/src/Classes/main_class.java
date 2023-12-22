@@ -8,7 +8,7 @@ import java.util.*;
 */
 public class main_class {
     public static ArrayList<item_class> items;
-    public static ArrayList<product_class> products;
+    public static ArrayList<category_class> products;
     public static ArrayList<customer_class> customers;
     public static ArrayList<maintenance_class> maintenance;
     public static ArrayList<id_class> ids;
