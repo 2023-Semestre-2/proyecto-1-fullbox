@@ -1127,8 +1127,8 @@ public class ScreenProducts extends javax.swing.JPanel {
     */
     private void add_list_products(){
         for (int i = main_class.products.size() - 1; i >= 0; i--) {
-            product_class product = main_class.products.get(i);
-            list_category_product.add(product.getId_category() + "-" + product.getName_product());
+            category_class product = main_class.products.get(i);
+            list_category_product.add(product.getCategory_id() + "-" + product.getCategory_name());
     }
     }
     /**
@@ -1268,13 +1268,13 @@ public class ScreenProducts extends javax.swing.JPanel {
         }
         Boolean flag_found = false;
         for (int i = 0; i < main_class.products.size(); i++) {
-            product_class product = main_class.products.get(i);
+            category_class product = main_class.products.get(i);
 
-            if(id_product == product.getId_category()|| product_name.equals(product.getName_product())){
+            if(id_product == product.getCategory_id()|| product_name.equals(product.getCategory_name())){
                 JOptionPane.showMessageDialog(this, "Found");
                 flag_found = true;
-                Category_Id.setText(String.valueOf(product.getId_category()));
-                Name_Product.setText(product.getName_product());
+                Category_Id.setText(String.valueOf(product.getCategory_id()));
+                Name_Product.setText(product.getCategory_name());
                 if (modify_button_product == true){
                     Modify_p = product;
                     Category_Id.setEnabled(false);
@@ -1340,7 +1340,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             System.out.println("Botón 2 está habilitado. Realizar acciones para boton2.");
 
         } else if (modify_button_product == true) {
-            boolean found = verify_use(String.valueOf(Modify_p.getId_category()) + "-" + Modify_p.getName_product());
+            boolean found = verify_use(String.valueOf(Modify_p.getCategory_id()) + "-" + Modify_p.getCategory_name());
             if (found == true){
                 return;
             }
@@ -1648,8 +1648,8 @@ public class ScreenProducts extends javax.swing.JPanel {
         try{ 
             fw = new FileWriter(archive);
             pw = new PrintWriter(fw);
-            for(product_class i: main_class.products){
-                String line = i.getId_category()+ "," + i.getName_product();
+            for(category_class i: main_class.products){
+                String line = i.getCategory_id()+ "," + i.getCategory_name();
                 pw.println(line);
             }
             
@@ -1704,7 +1704,7 @@ public class ScreenProducts extends javax.swing.JPanel {
     private boolean Delete_product(){
         for(int i = 0; i < main_class.products.size(); i++){
             int Id = Integer.parseInt(Category_Id.getText());
-            if(main_class.products.get(i).getId_category() == Id){
+            if(main_class.products.get(i).getCategory_id()== Id){
                 int result = JOptionPane.showConfirmDialog(this, "Delete", "Confirmation", JOptionPane.YES_NO_OPTION);
                 if (result == JOptionPane.YES_OPTION){
                     main_class.products.remove(i);
@@ -1752,8 +1752,8 @@ public class ScreenProducts extends javax.swing.JPanel {
 
         create_category_product = Integer.parseInt(Category_Id.getText());
         create_name_product = Name_Product.getText();
-        for(product_class A: main_class.products){
-            if(A.getName_product().equals(create_name_product)){
+        for(category_class A: main_class.products){
+            if(A.getCategory_name().equals(create_name_product)){
                 register = true;
                 break;}         
             }
@@ -1761,11 +1761,11 @@ public class ScreenProducts extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this,"This Name Already Exists ");  
                 return;
             }else{
-                product_class product = new product_class();
-                product.setId_category(create_category_product);
-                product.setName_product(create_name_product);
+                category_class product = new category_class();
+                product.setCategory_id(create_category_product);
+                product.setCategory_name(create_name_product);
                 main_class.products.add(product);
-                model.insertElementAt(product.getId_category() + "-" + product.getName_product(),list_category_product.size());
+                model.insertElementAt(product.getCategory_id() + "-" + product.getCategory_name(),list_category_product.size());
                 add_id("product");
                 Add_product();
                 id_class id = main_class.ids.get(0);
@@ -1833,7 +1833,7 @@ public class ScreenProducts extends javax.swing.JPanel {
     * @author jonns
     * @param Modify es el objeto a modificar de productos.
     */
-    private void Modify_product(product_class Modify){
+    private void Modify_product(category_class Modify){
         int modify_category_product;
         String modify_name_product;
         Boolean register = false;
@@ -1842,14 +1842,14 @@ public class ScreenProducts extends javax.swing.JPanel {
         modify_category_product = Integer.parseInt(Category_Id.getText());
         modify_name_product = Name_Product.getText();
         
-         for (product_class A : main_class.products) {
-            if (A.getId_category()== modify_category_product && A.getName_product().equals(modify_name_product)) {
+         for (category_class A : main_class.products) {
+            if (A.getCategory_id()== modify_category_product && A.getCategory_name().equals(modify_name_product)) {
                 // El objeto con el mismo id y nombre ya existe
                 register = false;
                 break;
             }
             // Si no encuentras un objeto con el mismo id, puedes permitir el mismo nombre
-            if (A.getId_category()!= modify_category_product && A.getName_product().equals(modify_name_product) ) {
+            if (A.getCategory_id()!= modify_category_product && A.getCategory_name().equals(modify_name_product) ) {
                 register = true;
             }
            }
@@ -1858,8 +1858,8 @@ public class ScreenProducts extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this,"This Name Already Exists ");  
                 return;
             }else{
-                Modify.setId_category(modify_category_product);
-                Modify.setName_product(modify_name_product);
+                Modify.setCategory_id(modify_category_product);
+                Modify.setCategory_name(modify_name_product);
                 JOptionPane.showMessageDialog(this, "Item Modified Successfully");
             }
     }
@@ -1924,7 +1924,7 @@ public class ScreenProducts extends javax.swing.JPanel {
        
    
     private item_class Modify_i;
-    private product_class Modify_p;
+    private category_class Modify_p;
     
  
     

@@ -837,7 +837,6 @@ public class ScreenBilling extends javax.swing.JPanel {
             ItemBillSubtotalText.setText("");
             ItemBillTaxText.setText("");
             ItemBillTotalText.setText("");
-            //ItemBillIdText.setText("");
 
             //MAINTENANCE SIDE RESET
             MaintenanceOptionCombo.setEnabled(false);
@@ -862,7 +861,6 @@ public class ScreenBilling extends javax.swing.JPanel {
             MaintenanceBillSubtotalText.setText("");
             MaintenanceBillTaxText.setText("");
             MaintenanceBillTotalText.setText("");
-            //MaintenanceBillIdText.setText("");
 
             //Switch Flags
             BillAddFlag = false;

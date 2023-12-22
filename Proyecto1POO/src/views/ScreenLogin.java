@@ -5,12 +5,12 @@
 package views;
 
 import Classes.VerifyUsers;
+import Classes.category_class;
 import Classes.customer_class;
 import Classes.id_class;
 import Classes.item_class;
 import Classes.main_class;
 import Classes.maintenance_class;
-import Classes.product_class;
 import Classes.register_users;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -294,11 +294,11 @@ public class ScreenLogin extends javax.swing.JPanel {
             String line;
             
             while((line = br.readLine()) != null){
-                product_class product = new product_class();
+                category_class product = new category_class();
                 String array [] = line.split("\\,");
                 if (array.length == 2){
-                    product.setId_category(Integer.parseInt(array[0]));
-                    product.setName_product(array[1]);
+                    product.setCategory_id(Integer.parseInt(array[0]));
+                    product.setCategory_name(array[1]);
                     main_class.products.add(product);
                     bandera =true;                     
                 }              
