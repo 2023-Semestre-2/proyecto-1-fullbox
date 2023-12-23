@@ -274,6 +274,7 @@ public class ScreenRegister extends javax.swing.JPanel {
             UsernameText.setText("");
             PasswordTextVisible.setText("");
             PasswordText.setText("");
+            RecoveryEmail.setText("");
             Login.hideRegisterPanel();
             Login.showLoginPanel();
             
@@ -297,6 +298,7 @@ public class ScreenRegister extends javax.swing.JPanel {
         UsernameText.setText("");
         PasswordTextVisible.setText("");
         PasswordText.setText("");
+        RecoveryEmail.setText("");
         Login.hideRegisterPanel();
         Login.showLoginPanel();
     }//GEN-LAST:event_jButton2ActionPerformed
