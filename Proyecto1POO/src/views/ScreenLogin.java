@@ -88,6 +88,12 @@ public class ScreenLogin extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(73, 80, 87));
         jLabel6.setText("Username");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 70, -1));
+
+        UsernameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsernameTextActionPerformed(evt);
+            }
+        });
         jPanel2.add(UsernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 390, 40));
 
         jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
@@ -668,6 +674,10 @@ public class ScreenLogin extends javax.swing.JPanel {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void UsernameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsernameTextActionPerformed
     /**
      * This method is responsible for showing a panel in a specific panel. 
      * In the program it is responsible for showing the register panel on the login screen.
