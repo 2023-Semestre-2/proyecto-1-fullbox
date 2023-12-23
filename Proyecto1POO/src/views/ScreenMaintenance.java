@@ -11,6 +11,7 @@ import Classes.maintenance_class;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.event.KeyEvent;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
@@ -1064,7 +1065,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
     * @author jonns
     */
     private void ObservationsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ObservationsKeyTyped
-        if (Observations.getText().length() >= 300){
+        if (Observations.getText().length() >= 300 || evt.getKeyChar() == ','){
             evt.consume();
         }
     }//GEN-LAST:event_ObservationsKeyTyped
@@ -1117,7 +1118,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
     * @author jonns
     */
     private void Bicycle_DescriptionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Bicycle_DescriptionKeyTyped
-        if (Bicycle_Description.getText().length() >= 300){
+        if (Bicycle_Description.getText().length() >= 300 || evt.getKeyChar() == ',' ){  
             evt.consume();
         }
     }//GEN-LAST:event_Bicycle_DescriptionKeyTyped
@@ -1127,7 +1128,8 @@ public class ScreenMaintenance extends javax.swing.JPanel {
     * @author jonns
     */
     private void Bicycle_DescriptionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Bicycle_DescriptionKeyPressed
-        if (evt.getKeyChar() == '\n' || evt.getKeyChar() == ',') {
+
+        if (evt.getKeyChar() == '\n' ){  
             evt.consume();
         }
     }//GEN-LAST:event_Bicycle_DescriptionKeyPressed
