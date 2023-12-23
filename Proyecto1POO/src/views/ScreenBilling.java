@@ -36,6 +36,7 @@ public class ScreenBilling extends javax.swing.JPanel {
 
     /**
      * Creates new form ScreenMaintenance
+     * @author josem
      */
     public ScreenBilling() {
         initComponents();
@@ -136,19 +137,16 @@ public class ScreenBilling extends javax.swing.JPanel {
         jButton1.setBounds(992, 6, 32, 32);
 
         BillingWindowTitle.setFont(new java.awt.Font("Dubai Medium", 1, 24)); // NOI18N
-        BillingWindowTitle.setForeground(new java.awt.Color(0, 0, 0));
         BillingWindowTitle.setText("BILLING");
         BillingView.add(BillingWindowTitle);
         BillingWindowTitle.setBounds(480, 10, 87, 42);
 
         BillingWindowSubtitle.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        BillingWindowSubtitle.setForeground(new java.awt.Color(0, 0, 0));
         BillingWindowSubtitle.setText("Select the action to perform");
         BillingView.add(BillingWindowSubtitle);
         BillingWindowSubtitle.setBounds(440, 40, 170, 24);
 
         BillingAddButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        BillingAddButton.setForeground(new java.awt.Color(0, 0, 0));
         BillingAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-factura-32.png"))); // NOI18N
         BillingAddButton.setText("Add Bill");
         BillingAddButton.setBorder(null);
@@ -171,7 +169,6 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillingAddButton.setBounds(300, 60, 100, 50);
 
         BillingSearchButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        BillingSearchButton.setForeground(new java.awt.Color(0, 0, 0));
         BillingSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar-mantenimiento-32.png"))); // NOI18N
         BillingSearchButton.setText("Search Bill");
         BillingSearchButton.setBorder(null);
@@ -194,7 +191,6 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillingSearchButton.setBounds(410, 60, 110, 50);
 
         BillingRevokeButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        BillingRevokeButton.setForeground(new java.awt.Color(0, 0, 0));
         BillingRevokeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar-mantenimiento-32.png"))); // NOI18N
         BillingRevokeButton.setText("Revoke Bill");
         BillingRevokeButton.setBorder(null);
@@ -220,7 +216,6 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillingInputPanel.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Bill Id:");
         BillingInputPanel.add(jLabel1);
         jLabel1.setBounds(80, 70, 50, 24);
@@ -230,17 +225,11 @@ public class ScreenBilling extends javax.swing.JPanel {
         ItemBillIdText.setBounds(80, 90, 310, 24);
 
         jLabel2.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Bill Subtotal:");
         BillingInputPanel.add(jLabel2);
         jLabel2.setBounds(80, 270, 80, 24);
 
         ItemBillSubtotalText.setEnabled(false);
-        ItemBillSubtotalText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ItemBillSubtotalTextActionPerformed(evt);
-            }
-        });
         ItemBillSubtotalText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ItemBillSubtotalTextKeyReleased(evt);
@@ -250,7 +239,6 @@ public class ScreenBilling extends javax.swing.JPanel {
         ItemBillSubtotalText.setBounds(80, 290, 310, 24);
 
         jLabel3.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Customer:");
         BillingInputPanel.add(jLabel3);
         jLabel3.setBounds(80, 120, 70, 24);
@@ -266,7 +254,6 @@ public class ScreenBilling extends javax.swing.JPanel {
         ItemCustomerIdCombo.setBounds(80, 140, 310, 26);
 
         jLabel4.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Receivement Date:");
         BillingInputPanel.add(jLabel4);
         jLabel4.setBounds(80, 170, 110, 24);
@@ -279,11 +266,6 @@ public class ScreenBilling extends javax.swing.JPanel {
         ItemReceivementMonthCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         ItemReceivementMonthCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ItemReceivementMonthCombo.setEnabled(false);
-        ItemReceivementMonthCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ItemReceivementMonthComboActionPerformed(evt);
-            }
-        });
         BillingInputPanel.add(ItemReceivementMonthCombo);
         ItemReceivementMonthCombo.setBounds(170, 190, 100, 26);
 
@@ -293,7 +275,6 @@ public class ScreenBilling extends javax.swing.JPanel {
         ItemReceivementYearText.setBounds(280, 190, 108, 24);
 
         jLabel5.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Bill State:");
         BillingInputPanel.add(jLabel5);
         jLabel5.setBounds(80, 220, 70, 24);
@@ -305,32 +286,20 @@ public class ScreenBilling extends javax.swing.JPanel {
         ItemBillStateCombo.setBounds(80, 240, 310, 26);
 
         jLabel6.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Bill Tax (13%):");
         BillingInputPanel.add(jLabel6);
         jLabel6.setBounds(80, 320, 90, 24);
 
         ItemBillTaxText.setEnabled(false);
-        ItemBillTaxText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ItemBillTaxTextActionPerformed(evt);
-            }
-        });
         BillingInputPanel.add(ItemBillTaxText);
         ItemBillTaxText.setBounds(80, 340, 310, 24);
 
         jLabel7.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Bill Total:");
         BillingInputPanel.add(jLabel7);
         jLabel7.setBounds(80, 370, 60, 24);
 
         ItemBillTotalText.setEnabled(false);
-        ItemBillTotalText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ItemBillTotalTextActionPerformed(evt);
-            }
-        });
         BillingInputPanel.add(ItemBillTotalText);
         ItemBillTotalText.setBounds(80, 390, 310, 24);
 
@@ -358,18 +327,12 @@ public class ScreenBilling extends javax.swing.JPanel {
         ItemAcceptButton.setBounds(190, 430, 90, 50);
 
         jLabel8.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Item Help to Complete:");
         BillingInputPanel.add(jLabel8);
         jLabel8.setBounds(80, 16, 140, 30);
 
         ItemOptionCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ItemOptionCombo.setEnabled(false);
-        ItemOptionCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ItemOptionComboActionPerformed(evt);
-            }
-        });
         BillingInputPanel.add(ItemOptionCombo);
         ItemOptionCombo.setBounds(80, 40, 310, 26);
 
@@ -405,7 +368,6 @@ public class ScreenBilling extends javax.swing.JPanel {
         MaintenanceBillIdText.setBounds(90, 90, 310, 24);
 
         jLabel10.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Bill Subtotal:");
         BillingInputPanel1.add(jLabel10);
         jLabel10.setBounds(90, 270, 80, 24);
@@ -420,23 +382,16 @@ public class ScreenBilling extends javax.swing.JPanel {
         MaintenanceBillSubtotalText.setBounds(90, 290, 310, 24);
 
         jLabel11.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Customer:");
         BillingInputPanel1.add(jLabel11);
         jLabel11.setBounds(90, 120, 70, 24);
 
         MaintenanceCustomerIdCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         MaintenanceCustomerIdCombo.setEnabled(false);
-        MaintenanceCustomerIdCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MaintenanceCustomerIdComboActionPerformed(evt);
-            }
-        });
         BillingInputPanel1.add(MaintenanceCustomerIdCombo);
         MaintenanceCustomerIdCombo.setBounds(90, 140, 310, 26);
 
         jLabel12.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Receivement Date:");
         BillingInputPanel1.add(jLabel12);
         jLabel12.setBounds(90, 170, 110, 24);
@@ -449,11 +404,6 @@ public class ScreenBilling extends javax.swing.JPanel {
         MaintenanceReceivementMonthCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         MaintenanceReceivementMonthCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         MaintenanceReceivementMonthCombo.setEnabled(false);
-        MaintenanceReceivementMonthCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MaintenanceReceivementMonthComboActionPerformed(evt);
-            }
-        });
         BillingInputPanel1.add(MaintenanceReceivementMonthCombo);
         MaintenanceReceivementMonthCombo.setBounds(180, 190, 100, 26);
 
@@ -463,7 +413,6 @@ public class ScreenBilling extends javax.swing.JPanel {
         MaintenanceReceivementYearText.setBounds(290, 190, 108, 24);
 
         jLabel13.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Bill State:");
         BillingInputPanel1.add(jLabel13);
         jLabel13.setBounds(90, 220, 70, 24);
@@ -475,37 +424,24 @@ public class ScreenBilling extends javax.swing.JPanel {
         MaintenanceBillStateCombo.setBounds(90, 240, 310, 26);
 
         jLabel14.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Bill Tax (13%):");
         BillingInputPanel1.add(jLabel14);
         jLabel14.setBounds(90, 320, 90, 24);
 
         MaintenanceBillTaxText.setEnabled(false);
-        MaintenanceBillTaxText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MaintenanceBillTaxTextActionPerformed(evt);
-            }
-        });
         BillingInputPanel1.add(MaintenanceBillTaxText);
         MaintenanceBillTaxText.setBounds(90, 340, 310, 24);
 
         jLabel15.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Bill Total:");
         BillingInputPanel1.add(jLabel15);
         jLabel15.setBounds(90, 370, 60, 24);
 
         MaintenanceBillTotalText.setEnabled(false);
-        MaintenanceBillTotalText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MaintenanceBillTotalTextActionPerformed(evt);
-            }
-        });
         BillingInputPanel1.add(MaintenanceBillTotalText);
         MaintenanceBillTotalText.setBounds(90, 390, 310, 24);
 
         MaintenanceAcceptButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        MaintenanceAcceptButton.setForeground(new java.awt.Color(0, 0, 0));
         MaintenanceAcceptButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/aceptar-32.png"))); // NOI18N
         MaintenanceAcceptButton.setText("Accept");
         MaintenanceAcceptButton.setBorder(null);
@@ -528,18 +464,12 @@ public class ScreenBilling extends javax.swing.JPanel {
         MaintenanceAcceptButton.setBounds(210, 430, 90, 50);
 
         jLabel16.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Maintenance Help to Complete:");
         BillingInputPanel1.add(jLabel16);
         jLabel16.setBounds(90, 20, 190, 24);
 
         MaintenanceOptionCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         MaintenanceOptionCombo.setEnabled(false);
-        MaintenanceOptionCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MaintenanceOptionComboActionPerformed(evt);
-            }
-        });
         BillingInputPanel1.add(MaintenanceOptionCombo);
         MaintenanceOptionCombo.setBounds(90, 40, 310, 26);
 
@@ -566,7 +496,6 @@ public class ScreenBilling extends javax.swing.JPanel {
         MaintenanceSearchButton.setBounds(30, 30, 50, 50);
 
         jLabel9.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Bill Id:");
         BillingInputPanel1.add(jLabel9);
         jLabel9.setBounds(90, 70, 40, 20);
@@ -580,13 +509,11 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillingInputPanel1.setBounds(490, 160, 540, 590);
 
         BillingWindowTitle1.setFont(new java.awt.Font("Dubai Medium", 1, 18)); // NOI18N
-        BillingWindowTitle1.setForeground(new java.awt.Color(0, 0, 0));
         BillingWindowTitle1.setText("Maintenance Billing");
         BillingView.add(BillingWindowTitle1);
         BillingWindowTitle1.setBounds(650, 130, 156, 40);
 
         BillingCancelButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
-        BillingCancelButton.setForeground(new java.awt.Color(0, 0, 0));
         BillingCancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar-32.png"))); // NOI18N
         BillingCancelButton.setText("Cancel");
         BillingCancelButton.setBorder(null);
@@ -609,7 +536,6 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillingCancelButton.setBounds(640, 60, 100, 50);
 
         BillingWindowTitle2.setFont(new java.awt.Font("Dubai Medium", 1, 18)); // NOI18N
-        BillingWindowTitle2.setForeground(new java.awt.Color(0, 0, 0));
         BillingWindowTitle2.setText("Item Billing");
         BillingView.add(BillingWindowTitle2);
         BillingWindowTitle2.setBounds(290, 130, 100, 40);
@@ -632,34 +558,37 @@ public class ScreenBilling extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Creates new form ScreenMaintenance
+     * @author josem
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         borrarPanel(new ScreenProducts());
         ShowJPanel(new ScreenMain());
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /**
+     * Button animation
+     * @author josem
+     */
     private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
         // TODO add your handling code here:
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView2.png")));
     }//GEN-LAST:event_jButton1MouseEntered
 
+    /**
+     * Button animation
+     * @author josem
+     */
     private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
         // TODO add your handling code here:
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView.png")));
     }//GEN-LAST:event_jButton1MouseExited
 
-    private void ItemCustomerIdComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCustomerIdComboActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ItemCustomerIdComboActionPerformed
-
-    private void ItemBillTaxTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemBillTaxTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ItemBillTaxTextActionPerformed
-
-    private void ItemBillTotalTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemBillTotalTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ItemBillTotalTextActionPerformed
-
+    /**
+     * Unlock the desired structures.
+     * @author josem
+     */
     private void BillingAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillingAddButtonActionPerformed
         String[] options = {"Item", "Maintenance"};
         int selection = JOptionPane.showOptionDialog(null, "Choose a Billing Option:", "BILLING", 0, 3, null, options, options[0]);
@@ -713,11 +642,11 @@ public class ScreenBilling extends javax.swing.JPanel {
                 break;
         }    
     }//GEN-LAST:event_BillingAddButtonActionPerformed
-
-    private void ItemReceivementMonthComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemReceivementMonthComboActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ItemReceivementMonthComboActionPerformed
-
+    
+    /**
+     * Unlock the desired structures.
+     * @author josem
+     */
     private void BillingSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillingSearchButtonActionPerformed
         //Switch Flags
         BillAddFlag = false;
@@ -770,6 +699,10 @@ public class ScreenBilling extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_BillingSearchButtonActionPerformed
 
+    /**
+     * Unlock the desired structures.
+     * @author josem
+     */
     private void BillingRevokeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillingRevokeButtonActionPerformed
         //Switch Flags
         BillAddFlag = false;
@@ -789,30 +722,10 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillingRevokeButton.setEnabled(false);
     }//GEN-LAST:event_BillingRevokeButtonActionPerformed
 
-    private void ItemOptionComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemOptionComboActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ItemOptionComboActionPerformed
-
-    private void MaintenanceCustomerIdComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaintenanceCustomerIdComboActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MaintenanceCustomerIdComboActionPerformed
-
-    private void MaintenanceReceivementMonthComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaintenanceReceivementMonthComboActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MaintenanceReceivementMonthComboActionPerformed
-
-    private void MaintenanceBillTaxTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaintenanceBillTaxTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MaintenanceBillTaxTextActionPerformed
-
-    private void MaintenanceBillTotalTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaintenanceBillTotalTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MaintenanceBillTotalTextActionPerformed
-
-    private void MaintenanceOptionComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaintenanceOptionComboActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MaintenanceOptionComboActionPerformed
-
+    /**
+     * Lock the desired structures.
+     * @author josem
+     */
     private void BillingCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillingCancelButtonActionPerformed
         int res = JOptionPane.showConfirmDialog(null, "Are you sure to cancel?");
         if(res == 0){
@@ -877,6 +790,10 @@ public class ScreenBilling extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_BillingCancelButtonActionPerformed
 
+    /**
+     * Search the database if the requested invoice is already created
+     * @author josem
+     */
     private void ItemSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemSearchButtonActionPerformed
         // TODO add your handling code here:
         set_id("bill");
@@ -906,6 +823,10 @@ public class ScreenBilling extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_ItemSearchButtonActionPerformed
 
+    /**
+     * Create the bill.
+     * @author josem
+     */
     private void ItemAcceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemAcceptButtonActionPerformed
         // TODO add your handling code here:
         if(BillAddFlag == true){
@@ -1042,7 +963,10 @@ public class ScreenBilling extends javax.swing.JPanel {
             return;
         }
     }//GEN-LAST:event_ItemAcceptButtonActionPerformed
-
+    /**
+     * Automatically place values corresponding to price values
+     * @author josem
+     */
     private void ItemBillSubtotalTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ItemBillSubtotalTextKeyReleased
         // TODO add your handling code here:
         if(isNumeric(ItemBillSubtotalText.getText())){
@@ -1052,6 +976,10 @@ public class ScreenBilling extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_ItemBillSubtotalTextKeyReleased
 
+    /**
+     * Search for the requested service to make billing.
+     * @author josem
+     */
     private void MaintenanceSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaintenanceSearchButtonActionPerformed
         set_id("bill");
         // TODO add your handling code here:
@@ -1082,11 +1010,11 @@ public class ScreenBilling extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_MaintenanceSearchButtonActionPerformed
-
-    private void ItemBillSubtotalTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemBillSubtotalTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ItemBillSubtotalTextActionPerformed
-
+    
+    /**
+     * Automatically place values corresponding to price values
+     * @author josem
+     */
     private void MaintenanceBillSubtotalTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MaintenanceBillSubtotalTextKeyReleased
         // TODO add your handling code here:
         if(isNumeric(MaintenanceBillSubtotalText.getText())){
@@ -1096,6 +1024,10 @@ public class ScreenBilling extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_MaintenanceBillSubtotalTextKeyReleased
 
+    /**
+     * Create the bill.
+     * @author josem
+     */
     private void MaintenanceAcceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaintenanceAcceptButtonActionPerformed
         // TODO add your handling code here:
         if(BillAddFlag == true){
@@ -1232,7 +1164,11 @@ public class ScreenBilling extends javax.swing.JPanel {
             return;
         }
     }//GEN-LAST:event_MaintenanceAcceptButtonActionPerformed
-
+    
+    /**
+     * Button animation
+     * @author josem
+     */
     private void BillingCancelButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingCancelButtonMouseEntered
         if (BillingCancelButton.isEnabled()) {
         BillingCancelButton.setForeground(Color.GRAY);
@@ -1240,6 +1176,10 @@ public class ScreenBilling extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_BillingCancelButtonMouseEntered
 
+    /**
+     * Button animation
+     * @author josem
+     */
     private void BillingCancelButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingCancelButtonMouseExited
         if (BillingCancelButton.isEnabled()) {
        BillingCancelButton.setForeground(Color.black);
@@ -1247,52 +1187,96 @@ public class ScreenBilling extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_BillingCancelButtonMouseExited
 
+    /**
+     * Button animation
+     * @author josem
+     */
     private void BillingRevokeButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingRevokeButtonMouseEntered
        BillingRevokeButton.setForeground(Color.GRAY);
        BillingRevokeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar-mantenimiento-42.png")));
     }//GEN-LAST:event_BillingRevokeButtonMouseEntered
 
+    /**
+     * Button animation
+     * @author josem
+     */
     private void BillingRevokeButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingRevokeButtonMouseExited
        BillingRevokeButton.setForeground(Color.black);
        BillingRevokeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar-mantenimiento-32.png")));
     }//GEN-LAST:event_BillingRevokeButtonMouseExited
 
+    /**
+     * Button animation
+     * @author josem
+     */
     private void BillingSearchButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingSearchButtonMouseExited
        BillingSearchButton.setForeground(Color.black);
        BillingSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar-mantenimiento-32.png")));
     }//GEN-LAST:event_BillingSearchButtonMouseExited
 
+    /**
+     * Button animation
+     * @author josem
+     */
     private void BillingSearchButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingSearchButtonMouseEntered
        BillingSearchButton.setForeground(Color.GRAY);
        BillingSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar-mantenimiento-42.png")));
     }//GEN-LAST:event_BillingSearchButtonMouseEntered
 
+    /**
+     * Button animation
+     * @author josem
+     */
     private void BillingAddButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingAddButtonMouseEntered
        BillingAddButton.setForeground(Color.GRAY);
        BillingAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-factura-42.png")));
     }//GEN-LAST:event_BillingAddButtonMouseEntered
 
+    /**
+     * Button animation
+     * @author josem
+     */
     private void BillingAddButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingAddButtonMouseExited
        BillingAddButton.setForeground(Color.black);
        BillingAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-factura-32.png")));
     }//GEN-LAST:event_BillingAddButtonMouseExited
 
+    /**
+     * Button animation
+     * @author josem
+     */
     private void ItemSearchButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ItemSearchButtonMouseEntered
         ItemSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-42.png")));
     }//GEN-LAST:event_ItemSearchButtonMouseEntered
 
+    /**
+     * Button animation
+     * @author josem
+     */
     private void ItemSearchButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ItemSearchButtonMouseExited
         ItemSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png")));
     }//GEN-LAST:event_ItemSearchButtonMouseExited
 
+    /**
+     * Button animation
+     * @author josem
+     */
     private void MaintenanceSearchButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaintenanceSearchButtonMouseEntered
         MaintenanceSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-42.png")));
     }//GEN-LAST:event_MaintenanceSearchButtonMouseEntered
 
+    /**
+     * Button animation
+     * @author josem
+     */
     private void MaintenanceSearchButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaintenanceSearchButtonMouseExited
         MaintenanceSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/búsqueda-32.png")));
     }//GEN-LAST:event_MaintenanceSearchButtonMouseExited
 
+    /**
+     * Button animation
+     * @author josem
+     */
     private void MaintenanceAcceptButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaintenanceAcceptButtonMouseEntered
         if (MaintenanceAcceptButton.isEnabled()) {
         MaintenanceAcceptButton.setForeground(Color.GRAY);
@@ -1300,6 +1284,10 @@ public class ScreenBilling extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_MaintenanceAcceptButtonMouseEntered
 
+    /**
+     * Button animation
+     * @author josem
+     */
     private void MaintenanceAcceptButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaintenanceAcceptButtonMouseExited
        if (MaintenanceAcceptButton.isEnabled()) {
        MaintenanceAcceptButton.setForeground(Color.black);
@@ -1307,6 +1295,10 @@ public class ScreenBilling extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_MaintenanceAcceptButtonMouseExited
 
+    /**
+     * Button animation
+     * @author josem
+     */
     private void ItemAcceptButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ItemAcceptButtonMouseEntered
         if (ItemAcceptButton.isEnabled()) {
         ItemAcceptButton.setForeground(Color.GRAY);
@@ -1314,12 +1306,20 @@ public class ScreenBilling extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_ItemAcceptButtonMouseEntered
 
+    /**
+     * Button animation
+     * @author josem
+     */
     private void ItemAcceptButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ItemAcceptButtonMouseExited
        if (ItemAcceptButton.isEnabled()) {
        ItemAcceptButton.setForeground(Color.black);
        ItemAcceptButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/aceptar-32.png")));
        }
     }//GEN-LAST:event_ItemAcceptButtonMouseExited
+
+    private void ItemCustomerIdComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCustomerIdComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ItemCustomerIdComboActionPerformed
     
     /**
     * This function is used to check if the input is a numeric String.
@@ -1335,9 +1335,9 @@ public class ScreenBilling extends javax.swing.JPanel {
     }
     
     /**
-    * Carga en el archivo id's un id nuevo,sumandole 1 al respectivo que se uso.
+    * Load a new id into the id's file, adding 1 to the respective one used.
     * @author jonns
-    * @param id_mode ayuda a identificar cual id incrementar.
+    * @param id_mode helps identify which id to increment.
     */
     private void add_id(String id_mode){
         String archive = Paths.get("src", "DataBase", "ID's.csv").toString();
@@ -1370,9 +1370,9 @@ public class ScreenBilling extends javax.swing.JPanel {
     }
     
     /**
-    * Hace un set al textfiel correspondiente con su nuevo id.
+    * Sets the corresponding textfield with its new id.
     * @author jonns
-    * @param id_mode identifica cual es el id a incrementar.
+    * @param id_mode identifies which is the id to increment.
     */
     private void set_id(String id_mode){
         id_class id = main_class.ids.get(0);
@@ -1381,12 +1381,20 @@ public class ScreenBilling extends javax.swing.JPanel {
            MaintenanceBillIdText.setText(id.getId_bill()+"");
         }
     }
-                                                  
+      
+    /**
+    * Delete this panel
+    * @author jonns
+    */
     private static void borrarPanel(JPanel panel) {
         panel.removeAll();
         panel.revalidate();
         panel.repaint();
     }
+    /**
+    * Show this panel.
+    * @author jonns
+    */
     private void ShowJPanel(JPanel p){
 
         p.setSize(1030,750);
@@ -1396,7 +1404,11 @@ public class ScreenBilling extends javax.swing.JPanel {
         BillingView.revalidate();
         BillingView.repaint();
     }
-    
+    /**
+    * Validate month
+    * @author jonns
+    * @param string month to validate
+    */
     private int MonthInt(String string){
         int res = 0;
         switch(string){
@@ -1599,6 +1611,10 @@ public class ScreenBilling extends javax.swing.JPanel {
         return pass_flag;
     }
     
+    /**
+    * Load customers from the database
+    * @author jonns
+    */
     private void ReadCustomers(){
         String archive = Paths.get("src", "DataBase", "Archivo_CSV_Customers.csv").toString();
         try {
@@ -1658,6 +1674,10 @@ public class ScreenBilling extends javax.swing.JPanel {
         }
     }
     
+    /**
+    * Load items from the database
+    * @author jonns
+    */
     private void ReadItems(){
         String archive = Paths.get("src", "DataBase", "Archivo_CSV_ITEMS.csv").toString();
         try {
@@ -1702,7 +1722,11 @@ public class ScreenBilling extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-    
+  
+    /**
+    * Load maintenance from the database
+    * @author jonns
+    */
     private void ReadMaintenance(){
         String archive = Paths.get("src", "DataBase", "Archivo_CSV_MAINTENANCE.csv").toString();
         try {
@@ -1780,7 +1804,10 @@ public class ScreenBilling extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-    
+    /**
+    * Add to list used in combobox.
+    * @author jonns
+    */
     private void createIdsItems(){
         int aux = 0;
         for(item_class item:items_list){
@@ -1791,6 +1818,10 @@ public class ScreenBilling extends javax.swing.JPanel {
         ItemOptionCombo.updateUI();
     }
     
+    /**
+    * Add to list used in combobox.
+    * @author jonns
+    */
     private void createIdsMaintenance(){
         int aux = 0;
         for(maintenance_class item:maintenance_list){
@@ -1801,6 +1832,10 @@ public class ScreenBilling extends javax.swing.JPanel {
         MaintenanceOptionCombo.updateUI();
     }
     
+    /**
+    * Add to list used in combobox.
+    * @author jonns
+    */
     private void createIdsCustomers(){
         int aux = 0;
         for(customer_class item:customers_list){
@@ -1840,7 +1875,11 @@ public class ScreenBilling extends javax.swing.JPanel {
     Dictionary customers_dict = new Hashtable ();
     Dictionary customers_dict2 = new Hashtable ();
     Calendar calendar = new GregorianCalendar();
-    
+   
+    /**
+    * Upload CSV invoice file.
+    * @author jonns
+    */
     private void initializeBilling(){
         String archive = Paths.get("src", "DataBase", "Archivo_CSV_Bills.csv").toString();
         try {
