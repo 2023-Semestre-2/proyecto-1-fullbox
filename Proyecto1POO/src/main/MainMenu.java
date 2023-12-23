@@ -21,7 +21,7 @@ import org.netbeans.lib.awtextra.*;
 
 
 /**
- *
+ * Main screen where the other panels are going to overlap.
  * @author josem,sebas,saymon
  */
 public class MainMenu extends javax.swing.JFrame {

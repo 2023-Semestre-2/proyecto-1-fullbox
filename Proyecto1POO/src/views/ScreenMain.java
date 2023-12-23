@@ -6,8 +6,8 @@ package views;
 
 
 /**
- *
- * @author jonns
+ * Initial program screen
+ * @author josem,sebas,saymon
  */
 public class ScreenMain extends javax.swing.JPanel {
 
