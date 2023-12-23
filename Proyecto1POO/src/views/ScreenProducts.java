@@ -1869,7 +1869,7 @@ public class ScreenProducts extends javax.swing.JPanel {
                 Add_product();
                 id_class id = main_class.ids.get(0);
                 id.setId_product(id.getId_product() + 1);
-                JOptionPane.showMessageDialog(this, "Item Added Successfully");   
+                JOptionPane.showMessageDialog(this, "Product Added Successfully");   
             }   
     }
     /**
@@ -1959,7 +1959,7 @@ public class ScreenProducts extends javax.swing.JPanel {
             }else{
                 Modify.setCategory_id(modify_category_product);
                 Modify.setCategory_name(modify_name_product);
-                JOptionPane.showMessageDialog(this, "Item Modified Successfully");
+                JOptionPane.showMessageDialog(this, "Product Modified Successfully");
             }
     }
     /**
