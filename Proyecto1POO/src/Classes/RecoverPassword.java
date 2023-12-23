@@ -18,7 +18,7 @@ import java.util.Random;
 
 /**
  * This class is responsible for carrying out the user's password recovery process.
- * @author saimo
+ * @author saymon
  */
 public class RecoverPassword {
     
