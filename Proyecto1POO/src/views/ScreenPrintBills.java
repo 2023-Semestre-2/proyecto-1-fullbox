@@ -100,18 +100,15 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         TotalText = new javax.swing.JTextField();
         NewDetailButton = new javax.swing.JButton();
         DetailAcceptButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ActualPrintedTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ActualBillsTable = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
@@ -121,6 +118,7 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         SettingsView.setBackground(new java.awt.Color(255, 255, 255));
         SettingsView.setMinimumSize(new java.awt.Dimension(1070, 730));
         SettingsView.setPreferredSize(new java.awt.Dimension(1040, 730));
+        SettingsView.setLayout(null);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SalirView.png"))); // NOI18N
         jButton1.setContentAreaFilled(false);
@@ -139,19 +137,39 @@ public class ScreenPrintBills extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        SettingsView.add(jButton1);
+        jButton1.setBounds(990, 10, 32, 32);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Bill Print");
+        jLabel1.setFont(new java.awt.Font("Dubai Medium", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("BILL PRINT");
+        SettingsView.add(jLabel1);
+        jLabel1.setBounds(468, 6, 140, 42);
 
         DetailsInformationPanel.setBackground(new java.awt.Color(255, 255, 255));
+        DetailsInformationPanel.setLayout(null);
 
+        jLabel6.setFont(new java.awt.Font("Dubai Medium", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Detail Information");
+        DetailsInformationPanel.add(jLabel6);
+        jLabel6.setBounds(120, 80, 140, 32);
 
+        jLabel8.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Detail ID:");
+        DetailsInformationPanel.add(jLabel8);
+        jLabel8.setBounds(120, 120, 60, 24);
 
         DetailIdText.setEnabled(false);
+        DetailsInformationPanel.add(DetailIdText);
+        DetailIdText.setBounds(120, 140, 300, 24);
 
+        jLabel11.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Bill ID:");
+        DetailsInformationPanel.add(jLabel11);
+        jLabel11.setBounds(120, 170, 60, 24);
 
         BillIdCombo.setEnabled(false);
         BillIdCombo.addItemListener(new java.awt.event.ItemListener() {
@@ -164,8 +182,14 @@ public class ScreenPrintBills extends javax.swing.JPanel {
                 BillIdComboActionPerformed(evt);
             }
         });
+        DetailsInformationPanel.add(BillIdCombo);
+        BillIdCombo.setBounds(120, 190, 300, 26);
 
+        jLabel12.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Number of Items:");
+        DetailsInformationPanel.add(jLabel12);
+        jLabel12.setBounds(120, 220, 110, 24);
 
         NumberItemsText.setEnabled(false);
         NumberItemsText.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -173,103 +197,82 @@ public class ScreenPrintBills extends javax.swing.JPanel {
                 NumberItemsTextKeyReleased(evt);
             }
         });
+        DetailsInformationPanel.add(NumberItemsText);
+        NumberItemsText.setBounds(120, 240, 300, 24);
 
+        jLabel13.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Unit Price:");
+        DetailsInformationPanel.add(jLabel13);
+        jLabel13.setBounds(120, 270, 70, 24);
 
         UnitPriceText.setEnabled(false);
+        DetailsInformationPanel.add(UnitPriceText);
+        UnitPriceText.setBounds(120, 290, 300, 24);
 
+        jLabel14.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Total:");
+        DetailsInformationPanel.add(jLabel14);
+        jLabel14.setBounds(120, 320, 40, 24);
 
         TotalText.setEnabled(false);
+        DetailsInformationPanel.add(TotalText);
+        TotalText.setBounds(120, 340, 300, 24);
 
+        NewDetailButton.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        NewDetailButton.setForeground(new java.awt.Color(0, 0, 0));
+        NewDetailButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-factura-32.png"))); // NOI18N
         NewDetailButton.setText("New Detail");
+        NewDetailButton.setBorder(null);
+        NewDetailButton.setContentAreaFilled(false);
+        NewDetailButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        NewDetailButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                NewDetailButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                NewDetailButtonMouseExited(evt);
+            }
+        });
         NewDetailButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NewDetailButtonActionPerformed(evt);
             }
         });
+        DetailsInformationPanel.add(NewDetailButton);
+        NewDetailButton.setBounds(260, 380, 120, 50);
 
+        DetailAcceptButton.setForeground(new java.awt.Color(0, 0, 0));
+        DetailAcceptButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/impresora2-32.png"))); // NOI18N
         DetailAcceptButton.setText("Accept Print");
+        DetailAcceptButton.setBorder(null);
+        DetailAcceptButton.setContentAreaFilled(false);
+        DetailAcceptButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         DetailAcceptButton.setEnabled(false);
+        DetailAcceptButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                DetailAcceptButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                DetailAcceptButtonMouseExited(evt);
+            }
+        });
         DetailAcceptButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DetailAcceptButtonActionPerformed(evt);
             }
         });
+        DetailsInformationPanel.add(DetailAcceptButton);
+        DetailAcceptButton.setBounds(140, 380, 120, 50);
 
-        javax.swing.GroupLayout DetailsInformationPanelLayout = new javax.swing.GroupLayout(DetailsInformationPanel);
-        DetailsInformationPanel.setLayout(DetailsInformationPanelLayout);
-        DetailsInformationPanelLayout.setHorizontalGroup(
-            DetailsInformationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DetailsInformationPanelLayout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
-                .addGroup(DetailsInformationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DetailsInformationPanelLayout.createSequentialGroup()
-                        .addGroup(DetailsInformationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(DetailsInformationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(DetailsInformationPanelLayout.createSequentialGroup()
-                                    .addGap(133, 133, 133)
-                                    .addComponent(jLabel11)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(BillIdCombo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(NumberItemsText, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(DetailsInformationPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(101, 101, 101))
-                            .addGroup(DetailsInformationPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(126, 126, 126))
-                            .addComponent(DetailIdText, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(UnitPriceText, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TotalText, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(79, 79, 79))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DetailsInformationPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addGap(181, 181, 181))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DetailsInformationPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(201, 201, 201))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DetailsInformationPanelLayout.createSequentialGroup()
-                        .addComponent(DetailAcceptButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(NewDetailButton)
-                        .addGap(132, 132, 132))))
-            .addGroup(DetailsInformationPanelLayout.createSequentialGroup()
-                .addGap(169, 169, 169)
-                .addComponent(jLabel14)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        DetailsInformationPanelLayout.setVerticalGroup(
-            DetailsInformationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DetailsInformationPanelLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DetailIdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BillIdCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(NumberItemsText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(UnitPriceText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TotalText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(DetailsInformationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NewDetailButton)
-                    .addComponent(DetailAcceptButton))
-                .addGap(28, 28, 28))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Union3.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        DetailsInformationPanel.add(jLabel2);
+        jLabel2.setBounds(-260, -110, 480, 500);
+
+        SettingsView.add(DetailsInformationPanel);
+        DetailsInformationPanel.setBounds(-9, -7, 470, 480);
 
         ActualPrintedTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -284,93 +287,94 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(ActualPrintedTable);
 
+        SettingsView.add(jScrollPane1);
+        jScrollPane1.setBounds(700, 80, 228, 386);
+
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
 
-        jLabel2.setText("Remember Your Password");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activated", "Disabled" }));
-
-        jLabel3.setText("User Manual");
-
-        jButton6.setText("URL");
+        jButton6.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(0, 0, 0));
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/enlace-emoji-32.png"))); // NOI18N
+        jButton6.setText("User Manual");
+        jButton6.setBorder(null);
+        jButton6.setContentAreaFilled(false);
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton6MouseExited(evt);
+            }
+        });
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton6);
+        jButton6.setBounds(320, 90, 130, 50);
 
-        jLabel4.setText("Documentation");
-
-        jButton7.setText("Doc");
+        jButton7.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(0, 0, 0));
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/archivo-32.png"))); // NOI18N
+        jButton7.setText("Documentation");
+        jButton7.setBorder(null);
+        jButton7.setContentAreaFilled(false);
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton7MouseExited(evt);
+            }
+        });
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton7);
+        jButton7.setBounds(450, 90, 140, 50);
 
-        jLabel5.setText("Creators");
-
+        jButton9.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
+        jButton9.setForeground(new java.awt.Color(0, 0, 0));
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/creators-32.png"))); // NOI18N
         jButton9.setText("Creators");
+        jButton9.setBorder(null);
+        jButton9.setContentAreaFilled(false);
+        jButton9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton9MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton9MouseExited(evt);
+            }
+        });
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton9);
+        jButton9.setBounds(590, 90, 120, 50);
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setText("Settings");
+        jLabel7.setFont(new java.awt.Font("Dubai Medium", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("CREDITS");
+        jPanel2.add(jLabel7);
+        jLabel7.setBounds(470, 20, 110, 42);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(225, 225, 225)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(40, 40, 40)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton9))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel4)
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel7)))
-                .addContainerGap(263, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel5)))
-                .addGap(14, 14, 14)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton7)
-                        .addComponent(jButton6))
-                    .addComponent(jButton9))
-                .addContainerGap())
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Ellipse 2092.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(750, 0, 426, 270);
+
+        SettingsView.add(jPanel2);
+        jPanel2.setBounds(0, 480, 1040, 250);
 
         ActualBillsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -385,82 +389,36 @@ public class ScreenPrintBills extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(ActualBillsTable);
 
+        SettingsView.add(jScrollPane2);
+        jScrollPane2.setBounds(460, 80, 228, 386);
+
+        jLabel9.setFont(new java.awt.Font("Dubai Medium", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Actual Bills");
+        SettingsView.add(jLabel9);
+        jLabel9.setBounds(530, 50, 90, 32);
 
+        jLabel10.setFont(new java.awt.Font("Dubai Medium", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Details (All)");
-
-        javax.swing.GroupLayout SettingsViewLayout = new javax.swing.GroupLayout(SettingsView);
-        SettingsView.setLayout(SettingsViewLayout);
-        SettingsViewLayout.setHorizontalGroup(
-            SettingsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SettingsViewLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59))
-            .addGroup(SettingsViewLayout.createSequentialGroup()
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1027, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(SettingsViewLayout.createSequentialGroup()
-                .addGroup(SettingsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(SettingsViewLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(DetailsInformationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(SettingsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SettingsViewLayout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(13, 13, 13))
-                            .addGroup(SettingsViewLayout.createSequentialGroup()
-                                .addGap(81, 81, 81)
-                                .addComponent(jLabel9)
-                                .addGap(189, 189, 189)
-                                .addComponent(jLabel10))))
-                    .addGroup(SettingsViewLayout.createSequentialGroup()
-                        .addGap(468, 468, 468)
-                        .addComponent(jLabel1))
-                    .addGroup(SettingsViewLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        SettingsViewLayout.setVerticalGroup(
-            SettingsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SettingsViewLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addGroup(SettingsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(SettingsViewLayout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addGroup(SettingsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(SettingsViewLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(SettingsViewLayout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(SettingsViewLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DetailsInformationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        SettingsView.add(jLabel10);
+        jLabel10.setBounds(770, 50, 100, 32);
+        SettingsView.add(jSeparator1);
+        jSeparator1.setBounds(0, 476, 1040, 10);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SettingsView, javax.swing.GroupLayout.PREFERRED_SIZE, 1024, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(SettingsView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SettingsView, javax.swing.GroupLayout.PREFERRED_SIZE, 658, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(SettingsView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
     
@@ -735,6 +693,56 @@ public class ScreenPrintBills extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_BillIdComboItemStateChanged
+
+    private void DetailAcceptButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DetailAcceptButtonMouseEntered
+        DetailAcceptButton.setForeground(Color.GRAY);
+        DetailAcceptButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/impresora2-42.png")));
+    }//GEN-LAST:event_DetailAcceptButtonMouseEntered
+
+    private void DetailAcceptButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DetailAcceptButtonMouseExited
+        DetailAcceptButton.setForeground(Color.black);
+        DetailAcceptButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/impresora2-32.png")));
+    }//GEN-LAST:event_DetailAcceptButtonMouseExited
+
+    private void NewDetailButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewDetailButtonMouseEntered
+       NewDetailButton.setForeground(Color.GRAY);
+       NewDetailButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-factura-42.png")));
+    }//GEN-LAST:event_NewDetailButtonMouseEntered
+
+    private void NewDetailButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewDetailButtonMouseExited
+       NewDetailButton.setForeground(Color.black);
+       NewDetailButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-factura-32.png")));
+    }//GEN-LAST:event_NewDetailButtonMouseExited
+
+    private void jButton9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseEntered
+       jButton9.setForeground(Color.GRAY);
+       jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/creators-42.png")));
+    }//GEN-LAST:event_jButton9MouseEntered
+
+    private void jButton9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseExited
+       jButton9.setForeground(Color.black);
+       jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/creators-32.png")));
+    }//GEN-LAST:event_jButton9MouseExited
+
+    private void jButton7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseEntered
+       jButton7.setForeground(Color.GRAY);
+       jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/archivo-42.png")));
+    }//GEN-LAST:event_jButton7MouseEntered
+
+    private void jButton7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseExited
+       jButton7.setForeground(Color.black);
+       jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/archivo-32.png")));
+    }//GEN-LAST:event_jButton7MouseExited
+
+    private void jButton6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseEntered
+       jButton6.setForeground(Color.GRAY);
+       jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/enlace-emoji-42.png")));
+    }//GEN-LAST:event_jButton6MouseEntered
+
+    private void jButton6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseExited
+       jButton6.setForeground(Color.black);
+       jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/enlace-emoji-32.png")));
+    }//GEN-LAST:event_jButton6MouseExited
     
     /**
      * This function is for the set of the Bills combobox items and set the bills
@@ -991,7 +999,6 @@ public class ScreenPrintBills extends javax.swing.JPanel {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1000,8 +1007,6 @@ public class ScreenPrintBills extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
