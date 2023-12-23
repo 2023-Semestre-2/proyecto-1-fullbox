@@ -65,7 +65,10 @@ public class RecoverPassword {
         }    
         
     }
-    
+    /**
+    * This method saves the changes if the change of the password in the CSV went well.
+    * @author saimo
+    */
     private static void Add_user() {
         String archive = Paths.get("src", "DataBase", "usuarios.csv").toString();
         FileWriter fw = null;
@@ -92,13 +95,23 @@ public class RecoverPassword {
             }      
         }
     }
-    
+    /**
+    * Generate security code
+    * @author saimo
+    */
     private static String generateRecoveryCode() {
         Random random = new Random();
         int code = 100000 + random.nextInt(900000);
         return String.valueOf(code);
     }
 
+    /**
+    * Send the email with your parameters.
+    * @author saimo
+    * @param username request user.
+    * @param recoveryCode generated code.
+    * @param EmailUser email to send.
+    */
     private static void sendRecoveryEmail(String username, String recoveryCode, String EmailUser) {
         final String senderEmail = "FullBoxRecovery@gmail.com";
         final String senderPassword = "peao gckj fatx subh";
