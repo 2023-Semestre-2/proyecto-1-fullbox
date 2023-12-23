@@ -704,7 +704,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
         Add_maintenance();
         id_class id = main_class.ids.get(0);
         id.setId_maintenance(id.getId_maintenance() + 1);
-        JOptionPane.showMessageDialog(this, "Item Added Successfully");
+        JOptionPane.showMessageDialog(this, "Service Added Successfully");
         return true;
     }
     /**
@@ -795,7 +795,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
                 Modify.setDelivery_date(modify_delivery_date);
                 Modify.setMaintenance_observations(modify_maintenance_observations);
                 Modify.setMaintenance_state(modify_maintenance_state);
-                JOptionPane.showMessageDialog(this, "Item Modified Successfully");
+                JOptionPane.showMessageDialog(this, "Service Modified Successfully");
             }
     }
     /**
