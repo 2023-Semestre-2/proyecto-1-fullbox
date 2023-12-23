@@ -36,7 +36,7 @@ public class RecoverPassword {
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
                 if(data[0].equals(username)) {
-                    JOptionPane.showMessageDialog(null, "Valid username, sending recovery email, wait a moment");
+                    JOptionPane.showMessageDialog(null, "Valid username, sending recovery email, wait a moment.");
                     String emailUser = data[3];
                     sendRecoveryEmail(username, recoveryCode, emailUser);
                     JOptionPane.showMessageDialog(null, "A recovery code has been sent to your email. Please check it.");
@@ -49,6 +49,7 @@ public class RecoverPassword {
                             U.setPassword(newPassword);
                             U.setRemember(false);
                             Add_user();
+                            JOptionPane.showMessageDialog(null, "Password changed successfully.");
                             return;
                            }
                         }
