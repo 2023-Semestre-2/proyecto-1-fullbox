@@ -9,6 +9,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -254,6 +256,17 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Username");
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel4MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout OptionsLayout = new javax.swing.GroupLayout(Options);
         Options.setLayout(OptionsLayout);
@@ -432,7 +445,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12MouseExited
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
+        
         ShowJPanel(new ScreenPrintBills());
     }//GEN-LAST:event_jButton11ActionPerformed
 
@@ -440,7 +453,49 @@ public class MainMenu extends javax.swing.JFrame {
 
         ShowJPanel(new ScreenMaintenance());
     }//GEN-LAST:event_jButton6ActionPerformed
+    /**
+     * Check if you want to remember the password and update the csv
+     * @param evt 
+     */
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        for (register_users U : main_class.users) {
+            if (U.getUsername().equals(jLabel4.getText())) {
+                int choice = showRememberDialog();
+                if (choice == JOptionPane.YES_OPTION) {
+                    U.setRemember(true);
+                } else {
+                    U.setRemember(false);
+                }
+                Update_user();
+                return;
+            }
+        }
+    }//GEN-LAST:event_jLabel4MouseClicked
+    // Label Animation
+    private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
+        jLabel4.setForeground(Color.GRAY);
+    }//GEN-LAST:event_jLabel4MouseEntered
 
+    private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
+        jLabel4.setForeground(Color.white);
+    }//GEN-LAST:event_jLabel4MouseExited
+    
+    /**
+     *  Displays a window asking if you want to continue remembering your login password without providing it.
+     */
+    private static int showRememberDialog() {
+        Object[] options = {"Remember", "Do not remember"};
+        int choice = JOptionPane.showOptionDialog(null,
+                "Do you want to remember the password?",
+                "Remember password",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]);
+
+        return choice;
+    }
     /**
      * @param args the command line arguments
      */
@@ -481,7 +536,35 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
     }
-
+    /**
+     * Responsible for updating user data in the database
+     */
+    private static void Update_user() {
+        String archive = Paths.get("src", "DataBase", "usuarios.csv").toString();
+        FileWriter fw = null;
+        PrintWriter pw = null;
+        
+        try{ 
+            fw = new FileWriter(archive);
+            pw = new PrintWriter(fw);
+            for(register_users i: main_class.users){
+                String line = i.getUsername() + "," + i.getPassword() + "," + i.getRemember() + "," + i.getRecoveryEmail();
+                pw.println(line);
+            }
+            
+        }catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try{
+                if(fw != null){
+                    fw.close();
+            }
+            }catch(Exception ex){
+                    ex.printStackTrace();
+            }      
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Options;
     private javax.swing.JPanel ScreenViews;

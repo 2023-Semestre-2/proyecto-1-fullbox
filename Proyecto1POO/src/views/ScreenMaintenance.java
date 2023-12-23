@@ -1054,7 +1054,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
     * @author jonns
     */
     private void ObservationsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ObservationsKeyPressed
-        if (evt.getKeyChar() == '\n') {
+        if (evt.getKeyChar() == '\n' || evt.getKeyChar() == ',') {
             evt.consume();
         }    
     }//GEN-LAST:event_ObservationsKeyPressed
@@ -1127,7 +1127,7 @@ public class ScreenMaintenance extends javax.swing.JPanel {
     * @author jonns
     */
     private void Bicycle_DescriptionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Bicycle_DescriptionKeyPressed
-        if (evt.getKeyChar() == '\n') {
+        if (evt.getKeyChar() == '\n' || evt.getKeyChar() == ',') {
             evt.consume();
         }
     }//GEN-LAST:event_Bicycle_DescriptionKeyPressed
